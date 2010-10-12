@@ -20,6 +20,15 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
     
+    when /the upload song page/
+      "/"
+    
+    when /the manage music page/
+      "/"
+    
+    when /the profile page of user "([a-zA-Z][a-zA-Z1-9_]+)"/
+      "/"
+    
 
     else
       begin
