@@ -1,0 +1,45 @@
+#header {
+	background-color:#191970;
+	width: 1020px;
+	height: 15px;
+	padding-top: 10px;
+	padding-bottom: 2px;
+	padding-left:6px;
+	padding-right:6px;
+	color:white;
+	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+#header .left {
+	float: left;
+	font-size:15px;
+	font-weight: bolder;
+}
+
+#header .right {
+	display: inline;
+	float: right;
+	font-size:12px;
+	font-weight: bolder;
+	padding-top: 5px;
+}
+
+#header .right li {
+	display:inline;
+}
+
+#main_content {
+	width: 980px;
+	border-right: 2px solid gray;
+	height: 100%;
+}
+
+#main_content #left_nav {
+	width: 180px;
+	background-color: #dddddd;
+	border-right: 1px solid #bbbbbb;
+	padding:5px;
+	margin: 0px;
+	float: left;
+	height:100%;
+}
