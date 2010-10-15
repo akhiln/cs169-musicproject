@@ -1,0 +1,19 @@
+<h1>New playlists_songs</h1>
+
+<% form_for(@playlists_songs) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :playlist_id %><br />
+    <%= f.text_field :playlist_id %>
+  </p>
+  <p>
+    <%= f.label :song_id %><br />
+    <%= f.text_field :song_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', playlists_songs_path %>
