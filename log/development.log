@@ -351,3 +351,35 @@ Migrating to CreatePlaylists (20101015045608)
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("playlists")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("songs")[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing PlaylistsController#index (for 127.0.0.1 at 2010-10-14 21:57:39) [GET]
+  [4;36;1mPlaylist Load (1.0ms)[0m   [0;1mSELECT * FROM "playlists" [0m
+Rendering template within layouts/playlists
+Rendering playlists/index
+Completed in 38ms (View: 26, DB: 1) | 200 OK [http://127.0.0.1/playlists]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101015044425)
+Migrating to CreateSongs (20101015045340)
+Migrating to CreatePlaylists (20101015045608)
+Migrating to CreateUsersSongs (20101015050128)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE "users_songs" ("user_id" integer, "song_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101015050128')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("playlists")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("songs")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users_songs")[0m

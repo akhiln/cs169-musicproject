@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :users_songs
+
   map.resources :playlists
 
   map.resources :songs
