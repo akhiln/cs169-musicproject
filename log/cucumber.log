@@ -1,0 +1,12 @@
+# Logfile created on Tue Oct 12 12:12:04 -0700 2010REQUESTING PAGE: GET  with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-12 12:46:58) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-12 12:48:22) [GET]
+REQUESTING PAGE: GET index.html with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-12 12:49:55) [GET]
