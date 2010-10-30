@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  source: MyString
+  album: MyString
+  length: 1.5
+  genre: MyString
+  description: MyText
+  rating: 1.5
+
+two:
+  source: MyString
+  album: MyString
+  length: 1.5
+  genre: MyString
+  description: MyText
+  rating: 1.5

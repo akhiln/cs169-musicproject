@@ -1,0 +1,20 @@
+<h1>Editing users_songs</h1>
+
+<% form_for(@users_songs) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :song_id %><br />
+    <%= f.text_field :song_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @users_songs %> |
+<%= link_to 'Back', users_songs_path %>
