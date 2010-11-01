@@ -1,6 +1,6 @@
 <h1>New song</h1>
 
-<% form_for(@song) do |f| %>
+<% form_for(@song ,:html => { :multipart => true })  do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -27,6 +27,9 @@
     <%= f.label :rating %><br />
     <%= f.text_field :rating %>
   </p>
+  <p>
+	<label for="upload_file">Select File</label> : 
+	<%= file_field 'upload', 'datafile' %></p
   <p>
     <%= f.submit 'Create' %>
   </p>

@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
   # GET /songs
   # GET /songs.xml
+  #before_filter :login_required, :only => [:edit, :create, :update, :destroy]
   def index
     @songs = Song.all
 
@@ -41,7 +42,7 @@ class SongsController < ApplicationController
   # POST /songs.xml
   def create
     @song = Song.new(params[:song])
-
+	@song.upload(params[:upload])
     respond_to do |format|
       if @song.save
         format.html { redirect_to(@song, :notice => 'Song was successfully created.') }

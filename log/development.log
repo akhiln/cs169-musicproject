@@ -544,3 +544,369 @@ Migrating to UpdateUserFieldsAfterAuth (20101101203525)
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("songs")[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-01 14:28:05) [GET]
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" [0m
+Rendering template within layouts/songs
+Rendering songs/index
+Completed in 8640ms (View: 36, DB: 1) | 200 OK [http://localhost/songs]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-01 14:28:14) [GET]
+
+ActionController::RoutingError (No route matches "/song/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-01 14:28:16) [GET]
+Rendering template within layouts/songs
+Rendering songs/new
+Completed in 30ms (View: 21, DB: 0) | 200 OK [http://localhost/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:29:27) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/songs]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-01 14:29:28) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 20ms (View: 17, DB: 0) | 200 OK [http://localhost/session/new]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-01 14:29:52) [GET]
+Rendering template within layouts/songs
+Rendering songs/new
+Completed in 18ms (View: 10, DB: 0) | 200 OK [http://localhost/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:30:12) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (undefined method `upload' for #<Song:0x6ac0d28>):
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (50.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:30:40) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:32:24) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:33:13) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (108.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:33:49) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (undefined method `original_filename' for "Kalimba.mp3":String):
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (42.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:34:32) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (33.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:34:40) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (112.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:35:12) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:35:54) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+):
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (81.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:37:20) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+TypeError (can't convert nil into String):
+  app/models/song.rb:9:in `join'
+  app/models/song.rb:9:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (34.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:37:39) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+TypeError (can't convert nil into String):
+  app/models/song.rb:9:in `join'
+  app/models/song.rb:9:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (32.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:38:08) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+TypeError (can't convert nil into String):
+  app/models/song.rb:7:in `join'
+  app/models/song.rb:7:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:39:30) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (undefined method `original_filename' for "Kalimba.mp3":String):
+  app/models/song.rb:4:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:39:58) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+Errno::ENOENT (No such file or directory - public/data/songs/Kalimba.mp3):
+  app/models/song.rb:9:in `initialize'
+  app/models/song.rb:9:in `open'
+  app/models/song.rb:9:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (46.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:45:11) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>"Kalimba.mp3"}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"TestA", "genre"=>"Unknown", "description"=>"Test D", "length"=>"123", "source"=>"Test"}}
+
+NoMethodError (undefined method `original_filename' for "Kalimba.mp3":String):
+  app/models/song.rb:4:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (104.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-01 14:47:07) [GET]
+Rendering template within layouts/songs
+Rendering songs/new
+Completed in 22ms (View: 14, DB: 0) | 200 OK [http://localhost/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:47:26) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Akhil/AppData/Local/Temp/RackMultipart20101101-8452-18s01e8-0>}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"3", "album"=>"t", "genre"=>"t", "description"=>"t", "length"=>"3", "source"=>"t"}}
+
+Errno::ENOENT (No such file or directory - public/data/songs/Kalimba.mp3):
+  app/models/song.rb:9:in `initialize'
+  app/models/song.rb:9:in `open'
+  app/models/song.rb:9:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:49:07) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Akhil/AppData/Local/Temp/RackMultipart20101101-8452-12dkapy-0>}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"3", "album"=>"t", "genre"=>"t", "description"=>"t", "length"=>"3", "source"=>"t"}}
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/models/song.rb:9:in `upload'
+  app/models/song.rb:9:in `upload'
+  app/models/song.rb:9:in `open'
+  app/models/song.rb:9:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (120.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:52:46) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Akhil/AppData/Local/Temp/RackMultipart20101101-8452-kwldzw-0>}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"3", "album"=>"t", "genre"=>"t", "description"=>"t", "length"=>"3", "source"=>"t"}}
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/models/song.rb:9:in `upload'
+  app/models/song.rb:9:in `upload'
+  app/models/song.rb:9:in `open'
+  app/models/song.rb:9:in `upload'
+  app/controllers/songs_controller.rb:45:in `create'
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:53:08) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Akhil/AppData/Local/Temp/RackMultipart20101101-8452-1dmfael-0>}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"3", "album"=>"t", "genre"=>"t", "description"=>"t", "length"=>"3", "source"=>"t"}}
+  [4;35;1mSong Create (2.0ms)[0m   [0mINSERT INTO "songs" ("rating", "created_at", "updated_at", "album", "user_id", "genre", "length", "description", "source") VALUES(3.0, '2010-11-01 21:53:09', '2010-11-01 21:53:09', 't', NULL, 't', 3.0, 't', 't')[0m
+Redirected to http://localhost:3000/songs/1
+Completed in 316ms (DB: 2) | 302 Found [http://localhost/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-01 14:53:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+Rendering template within layouts/songs
+Rendering songs/show
+Completed in 24ms (View: 10, DB: 0) | 200 OK [http://localhost/songs/1]
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-01 14:53:32) [GET]
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" [0m
+Rendering template within layouts/songs
+Rendering songs/index
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/songs]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-01 14:53:35) [GET]
+Rendering template within layouts/songs
+Rendering songs/new
+Completed in 22ms (View: 13, DB: 0) | 200 OK [http://localhost/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:54:23) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Akhil/AppData/Local/Temp/RackMultipart20101101-8452-r3ew17-0>}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"5", "album"=>"t", "genre"=>"t", "description"=>"hugh", "length"=>"34", "source"=>"what?"}}
+  [4;36;1mSong Create (1.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "created_at", "updated_at", "album", "user_id", "genre", "length", "description", "source") VALUES(5.0, '2010-11-01 21:54:23', '2010-11-01 21:54:23', 't', NULL, 't', 34.0, 'hugh', 'what?')[0m
+Redirected to http://localhost:3000/songs/2
+Completed in 271ms (DB: 1) | 302 Found [http://localhost/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-01 14:54:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 2) [0m
+Rendering template within layouts/songs
+Rendering songs/show
+Completed in 18ms (View: 5, DB: 1) | 200 OK [http://localhost/songs/2]
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-01 14:54:30) [GET]
+  [4;36;1mSong Load (2.0ms)[0m   [0;1mSELECT * FROM "songs" [0m
+Rendering template within layouts/songs
+Rendering songs/index
+Completed in 25ms (View: 14, DB: 2) | 200 OK [http://localhost/songs]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-01 14:55:09) [GET]
+Rendering template within layouts/songs
+Rendering songs/new
+Completed in 23ms (View: 14, DB: 0) | 200 OK [http://localhost/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-01 14:55:22) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Akhil/AppData/Local/Temp/RackMultipart20101101-8452-up47a8-0>}, "authenticity_token"=>"WsRWl63ys07Xc4kzPEe7MZ9sG6YLnMGmu7FXgH5pRQ0=", "song"=>{"rating"=>"t", "album"=>"t", "genre"=>"t", "description"=>"t", "length"=>"t", "source"=>"huh"}}
+  [4;35;1mSong Create (1.0ms)[0m   [0mINSERT INTO "songs" ("rating", "created_at", "updated_at", "album", "user_id", "genre", "length", "description", "source") VALUES(0.0, '2010-11-01 21:55:22', '2010-11-01 21:55:22', 't', NULL, 't', 0.0, 't', 'huh')[0m
+Redirected to http://localhost:3000/songs/3
+Completed in 220ms (DB: 1) | 302 Found [http://localhost/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-01 14:55:24) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 3) [0m
+Rendering template within layouts/songs
+Rendering songs/show
+Completed in 19ms (View: 6, DB: 0) | 200 OK [http://localhost/songs/3]
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-01 14:55:36) [GET]
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" [0m
+Rendering template within layouts/songs
+Rendering songs/index
+Completed in 27ms (View: 17, DB: 1) | 200 OK [http://localhost/songs]
