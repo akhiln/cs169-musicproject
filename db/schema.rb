@@ -8,12 +8,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
-
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20101102025313) do
-=======
-ActiveRecord::Schema.define(:version => 20101102022250) do
->>>>>>> 50fb9c0864f097d49b262811d2586fb3a61346c4
 
   create_table "playlists", :force => true do |t|
     t.string   "name"
