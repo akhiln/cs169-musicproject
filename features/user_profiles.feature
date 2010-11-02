@@ -16,10 +16,12 @@ Feature: User Profiles
   Then there should be a user named "test dummy"
     And the picture of "test dummy" is default
 
-#  Scenario: view a profile
-#    Given there is a profile named "Foo"
-#      And "Foo" has uploaded a song called "Bar"
-#    When I view the profile for "Foo"
-#    Then I should see a profile picture
-#      And I should see navigation links
-#      And I should see the song "Bar"
+  Scenario: view a profile
+    Given there is a profile named "Foo"
+      And there is a profile named "Bar"
+      And I am signed in as "Bar"
+      And "Foo" has uploaded a song called "Dear Bar"
+    When I am on the profile for "Foo"
+    Then I should see a profile picture
+      And I should see navigation links
+      And I should see the song "Bar"
