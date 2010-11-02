@@ -12814,3 +12814,216 @@ Processing SongsController#index (for 0.0.0.0 at 2010-11-02 01:52:29) [GET]
 Redirected to http://test.host/session/new
 Filter chain halted as [:login_required] rendered_or_redirected.
 Completed in 2ms (DB: 0) | 302 Found [http://test.host/songs]
+
+
+Processing PlaylistsController#addsong (for 0.0.0.0 at 2010-11-02 15:32:57) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#confirmaddsong (for 0.0.0.0 at 2010-11-02 15:32:57) [POST]
+  Parameters: {"playlist"=>"0", "song_id"=>"0"}
+Redirected to http://test.host/playlists/1008
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/playlists/confirmaddsong?playlist=0&song_id=0]
+
+
+Processing PlaylistsController#delete (for 0.0.0.0 at 2010-11-02 15:32:57) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#delete (for 0.0.0.0 at 2010-11-02 15:32:57) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#new (for 0.0.0.0 at 2010-11-02 15:32:57) [GET]
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/playlists/new]
+
+
+Processing PlaylistsController#show (for 0.0.0.0 at 2010-11-02 15:32:57) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+Rendering template within layouts/application
+Rendering playlists/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/playlists/show?playlist%5Bid%5D=0]
+
+
+Processing PlaylistsController#list (for 0.0.0.0 at 2010-11-02 15:32:57) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+Rendering template within layouts/application
+Rendering playlists/list
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/playlists/list?playlist%5Bid%5D=0]
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:32:57) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:32:57) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:32:57) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:32:57) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:32:57) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:32:57) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
+
+
+Processing PlaylistsController#addsong (for 0.0.0.0 at 2010-11-02 15:39:06) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#confirmaddsong (for 0.0.0.0 at 2010-11-02 15:39:06) [POST]
+  Parameters: {"playlist"=>"0", "song_id"=>"0"}
+Redirected to http://test.host/playlists/1008
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/playlists/confirmaddsong?playlist=0&song_id=0]
+
+
+Processing PlaylistsController#delete (for 0.0.0.0 at 2010-11-02 15:39:06) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#delete (for 0.0.0.0 at 2010-11-02 15:39:06) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#new (for 0.0.0.0 at 2010-11-02 15:39:06) [GET]
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/playlists/new]
+
+
+Processing PlaylistsController#show (for 0.0.0.0 at 2010-11-02 15:39:06) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+Rendering template within layouts/application
+Rendering playlists/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/playlists/show?playlist%5Bid%5D=0]
+
+
+Processing PlaylistsController#list (for 0.0.0.0 at 2010-11-02 15:39:06) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+Rendering template within layouts/application
+Rendering playlists/list
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/playlists/list?playlist%5Bid%5D=0]
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:39:06) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:39:06) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:39:06) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:39:06) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:39:06) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:39:06) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
+
+
+Processing PlaylistsController#addsong (for 0.0.0.0 at 2010-11-02 15:43:53) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#confirmaddsong (for 0.0.0.0 at 2010-11-02 15:43:53) [POST]
+  Parameters: {"playlist"=>"0", "song_id"=>"0"}
+Redirected to http://test.host/playlists/1008
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/playlists/confirmaddsong?playlist=0&song_id=0]
+
+
+Processing PlaylistsController#delete (for 0.0.0.0 at 2010-11-02 15:43:53) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#delete (for 0.0.0.0 at 2010-11-02 15:43:53) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#new (for 0.0.0.0 at 2010-11-02 15:43:53) [GET]
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 1ms (View: 1, DB: 0) | 200 OK [http://test.host/playlists/new]
+
+
+Processing PlaylistsController#show (for 0.0.0.0 at 2010-11-02 15:43:53) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+Rendering template within layouts/application
+Rendering playlists/show
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/playlists/show?playlist%5Bid%5D=0]
+
+
+Processing PlaylistsController#list (for 0.0.0.0 at 2010-11-02 15:43:53) [GET]
+  Parameters: {"playlist"=>{"id"=>0}}
+Rendering template within layouts/application
+Rendering playlists/list
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://test.host/playlists/list?playlist%5Bid%5D=0]
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:43:53) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:43:53) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing PlaylistsController#create (for 0.0.0.0 at 2010-11-02 15:43:53) [POST]
+  Parameters: {"playlist"=>{"id"=>0}}
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:43:53) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:43:53) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
+
+
+Processing SongsController#create (for 0.0.0.0 at 2010-11-02 15:43:53) [POST]
+  Parameters: {"song"=>{"id"=>0}}
+Redirected to http://test.host/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/songs?song%5Bid%5D=0]
