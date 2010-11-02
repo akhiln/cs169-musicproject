@@ -96,12 +96,13 @@ end
 def log_out!
   log_out
   response.should redirect_to('/')
-  follow_redirect!
+  #follow_redirect!
 end
 
 def create_user(user_params={})
   @user_params       ||= user_params
-  post "/users", :user => user_params
+  @user = User.new(@user_params)
+  @user.save
   @user = User.find_by_login(user_params['login'])
 end
 

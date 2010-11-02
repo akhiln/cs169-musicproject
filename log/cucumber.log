@@ -1371,3 +1371,1606 @@ Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
 
 
 Processing ApplicationController#index (for 127.0.0.1 at 2010-11-01 16:39:05) [GET]
+
+
+<<<<<<< HEAD
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:25) [GET]
+Redirected to http://www.example.com/
+Completed in 9831ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 9) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:09:35) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '31a0cfa6f22dc6d0f5ab3fe7fd799caade9088f6', '2010-11-02 08:09:35', '2bb55e4f635c0e7be82dec8b79298dc403aca96a', NULL, '2010-11-02 08:09:35', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:09:35) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:09:35) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '9e83ac55b0cd9e07b48c9be946b9fe57fdea18b5', '2010-11-02 08:09:35', '0ee4f4dfcbabd8486a6b8922895ac652370d3342', NULL, '2010-11-02 08:09:35', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:09:35) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:09:35) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'b32a1b8a5d61bdaac60b206d6e4eecfa58292254', '2010-11-02 08:09:35', 'ad1c958ad39e34ab2a53d2f11dca3b088a3088da', NULL, '2010-11-02 08:09:35', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:09:35) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 5) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:09:35) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:09:36) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'a3ccd617ca8e2a78f7a70f8899f8698727b56b18', '2010-11-02 08:09:36', 'eb303d374f38e2a57c9d7fbea7172340b92e0226', NULL, '2010-11-02 08:09:36', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:09:36) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:45) [GET]
+Redirected to http://www.example.com/
+Completed in 10171ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 11) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:11:55) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '57ae0ba156f3d2919540b71ee40df33f4fbb7e18', '2010-11-02 08:11:55', '5e9fbe8ad96cd8125f0b01aea2dec4425ffbb849', NULL, '2010-11-02 08:11:55', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:11:55) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:55) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:11:55) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '26696fcdeb5e2673eb03d954b500185fd80327a4', '2010-11-02 08:11:55', '30edd3198385413e832a7692922e8d653fb5a62e', NULL, '2010-11-02 08:11:55', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:11:55) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:11:55) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'b3d7c2d4403ebf5fa49927f8b112e3c53162416b', '2010-11-02 08:11:55', 'efdf1a8fc217d6becbbfacc03f6ab01f7574759d', NULL, '2010-11-02 08:11:55', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:11:55) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:11:56) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:11:56) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:11:56) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '36aa216f20fe9309d1f38078c261797d9357426f', '2010-11-02 08:11:56', '25298e79b76b40d87e2ce15bdd2fba9b5a78a75d', NULL, '2010-11-02 08:11:56', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:11:56) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:24) [GET]
+Redirected to http://www.example.com/
+Completed in 9435ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-02 01:16:33) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 18ms (View: 16, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:33) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:33) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '164d388a7ad444d90d63a367a37ee14141b27eba', '2010-11-02 08:16:33', '0213ab03819bafb56ef0f6e56e06111d046a8c20', NULL, '2010-11-02 08:16:33', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:33) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:33) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:33) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '88f197aec2f07cff71de1f4f9b015e3ca30979c3', '2010-11-02 08:16:33', '932f3b53f362a77a15db4863ca28bc1a134b8824', NULL, '2010-11-02 08:16:33', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:33) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:33) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:33) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "_password"=>"monkey", "login"=>"", "email"=>"unactivated@example.com"}}
+WARNING: Can't mass-assign these protected attributes: _password
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 28ms (View: 24, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"_password_confirmation"=>"monkey", "login"=>"oona", "password"=>"", "email"=>"unactivated@example.com"}}
+WARNING: Can't mass-assign these protected attributes: _password_confirmation
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 29ms (View: 23, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkeY", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>""}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 21ms (View: 16, DB: 1) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '10f177b531e9c1cbe360bc6c3dd315603b66a006', '2010-11-02 08:16:34', '41ef4863863610f412a7f3b55ffea39a41753d58', NULL, '2010-11-02 08:16:34', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 11) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '486013501b6c25045e1b84230edff10867469a5f', '2010-11-02 08:16:34', '2518e864d675548e158d9ce76d217a84b09ce335', NULL, '2010-11-02 08:16:34', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'ad36776d008379617208b8fa741d9746ec566119', '2010-11-02 08:16:34', '80aca1fd54122f9a2a8ead78777fb79d906e5f1d', NULL, '2010-11-02 08:16:34', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'ad79937afde9396ceae21f08949ecb9181868691', '2010-11-02 08:16:34', 'c5269cc83b43071e98349680c0602a039e4ef2f4', NULL, '2010-11-02 08:16:34', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'd37e5c11a936fae210eb146b5fbe25b3f0ce555d', '2010-11-02 08:16:34', '25573e54c7189cf22a2e5f43eb51aaa6dc7f8c76', NULL, '2010-11-02 08:16:34', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '01966422d8526f941ab786d695476bfb095d4575', '2010-11-02 08:16:34', 'f5f42cf77fc4bda3277f06d544dcce064facc0cd', NULL, '2010-11-02 08:16:34', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 5) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:16:34) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '890e09b83b5229b4b850fd77f1cf0198e8e1b39b', '2010-11-02 08:16:34', 'c624c9c468b0ac8c568094290f4534a10ffba306', NULL, '2010-11-02 08:16:34', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:16:34) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:42) [GET]
+Redirected to http://www.example.com/
+Completed in 9713ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-02 01:18:51) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 20ms (View: 18, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'c353c0beebcb78a5d23f5b7fa038e99e74d252f6', '2010-11-02 08:18:52', '96806b1121a445a3fd7b7d7c884906f0d0bec684', NULL, '2010-11-02 08:18:52', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '5994ce81900e8d5e91757d94655f8fecfd3c2cf5', '2010-11-02 08:18:52', 'eb7f616924ae8cc72a2d6c90c138489071227289', NULL, '2010-11-02 08:18:52', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "_password"=>"monkey", "login"=>"", "email"=>"unactivated@example.com"}}
+WARNING: Can't mass-assign these protected attributes: _password
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 35ms (View: 29, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"_password_confirmation"=>"monkey", "login"=>"oona", "password"=>"", "email"=>"unactivated@example.com"}}
+WARNING: Can't mass-assign these protected attributes: _password_confirmation
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 23ms (View: 18, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 4) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkeY", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 17ms (View: 12, DB: 2) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>""}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 22ms (View: 18, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '7784d690a6ea5e134c4efd079a5236cc9f697e83', '2010-11-02 08:18:52', '88de902a9e22c79aaf50ab62d5b93f2738e74d3a', NULL, '2010-11-02 08:18:52', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 12) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'da7f73497b1b36bbf3a5109450e9e30508756c05', '2010-11-02 08:18:52', '6b4de336af6216c3b5606bf3e8aa025f80217544', NULL, '2010-11-02 08:18:52', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '08fdd7605ef675c1985a81f6590f99ab7d4c144d', '2010-11-02 08:18:52', '3f2472b50cf6d98bc263c1c590ca3923bd1e9217', NULL, '2010-11-02 08:18:52', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:52) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '8e712c2d35f9363b98ddc8e357199a38b5ca9332', '2010-11-02 08:18:52', '6bc262d096b20cfacbab7d40976933a9156da375', NULL, '2010-11-02 08:18:52', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:52) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:53) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'b46367a7c5d6d8b523806fc4de83ccc6ef75233d', '2010-11-02 08:18:53', '6515da76aab05065a8af57f282f915bc0e7cc994', NULL, '2010-11-02 08:18:53', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:53) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:53) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '2b75a7b439a2bd0db77d391722ee5587d9cd6e1d', '2010-11-02 08:18:53', '0ef18c0e3371a963f12e6eacc80302bc24317887', NULL, '2010-11-02 08:18:53', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:53) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:53) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 5) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:18:53) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:18:53) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:18:53) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'a4d7754652279f8c00253469187b50c73c321e0e', '2010-11-02 08:18:53', 'de1eed1c711c6e38914558c963a5ead1c2bf7dfe', NULL, '2010-11-02 08:18:53', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:18:53) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:00) [GET]
+Redirected to http://www.example.com/
+Completed in 9291ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-02 01:21:10) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 19ms (View: 16, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:10) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'de2ffffd9a6abb6f396605652433b7db21f75169', '2010-11-02 08:21:10', '48c9e6c4921bbe32d8ecd07a41aab8ae57561a75', NULL, '2010-11-02 08:21:10', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:10) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'faf06d2c1a1424e74342e5529bb7bf8c1b053cfa', '2010-11-02 08:21:10', 'f1f94b610220cc643036ad30872a645cbf9c5a0d', NULL, '2010-11-02 08:21:10', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:10) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "_password"=>"monkey", "login"=>"", "email"=>"unactivated@example.com"}}
+WARNING: Can't mass-assign these protected attributes: _password
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 29ms (View: 24, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:10) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"_password_confirmation"=>"monkey", "login"=>"oona", "password"=>"", "email"=>"unactivated@example.com"}}
+WARNING: Can't mass-assign these protected attributes: _password_confirmation
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 19ms (View: 15, DB: 2) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:10) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 16ms (View: 12, DB: 1) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:10) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkeY", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 14ms (View: 10, DB: 1) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:10) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>""}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 19ms (View: 16, DB: 1) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '3df77c2b010c992e2bd22f668152c3cbc4ab16a2', '2010-11-02 08:21:10', 'f3b97e179d3cd3e47f6cc79e1f9c2ab67c480c2e', NULL, '2010-11-02 08:21:10', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:10) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:11) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 8) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:21:11) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:11) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'e63eeead665b1a60cfa86917a5abb302dc3744d0', '2010-11-02 08:21:11', 'd816f40caf3992f857764d62501a9eb1b4fd5f78', NULL, '2010-11-02 08:21:11', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '5ed07d606c24d55613796c6f85362d936a0fb66c', '2010-11-02 08:21:11', 'd7dee4a9ae16707c9d9a265c9a447a554dbcc490', NULL, '2010-11-02 08:21:11', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:11) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '48c3327d8781cd67d7545e206d084133a2ad5747', '2010-11-02 08:21:11', '14eda878d65e06fc1a3e4648660f516e50fa9d0e', NULL, '2010-11-02 08:21:11', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '357bb2dda009d6688d8764ce6f81bb610dffdda9', '2010-11-02 08:21:11', '2b8baf1cf589ff47e648d67c4ba65a1a24b139df', NULL, '2010-11-02 08:21:11', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '3c7aa9d5f30d2af535e7d50d628d3ce63963df7a', '2010-11-02 08:21:11', 'b4062d47918977b5fba0e27ea41c77af303be1cb', NULL, '2010-11-02 08:21:11', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:11) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 4) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:21:11) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:21:11) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'd280d63d6312e4ac0ab28b860305cef3f381de1b', '2010-11-02 08:21:11', '50e34506d3440bde1db35cb2e8337300256592d0', NULL, '2010-11-02 08:21:11', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:21:11) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:15) [GET]
+Redirected to http://www.example.com/
+Completed in 9299ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-02 01:24:24) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 20ms (View: 18, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'ec3abf44681bc1498ea76b26946bf8b2859fcd23', '2010-11-02 08:24:25', '070403bc33e801f8b0a06810316f27c6e6ccd0fe', NULL, '2010-11-02 08:24:25', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 4) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '14a0a72261bcb37a63abaa4bf959e9b9924f3139', '2010-11-02 08:24:25', '5838cd1ed787a2fc03d122d7541b0fe21eb0092a', NULL, '2010-11-02 08:24:25', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "_password"=>"monkey", "login"=>"", "email"=>"unactivated@example.com"}}
+WARNING: Can't mass-assign these protected attributes: _password
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 27ms (View: 23, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"_password_confirmation"=>"monkey", "login"=>"oona", "password"=>"", "email"=>"unactivated@example.com"}}
+WARNING: Can't mass-assign these protected attributes: _password_confirmation
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkeY", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>""}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 17ms (View: 14, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'e4cdb247d5c5fcb8f1c5bf61dc3c16508bd62f2f', '2010-11-02 08:24:25', '180d37fe99aa0801a4d95139bf218bc6682ced84', NULL, '2010-11-02 08:24:25', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"oona", "password"=>"monkey", "email"=>"unactivated@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 13) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 5ms (View: 5, DB: 0) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '8bc24017d25fb2c64537f7d099cc9e248763f48d', '2010-11-02 08:24:25', '469db279584da348d0a30921120e6b9bbf3cfd5e', NULL, '2010-11-02 08:24:25', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'db23df0c0bc66663c8e3bc7ca7e812b2b4775c1a', '2010-11-02 08:24:25', '3a42cd023279c280244db0123e44f0f83a92f29b', NULL, '2010-11-02 08:24:25', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:25) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 5) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '02e529fd0a1cc38806794215de1050198e9508f4', '2010-11-02 08:24:25', 'e6de702ed5984e2a8855ce7766f2efb4565ae2a2', NULL, '2010-11-02 08:24:25', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '49e1d62bb39ba8f5623a624a9acc4335f2c43764', '2010-11-02 08:24:25', 'e57ba339a7d6930716a4c58a9d2dd2f854a9c9b2', NULL, '2010-11-02 08:24:25', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"1234oona", "login"=>"oona", "password"=>"1234oona", "email"=>"unactivated@example.com"}}
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'ffd973b3c68f1b330dea32459b59bdbf0382da21', '2010-11-02 08:24:25', '7d269a6cdf66eda1b49585da5e9022d6c22d58ba', NULL, '2010-11-02 08:24:25', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:25) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:26) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 5) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:24:26) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:24:26) [GET]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-02 01:24:26) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '6b05acd730d141bebd07e3379e34eaf139f96b96', '2010-11-02 08:24:26', 'c070bb7495f5c274318d774b6ed1d4f48b0d4cdf', NULL, '2010-11-02 08:24:26', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-02 01:24:26) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"monkey", "login"=>"reggie", "password"=>"monkey", "email"=>"registered@example.com"}}
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:31:44) [GET]
+Redirected to http://www.example.com/
+Completed in 16281ms (DB: 6) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-02 01:32:00) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 18ms (View: 16, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'f93bcf3543bc9c42afac3ede45cfc73067591ea2', '2010-11-02 08:32:01', 'bea89d9a92cdcaadc3de07ee40e97791c5e2da1b', NULL, '2010-11-02 08:32:01', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'e5cc008cc6c42760664a662903ec123fbb10e1f5', '2010-11-02 08:32:01', '5b25d1338a91c385ccebb9a19c8b71048868bd9d', NULL, '2010-11-02 08:32:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: _password
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: _password_confirmation
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 8) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 4, DB: 0) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 2) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'fa0eb3d5da16019de0b3ef5ad9d46a8031c5289c', '2010-11-02 08:32:01', '8afa0aa7100524f97af76d150ee0fd57b4054682', NULL, '2010-11-02 08:32:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'f1a3d93ba53d4f5f032076a634351fb4899ad786', '2010-11-02 08:32:01', 'd39769dbe4f63faab5c825990fe21229118fda87', NULL, '2010-11-02 08:32:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'fe9cb2f1837621692e5c9484e83f7963c380b0e7', '2010-11-02 08:32:01', '1dcaa97d112eb8ce10c1614c729ef9af7107be73', NULL, '2010-11-02 08:32:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'a9aa68720cf4ba12731cf9f5ede3842e6c78f5d0', '2010-11-02 08:32:01', 'bc41839fc229bd6ecf60b0288524f711dc788340', NULL, '2010-11-02 08:32:01', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '295eb86d82cd71a3e27dede9e401776e1a9cf00c', '2010-11-02 08:32:01', '46ddd68c43797a641533545705035ed39f3d07af', NULL, '2010-11-02 08:32:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:32:01) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'ac960efe5463dcee4294d7b9d3029cb870c8b3c6', '2010-11-02 08:32:01', '9b9fcd0cb750faff606dd54a172688d6667ab139', NULL, '2010-11-02 08:32:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+=======
+Processing SongsController#new (for 127.0.0.1 at 2010-11-02 01:27:17) [GET]
+Redirected to http://www.example.com/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 11608ms (DB: 0) | 302 Found [http://www.example.com/songs/new]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:27:29) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 27ms (View: 24, DB: 0) | 200 OK [http://www.example.com/session/new]
+>>>>>>> ba446505f523cff1a943414faacce32fa016211d
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:02:49) [GET]
+Redirected to http://www.example.com/
+Completed in 11408ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-02 02:03:00) [GET]
+Rendering template within layouts/application
+Rendering users/new
+Completed in 37ms (View: 32, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '5d47772cdc35dbffbc00edbb2ecff1df36200f40', '2010-11-02 09:03:01', 'd510bb31c6f299e7b9e90874449fd403911c88d3', NULL, '2010-11-02 09:03:01', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '347d3069d934f6cf90ba91c56cae82fc409d67a0', '2010-11-02 09:03:01', 'a67bfd195c6881d0b49f17c0aa54e03983e5c315', NULL, '2010-11-02 09:03:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: _password
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = '') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: _password_confirmation
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'Oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 2ms (DB: 1) | 302 Found [http://www.example.com/songs/new]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 5ms (View: 5, DB: 0) | 200 OK [http://www.example.com/session/new]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 4ms (View: 4, DB: 0) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+Redirected to http://www.example.com/
+Completed in 0ms (DB: 0) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'e1f5c49a7986e32a98915bf8bc0fe0d3d47579b4', '2010-11-02 09:03:01', '4e134d76b7c93ec28de0a037f321bc998addb302', NULL, '2010-11-02 09:03:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 02:03:01) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '0fdb5aa59587f0869db73b7ef4857409da53e081', '2010-11-02 09:03:01', 'f4a5c8229461cc0f145e48fdb1a4838af8a7440e', NULL, '2010-11-02 09:03:01', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:02) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/sessions/destroy]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '976e1e87941825be951e85fb3034f25cf35cd258', '2010-11-02 09:03:02', 'e6bf70c8aa935539a51e4120f91fdec1e29f6334', NULL, '2010-11-02 09:03:02', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 02:03:02) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'unactivated@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', 'c1da7dc83533e36ea3160d34fce2786ac3485407', '2010-11-02 09:03:02', '288b40b341fa889a864b38590f76f766d7aad63b', NULL, '2010-11-02 09:03:02', NULL, NULL, 'oona', 'unactivated@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'oona') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '79e91dafd331693bdbdc401ba7df8ea61840c040', '2010-11-02 09:03:02', 'b9a479758b7535ccd41b514f6cf6db0af055b243', NULL, '2010-11-02 09:03:02', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:02) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 4) | 302 Found [http://www.example.com/sessions/destroy]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 02:03:02) [GET]
+Redirected to http://www.example.com/
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 02:03:02) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'registered@example.com') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('', '214e1beca24e354d75935bb21a9c0555ee14e7c3', '2010-11-02 09:03:02', '4fe5b555461ef753704dbabd6b2f3b29b547f2a8', NULL, '2010-11-02 09:03:02', NULL, NULL, 'reggie', 'registered@example.com', NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'reggie') LIMIT 1[0m

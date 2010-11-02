@@ -21,10 +21,11 @@ class Song < ActiveRecord::Base
   end
   
   def makePlayer
+    player_id = "audioplayer" + self.id.to_s + rand(300).to_s
     "<script language=\"JavaScript\" src=\"/player/audio-player.js\"></script>
-    <object type=\"application/x-shockwave-flash\" data=\"/player/player.swf\" id=\"audioplayer" + self.id.to_s + "\" height=\"24\" width=\"290\">
+    <object type=\"application/x-shockwave-flash\" data=\"/player/player.swf\" id=\"" + player_id + "\" height=\"24\" width=\"290\">
     <param name=\"movie\" value=\"/player/player.swf\">
-    <param name=\"FlashVars\" value=\"playerID=audioplayer" + self.id.to_s + "&soundFile=/songs/" + self.id.to_s + ".mp3\">
+    <param name=\"FlashVars\" value=\"playerID=" + player_id + "&soundFile=/songs/" + self.id.to_s + ".mp3\">
     <param name=\"quality\" value=\"high\">
     <param name=\"menu\" value=\"false\">
     <param name=\"wmode\" value=\"transparent\">

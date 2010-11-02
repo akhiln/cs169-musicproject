@@ -13,7 +13,7 @@ class Playlist < ActiveRecord::Base
 	end
 	
 	def addSong(song_id)
-		plsong = PlaylistSongs.new
+		plsong = Playlistsong.new
 		plsong.playlist_id = @id
 		plsong.song_id = song_id
 		plsong.save

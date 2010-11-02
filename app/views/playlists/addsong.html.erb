@@ -1,0 +1,9 @@
+<h2>Add <%=@song.name%> to playlist</h2>
+<% form_tag(:controller => "playlists", :action => "confirmaddsong", :method => "post")  do %>
+	<%= hidden_field_tag(:song_id, @song_id) %>
+	<% @playlists.each do |playlist| %>
+		<%= radio_button_tag(:playlist, playlist.id) %>
+		<%= label_tag(:playlist, playlist.name) %>
+	<%end%>
+	<%= submit_tag "Create" %>
+<%end%>
