@@ -1,6 +1,6 @@
 class Song < ActiveRecord::Base	
-  has_many :playlists_songss
-  has_many :playlists, :through => :playlists_songss
+  has_many :playlistsongs
+  has_many :playlists, :through => :playlistsongs
   has_many :usersongs
   has_many :users, :through => :usersongs
 

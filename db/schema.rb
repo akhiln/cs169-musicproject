@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101102030427) do
+ActiveRecord::Schema.define(:version => 20101102032208) do
 
   create_table "playlists", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20101102030427) do
     t.datetime "updated_at"
   end
 
-  create_table "playlistsong", :id => false, :force => true do |t|
+  create_table "playlistsongs", :id => false, :force => true do |t|
     t.integer  "playlist_id"
     t.integer  "song_id"
     t.datetime "created_at"
