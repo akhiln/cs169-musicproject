@@ -1,15 +1,33 @@
 class Song < ActiveRecord::Base	
-  has_many :playlists, :through => :PlaylistsSongs
-  has_many :users, :through => :UsersSongs
+  has_many :playlistsongs
+  has_many :playlists, :through => :playlistsongs
+  has_many :usersongs
+  has_many :users, :through => :usersongs
 
   def upload(uploadFile)
     name = uploadFile['datafile'].original_filename
     directory = "public/songs"
     # create the file path
-    path = File.join(directory, name)
-    # write the file
-    File.open(path, "wb") { |f| f.write(uploadFile['datafile'].read) }
-	@source = path
-	self.save
+    if name[-4,4] == ".mp3"
+      path = File.join(directory, self.id.to_s + ".mp3")
+      # write the file
+      File.open(path, "wb") { |f| f.write(uploadFile['datafile'].read) }
+      @source = path
+      self.save
+      return true
+    else
+      false
+    end
+  end
+  
+  def makePlayer
+    "<script language=\"JavaScript\" src=\"/player/audio-player.js\"></script>
+    <object type=\"application/x-shockwave-flash\" data=\"/player/player.swf\" id=\"audioplayer" + self.id.to_s + "\" height=\"24\" width=\"290\">
+    <param name=\"movie\" value=\"/player/player.swf\">
+    <param name=\"FlashVars\" value=\"playerID=audioplayer" + self.id.to_s + "&soundFile=/songs/" + self.id.to_s + ".mp3\">
+    <param name=\"quality\" value=\"high\">
+    <param name=\"menu\" value=\"false\">
+    <param name=\"wmode\" value=\"transparent\">
+    </object>"
   end
 end

@@ -3,12 +3,25 @@ class SongsController < ApplicationController
   # POST /songs.xml
   def create
     @song = Song.new(params[:song])
-    respond_to do |format|
+    respond_to do |format|      
       if @song.save
-        @song.upload(params[:upload])
-        format.html { redirect_to(@song, :notice => 'Song was successfully created.') }
-        format.xml  { render :xml => @song, :status => :created, :location => @song }
-      else
+        @users_songs = Usersong.new({:user_id => @current_user.id, :song_id => @song.id})
+        if @users_songs.save
+          if @song.upload(params[:upload])  #Happy path
+            format.html { redirect_to(@song, :notice => 'Song was successfully created.') }
+            format.xml  { render :xml => @song, :status => :created, :location => @song }
+          else
+            Song.delete(@song.id)
+            Usersong.delete(@users_songs.id)
+            format.html { render :action => "new" }
+            format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
+          end
+        else  #Sad path
+          Song.delete(@song.id)
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
+        end
+      else  #Sad path
         format.html { render :action => "new" }
         format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
       end
@@ -17,6 +30,14 @@ class SongsController < ApplicationController
   
   def new
     @song = Song.new
+    respond_to do |format|
+      format.html
+      format.xml   { render :xml => @song }
+    end
+  end
+  
+  def show
+    @song = Song.find(params[:id])
     respond_to do |format|
       format.html
       format.xml   { render :xml => @song }

@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
   
-  has_many :songs, :through => :UsersSongs 
+  has_many :usersongs
+  has_many :songs, :through => :usersongs 
   has_many :playlists
 
   validates_presence_of     :login
