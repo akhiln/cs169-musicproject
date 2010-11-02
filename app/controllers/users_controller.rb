@@ -34,6 +34,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @songs = @user.songs
+    if  !@songs.nil? && @songs.length > 10
+      @songs = @songs[0..9]
+    end
+    @playlist = @user.playlists
+    if (not @playlists.nil?) && @playlists.length > 10
+      @playlists = @playlists[0..9]
+    end
   end
 
 end

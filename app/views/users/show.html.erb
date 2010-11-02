@@ -7,8 +7,29 @@
 <%= @user.bio %>
 </div>
 <div class="profile" id="songs">
-<p> User's songs will go here!"</p>
+<p class="section_title"><%="Songs by "+@user.name%></p>
+<% if @user.id == @current_user.id %>
+<p><%=link_to('Add a song','/Songs/new')%>
+<%end%>
+
+<% if not @songs.nil? %>
+<ul class="music_list" id="song_list">
+  <% @songs.each do |song| %>
+    <li class="song_element"><%=link_to(song.name,'/Songs/show/'+song.id.to_s)%> <%=song.makePlayer%></li>
+  <% end %>
+</ul>
+<%end%>
 </div>
 <div class="profile" id="playlists">
-<p> User's playlists will go here!"</p>
+<p class="section_title"><%="Playlists by "+@user.name%></p>
+<% if @user.id == @current_user.id %>
+<p><%=link_to('Make a new playlist','/Playlists/new')%></p>
+<%end%>
+<% if not @playlists.nil? %>
+<ul class="music_list" id="pl_list">
+  <% @playlists.each do |pl| %>
+    <li class="pl_element"><%=link_to(pl.name,'/Playlists/show/'+pl.id.to_s)%> </li>
+  <% end %>
+</ul>
+<%end%>
 </div>
