@@ -7,6 +7,4 @@ When /^I name it "([^"]*)"$/ do |song|
   click_button('Create')
 end
 
-When /^I add the song "([^"]*)" to "([^"]*)"$/ do |song, playlist|
-  
-end
+

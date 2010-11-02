@@ -9,9 +9,7 @@ Feature: Create Playlists
       And "foo" has uploaded a song called "beque"
     When I visit Make a new playlist
       And I name it "test"
-      And I click 
-      And I add the song "Bar" to "test"
-    Then there should be a playlist called "test"
-      And it should contain songs "Bar" and "Beque"
+      And I am on the profile for "foo"
+    Then I should see "test" within "#playlists"
       
  
