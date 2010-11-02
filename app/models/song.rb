@@ -5,6 +5,13 @@ class Song < ActiveRecord::Base
   has_many :users, :through => :usersongs
 
   def upload(uploadFile)
+    if uploadFile == nil
+      return false
+    end
+    if uploadFile['datafile'] == nil || uploadFile['datafile'] == ""
+      return false
+    end
+    
     name = uploadFile['datafile'].original_filename
     directory = "public/songs"
     # create the file path
