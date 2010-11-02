@@ -1,7 +1,27 @@
 <html>
 <head>
+  <%= stylesheet_link_tag 'general' %>
 </head>
 <body>
-<%yield%>
+<div>
+	<div id="header">
+		<h1>JukeBox</h1>
+		<div class="right">
+			<ul>
+				<li>Manage</li>
+				<li>Account</li>
+				<li>Logout</li>
+			</ul>
+		</div>
+	</div
+	<div id="header_band_bar">
+	</div>
+	<div id="main_content">
+		<div id="left_nav">
+		</div>
+		<%= yield :user %>
+	</div>
+</div>
+
 </body>
 </html>
