@@ -20,8 +20,9 @@ module NavigationHelpers
     
     when /the upload song page/
       '/songs/new'
+
     when /the profile for "(.*)"/
-       @user = Users.find_by_name($1)
+       @user = User.find_by_login($1)
       'users/show/'+@user.id.to_s
     when /the login page/
        '/login'
