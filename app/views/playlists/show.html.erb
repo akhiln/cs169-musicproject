@@ -1,0 +1,12 @@
+<h2><%=@playlist.name%></h2>
+<p><%=@playlist.description%></p>
+<% if not @songs.nil? %>
+<ul class="music_list" id="song_list">
+  <% @songs.each do |song| %>
+    <li class="song_element"><%=link_to(song.name,'/Songs/show/'+song.id.to_s)%> <%=song.makePlayer%></li>
+  <% end %>
+</ul>
+<%end%>
+<% if @playlist.user_id == @current_user.id %>
+<a href="/playlists/delete/<%=@playlist.id%>">Delete</a>
+<% end %>

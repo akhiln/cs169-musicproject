@@ -3,8 +3,9 @@ class PlaylistsController < ApplicationController
 		@playlists = User.find(params[:id]).playlists
 	end
 	
-	def view
-		@songs = Playlist.find(params[:id]).songs
+	def show
+		@playlist = Playlist.find(params[:id])
+		@songs = @playlist.songs
 	end
 	
 	def new
@@ -12,12 +13,10 @@ class PlaylistsController < ApplicationController
 	end
 	
 	def create
-		@playlist = Playlist.new
+		@playlist = Playlist.new(params[:playlist])
 		@playlist.user_id = @current_user.id
-		@playlist.name = params[:name]
-		@playlist.description = params[:description]
-		@platlist.rating = params[:rating]
 		@playlist.save
+		redirect_to(@playlist, :notice => 'Playlist was successfully created.')
 	end
 	
 	def delete

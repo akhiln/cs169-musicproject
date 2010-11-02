@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
   # POST /songs
   # POST /songs.xml
+  before_filter :login_required
   def create
     @song = Song.new(params[:song])
     respond_to do |format|      
@@ -38,10 +39,32 @@ class SongsController < ApplicationController
   
   def show
     @song = Song.find(params[:id])
+    if @song.users.include?(@current_user)
+      @auth = true
+    else
+      @auth = false
+    end
     respond_to do |format|
       format.html
       format.xml   { render :xml => @song }
     end
+  end
+  
+  def index
+    @Songs = Song.find(:all)
+    if @Songs == nil
+      @Songs = []
+    end
+    respond_to do |format|
+      format.html
+      format.xml   { render :xml => @song }
+    end
+  end
+  
+  def delete
+    @song = Song.find(params[:id])
+    @song.destroy
+    redirect_to(@current_user, :notice => "Song successfully deleted")
   end
 
 end
