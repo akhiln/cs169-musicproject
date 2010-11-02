@@ -17,9 +17,9 @@ Feature: User Profiles
     And the picture of "test dummy" is default
 
   Scenario: view a profile
-    Given there is a profile named "Foo"
-      And there is a profile named "Bar"
-      And I am signed in as "Bar"
+    Given there is a profile named "Foo" with password "blahblah"
+      And there is a profile named "Bar" with password "blahblahblah"
+      And I am signed in as "Bar" with password "blahblahblah"
       And "Foo" has uploaded a song called "Dear Bar"
     When I am on the profile for "Foo"
     Then I should see a profile picture
