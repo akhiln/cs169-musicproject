@@ -1,5 +1,7 @@
 class Song < ActiveRecord::Base	
-	
+  has_many :playlists, :through => :PlaylistsSongs
+  has_many :users, :through => :UsersSongs
+
   def upload(uploadFile)
     name = uploadFile['datafile'].original_filename
     directory = "public/songs"
