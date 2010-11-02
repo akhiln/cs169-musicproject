@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
     File.open('public' + path, "wb") { |f| f.write(uploadFile['datafile'].read) }
 	self.pic = path
 	self.save
-    rescue NoMethodError
+    rescue
        self.pic = "/images/default.jpg"
        self.save
     end

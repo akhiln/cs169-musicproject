@@ -1,20 +1,36 @@
 
+
 Given /^I am not signed in$/ do 
   visit '/logout'
 end
 
-Given /^there is a profile named "(.*)" with password "(.*)$/ do |user_name, password|
-   @user = User.new  :name => user_name, :bio => "information!", :email => "asdfkj@asdfkkj.com",
-                :password => password, :login => user_name, :pic => "/images/default.jpg"
-   @user.save
+Given /^there is a profile named "([^"]*)" with password "(.*)" and email "(.*)"$/ do |user_name, pw, em|
+   @user = User.new  :name => user_name, :bio => "information!", :email => em,
+                :password => pw, :password_confirmation => pw,
+                :login => user_name, :pic => "/images/default.jpg"
+   @user.save!
 end
 
-Given /^I am signed in as "(.*) with password "(.*)"$/ do |user_name, password|
+Given /^I am signed in as "([^"]*)"$/ do |user_name|
    @user = User.find_by_name(user_name)
-   log_in_user!  :login => user_name, :password => password
+   log_in_user!  :login => user_name, :password => "password"
 end
 
-Given /^"(.)" has uploaded a song called "(.)"$/ do |user, song|
+Given /^I am signed in as "([^"]*)" using password "([^"]*)"$/ do |login, pw|
+   @user = User.find_by_name(login)
+   visit path_to('the login page')
+   fill_in('Login', :with => login)
+   fill_in('Password', :with => pw)
+   click_button('Log in')
+   current_path = URI.parse(current_url).path
+   if current_path.respond_to? :should
+     current_path.should == '/users/show/'+@user.id.to_s
+   else
+     assert_equal path_to(page_name), current_path
+   end
+end
+
+Given /^"([^"]*)" has uploaded a song called "([^"]*)"$/ do |user, song|
   @user = User.find_by_name(user)
   @user.songs << Song.new(:name => song)
   @user.save

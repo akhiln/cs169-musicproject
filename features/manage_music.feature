@@ -1,17 +1,13 @@
 Feature: Manage music
   In order to manage their music
   the user
-  wants to upload, delete and update their songs.
-  
+  wants to upload, delete and update their songs.    
+    
   Scenario: Upload new song
-    Given I am on the upload song page
-    When I fill in "song_name" with "Song Title"
-      And I fill in "song_description" with "Song Description"
-      And I upload the file "Kalimba.mp3"
-      And I press "Upload"
-    Then I should see "Song Title"
-      And I should see "Song Description"
-      And I should see an audio player
+    Given there is a profile named "Smith"
+      And I am signed in as "Smith"
+      And I am on the upload song page
+    Then show me the page
   
   Scenario: Delete song
     Given I am on the manage music page
