@@ -3803,3 +3803,126 @@ Completed in 38ms (View: 11, DB: 4) | 200 OK [http://www.example.com/users/show/
   [4;35;1mUsersong Create (0.5ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-02 22:49:55', '2010-11-02 22:49:55', 1, 1)[0m
   [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'foo' AND "users".id <> 1) LIMIT 1[0m
   [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com' AND "users".id <> 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: bio, pic
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'foo') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.5ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('foo', '0eb0fa61cb9344312c3b8e767023d8c57bf112be', '2010-11-02 22:56:35', '10b1af2c127655c71be95f5d17a4f54c90e83d07', NULL, '2010-11-02 22:56:35', NULL, NULL, 'foo', 'foo@bar.com', NULL)[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 15:56:35) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 105ms (View: 38, DB: 5) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-02 15:56:35) [POST]
+  Parameters: {"commit"=>"Log in", "password"=>"barbarbar", "login"=>"foo"}
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'foo') LIMIT 1[0m
+Redirected to http://www.example.com/users/show/1
+Completed in 11ms (DB: 1) | 302 Found [http://www.example.com/session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-02 15:56:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.5ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.4ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 38ms (View: 11, DB: 3) | 200 OK [http://www.example.com/users/show/1]
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+  [4;36;1mSong Create (0.6ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'beque', '2010-11-02 22:56:36', '2010-11-02 22:56:36', NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUsersong Create (0.6ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-02 22:56:36', '2010-11-02 22:56:36', 1, 1)[0m
+  [4;36;1mUser Load (30.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'foo' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com' AND "users".id <> 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: bio, pic
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'foo') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.5ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('foo', 'a8dddd5b58dd9274ae80c73aa1a9b34dea3dbb91', '2010-11-02 22:57:05', '55839e22cb78023653d88d5d9c9dcf1d1fd2c2b5', NULL, '2010-11-02 22:57:05', NULL, NULL, 'foo', 'foo@bar.com', NULL)[0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 15:57:06) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 125ms (View: 39, DB: 224) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-02 15:57:06) [POST]
+  Parameters: {"commit"=>"Log in", "password"=>"barbarbar", "login"=>"foo"}
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'foo') LIMIT 1[0m
+Redirected to http://www.example.com/users/show/1
+Completed in 96ms (DB: 1) | 302 Found [http://www.example.com/session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-02 15:57:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.5ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.5ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 54ms (View: 11, DB: 3) | 200 OK [http://www.example.com/users/show/1]
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+  [4;36;1mSong Create (95.3ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'beque', '2010-11-02 22:57:07', '2010-11-02 22:57:07', NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUsersong Create (1.6ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-02 22:57:07', '2010-11-02 22:57:07', 1, 1)[0m
+  [4;36;1mUser Load (32.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'foo' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com' AND "users".id <> 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: bio, pic
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'foo') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.6ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "crypted_password", "remember_token_expires_at", "updated_at", "remember_token", "bio", "login", "email", "pic") VALUES('foo', '2eccce7477e4c9e2eb52f2ee4682b4b5e8ea923e', '2010-11-02 22:57:42', 'aec3fd4ba49021afec19b6204223651149b2ac73', NULL, '2010-11-02 22:57:42', NULL, NULL, 'foo', 'foo@bar.com', NULL)[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 15:57:42) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 48ms (View: 17, DB: 5) | 200 OK [http://www.example.com/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-02 15:57:42) [POST]
+  Parameters: {"commit"=>"Log in", "password"=>"barbarbar", "login"=>"foo"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'foo') LIMIT 1[0m
+Redirected to http://www.example.com/users/show/1
+Completed in 15ms (DB: 1) | 302 Found [http://www.example.com/session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-02 15:57:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (1.3ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.4ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 29ms (View: 8, DB: 3) | 200 OK [http://www.example.com/users/show/1]
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+  [4;36;1mSong Create (0.5ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'beque', '2010-11-02 22:57:42', '2010-11-02 22:57:42', NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUsersong Create (0.4ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-02 22:57:42', '2010-11-02 22:57:42', 1, 1)[0m
+  [4;36;1mUser Load (29.8ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'foo' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@bar.com' AND "users".id <> 1) LIMIT 1[0m
+
+
+Processing PlaylistsController#new (for 127.0.0.1 at 2010-11-02 15:57:43) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 44ms (View: 29, DB: 33) | 200 OK [http://www.example.com/Playlists/new]
+
+
+Processing PlaylistsController#create (for 127.0.0.1 at 2010-11-02 15:57:43) [POST]
+  Parameters: {"commit"=>"Create", "playlist"=>{"name"=>"test", "rating"=>"", "description"=>""}}
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://www.example.com/playlists
+Completed in 9ms (DB: 1) | 302 Found [http://www.example.com/playlists]
+
+
+Processing PlaylistsController#index (for 127.0.0.1 at 2010-11-02 15:57:43) [GET]
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 15:57:43) [GET]

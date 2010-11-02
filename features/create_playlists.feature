@@ -14,16 +14,4 @@ Feature: Create Playlists
     Then there should be a playlist called "test"
       And it should contain songs "Bar" and "Beque"
       
-  Scenario: Add a song to a playlist
-    Given I am logged in as "Foo"
-      And I have a playlist called "test"
-      And I am on the view playlist page
-    When I add song "abcd" to "test"
-    Then "test" should contain "abcd"
-
-  Scenario: Remove a song from a playlist
-    Given I am logged in as "Foo"
-      And I have a playlist called "test"
-      And I am on the view playlist page
-    When I add song "abcd" to "test"
-    Then "test" should contain "abcd"
+ 
