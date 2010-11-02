@@ -1643,3 +1643,41 @@ Migrating to AddSongNameField (20101102020048)
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
   [4;36;1mSQL (1.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users_songs")[0m
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-01 19:09:16) [GET]
+Rendering template within layouts/application
+Rendering songs/new
+
+ActionView::TemplateError (undefined method `source' for #<Song:0x84eaf00>) on line #8 of app/views/songs/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :source %><br />
+8:     <%= f.text_field :source %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :album %><br />
+
+    app/views/songs/new.html.erb:8
+    app/views/songs/new.html.erb:3
+    app/controllers/songs_controller.rb:20:in `new'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (151.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-01 19:09:44) [GET]
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 42ms (View: 28, DB: 0) | 200 OK [http://127.0.0.1/songs/new]
