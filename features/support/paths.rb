@@ -10,25 +10,12 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-    when /the new frooble page/
-      new_frooble_path
-
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
-    
-    when /the upload song page/
-      "/"
-    
-    when /the manage music page/
-      "/"
-    
-    when /the profile page of user "([a-zA-Z][a-zA-Z1-9_]+)"/
-      "/"
-    
 
     else
       begin
