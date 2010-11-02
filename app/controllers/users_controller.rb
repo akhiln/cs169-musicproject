@@ -13,12 +13,7 @@ class UsersController < ApplicationController
     success = @user && @user.save
     if success && @user.errors.empty?
       # save the profile picture:
-        if !params[:upload].nil?
           @user.upload_picture(params[:upload])
-        else
-          @user.pic = "/images/default.jpg"
-          @user.save
-        end
       # Protects against session fixation attacks, causes request forgery
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.

@@ -51,18 +51,19 @@ class User < ActiveRecord::Base
   end
 
   def upload_picture(uploadFile)
-    if uploadFile['datafile'].empty?
-      self.pic = "images/default.jpg"
-      return self.save
-    end
     name = self.login.hash.to_s
     directory = "/images"
     # create the file path
     path = File.join(directory, name)
     # write the file
+    begin
     File.open('public' + path, "wb") { |f| f.write(uploadFile['datafile'].read) }
 	self.pic = path
 	self.save
+    rescue NoMethodError
+       self.pic = "/images/default.jpg"
+       self.save
+    end
   end
 
   

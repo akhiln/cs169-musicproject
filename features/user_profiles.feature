@@ -14,6 +14,7 @@ Feature: User Profiles
     And I fill in "Confirm Password" with "password"
     And I press "Sign up"
   Then there should be a user named "test dummy"
+    And the picture of "test dummy" is default
 
 #  Scenario: view a profile
 #    Given there is a profile named "Foo"
