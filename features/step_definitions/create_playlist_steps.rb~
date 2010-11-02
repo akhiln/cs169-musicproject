@@ -1,0 +1,13 @@
+Given /^I am logged in as "([^"]+)"$/ do |user_name|
+  @user = User.find_by_name(login)
+  visit path_to('the login page')
+  fill_in('Login', :with => login)
+  fill_in('Password', :with => pw)
+  click_button('Log in')
+  current_path = URI.parse(current_url).path
+  if current_path.respond_to? :should
+    current_path.should == '/users/show/'+@user.id.to_s
+  else
+    assert_equal path_to(page_name), current_path
+  end
+end
