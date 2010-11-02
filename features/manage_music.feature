@@ -5,14 +5,13 @@ Feature: Manage music
   
   Scenario: Upload new song
     Given I am on the upload song page
-    When I fill in "Title" with "Song Title"
-      And I fill in "Description" with "Song Description"
-      And I select file "song.mp3" to upload
+    When I fill in "song_name" with "Song Title"
+      And I fill in "song_description" with "Song Description"
+      And I upload the file "Kalimba.mp3"
       And I press "Upload"
     Then I should see "Song Title"
       And I should see "Song Description"
-      And I should see "song.mp3"
-      And the new song should be created in the database
+      And I should see an audio player
   
   Scenario: Delete song
     Given I am on the manage music page

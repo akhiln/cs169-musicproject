@@ -6288,6 +6288,7 @@ Rendering songs/show
 Completed in 63ms (View: 5, DB: 2) | 200 OK [http://localhost/Songs/show/34]
 
 
+<<<<<<< HEAD
 Processing UsersController#show (for 127.0.0.1 at 2010-11-02 01:02:36) [GET]
   Parameters: {"id"=>"2"}
   [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
@@ -7109,3 +7110,216 @@ Completed in 62ms (View: 11, DB: 3) | 200 OK [http://localhost/users/2]
   [4;35;1mSQL (5.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101102022250')[0m
   [4;36;1mSQL (8.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101102025313')[0m
   [4;35;1mSQL (5.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101102030427')[0m
+=======
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-11-02 01:19:27) [GET]
+Redirected to http://127.0.0.1:3000/
+Completed in 93ms (DB: 0) | 302 Found [http://127.0.0.1/logout]
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-02 01:19:44) [GET]
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 4ms (DB: 0) | 302 Found [http://127.0.0.1/songs]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:19:44) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 34ms (View: 31, DB: 0) | 200 OK [http://127.0.0.1/session/new]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-02 01:19:53) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create, edit, new, show, and update):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-02 01:20:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 2)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #11 of app/views/users/show.html.erb:
+8: </div>
+9: <div class="profile" id="songs">
+10: <p class="section_title"><%="Songs by "+@user.name%></p>
+11: <% if @user.id == @current_user.id %>
+12: <p><%=link_to('Add a song','/Songs/new')%>
+13: <%end%>
+14: 
+
+    app/views/users/show.html.erb:11
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (139.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-02 01:20:53) [GET]
+Redirected to http://127.0.0.1:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 2ms (DB: 0) | 302 Found [http://127.0.0.1/songs]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:20:54) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-02 01:21:02) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"20dg2GbpFTvqVmNkvfnkZLnSNKXcumzyq3xnIU8fqOE=", "login"=>"BJAlker2", "password"=>"macbcmacbc"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'bjalker2') LIMIT 1[0m
+Failed login for 'BJAlker2' from 127.0.0.1 at Tue Nov 02 08:21:02 UTC 2010
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 45ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-02 01:21:09) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"20dg2GbpFTvqVmNkvfnkZLnSNKXcumzyq3xnIU8fqOE=", "login"=>"BJAlker2", "password"=>"macbcmacbc"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'bjalker2') LIMIT 1[0m
+Failed login for 'BJAlker2' from 127.0.0.1 at Tue Nov 02 08:21:09 UTC 2010
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 47ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-11-02 01:21:18) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"20dg2GbpFTvqVmNkvfnkZLnSNKXcumzyq3xnIU8fqOE=", "login"=>"BJAlker", "password"=>"macbcmacbc"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'bjalker') LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/songs
+Completed in 43ms (DB: 1) | 302 Found [http://127.0.0.1/session]
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-02 01:21:18) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT * FROM "songs" [0m
+Rendering template within layouts/application
+Rendering songs/index
+Completed in 61ms (View: 14, DB: 0) | 200 OK [http://127.0.0.1/songs]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-02 01:21:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;35;1mPlaylist Load (1.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 86ms (View: 10, DB: 1) | 200 OK [http://127.0.0.1/users/1]
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-02 01:23:33) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" [0m
+Rendering template within layouts/application
+Rendering songs/index
+Completed in 52ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-02 01:23:45) [GET]
+  Parameters: {"id"=>"34"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 34) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 34)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+Completed in 85ms (View: 16, DB: 3) | 200 OK [http://127.0.0.1/songs/34]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:23:53) [GET]
+
+ActionController::RoutingError (No route matches "/songs/playlist/addsong/34" with {:method=>:get}):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:24:05) [GET]
+
+ActionController::RoutingError (No route matches "/songs/playlist/addsong/34" with {:method=>:get}):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-02 01:24:33) [GET]
+
+ActionController::RoutingError (No route matches "/playlist/2" with {:method=>:get}):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlaylistsController#show (for 127.0.0.1 at 2010-11-02 01:24:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mPlaylist Load (1.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering playlists/show
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 2)) [0m
+Completed in 94ms (View: 36, DB: 3) | 200 OK [http://127.0.0.1/playlists/2]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-02 01:24:50) [GET]
+  Parameters: {"id"=>"34"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 34) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 34)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+Completed in 176ms (View: 7, DB: 2) | 200 OK [http://127.0.0.1/Songs/show/34]
+>>>>>>> ba446505f523cff1a943414faacce32fa016211d
