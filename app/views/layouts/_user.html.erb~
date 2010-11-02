@@ -1,0 +1,5 @@
+<% content_for :user do %>
+  <%= image_tag("band.jpg", :size=>"30x45") %>
+  Helloo!!
+  <%= yield %>
+<% end %>
