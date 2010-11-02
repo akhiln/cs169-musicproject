@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     if  !@songs.nil? && @songs.length > 10
       @songs = @songs[0..9]
     end
-    @playlist = @user.playlists
+    @playlists = @user.playlists
     if (not @playlists.nil?) && @playlists.length > 10
       @playlists = @playlists[0..9]
     end

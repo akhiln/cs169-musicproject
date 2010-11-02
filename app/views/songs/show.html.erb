@@ -1,3 +1,8 @@
-<h1>Test</h1>
-
+<h2 class="songTitle"><%= @song.name %></h2>
 <%= @song.makePlayer %>
+<p class="songDescription"><%= @song.description %></p>
+<% if @auth %>
+<a href="/songs/delete/<%=@song.id%>">Delete</a> || <a href="playlist/addsong<%=@song.id%>">Add to Playlist</a>
+<% else %>
+ <a href="playlist/addsong<%=@song.id%>">Add to Playlist</a>
+<% end %>
