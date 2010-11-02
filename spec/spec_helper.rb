@@ -52,3 +52,14 @@ Spec::Runner.configure do |config|
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end
+
+def login_as(user)
+  case user
+    when :admin
+      @current_user = mock_model(User)
+      User.should_receive(:find_by_id).any_number_of_times.and_return(@current_user)
+      request.session[:user] = @current_user
+    else
+      request.session[:user] = nil
+  end
+end

@@ -30,7 +30,7 @@ Given /^I am signed in as "([^"]*)" using password "([^"]*)"$/ do |login, pw|
    end
 end
 
-Given /^"(.)" has uploaded a song called "(.)"$/ do |user, song|
+Given /^"([^"]*)" has uploaded a song called "([^"]*)"$/ do |user, song|
   @user = User.find_by_name(user)
   @user.songs << Song.new(:name => song)
   @user.save
