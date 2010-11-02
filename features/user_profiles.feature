@@ -23,5 +23,4 @@ Feature: User Profiles
       And "Foo" has uploaded a song called "Dear Bar"
     When I am on the profile for "Foo"
     Then I should see a profile picture
-      And I should see navigation links
       And I should see the song "Bar"
