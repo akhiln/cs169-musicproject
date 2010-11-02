@@ -5,7 +5,7 @@ Feature: Manage music
   
   Scenario: Upload new song
     Given I am on the upload song page
-    When I fill in "Title" with "Song Title"
+    When I fill in "song_name" with "Song Title"
       And I fill in "Description" with "Song Description"
       And I select file "song.mp3" to upload
       And I press "Upload"

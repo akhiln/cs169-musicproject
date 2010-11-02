@@ -1371,3 +1371,15 @@ Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/users]
 
 
 Processing ApplicationController#index (for 127.0.0.1 at 2010-11-01 16:39:05) [GET]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-02 01:27:17) [GET]
+Redirected to http://www.example.com/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 11608ms (DB: 0) | 302 Found [http://www.example.com/songs/new]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-11-02 01:27:29) [GET]
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 27ms (View: 24, DB: 0) | 200 OK [http://www.example.com/session/new]
