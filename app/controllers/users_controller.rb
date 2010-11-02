@@ -1,14 +1,9 @@
 class UsersController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
   
-
   # render new.rhtml
   def new
     @user = User.new
     render :action => 'new'
-  end
-  def edit_picture
-     
   end
 
   def create
@@ -31,6 +26,34 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+
+  def edit
+    @user = User.find(params[:id])
+    if not @current_user.id == @user.id
+       flash[:error]  = "You do not have permission to edit this user."
+       render :action => "show"
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    success = @user.save
+    if not params[:upload].nil?
+      success = success && @user.upload_picture(params[:upload])
+    end
+    respond_to do |format|
+      if success
+        flash[:notice] = 'Your information was successfully updated.'
+        format.html { redirect_to @user}
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
 
   def show
     @user = User.find(params[:id])
