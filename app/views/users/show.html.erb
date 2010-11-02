@@ -1,0 +1,14 @@
+this is the page that shows the user.
+<div class="profile" id="name_and_pic">
+<p id="name"><%= @user.name %></p><br>
+<img src="<%=@user.pic%>" style="width: 400px;"/>
+</div>
+<div class="profile" id="info">
+<%= @user.bio %>
+</div>
+<div class="profile" id="songs">
+<p> User's songs will go here!"</p>
+</div>
+<div class="profile" id="playlists">
+<p> User's playlists will go here!"</p>
+</div>
