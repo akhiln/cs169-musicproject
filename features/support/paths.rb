@@ -12,7 +12,6 @@ module NavigationHelpers
       '/'
     when /the signup page/
       '/signup'
-
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
@@ -24,6 +23,8 @@ module NavigationHelpers
     when /the profile for "(.*)"/
        @user = Users.find_by_name($1)
       'users/show/'+@user.id.to_s
+    when /the login page/
+       '/login'
 
     else
       begin

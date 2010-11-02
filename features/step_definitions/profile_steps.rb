@@ -15,6 +15,19 @@ Given /^I am signed in as "([^"]*)"$/ do |user_name|
    log_in_user!  :login => user_name, :password => "password"
 end
 
+Given /^I sign in as "(.*)" using password (".*)$/ do |login, passwd|
+   visit path_to('the login page')
+   fill_in('Login', :with => user_name)
+   fill_in('Password', :with => password)
+   click_button('Log in')
+     current_path = URI.parse(current_url).path
+  if current_path.respond_to? :should
+    current_path.should == path_to(page_name)
+  else
+    assert_equal path_to(page_name), current_path
+  end
+end
+
 Given /^"(.)" has uploaded a song called "(.)"$/ do |user, song|
   @user = User.find_by_name(user)
   @user.songs << Song.new(:name => song)
