@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
   end
 
   def upload_picture(uploadFile)
+    if uploadFile['datafile'].empty?
+      self.pic = "images/default.jpg"
+      return self.save
+    end
     name = self.login.hash.to_s
     directory = "/images"
     # create the file path
