@@ -26,6 +26,8 @@ module NavigationHelpers
       'users/show/'+@user.id.to_s
     when /the login page/
        '/login'
+    when /the Make new playlist page/
+       '/Playlists/new'
 
     else
       begin
