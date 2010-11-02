@@ -8,3 +8,4 @@ Then /^there should be a user named "(.*)"$/ do |user_name|
   @user.should be_valid
 end
 
+

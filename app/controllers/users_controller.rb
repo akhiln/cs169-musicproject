@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     success = @user && @user.save
     if success && @user.errors.empty?
       # save the profile picture:
-        if not params[:upload].empty?
+        if !params[:upload].nil?
           @user.upload_picture(params[:upload])
         else
           @user.pic = "/images/default.jpg"
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       self.current_user = @user # !! now logged in
-      redirect_to @user
+      redirect_to '/Users/show/'+@user.id.to_s
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
     else
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
