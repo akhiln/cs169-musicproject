@@ -24,6 +24,9 @@ module NavigationHelpers
     when /the profile for "(.*)"/
        @user = User.find_by_name($1)
       '/users/show/'+@user.id.to_s
+    when /the edit user page for "(.*)"/
+       @user = User.find_by_name($1)
+      '/users/edit/'+@user.id.to_s
     when /the login page/
        '/login'
 
