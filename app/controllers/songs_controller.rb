@@ -5,7 +5,7 @@ class SongsController < ApplicationController
     @song = Song.new(params[:song])
     respond_to do |format|
       if @song.save
-        @users_songs = UsersSongs.new({:user_id => @current_user.id, :song_id => @song.id})
+        @users_songs = Usersong.new({:user_id => @current_user.id, :song_id => @song.id})
         if @users_songs.save
           @song.upload(params[:upload])
           format.html { redirect_to(@song, :notice => 'Song was successfully created.') }
@@ -27,9 +27,6 @@ class SongsController < ApplicationController
       format.html
       format.xml   { render :xml => @song }
     end
-  end
-  
-  def create
   end
 
 end

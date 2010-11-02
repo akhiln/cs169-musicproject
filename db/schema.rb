@@ -8,7 +8,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
-ActiveRecord::Schema.define(:version => 20101102025313) do
+
+ActiveRecord::Schema.define(:version => 20101102030427) do
 
   create_table "playlists", :force => true do |t|
     t.string   "name"
@@ -53,13 +54,8 @@ ActiveRecord::Schema.define(:version => 20101102025313) do
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
-<<<<<<< HEAD
-  create_table "usersong", :force => true do |t|
-    t.integer  "playlist_id"
-=======
-  create_table "users_songs", :force => true do |t|
+  create_table "usersongs", :force => true do |t|
     t.integer  "user_id"
->>>>>>> 50fb9c0864f097d49b262811d2586fb3a61346c4
     t.integer  "song_id"
     t.datetime "created_at"
     t.datetime "updated_at"

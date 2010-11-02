@@ -1,6 +1,8 @@
 class Song < ActiveRecord::Base	
-  has_many :playlists, :through => :PlaylistsSongs
-  has_many :users, :through => :UsersSongs
+  has_many :playlists_songss
+  has_many :playlists, :through => :playlists_songss
+  has_many :usersongs
+  has_many :users, :through => :usersongs
 
   def upload(uploadFile)
     name = uploadFile['datafile'].original_filename
