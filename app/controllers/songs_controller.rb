@@ -66,5 +66,10 @@ class SongsController < ApplicationController
     @song.destroy
     redirect_to(@current_user, :notice => "Song successfully deleted")
   end
+  
+  def my
+  end
 
+  def popular
+  end
 end
