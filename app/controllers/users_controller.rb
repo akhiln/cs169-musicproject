@@ -1,16 +1,15 @@
 class UsersController < ApplicationController
-  
+  before_filter :require_no_user, :only => [:new, :create]
+  before_filter :require_user, :only => [:show, :edit, :update]
   # render new.rhtml
   def new
     @user = User.new
-    render :action => 'new'
   end
 
   def create
-    logout_keeping_session!
     @user = User.new(params[:user])
     
-    success = @user && @user.save
+    success = @user.save
     if success && @user.errors.empty?
       # save the profile picture:
           @user.upload_picture(params[:upload])
@@ -18,7 +17,6 @@ class UsersController < ApplicationController
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       # reset session
-      self.current_user = @user # !! now logged in
       redirect_to '/Users/show/'+@user.id.to_s
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
     else
@@ -28,11 +26,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-    if not @current_user.id == @user.id
-       flash[:error]  = "You do not have permission to edit this user."
-       render :action => "show"
-    end
+    @user = current_user
   end
 
   def update
