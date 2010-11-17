@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   # POST /songs
   # POST /songs.xml
-  before_filter :login_required
+  before_filter :require_user
   def create
     @song = Song.new(params[:song])
     respond_to do |format|      

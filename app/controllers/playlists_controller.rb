@@ -1,4 +1,5 @@
 class PlaylistsController < ApplicationController
+	before_filter :require_user
 	def list
 		@playlists = User.find(params[:id]).playlists
 	end
