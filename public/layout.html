@@ -5,19 +5,18 @@
   <%= javascript_include_tag 'jquery', 'application' %>
   <%= javascript_include_tag 'ajaxify', 'application' %>
   <script type="text/javascript">   $(document).ready(function() {    $('.ajaxify').ajaxify(); });</script>
-
 </head>
 <body>
 <div id="main">
 	<div id="app_header">
-		<%= image_tag "logo.gif", :align=>"left" %>
+		<img src="images/logo.gif" width="243" height="123" align="left" />
 		<div id="login_links">
 			<% if current_user %>
 				<%= link_to "Edit Profile", edit_user_path(:current), :class => 'ajaxify' %> |
-				<%= link_to "Logout", logout_path, :class => 'ajaxify' %>
+				<%= link_to "Logout", logout_path %>
 			<% else %>
-				<%= link_to "Register", new_user_path, :class => 'ajaxify' %> |
-				<%= link_to "Login", login_path, :class => 'ajaxify' %>
+				<%= link_to "Register", new_user_path %> |
+				<%= link_to "Login", login_path %>
 			<% end %>
 		</div>
 	</div>
@@ -37,7 +36,7 @@
 				<li>
 					<%= link_to "My Playlists", my_playlists_path(), :class => 'ajaxify' %>
 				</li>
-			<% end %>
+			<% end >%
 			<li>
 				<%= link_to "Browse", browse_path(), :class => 'ajaxify' %>
 			</li>
@@ -45,7 +44,9 @@
 	</div>
 	
 	<div id="main_content">
-		<%=yield%>
+		<div id="main_img">
+			<img src="images/band_test.png" width="800" height="150" />
+		</div>	
 	</div>
 	
 </div>

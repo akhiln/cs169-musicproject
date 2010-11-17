@@ -27,19 +27,92 @@
 #header .right li {
 	display:inline;
 }
-
-#main_content {
-	width: 980px;
-	border-right: 2px solid gray;
+body {
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+	font-family: Arial, Helvetica, sans-serif; 
+}
+#main {
+	width: 800px;
 	height: 100%;
+	border-left: 2px solid gray;
+	border-right: 2px solid gray;
+	left: auto;
+	right: auto;
+	position: relative;
 }
 
-#main_content #left_nav {
-	width: 180px;
-	background-color: #dddddd;
-	border-right: 1px solid #bbbbbb;
-	padding:5px;
-	margin: 0px;
-	float: left;
-	height:100%;
+#main_content {
+	padding-bottom: 100px;
+	text-align: left;
+	padding-left: 10px;
+	padding-right:10px;
+	padding-top:3px;
+}
+#app_header {
+	width: 100%;
+	height: 123px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+}
+
+#login_links {
+	position: relative;
+	float: right;
+	padding-right:15px;
+}
+#login_links a {
+	color: #2f2e2b;
+	text-decoration: none;
+}
+#login_links a:hover {
+	color: gray;
+}
+
+#nav {
+	height: 30px;
+	margin: 0;
+	padding: 0px 0px 0;
+	text-align: left;
+	background: #8b8b8b; /* for non-css3 browsers */
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9a9a9', endColorstr='#7a7a7a'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#a9a9a9), to(#7a7a7a)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #a9a9a9,  #7a7a7a); /* for firefox 3.6+ */
+ 
+	border-top: solid 1px #6d6d6d;
+	border-bottom: solid 1px #6d6d6d;
+}
+#nav li {
+display:inline; list-style-type:none; padding-left:1em; margin-left:1em; border-left:1px solid #ccc
+}
+#nav li:first-child {
+border-left:none
+}
+
+#nav ul {
+	margin: 5px;
+	padding:0 ;
+	vertical-align: middle;
+}
+
+#nav a {
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:14px;
+	text-decoration: none;
+}
+#nav a:hover {
+	color: #d6d6d6;
+}
+
+#persistent_player {
+	width: 800px;
+	height: 100px;
+	position:fixed;
+	bottom:0;
+	background-color: white;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	left: 2px;
 }

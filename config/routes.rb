@@ -4,13 +4,16 @@ ActionController::Routing::Routes.draw do |map|
   map.user_session '/login', :controller => 'user_sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
+  map.login "login", :controller => "user_sessions", :action => "new"
+  map.browse "browse", :controller=>"browse",:action=>"all"
 
   map.resources :users
 
   map.resources :playlists_songs
 
   map.resources :playlists
-
+  map.resources :playlists, :collection => { :popular => :get, :my => :get }
+  map.resources :songs, :collection => { :popular => :get, :my => :get }
   map.resources :songs
   
   map.resources :users_songs
