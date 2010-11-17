@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :playlists
 
   acts_as_authentic do |c|
-    c.transition_from_restful_authentication = true
+    #c.transition_from_restful_authentication = true
   end
 
 

@@ -1,4 +1,5 @@
 
+require 'authlogic/test_case'
 
 Given /^I am not signed in$/ do 
   visit '/logout'
