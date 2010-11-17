@@ -1,0 +1,70 @@
+Using the default profile...
+.................................F-UU................FUUUFUUUUU.......
+
+(::) failed steps (::)
+
+Can't find mapping from "the profile page of user "Foo"" to a path.
+Now, go and add a mapping in /home/jamesparker/proj/cs169-musicproject/features/support/paths.rb (RuntimeError)
+./features/support/paths.rb:42:in `path_to'
+./features/step_definitions/web_steps.rb:20:in `/^(?:|I )am on (.+)$/'
+features/play_song.feature:7:in `Given I am on the profile page of user "Foo"'
+
+Can't find mapping from "the manage music page" to a path.
+Now, go and add a mapping in /home/jamesparker/proj/cs169-musicproject/features/support/paths.rb (RuntimeError)
+./features/support/paths.rb:42:in `path_to'
+./features/step_definitions/web_steps.rb:20:in `/^(?:|I )am on (.+)$/'
+features/manage_music.feature:25:in `Given I am on the manage music page'
+
+Can't find mapping from "the manage music page" to a path.
+Now, go and add a mapping in /home/jamesparker/proj/cs169-musicproject/features/support/paths.rb (RuntimeError)
+./features/support/paths.rb:42:in `path_to'
+./features/step_definitions/web_steps.rb:20:in `/^(?:|I )am on (.+)$/'
+features/manage_music.feature:31:in `Given I am on the manage music page'
+
+Failing Scenarios:
+cucumber features/play_song.feature:6 # Scenario: Play song
+cucumber features/manage_music.feature:24 # Scenario: Delete song
+cucumber features/manage_music.feature:30 # Scenario: Update song
+
+9 scenarios (3 failed, 6 passed)
+70 steps (3 failed, 1 skipped, 10 undefined, 56 passed)
+0m2.942s
+
+You can implement step definitions for undefined steps with these snippets:
+
+When /^I click the play button for "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^the song "([^"]*)" should start playing$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^there is a song called "([^"]*)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I click the delete button$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^"([^"]*)" should be deleted from the database$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I change the title of "([^"]*)" to "([^"]*)"$/ do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^click the submit button$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^"([^"]*)" should no longer be in the database$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^"([^"]*)" should be in the database$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
