@@ -13,10 +13,6 @@ class UsersController < ApplicationController
     if success && @user.errors.empty?
       # save the profile picture:
           @user.upload_picture(params[:upload])
-      # Protects against session fixation attacks, causes request forgery
-      # protection if visitor resubmits an earlier form using back
-      # button. Uncomment if you understand the tradeoffs.
-      # reset session
       redirect_to '/Users/show/'+@user.id.to_s
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
     else
