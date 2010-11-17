@@ -50,6 +50,7 @@ class UsersController < ApplicationController
 
 
   def show
+    params[:id] ||= @current_user.id
     @user = User.find(params[:id])
     @songs = @user.songs
     if  !@songs.nil? && @songs.length > 10
