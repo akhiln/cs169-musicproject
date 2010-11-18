@@ -4,6 +4,8 @@
   <%= stylesheet_link_tag 'jquery-ui' %>
   <%= javascript_include_tag 'jquery', 'application' %>
   <%= javascript_include_tag 'ajaxify', 'application' %>
+  <%= javascript_include_tag 'niftyplayer', 'application' %>
+
   <script type="text/javascript">   $(document).ready(function() {    $('.ajaxify').ajaxify(); });</script>
 
 </head>
@@ -51,7 +53,14 @@
 </div>
 
 <div id="persistent_player">
-Test this shit (persistent player div)
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="165" height="38" id="niftyPlayer1" align="">
+    <param name=movie value="player/niftyplayer.swf">
+    <param name=quality value=high>
+    <param name=bgcolor value=#FFFFFF>
+    <embed src="player/niftyplayer.swf" quality=high bgcolor=#FFFFFF width="165" height="38" name="niftyPlayer1" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+    </embed>
+  </object>
 </div>
+
 </body>
 </html>

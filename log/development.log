@@ -9564,3 +9564,670 @@ Processing PlaylistsController#new (for 127.0.0.1 at 2010-11-16 19:56:53) [GET]
 Rendering template within layouts/application
 Rendering playlists/new
 Completed in 507ms (View: 27, DB: 10) | 200 OK [http://localhost/Playlists/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-16 21:22:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 385ms (View: 90, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-16 21:22:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 86ms (View: 20, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-16 21:22:26) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"mitchell"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'mitchell') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 560ms (View: 31, DB: 1) | 200 OK [http://localhost/user_session]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-16 21:22:39) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"mitch"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'mitch') LIMIT 1[0m
+  [4;36;1mUser Update (1.4ms)[0m   [0;1mUPDATE "users" SET "failed_login_count" = 1, "updated_at" = '2010-11-17 05:22:39', "perishable_token" = 'O5GE346pKqsvyIwcv3S' WHERE "id" = 3[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 561ms (View: 49, DB: 3) | 200 OK [http://localhost/user_session]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-16 21:22:47) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"mitch"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'mitch') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "failed_login_count" = 2, "updated_at" = '2010-11-17 05:22:47', "perishable_token" = 'n5HWDtvtBKetI9toazXE' WHERE "id" = 3[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 239ms (View: 36, DB: 2) | 200 OK [http://localhost/user_session]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-16 21:22:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 207ms (View: 135, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-16 21:23:14) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "controller"=>"users", "user"=>{"name"=>"mitchell", "password_confirmation"=>"[FILTERED]", "bio"=>"", "password"=>"[FILTERED]", "login"=>"mitchell", "email"=>"mitchell@mitch.com"}}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'mitchell@mitch.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'mitchell') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'cac217e66d156c25753282c1f747c49429dac5c1320b7b6e24112732384f9c3fbee99429f612216c60e81eba682e3aa8d812cb925a7130c585a9372a5de1de9d') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'nPfuhcewRfqJwrIRI1K') LIMIT 1[0m
+  [4;35;1mUser Create (1.1ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('mitchell', NULL, '2010-11-17 05:23:14', '2010-11-17 05:23:14', 'nPfuhcewRfqJwrIRI1K', '42a2a029fe86adf7a25633ca6cf1c5e0486d35702be0c31a4bbc85778236093085d535a9785cc838ba1f3dd1f8c5f8397ca11880e8a480b786af0f5338ea28fb', '2010-11-17 05:23:14', NULL, 'dcZ4g0YWzp0PfRCMkMG', NULL, 0, '127.0.0.1', 'WyiCiNeXSluK4hFgUofc', '2010-11-17 05:23:14', 1, 'cac217e66d156c25753282c1f747c49429dac5c1320b7b6e24112732384f9c3fbee99429f612216c60e81eba682e3aa8d812cb925a7130c585a9372a5de1de9d', NULL, '', NULL, 'mitchell', NULL, 'mitchell@mitch.com', NULL, 't')[0m
+  [4;36;1mUser Update (1.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-17 05:23:14', "perishable_token" = 'dW2QD6s50Gj1ydY9MTZV', "pic" = '/images/default.jpg' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/Users/show/9
+Completed in 534ms (DB: 4) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-16 21:23:14) [GET]
+  Parameters: {"action"=>"show", "id"=>"9", "controller"=>"users"}
+  [4;35;1mUser Load (7.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cac217e66d156c25753282c1f747c49429dac5c1320b7b6e24112732384f9c3fbee99429f612216c60e81eba682e3aa8d812cb925a7130c585a9372a5de1de9d') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-17 05:23:15', "perishable_token" = 'BF1zHbCEhVb8McYaB7x', "last_request_at" = '2010-11-17 05:23:15' WHERE "id" = 9[0m
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mSong Load (0.7ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 1064ms (View: 48, DB: 12) | 200 OK [http://localhost/Users/show/9]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-16 21:23:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cac217e66d156c25753282c1f747c49429dac5c1320b7b6e24112732384f9c3fbee99429f612216c60e81eba682e3aa8d812cb925a7130c585a9372a5de1de9d') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-17 05:23:51', "perishable_token" = 'C1D5ID8B1MtdEH3o3uW', "last_request_at" = '2010-11-17 05:23:51' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 409ms (View: 88, DB: 3) | 200 OK [http://localhost/Songs/new]
+
+
+Processing PlaylistsController#show (for 127.0.0.1 at 2010-11-16 21:24:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"popular", "controller"=>"playlists"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cac217e66d156c25753282c1f747c49429dac5c1320b7b6e24112732384f9c3fbee99429f612216c60e81eba682e3aa8d812cb925a7130c585a9372a5de1de9d') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-17 05:24:12', "perishable_token" = 'QLmEIA6KxrMCLA6O7P', "last_request_at" = '2010-11-17 05:24:12' WHERE "id" = 9[0m
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Playlist with ID=popular):
+  app/controllers/playlists_controller.rb:8:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (123.9ms)
+Rendered rescues/_request_and_response (3.2ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-16 21:24:18) [GET]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cac217e66d156c25753282c1f747c49429dac5c1320b7b6e24112732384f9c3fbee99429f612216c60e81eba682e3aa8d812cb925a7130c585a9372a5de1de9d') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-17 05:24:18', "perishable_token" = 'XkDTPW3BwxhjtAuIpeJ', "last_request_at" = '2010-11-17 05:24:18' WHERE "id" = 9[0m
+
+ActionView::MissingTemplate (Missing template songs/popular.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-16 21:24:30) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cac217e66d156c25753282c1f747c49429dac5c1320b7b6e24112732384f9c3fbee99429f612216c60e81eba682e3aa8d812cb925a7130c585a9372a5de1de9d') LIMIT 1[0m
+  [4;36;1mUser Update (2.1ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-17 05:24:30', "perishable_token" = 'djXuyfwIuIcoz2hssj', "last_request_at" = '2010-11-17 05:24:30' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 639ms (View: 65, DB: 4) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-16 21:24:34) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'cac217e66d156c25753282c1f747c49429dac5c1320b7b6e24112732384f9c3fbee99429f612216c60e81eba682e3aa8d812cb925a7130c585a9372a5de1de9d') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-17 05:24:34', "perishable_token" = 'EXfqdmfwhAMihpA0IH', "last_request_at" = '2010-11-17 05:24:34' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/user_session/new
+Completed in 219ms (DB: 2) | 302 Found [http://localhost/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-16 21:24:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 149ms (View: 19, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-16 21:25:38) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"mitchell"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'mitchell') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "login_count" = 2, "updated_at" = '2010-11-17 05:25:38', "perishable_token" = 'qUFLH3MPJmhQI0F8tT', "last_request_at" = '2010-11-17 05:25:38', "last_login_at" = '2010-11-17 05:23:14', "last_login_ip" = '127.0.0.1', "current_login_at" = '2010-11-17 05:25:38' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Completed in 255ms (DB: 3) | 302 Found [http://localhost/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-16 21:25:39) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (3.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-17 05:25:39', "perishable_token" = 'kIOGC10LBzXURWOoPWs1', "last_request_at" = '2010-11-17 05:25:39' WHERE "id" = 9[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mSong Load (0.8ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;35;1mPlaylist Load (0.6ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 434ms (View: 12, DB: 8) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-16 21:25:51) [GET]
+  Parameters: {"action"=>"edit", "id"=>"9", "controller"=>"users"}
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-17 05:25:51', "perishable_token" = 'oHN0PnbSJn0LcT8GNGPQ', "last_request_at" = '2010-11-17 05:25:51' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 482ms (View: 34, DB: 3) | 200 OK [http://localhost/users/edit/9]
+
+
+Processing ApplicationController#all (for 127.0.0.1 at 2010-11-16 21:25:55) [GET]
+  Parameters: {"action"=>"all", "controller"=>"browse"}
+
+NameError (uninitialized constant BrowseController):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (83.7ms)
+Rendered rescues/_request_and_response (17.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-16 21:26:16) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-17 05:26:16', "perishable_token" = 'sBMmVZlgoV5kbowW1tx', "last_request_at" = '2010-11-17 05:26:16' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/user_session/new
+Completed in 227ms (DB: 2) | 302 Found [http://localhost/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-16 21:26:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 392ms (View: 25, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-16 21:26:23) [GET]
+  Parameters: {"action"=>"edit", "id"=>"9", "controller"=>"users"}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 60ms (DB: 0) | 302 Found [http://localhost/users/edit/9]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-16 21:26:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 121ms (View: 19, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-16 21:26:33) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 110ms (DB: 0) | 302 Found [http://localhost/users/current/edit]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-16 21:26:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 143ms (View: 21, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 19:26:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 820ms (View: 315, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-17 19:28:04) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"mitchell"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'mitchell') LIMIT 1[0m
+  [4;35;1mUser Update (13.5ms)[0m   [0mUPDATE "users" SET "login_count" = 3, "updated_at" = '2010-11-18 03:28:07', "perishable_token" = '9VhhZGgScj8kDJuZVoLH', "last_request_at" = '2010-11-18 03:28:07', "last_login_at" = '2010-11-17 05:25:38', "current_login_at" = '2010-11-18 03:28:07' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Completed in 3419ms (DB: 15) | 302 Found [http://localhost/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 19:28:08) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (10.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 03:28:08', "perishable_token" = '8D9rgiKJqVGZJlIEZhCW', "last_request_at" = '2010-11-18 03:28:08' WHERE "id" = 9[0m
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (8.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 1635ms (View: 129, DB: 23) | 200 OK [http://localhost/account]
+
+
+Processing PlaylistsController#new (for 127.0.0.1 at 2010-11-17 19:56:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"playlists"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 03:56:04', "perishable_token" = 'ehwqnOnqUfvjWgg5PCfR', "last_request_at" = '2010-11-18 03:56:04' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 1258ms (View: 239, DB: 3) | 200 OK [http://localhost/Playlists/new]
+
+
+Processing PlaylistsController#index (for 127.0.0.1 at 2010-11-17 19:58:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"playlists"}
+  [4;35;1mUser Load (17.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (24.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 03:58:02', "perishable_token" = '5TwbbGDIDpjKtNqFZDke', "last_request_at" = '2010-11-18 03:58:02' WHERE "id" = 9[0m
+
+ActionController::UnknownAction (No action responded to index. Actions: addsong, confirmaddsong, create, delete, list, new, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlaylistsController#new (for 127.0.0.1 at 2010-11-17 20:06:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"playlists"}
+  [4;35;1mUser Load (5.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (8.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 04:06:45', "perishable_token" = 'ZJfBth67B4p82So75bYK', "last_request_at" = '2010-11-18 04:06:45' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 1252ms (View: 190, DB: 15) | 200 OK [http://localhost/Playlists/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 20:06:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 04:06:49', "perishable_token" = 'aieYsRE7pBICMwrpC8', "last_request_at" = '2010-11-18 04:06:49' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 451ms (DB: 3) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 20:06:49) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 04:06:50', "perishable_token" = 'HVDVtZRPFpsw6S32wv5S', "last_request_at" = '2010-11-18 04:06:50' WHERE "id" = 9[0m
+  [4;35;1mUser Load (2.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mSong Load (0.8ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;35;1mPlaylist Load (0.6ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 1086ms (View: 16, DB: 7) | 200 OK [http://localhost/account]
+
+
+Processing PlaylistsController#new (for 127.0.0.1 at 2010-11-17 20:07:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"playlists"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (1.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:07:36', "perishable_token" = 'MUJ1ZGWIxH2aHa1GGGPD', "last_request_at" = '2010-11-18 04:07:36' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 403ms (View: 53, DB: 3) | 200 OK [http://localhost/Playlists/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 20:07:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:07:40', "perishable_token" = '1f1Tl2SP2mX7U4WzRdUw', "last_request_at" = '2010-11-18 04:07:40' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 229ms (DB: 3) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 20:07:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:07:41', "perishable_token" = 'ViOBeXEL9lGmgA6XEZE', "last_request_at" = '2010-11-18 04:07:41' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.8ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 331ms (View: 21, DB: 7) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-17 20:11:46) [GET]
+  Parameters: {"action"=>"edit", "id"=>"9", "controller"=>"users"}
+  [4;35;1mUser Load (2.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (25.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 04:11:47', "perishable_token" = 'P2Ev6OPzeaFPRd3yk', "last_request_at" = '2010-11-18 04:11:47' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 2195ms (View: 1089, DB: 28) | 200 OK [http://localhost/users/edit/9]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 20:11:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"9", "controller"=>"users"}
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 04:11:53', "perishable_token" = 'lhU5pSWmqlyigdHHVglu', "last_request_at" = '2010-11-18 04:11:53' WHERE "id" = 9[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mSong Load (0.7ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;35;1mPlaylist Load (0.5ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 491ms (View: 29, DB: 6) | 200 OK [http://localhost/users/9]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-17 20:12:49) [GET]
+  Parameters: {"action"=>"edit", "id"=>"9", "controller"=>"users"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:12:49', "perishable_token" = 'UUJ73D0U0NiUyDUdAt5i', "last_request_at" = '2010-11-18 04:12:49' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 413ms (View: 76, DB: 3) | 200 OK [http://localhost/users/edit/9]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-17 20:13:39) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:13:39', "perishable_token" = 'Qu7IFbG6prvJnpyx2zui', "last_request_at" = '2010-11-18 04:13:39' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 290ms (View: 38, DB: 3) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-11-17 20:13:55) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "id"=>"9", "controller"=>"users", "user"=>{"name"=>"mitchell", "bio"=>"blahh"}}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:13:55', "perishable_token" = 'NwHv9tse3gyADKFv88R', "last_request_at" = '2010-11-18 04:13:55' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:13:55', "perishable_token" = 'ZVAdXfLUbn8TlgcqTSSI', "bio" = 'blahh' WHERE "id" = 9[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 04:13:56', "perishable_token" = 'R8088w3f6Xbc9h3ZPNf7' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/users/9
+Completed in 716ms (DB: 6) | 302 Found [http://localhost/Users/update/9]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 20:13:56) [GET]
+  Parameters: {"action"=>"show", "id"=>"9", "controller"=>"users"}
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (1.2ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 04:13:56', "perishable_token" = '95DKrBtOQdbd7TrT04V', "last_request_at" = '2010-11-18 04:13:56' WHERE "id" = 9[0m
+  [4;35;1mUser Load (4.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mSong Load (0.6ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;35;1mPlaylist Load (0.5ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 665ms (View: 19, DB: 8) | 200 OK [http://localhost/users/9]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-17 20:14:11) [GET]
+  Parameters: {"action"=>"edit", "id"=>"9", "controller"=>"users"}
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:14:11', "perishable_token" = 'BatgDFazqtYOCaq9oBO', "last_request_at" = '2010-11-18 04:14:11' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 258ms (View: 35, DB: 3) | 200 OK [http://localhost/users/edit/9]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-17 20:14:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (2.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:14:20', "perishable_token" = 'Zom9Jmk6ZenjN2neuvX', "last_request_at" = '2010-11-18 04:14:20' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 667ms (View: 99, DB: 3) | 200 OK [http://localhost/Songs/new]
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-17 20:14:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"songs"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (1.2ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 04:14:44', "perishable_token" = '6Frj0GZF7vdKQG03EjLR', "last_request_at" = '2010-11-18 04:14:44' WHERE "id" = 9[0m
+  [4;36;1mSong Load (2.3ms)[0m   [0;1mSELECT * FROM "songs" [0m
+Rendering template within layouts/application
+Rendering songs/index
+Completed in 520ms (View: 70, DB: 5) | 200 OK [http://localhost/songs]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:37:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 468ms (View: 107, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:38:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 90ms (View: 27, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:39:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 143ms (View: 52, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:42:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 225ms (View: 47, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:43:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 203ms (View: 97, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:46:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 92ms (View: 26, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:51:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 220ms (View: 35, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:57:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 288ms (View: 116, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-17 21:57:37) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"mitchell"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (30.1ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'mitchell') LIMIT 1[0m
+  [4;35;1mUser Update (1.7ms)[0m   [0mUPDATE "users" SET "login_count" = 4, "updated_at" = '2010-11-18 05:57:37', "perishable_token" = 'tPLmAtQyd72dcISdxkho', "last_request_at" = '2010-11-18 05:57:37', "last_login_at" = '2010-11-18 03:28:07', "current_login_at" = '2010-11-18 05:57:37' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Completed in 992ms (DB: 32) | 302 Found [http://localhost/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 21:57:38) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (7.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 05:57:38', "perishable_token" = 'ZrHTQotD9oWir0deNT', "last_request_at" = '2010-11-18 05:57:38' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 786ms (View: 69, DB: 12) | 200 OK [http://localhost/account]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-17 21:58:23) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 05:58:23', "perishable_token" = 'pEWVBErTwLnH4yyt9e', "last_request_at" = '2010-11-18 05:58:23' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/user_session/new
+Completed in 228ms (DB: 3) | 302 Found [http://localhost/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 21:58:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 118ms (View: 32, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 22:08:38) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 237ms (View: 27, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 22:10:13) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 518ms (View: 115, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 22:13:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 415ms (View: 65, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-17 22:15:29) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"mitchell"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (49.3ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'mitchell') LIMIT 1[0m
+  [4;35;1mUser Update (8.8ms)[0m   [0mUPDATE "users" SET "login_count" = 5, "updated_at" = '2010-11-18 06:15:31', "perishable_token" = 'HwCfIIRX2MIowoe7Nac', "last_request_at" = '2010-11-18 06:15:31', "last_login_at" = '2010-11-18 05:57:37', "current_login_at" = '2010-11-18 06:15:31' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Completed in 1381ms (DB: 58) | 302 Found [http://localhost/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:15:31) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:15:31', "perishable_token" = 'TNt1DzPkrO3c7E4ptcwn', "last_request_at" = '2010-11-18 06:15:31' WHERE "id" = 9[0m
+  [4;36;1mUser Load (5.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (3.8ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 506ms (View: 85, DB: 14) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:16:26) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 06:16:26', "perishable_token" = 'PDS71cZUEZHMhYkCbbUg', "last_request_at" = '2010-11-18 06:16:26' WHERE "id" = 9[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mSong Load (0.6ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;35;1mPlaylist Load (0.5ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 702ms (View: 37, DB: 6) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:17:16) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:17:16', "perishable_token" = 'AzOmF0XIwqbvV8V2tEjF', "last_request_at" = '2010-11-18 06:17:16' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 381ms (View: 51, DB: 6) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:22:36) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (19.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (3.1ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:22:37', "perishable_token" = 'TFtubBp4adWN4F7DdPG0', "last_request_at" = '2010-11-18 06:22:37' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 738ms (View: 123, DB: 26) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:23:03) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 06:23:04', "perishable_token" = '26o5HXqlpsXygx89Hw', "last_request_at" = '2010-11-18 06:23:04' WHERE "id" = 9[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 356ms (View: 40, DB: 6) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-17 22:23:05) [GET]
+
+ActionController::RoutingError (No route matches "/niftyplayer.swf" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:23:35) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:23:36', "perishable_token" = 'U3CCTpo1FdTPdOThlNhf', "last_request_at" = '2010-11-18 06:23:36' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.5ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 640ms (View: 36, DB: 6) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:25:51) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (8.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:25:51', "perishable_token" = 'sKpJ7wUM2PTqIlga2JSz', "last_request_at" = '2010-11-18 06:25:51' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 885ms (View: 168, DB: 14) | 200 OK [http://localhost/account]
