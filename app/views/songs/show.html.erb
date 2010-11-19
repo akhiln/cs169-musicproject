@@ -6,3 +6,12 @@
 <% else %>
  <a href="playlist/addsong/<%=@song.id%>">Add to Playlist</a>
 <% end %>
+<h2>Comments</h2>
+<% if not @comments.nil? %>
+<div class="comment">
+  <% @comments.each do |comment| %>
+    <li class="song_element"><%=link_to(comment.user.name,'/users/show/'+comment.user.id.to_s)%>
+                             <p><%=h comment.text %></p></li>
+  <% end %>
+</ul>
+<%end%>

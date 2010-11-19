@@ -10460,3 +10460,986 @@ Migrating to SongComment (20101119035515)
   [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_perishable_token')[0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
   [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("usersongs")[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 20:47:25) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 149ms (View: 41, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-18 20:47:39) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"surfer"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (6.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Load (8.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'surfer') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 694ms (View: 23, DB: 16) | 200 OK [http://localhost/user_session]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-18 20:47:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 122ms (View: 34, DB: 3) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:47:45) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, edit, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 20:48:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 259ms (View: 153, DB: 3) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-18 20:48:08) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"jamesparker"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mUser Load (4.5ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'jamesparker') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 226ms (View: 46, DB: 7) | 200 OK [http://localhost/user_session]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-18 20:48:13) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 249ms (View: 26, DB: 3) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:48:14) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, edit, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-18 20:48:43) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "controller"=>"users", "user"=>{"name"=>"james", "password_confirmation"=>"[FILTERED]", "bio"=>"askldjkfjn", "password"=>"[FILTERED]", "login"=>"jamesparker", "email"=>"jim@sadkdfkj.com"}}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'jim@sadkdfkj.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'jamesparker') LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'peTXDtFYkOaWsXT7HvZ') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Create (1.5ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('james', NULL, '2010-11-19 04:48:43', '2010-11-19 04:48:43', 'peTXDtFYkOaWsXT7HvZ', '05ed5b293d8e49c56bdac2be44754cde1bcf45f66ffc81da9e9d8ffd353ccde64a9bf4326c31ec556bb10203967871e1e779041657b090c755a3d5949738f538', '2010-11-19 04:48:43', NULL, 'zxj3wk15UA10xh8noKAb', NULL, 0, '127.0.0.1', 'PSAro9gOEViAMwYxBEj2', '2010-11-19 04:48:43', 1, '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49', NULL, 'askldjkfjn', NULL, 'jamesparker', NULL, 'jim@sadkdfkj.com', NULL, 't')[0m
+  [4;35;1mUser Update (1.2ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:48:43', "perishable_token" = 'fC2M1SBwpenUMUL3tFa', "pic" = '/images/default.jpg' WHERE "id" = 10[0m
+Redirected to http://localhost:3000/Users/show/10
+Completed in 248ms (DB: 10) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-18 20:48:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (1.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:48:44', "perishable_token" = '8KvtWvdYrXYQzFSzgWXr', "last_request_at" = '2010-11-19 04:48:44' WHERE "id" = 10[0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.4ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 200ms (View: 25, DB: 6) | 200 OK [http://localhost/Users/show/10]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-18 20:48:45) [GET]
+
+ActionController::RoutingError (No route matches "/Users/show/jwplayer/player.swf" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#my (for 127.0.0.1 at 2010-11-18 20:48:58) [GET]
+  Parameters: {"action"=>"my", "controller"=>"songs"}
+  [4;35;1mUser Load (3.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:48:59', "perishable_token" = 'tCWyQwUWs6ZN6HQuAzp0', "last_request_at" = '2010-11-19 04:48:59' WHERE "id" = 10[0m
+
+ActionView::MissingTemplate (Missing template songs/my.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-18 20:49:01) [GET]
+
+ActionController::RoutingError (No route matches "/Users/show/jwplayer/player.swf" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:49:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:07', "perishable_token" = 'VYxibVBeWGQL5E5OzZv', "last_request_at" = '2010-11-19 04:49:07' WHERE "id" = 10[0m
+  [4;35;1mSong Load (0.3ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=1):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (82.0ms)
+Rendered rescues/_request_and_response (4.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:49:11) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"songs"}
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:11', "perishable_token" = 'cDqZOPFAem4IIlRbiOH3', "last_request_at" = '2010-11-19 04:49:11' WHERE "id" = 10[0m
+  [4;36;1mSong Load (0.3ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 2) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=2):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:49:15) [GET]
+  Parameters: {"action"=>"show", "id"=>"0", "controller"=>"songs"}
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:15', "perishable_token" = 'lQwx0OUK9BKsfdzyO9b', "last_request_at" = '2010-11-19 04:49:15' WHERE "id" = 10[0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=0):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (207.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:49:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"songs"}
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:17', "perishable_token" = 'Vzvs7F0G8B0jMU0qspq', "last_request_at" = '2010-11-19 04:49:17' WHERE "id" = 10[0m
+  [4;36;1mSong Load (4.9ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 8) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=8):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (155.6ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:49:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"songs"}
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:19', "perishable_token" = 'OjD6eBV1RCjk2hnsn', "last_request_at" = '2010-11-19 04:49:19' WHERE "id" = 10[0m
+  [4;35;1mSong Load (0.3ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 4) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=4):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (85.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-18 20:49:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"songs"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:23', "perishable_token" = 'haW1AC0CNNORIYRjTJ', "last_request_at" = '2010-11-19 04:49:23' WHERE "id" = 10[0m
+  [4;36;1mSong Load (1.4ms)[0m   [0;1mSELECT * FROM "songs" [0m
+Rendering template within layouts/application
+Rendering songs/index
+Completed in 167ms (View: 27, DB: 4) | 200 OK [http://localhost/songs/]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:49:24) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:24', "perishable_token" = 'PReCBRSQqp85ERyUk6m', "last_request_at" = '2010-11-19 04:49:24' WHERE "id" = 10[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#all (for 127.0.0.1 at 2010-11-18 20:49:41) [GET]
+  Parameters: {"action"=>"all", "controller"=>"browse"}
+
+NameError (uninitialized constant BrowseController):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (82.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#all (for 127.0.0.1 at 2010-11-18 20:49:41) [GET]
+  Parameters: {"action"=>"all", "controller"=>"browse"}
+
+NameError (uninitialized constant BrowseController):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (91.2ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:49:44) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (2.2ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:45', "perishable_token" = 'ovTwqswqGJ3FoXhZljjG', "last_request_at" = '2010-11-19 04:49:45' WHERE "id" = 10[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show to mp3 (for 127.0.0.1 at 2010-11-18 20:49:50) [GET]
+  Parameters: {"format"=>"mp3", "action"=>"show", "id"=>"34", "controller"=>"songs"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:50', "perishable_token" = 'QwdW0NHY8ICJlFipbXW', "last_request_at" = '2010-11-19 04:49:50' WHERE "id" = 10[0m
+  [4;35;1mSong Load (1.5ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 34) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 34)) LIMIT 1[0m
+Completed in 179ms (View: 1, DB: 4) | 406 Not Acceptable [http://localhost/songs/34.mp3]
+
+
+Processing SongsController#show to mp3 (for 127.0.0.1 at 2010-11-18 20:49:52) [GET]
+  Parameters: {"format"=>"mp3", "action"=>"show", "id"=>"35", "controller"=>"songs"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:49:53', "perishable_token" = 'UvvNWv5jH0j3BEup1jL', "last_request_at" = '2010-11-19 04:49:53' WHERE "id" = 10[0m
+  [4;35;1mSong Load (0.8ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 35) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 35)) LIMIT 1[0m
+Completed in 413ms (View: 1, DB: 3) | 406 Not Acceptable [http://localhost/songs/35.mp3]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:50:03) [GET]
+  Parameters: {"action"=>"show", "id"=>"9", "controller"=>"songs"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:03', "perishable_token" = 'we9VntmNWKNCtD3pjCjZ', "last_request_at" = '2010-11-19 04:50:03' WHERE "id" = 10[0m
+  [4;35;1mSong Load (0.3ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 9) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=9):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (97.2ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:50:06) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:06', "perishable_token" = '0GlpbqLz7DBr35jBZk', "last_request_at" = '2010-11-19 04:50:06' WHERE "id" = 10[0m
+  [4;36;1mSong Load (1.1ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=1):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:50:09) [GET]
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"songs"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (1.2ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:10', "perishable_token" = 'nrfTMx4b0PNZSEGHvvKM', "last_request_at" = '2010-11-19 04:50:10' WHERE "id" = 10[0m
+  [4;35;1mSong Load (0.3ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 6) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=6):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (219.0ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:50:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"songs"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:12', "perishable_token" = '8vlmPaswbwfcRcdfrZQ', "last_request_at" = '2010-11-19 04:50:12' WHERE "id" = 10[0m
+  [4;36;1mSong Load (0.4ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 8) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Song with ID=8):
+  app/controllers/songs_controller.rb:41:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (74.3ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#index (for 127.0.0.1 at 2010-11-18 20:50:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"songs"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:17', "perishable_token" = '3VDOZzuG8poWrMVJmTb4', "last_request_at" = '2010-11-19 04:50:17' WHERE "id" = 10[0m
+  [4;35;1mSong Load (2.0ms)[0m   [0mSELECT * FROM "songs" [0m
+Rendering template within layouts/application
+Rendering songs/index
+Completed in 290ms (View: 16, DB: 4) | 200 OK [http://localhost/songs/]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:50:18) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;36;1mUser Load (4.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (23.1ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:18', "perishable_token" = 'WTs8KO649rKm4VHoJzW', "last_request_at" = '2010-11-19 04:50:18' WHERE "id" = 10[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 20:50:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (11.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:20', "perishable_token" = '7tuYv9dM004g6zNgtKE', "last_request_at" = '2010-11-19 04:50:20' WHERE "id" = 10[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 180ms (DB: 12) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-18 20:50:20) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:20', "perishable_token" = 'UsQf9ciIp6AYyMt510k', "last_request_at" = '2010-11-19 04:50:20' WHERE "id" = 10[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (0.3ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.4ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 241ms (View: 32, DB: 6) | 200 OK [http://localhost/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-18 20:50:24) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:24', "perishable_token" = 'J5Xs22fkgJQoCBybK785', "last_request_at" = '2010-11-19 04:50:24' WHERE "id" = 10[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 409ms (View: 179, DB: 2) | 200 OK [http://localhost/Songs/new]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:50:25) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;35;1mUser Load (5.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:25', "perishable_token" = 'cOxhVrO0Ex8omDjNtAhQ', "last_request_at" = '2010-11-19 04:50:25' WHERE "id" = 10[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-18 20:50:50) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:/tmp/RackMultipart8928-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"rating"=>"5", "name"=>"A test Song", "album"=>"Adasdf", "genre"=>"ads", "description"=>"asdgfffffffff", "length"=>"sdf"}}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:50:50', "perishable_token" = 'xR1L3h6PzrRdazXT3ITo', "last_request_at" = '2010-11-19 04:50:50' WHERE "id" = 10[0m
+  [4;35;1mSong Create (0.5ms)[0m   [0mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(5.0, 'A test Song', '2010-11-19 04:50:51', '2010-11-19 04:50:51', 'Adasdf', 'ads', 0.0, 'asdgfffffffff')[0m
+  [4;36;1mUsersong Create (0.5ms)[0m   [0;1mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-19 04:50:51', '2010-11-19 04:50:51', 10, 38)[0m
+  [4;35;1mSong Delete all (29.5ms)[0m   [0mDELETE FROM "songs" WHERE ("id" IN (38)) [0m
+  [4;36;1mUsersong Delete all (17.5ms)[0m   [0;1mDELETE FROM "usersongs" WHERE ("id" IN (25)) [0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 448ms (View: 26, DB: 50) | 200 OK [http://localhost/songs]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-18 20:51:01) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:01', "perishable_token" = 'EhpzUlvHKcsj4JB1cjrl', "last_request_at" = '2010-11-19 04:51:01' WHERE "id" = 10[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 205ms (View: 58, DB: 2) | 200 OK [http://localhost/users/current/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-18 20:51:02) [GET]
+
+ActionController::RoutingError (No route matches "/users/current/jwplayer/player.swf" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-11-18 20:51:06) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "id"=>"10", "controller"=>"users", "user"=>{"name"=>"james", "bio"=>"askldjkfjn"}}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:06', "perishable_token" = 'ecnkqWM56fkrOWWvc0w', "last_request_at" = '2010-11-19 04:51:06' WHERE "id" = 10[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:06', "perishable_token" = 'VXxVsftN7IOgReZ5tlJ' WHERE "id" = 10[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:06', "perishable_token" = 'jPcdncMn0KMekwSRf37' WHERE "id" = 10[0m
+Redirected to http://localhost:3000/users/10
+Completed in 266ms (DB: 5) | 302 Found [http://localhost/Users/update/10]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-18 20:51:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:07', "perishable_token" = 'xpzC61guQwx8BenQseV', "last_request_at" = '2010-11-19 04:51:07' WHERE "id" = 10[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (0.4ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.2ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 183ms (View: 10, DB: 4) | 200 OK [http://localhost/users/10]
+
+
+Processing UsersController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:51:08) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, edit, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-18 20:51:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (1.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:10', "perishable_token" = '13fq6liZKVAQuPt0pm9k', "last_request_at" = '2010-11-19 04:51:10' WHERE "id" = 10[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 231ms (View: 26, DB: 3) | 200 OK [http://localhost/Songs/new]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:51:11) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (11.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:11', "perishable_token" = 'UcWntkyeoPgoo7gjTui', "last_request_at" = '2010-11-19 04:51:11' WHERE "id" = 10[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-18 20:51:41) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:/tmp/RackMultipart8928-2>}, "action"=>"create", "controller"=>"songs", "song"=>{"rating"=>"4", "name"=>"sddghdh", "album"=>"GFH", "genre"=>"FGH", "description"=>"YHGJ", "length"=>"GFH"}}
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:41', "perishable_token" = '4FuTh6LuH2o0uT35a3qE', "last_request_at" = '2010-11-19 04:51:41' WHERE "id" = 10[0m
+  [4;35;1mSong Create (0.5ms)[0m   [0mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(4.0, 'sddghdh', '2010-11-19 04:51:41', '2010-11-19 04:51:41', 'GFH', 'FGH', 0.0, 'YHGJ')[0m
+  [4;36;1mUsersong Create (0.5ms)[0m   [0;1mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-19 04:51:41', '2010-11-19 04:51:41', 10, 39)[0m
+Redirected to http://localhost:3000/songs/39
+Completed in 242ms (DB: 3) | 302 Found [http://localhost/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:51:42) [GET]
+  Parameters: {"action"=>"show", "id"=>"39", "controller"=>"songs"}
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:51:42', "perishable_token" = '0y9K0FLe9DoGhd9GCcK', "last_request_at" = '2010-11-19 04:51:42' WHERE "id" = 10[0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 39) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 39)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;35;1mSongComment Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: song_comments: SELECT * FROM "song_comments" WHERE ("song_comments".song_id = 39) [0m
+
+ActionView::TemplateError (SQLite3::SQLException: no such table: song_comments: SELECT * FROM "song_comments" WHERE ("song_comments".song_id = 39) ) on line #12 of app/views/songs/show.html.erb:
+9: <h2>Comments</h2>
+10: <% if not @comments.nil? %>
+11: <div class="comment">
+12:   <% @comments.each do |comment| %>
+13:     <li class="song_element"><%=link_to(comment.user.name,'/users/show/'+comment.user.id.to_s)%>
+14:                              <p><%=h comment.text %></p></li>
+15:   <% end %>
+
+    app/views/songs/show.html.erb:12
+    app/controllers/songs_controller.rb:48:in `show'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (126.7ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 20:54:31) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;36;1mUser Load (10.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:54:31', "perishable_token" = 'XFLDJyCSbFPd4QsaR9q', "last_request_at" = '2010-11-19 04:54:31' WHERE "id" = 10[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-18 20:56:16) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:/tmp/RackMultipart8928-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"rating"=>"4", "name"=>"sddghdh", "album"=>"GFH", "genre"=>"FGH", "description"=>"YHGJ", "length"=>"GFH"}}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:56:16', "perishable_token" = 'akUYT9mPRM3XYnLhXroo', "last_request_at" = '2010-11-19 04:56:16' WHERE "id" = 10[0m
+  [4;36;1mSong Create (0.6ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(4.0, 'sddghdh', '2010-11-19 04:56:16', '2010-11-19 04:56:16', 'GFH', 'FGH', 0.0, 'YHGJ')[0m
+  [4;35;1mUsersong Create (0.4ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-19 04:56:16', '2010-11-19 04:56:16', 10, 40)[0m
+Redirected to http://localhost:3000/songs/40
+Completed in 171ms (DB: 4) | 302 Found [http://localhost/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:56:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"40", "controller"=>"songs"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:56:16', "perishable_token" = '1GZDyTIEYNQtasoMBl', "last_request_at" = '2010-11-19 04:56:16' WHERE "id" = 10[0m
+  [4;36;1mSong Load (0.7ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 40) [0m
+
+NameError (uninitialized constant Song::Songcomment):
+  app/controllers/songs_controller.rb:42:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (217.4ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSongs (20101015045340)
+Migrating to CreatePlaylists (20101015045608)
+Migrating to CreateUsersSongs (20101015050128)
+Migrating to CreatePlaylistsSongs (20101015050533)
+Migrating to AlterDbForSongDependence (20101101162435)
+Migrating to CreateUsers (20101101202541)
+Migrating to UpdateUserFieldsAfterAuth (20101101203525)
+Migrating to AddBackPlaylistSongs (20101102015359)
+Migrating to AddSongNameField (20101102020048)
+Migrating to RenameUsersTablePlaylistsIdToUsersId (20101102022250)
+Migrating to ChangePluralDbNames (20101102025313)
+Migrating to RenameUsersSongsToUserssongs (20101102030427)
+Migrating to RenamePlaylistsSongsToPlaylistsongs (20101102032208)
+Migrating to TransitionToAuthlogic (20101116000000)
+Migrating to CreateSongComments (20101119035949)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE TABLE "song_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101119035949')[0m
+Migrating to CreatePlaylistComments (20101119040017)
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TABLE "playlist_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101119040017')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("playlist_comments")[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mPRAGMA index_list("playlists")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("playlistsongs")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("song_comments")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("songs")[0m
+  [4;35;1mSQL (5.8ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_info('index_users_on_perishable_token')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("usersongs")[0m
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:59:05) [GET]
+  Parameters: {"action"=>"show", "id"=>"40", "controller"=>"songs"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (2.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 04:59:06', "perishable_token" = 'kFNjbH07h6xIrXkAEvo', "last_request_at" = '2010-11-19 04:59:06' WHERE "id" = 10[0m
+  [4;36;1mSong Load (0.7ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 40) [0m
+
+NoMethodError (undefined method `song_comments' for #<Song:0xb6fae25c>):
+  app/controllers/songs_controller.rb:42:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.7ms)
+Rendered rescues/_request_and_response (3.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 20:59:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"40", "controller"=>"songs"}
+  [4;35;1mUser Load (3.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (5.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 04:59:41', "perishable_token" = 'ThBNICkNxZcoxZvnUoUs', "last_request_at" = '2010-11-19 04:59:41' WHERE "id" = 10[0m
+  [4;35;1mSong Load (5.8ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 40) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 40)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;35;1mSongComment Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: song_comments.song_id: SELECT * FROM "song_comments" WHERE ("song_comments".song_id = 40) [0m
+
+ActionView::TemplateError (SQLite3::SQLException: no such column: song_comments.song_id: SELECT * FROM "song_comments" WHERE ("song_comments".song_id = 40) ) on line #12 of app/views/songs/show.html.erb:
+9: <h2>Comments</h2>
+10: <% if not @comments.nil? %>
+11: <div class="comment">
+12:   <% @comments.each do |comment| %>
+13:     <li class="song_element"><%=link_to(comment.user.name,'/users/show/'+comment.user.id.to_s)%>
+14:                              <p><%=h comment.text %></p></li>
+15:   <% end %>
+
+    app/views/songs/show.html.erb:12
+    app/controllers/songs_controller.rb:48:in `show'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (150.7ms)
+Rendered rescues/_request_and_response (3.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-18 21:01:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"40", "controller"=>"songs"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (2.1ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 05:01:27', "perishable_token" = 'TlteMv68nlj2ci4giBm', "last_request_at" = '2010-11-19 05:01:27' WHERE "id" = 10[0m
+  [4;36;1mSong Load (5.8ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 40) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 40)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: song_comments.song_id: SELECT * FROM "song_comments" WHERE ("song_comments".song_id = 40) [0m
+
+ActionView::TemplateError (SQLite3::SQLException: no such column: song_comments.song_id: SELECT * FROM "song_comments" WHERE ("song_comments".song_id = 40) ) on line #12 of app/views/songs/show.html.erb:
+9: <h2>Comments</h2>
+10: <% if not @comments.nil? %>
+11: <div class="comment">
+12:   <% @comments.each do |comment| %>
+13:     <li class="song_element"><%=link_to(comment.user.name,'/users/show/'+comment.user.id.to_s)%>
+14:                              <p><%=h comment.text %></p></li>
+15:   <% end %>
+
+    app/views/songs/show.html.erb:12
+    app/controllers/songs_controller.rb:48:in `show'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (276.6ms)
+Rendered rescues/_request_and_response (3.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateForiegnKeysForComments (2010111904100)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateForiegnKeysForComments (2010111904100)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mALTER TABLE "song_comments" ADD "song_id" integer[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mALTER TABLE "playlist_comments" ADD "playlist_id" integer[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE "song_comments" ADD "user_id" integer[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mALTER TABLE "playlist_comments" ADD "user_id" integer[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('2010111904100')[0m
+Migrating to CreateSongs (20101015045340)
+Migrating to CreatePlaylists (20101015045608)
+Migrating to CreateUsersSongs (20101015050128)
+Migrating to CreatePlaylistsSongs (20101015050533)
+Migrating to AlterDbForSongDependence (20101101162435)
+Migrating to CreateUsers (20101101202541)
+Migrating to UpdateUserFieldsAfterAuth (20101101203525)
+Migrating to AddBackPlaylistSongs (20101102015359)
+Migrating to AddSongNameField (20101102020048)
+Migrating to RenameUsersTablePlaylistsIdToUsersId (20101102022250)
+Migrating to ChangePluralDbNames (20101102025313)
+Migrating to RenameUsersSongsToUserssongs (20101102030427)
+Migrating to RenamePlaylistsSongsToPlaylistsongs (20101102032208)
+Migrating to TransitionToAuthlogic (20101116000000)
+Migrating to CreateSongComments (20101119035949)
+Migrating to CreatePlaylistComments (20101119040017)
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (8.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("playlist_comments")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("playlists")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("playlistsongs")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("song_comments")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("songs")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_perishable_token')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("usersongs")[0m
