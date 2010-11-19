@@ -2,16 +2,17 @@
 <%= @song.makePlayer %>
 <p class="songDescription"><%= @song.description %></p>
 <% if @auth %>
-<a href="/songs/delete/<%=@song.id%>">Delete</a> || <a href="/playlists/addsong/<%=@song.id%>">Add to Playlist</a>
+<a href="/songs/delete/<%=@song.id%>">Delete</a> || <a href="/playlists/addsong/<%=@song.id%>">Add to Playlist</a> || <a href="/comment/song/new/<%=@song.id%>">Comment</a>
 <% else %>
  <a href="playlist/addsong/<%=@song.id%>">Add to Playlist</a>
 <% end %>
 <h2>Comments</h2>
 <% if not @comments.nil? %>
-<div class="comment">
   <% @comments.each do |comment| %>
-    <li class="song_element"><%=link_to(comment.user.name,'/users/show/'+comment.user.id.to_s)%>
+    <div class="comment">
+    <li class="comment_element"><%=link_to(comment.user.name,'/users/show/'+comment.user.id.to_s)%>
                              <p><%=h comment.text %></p></li>
+    </div>
   <% end %>
 </ul>
 <%end%>

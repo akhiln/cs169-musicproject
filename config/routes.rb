@@ -30,6 +30,8 @@ ActionController::Routing::Routes.draw do |map|
       
      map.connect 'comment/song/new/:song_id', :controller => 'song_comment', :action => 'new'
      map.connect 'comment/song/create/:song_id', :controller => 'song_comment', :action => 'create'
+     map.connect 'comment/playlist/new/:song_id', :controller => 'playlist_comment', :action => 'new'
+     map.connect 'comment/playlist/create/:song_id', :controller => 'playlist_comment', :action => 'create'
      
 
   # Sample of named route:
