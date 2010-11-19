@@ -32,6 +32,11 @@ ActionController::Routing::Routes.draw do |map|
      map.connect 'comment/playlist/new/:playlist_id', :controller => 'playlist_comment', :action => 'new'
      map.connect 'comment/playlist/create/:playlist_id', :controller => 'playlist_comment', :action => 'create'
      
+     map.connect 'rating/song/new/:song_id', :controller => 'song_rating', :action => 'new'
+     map.connect 'rating/song/create/:song_id', :controller => 'song_rating', :action => 'create'
+     map.connect 'rating/playlist/new/:song_id', :controller => 'playlist_rating', :action => 'new'
+     map.connect 'rating/playlist/create/:song_id', :controller => 'playlist_rating', :action => 'create'
+     
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
@@ -68,3 +73,4 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
+

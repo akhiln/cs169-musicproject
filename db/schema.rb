@@ -51,6 +51,9 @@ ActiveRecord::Schema.define(:version => 20101119063259) do
   end
 
   create_table "song_ratings", :force => true do |t|
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "song_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

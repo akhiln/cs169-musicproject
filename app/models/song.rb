@@ -1,5 +1,6 @@
 class Song < ActiveRecord::Base	
   has_many :song_comments
+  has_many :song_ratings
   has_many :playlistsongs
   has_many :playlists, :through => :playlistsongs
   has_many :usersongs
@@ -40,5 +41,19 @@ class Song < ActiveRecord::Base
     </object>"  '
 
     ""
+  end
+  
+  def rating
+    total = 0.0
+    count = 0.0
+    self.song_ratings.each do |song_rating|
+      count = count + 1
+      total = total + song_rating.rating
+    end
+    if count <= 0
+      "-"
+    else
+      (total / count).to_s
+    end
   end
 end
