@@ -1,0 +1,2 @@
+class PlaylistCommentController < ApplicationController
+end
