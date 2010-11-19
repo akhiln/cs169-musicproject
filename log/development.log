@@ -10422,3 +10422,41 @@ Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:51:18) [GE
 Rendering template within layouts/application
 Rendering user_sessions/new
 Completed in 151ms (View: 48, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSongs (20101015045340)
+Migrating to CreatePlaylists (20101015045608)
+Migrating to CreateUsersSongs (20101015050128)
+Migrating to CreatePlaylistsSongs (20101015050533)
+Migrating to AlterDbForSongDependence (20101101162435)
+Migrating to CreateUsers (20101101202541)
+Migrating to UpdateUserFieldsAfterAuth (20101101203525)
+Migrating to AddBackPlaylistSongs (20101102015359)
+Migrating to AddSongNameField (20101102020048)
+Migrating to RenameUsersTablePlaylistsIdToUsersId (20101102022250)
+Migrating to ChangePluralDbNames (20101102025313)
+Migrating to RenameUsersSongsToUserssongs (20101102030427)
+Migrating to RenamePlaylistsSongsToPlaylistsongs (20101102032208)
+Migrating to TransitionToAuthlogic (20101116000000)
+Migrating to SongComment (20101119035515)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101119035515')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("playlists")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_list("playlistsongs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("songs")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_perishable_token')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("usersongs")[0m
