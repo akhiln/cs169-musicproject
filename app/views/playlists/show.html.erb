@@ -8,7 +8,7 @@
 </ul>
 <%end%>
 <% if @playlist.user_id == @current_user.id %>
-<a href="/playlists/delete/<%=@playlist.id%>">Delete</a>
+<a href="/playlists/delete/<%=@playlist.id%>">Delete</a> || <a href="/comment/playlist/new/<%=@playlist.id%>">Comment</a>
 <% end %>
 <h2>Comments</h2>
 <% if not @comments.nil? %>

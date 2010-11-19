@@ -1,6 +1,6 @@
 <h1>New Comment on "<%=h @playlist.name %>"</h1>
 
-<% form_for(@playlist_comment, :url => "/comment/playlist/create/#{@song.id.to_s}")  do |f| %>
+<% form_for(@playlist_comment, :url => "/comment/playlist/create/#{@playlist.id.to_s}")  do |f| %>
   <%= f.error_messages %>
 
   <p>

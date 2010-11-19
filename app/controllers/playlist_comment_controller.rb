@@ -13,8 +13,8 @@ before_filter :require_user
 
   def create
      @playlist_comment = PlaylistComment.new(params[:playlist_comment])
-     @splaylist_comment.user_id = @current_user.id
-     @playlist_comment.song_id = params[:playlist_id]
+     @playlist_comment.user_id = @current_user.id
+     @playlist_comment.playlist_id = params[:playlist_id]
      @playlist = Playlist.find(params[:playlist_id])
      if @playlist_comment.save
        redirect_to(@playlist, :notice => 'Comment was successfully created.')
