@@ -1,4 +1,5 @@
 class Song < ActiveRecord::Base	
+  has_many :song_comments
   has_many :playlistsongs
   has_many :playlists, :through => :playlistsongs
   has_many :usersongs

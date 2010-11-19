@@ -14,7 +14,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :playlists_songs
 
-  map.resources :playlists
   map.resources :playlists, :collection => { :popular => :get, :my => :get }
   map.resources :songs, :collection => { :popular => :get, :my => :get }
   map.resources :songs
@@ -27,6 +26,10 @@ ActionController::Routing::Routes.draw do |map|
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
+      
+     map.connect 'comment/song/new/:song_id', :controller => 'song_comment', :action => 'new'
+     map.connect 'comment/song/create/:song_id', :controller => 'song_comment', :action => 'create'
+     
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
