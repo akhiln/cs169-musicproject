@@ -68,6 +68,11 @@ class SongsController < ApplicationController
   end
   
   def my
+    @songs = current_user.songs
+    respond_to do |format|
+      format.html   #Akhil makes it pretty
+      format.xml   { render :xml => @songs }
+    end
   end
 
   def popular
