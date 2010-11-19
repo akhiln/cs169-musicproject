@@ -12222,3 +12222,195 @@ ActionController::RoutingError (No route matches "/Users/show/jwplayer/player.sw
   C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
 
 Rendering rescues/layout (not_found)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-18 22:47:12) [GET]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (1.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 06:47:12', "perishable_token" = '3kN04XdJJ7fzmeCM9ut', "last_request_at" = '2010-11-19 06:47:12' WHERE "id" = 9[0m
+  [4;36;1mSong Load (3.0ms)[0m   [0;1mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+
+ActionView::MissingTemplate (Missing template songs/popular.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-18 23:02:28) [GET]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 07:02:28', "perishable_token" = 'dFyeOeSVQM6JLv7PPGan', "last_request_at" = '2010-11-19 07:02:28' WHERE "id" = 9[0m
+  [4;35;1mSong Load (2.4ms)[0m   [0mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+
+ActionView::MissingTemplate (Missing template songs/popular.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-18 23:02:52) [GET]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;36;1mUser Load (7.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 07:02:52', "perishable_token" = 'S9KLWp37vpmQnxKvC0k', "last_request_at" = '2010-11-19 07:02:52' WHERE "id" = 9[0m
+  [4;36;1mSong Load (3.0ms)[0m   [0;1mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+Completed in 313ms (View: 81, DB: 11) | 200 OK [http://localhost/songs/popular]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 23:02:53) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 07:02:53', "perishable_token" = 'Fr5eHWHniYHdeIks26wi', "last_request_at" = '2010-11-19 07:02:53' WHERE "id" = 9[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-18 23:04:38) [GET]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 07:04:38', "perishable_token" = '69GoGCDRZfRBJYGedsDn', "last_request_at" = '2010-11-19 07:04:38' WHERE "id" = 9[0m
+  [4;35;1mSong Load (3.0ms)[0m   [0mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+Completed in 313ms (View: 59, DB: 6) | 200 OK [http://localhost/songs/popular]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 23:04:39) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 07:04:39', "perishable_token" = 'SGiog5iAxr4p04XCeXFX', "last_request_at" = '2010-11-19 07:04:39' WHERE "id" = 9[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-18 23:06:40) [GET]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 07:06:40', "perishable_token" = 'qMFAXMHNECSHW6fQLob', "last_request_at" = '2010-11-19 07:06:40' WHERE "id" = 9[0m
+  [4;36;1mSong Load (3.0ms)[0m   [0;1mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+Completed in 350ms (View: 46, DB: 6) | 200 OK [http://localhost/songs/popular]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 23:06:41) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 07:06:41', "perishable_token" = 'uXF8XFugO37XDpe4Zs7', "last_request_at" = '2010-11-19 07:06:41' WHERE "id" = 9[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-18 23:08:53) [GET]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 07:08:53', "perishable_token" = '2pdkIWKWJClC1ZsxG9k', "last_request_at" = '2010-11-19 07:08:53' WHERE "id" = 9[0m
+  [4;35;1mSong Load (3.1ms)[0m   [0mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+Completed in 367ms (View: 68, DB: 6) | 200 OK [http://localhost/songs/popular]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 23:08:54) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 07:08:54', "perishable_token" = 'Gv0vqPQezIkwW9XhYysL', "last_request_at" = '2010-11-19 07:08:54' WHERE "id" = 9[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-18 23:09:18) [GET]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-19 07:09:18', "perishable_token" = 'j64AvbUM4n6NhXW1WFZb', "last_request_at" = '2010-11-19 07:09:18' WHERE "id" = 9[0m
+  [4;36;1mSong Load (3.1ms)[0m   [0;1mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+Completed in 304ms (View: 32, DB: 6) | 200 OK [http://localhost/songs/popular]
+
+
+Processing SongsController#jwplayer to swf (for 127.0.0.1 at 2010-11-18 23:09:19) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"songs"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-19 07:09:19', "perishable_token" = 'gaxcxzhZ7LVmSGbW3V', "last_request_at" = '2010-11-19 07:09:19' WHERE "id" = 9[0m
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, delete, index, my, new, popular, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
