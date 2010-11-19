@@ -4,7 +4,7 @@
   <%= stylesheet_link_tag 'jquery-ui' %>
   <%= javascript_include_tag 'jquery', 'application' %>
   <%= javascript_include_tag 'ajaxify', 'application' %>
-  <%= javascript_include_tag 'niftyplayer', 'application' %>
+  <%= javascript_include_tag 'jwplayer', 'application' %>
 
   <script type="text/javascript">   $(document).ready(function() {    $('.ajaxify').ajaxify(); });</script>
 
@@ -53,12 +53,21 @@
 </div>
 
 <div id="persistent_player">
-  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="165" height="38" id="niftyPlayer1" align="">
-    <param name=movie value="player/niftyplayer.swf">
-    <param name=quality value=high>
-    <param name=bgcolor value=#FFFFFF>
-    <embed src="player/niftyplayer.swf" quality=high bgcolor=#FFFFFF width="165" height="38" name="niftyPlayer1" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
-    </embed>
+  <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="328" height="200"> 
+    <param name="movie" value="player.swf" /> 
+    <param name="allowfullscreen" value="true" /> 
+    <param name="allowscriptaccess" value="always" /> 
+    <param name="flashvars" value="" /> 
+    <embed 
+       type="application/x-shockwave-flash"
+       id="player2"
+       name="player2"
+       src="jwplayer/player.swf" 
+       width="800" 
+       height="20"
+       allowscriptaccess="always" 
+       allowfullscreen="true"
+       /> 
   </object>
 </div>
 

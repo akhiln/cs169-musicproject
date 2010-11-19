@@ -10231,3 +10231,194 @@ Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:25:51) [GET]
 Rendering template within layouts/application
 Rendering users/show
 Completed in 885ms (View: 168, DB: 14) | 200 OK [http://localhost/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 22:37:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:37:02', "perishable_token" = 'yysVkNQlKuCmSCJdF', "last_request_at" = '2010-11-18 06:37:02' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 784ms (DB: 5) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:37:03) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:37:03', "perishable_token" = 'oPGHQjKqL2El3LLibwr', "last_request_at" = '2010-11-18 06:37:03' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 564ms (View: 112, DB: 7) | 200 OK [http://localhost/account]
+
+
+Processing PlaylistsController#new (for 127.0.0.1 at 2010-11-17 22:37:12) [GET]
+  Parameters: {"action"=>"new", "controller"=>"playlists"}
+  [4;35;1mUser Load (2.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 06:37:13', "perishable_token" = 'don8pSlfQ08Wv9ayp4', "last_request_at" = '2010-11-18 06:37:13' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 1568ms (View: 96, DB: 4) | 200 OK [http://localhost/Playlists/new]
+
+
+Processing PlaylistsController#player to swf (for 127.0.0.1 at 2010-11-17 22:37:17) [GET]
+  Parameters: {"format"=>"swf", "action"=>"player", "id"=>"niftyplayer", "controller"=>"playlists"}
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 06:37:18', "perishable_token" = 'RCQnLvived7vnqUQcIwc', "last_request_at" = '2010-11-18 06:37:18' WHERE "id" = 9[0m
+
+ActionController::UnknownAction (No action responded to player. Actions: addsong, confirmaddsong, create, delete, list, new, and show):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 22:37:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 06:37:20', "perishable_token" = '3JErR1rJxJzq16KP7Z', "last_request_at" = '2010-11-18 06:37:20' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 482ms (DB: 3) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:37:21) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (16.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;36;1mUser Update (2.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-18 06:37:21', "perishable_token" = 'P924NcUUry7wvEwgY0lF', "last_request_at" = '2010-11-18 06:37:21' WHERE "id" = 9[0m
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mSong Load (0.7ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;35;1mPlaylist Load (0.6ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 411ms (View: 25, DB: 22) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-17 22:51:01) [GET]
+  Parameters: {"action"=>"edit", "id"=>"9", "controller"=>"users"}
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (1.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:51:02', "perishable_token" = 'keUADvHQEx0ziYnIyKFz', "last_request_at" = '2010-11-18 06:51:02' WHERE "id" = 9[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 912ms (View: 177, DB: 4) | 200 OK [http://localhost/users/edit/9]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-17 22:51:06) [GET]
+
+ActionController::RoutingError (No route matches "/users/edit/player/niftyplayer.swf" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-17 22:51:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:51:16', "perishable_token" = 'E7v4mrhfMY78bOlQ55l', "last_request_at" = '2010-11-18 06:51:16' WHERE "id" = 9[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 308ms (DB: 3) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-17 22:51:16) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '9') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-18 06:51:16', "perishable_token" = 'JuRbSjrpWU5l1PvR7ZpE', "last_request_at" = '2010-11-18 06:51:16' WHERE "id" = 9[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 397ms (View: 51, DB: 6) | 200 OK [http://localhost/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:47:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 519ms (View: 127, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-18 19:47:41) [GET]
+
+ActionController::RoutingError (No route matches "/player.swf" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:49:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 106ms (View: 41, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:49:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 110ms (View: 40, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:50:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 166ms (View: 43, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:50:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 111ms (View: 48, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:50:55) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 112ms (View: 47, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:51:05) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 434ms (View: 48, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-18 19:51:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 151ms (View: 48, DB: 0) | 200 OK [http://localhost/]
