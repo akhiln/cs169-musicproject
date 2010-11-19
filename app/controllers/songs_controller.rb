@@ -69,8 +69,15 @@ class SongsController < ApplicationController
   end
   
   def my
+    @songs = current_user.songs
+    respond_to do |format|
+      format.html   #Akhil makes it pretty
+      format.xml   { render :xml => @songs }
+    end
   end
 
   def popular
+    @songs = Song.find(:all, :readonly, :limit => 100, :order => "rating DESC")
+    @songs.shuffle!    
   end
 end

@@ -5,9 +5,6 @@
 </div>
 <div class="profile" id="info">
 <%= @user.bio %>
-<% if @user.id == @current_user.id %>
-<p><%=link_to('Edit Profile','/users/edit/'+@user.id.to_s)%></p>
-<%end%>
 </div>
 <div class="profile" id="songs">
 <p class="section_title"><%="Songs by "+@user.name%></p>
