@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rating: 
+  user_id: 
+  song_id: 
+
+two:
+  rating: 
+  user_id: 
+  song_id: 
