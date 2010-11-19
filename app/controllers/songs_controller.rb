@@ -39,6 +39,7 @@ class SongsController < ApplicationController
   
   def show
     @song = Song.find(params[:id])
+    @comments = @song.song_comments
     if @song.users.include?(@current_user)
       @auth = true
     else
