@@ -41,4 +41,9 @@ class PlaylistsController < ApplicationController
 		pl = Playlist.find(playlist_id)
 		redirect_to(pl, :notice => 'Playlist was successfully created.')
 	end
+        
+        def popular
+          @playlists = Playlist.find(:all, :readonly, :limit => 100, :order => "rating DESC")
+          @playlists.shuffle!    
+        end
 end
