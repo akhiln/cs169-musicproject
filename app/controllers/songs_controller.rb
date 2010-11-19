@@ -76,5 +76,7 @@ class SongsController < ApplicationController
   end
 
   def popular
+    @songs = Song.find(:all, :readonly, :limit => 100, :order => "rating DESC")
+    @songs.shuffle!    
   end
 end
