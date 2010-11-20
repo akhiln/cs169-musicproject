@@ -34,8 +34,8 @@ ActionController::Routing::Routes.draw do |map|
      
      map.connect 'rating/song/new/:song_id', :controller => 'song_rating', :action => 'new'
      map.connect 'rating/song/create/:song_id', :controller => 'song_rating', :action => 'create'
-     map.connect 'rating/playlist/new/:song_id', :controller => 'playlist_rating', :action => 'new'
-     map.connect 'rating/playlist/create/:song_id', :controller => 'playlist_rating', :action => 'create'
+     map.connect 'rating/playlist/new/:playlist_id', :controller => 'playlist_rating', :action => 'new'
+     map.connect 'rating/playlist/create/:playlist_id', :controller => 'playlist_rating', :action => 'create'
      
 
      # for bookmarking

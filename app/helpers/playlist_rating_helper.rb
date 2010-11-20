@@ -1,0 +1,2 @@
+module PlaylistRatingHelper
+end

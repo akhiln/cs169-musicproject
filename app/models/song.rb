@@ -53,7 +53,7 @@ class Song < ActiveRecord::Base
     if count <= 0
       "-"
     else
-      (total / count).to_s
+      sprintf("%.2f",(total / count))
     end
   end
 end

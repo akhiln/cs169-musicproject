@@ -1,0 +1,16 @@
+<h1>New Comment on "<%=h @playlist.name %>"</h1>
+
+<% form_for(@playlist_rating, :url => "/rating/playlist/create/#{@playlist.id.to_s}")  do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :Rating %><br />
+    <%= f.select :rating, options_for_select([["1",1],["2",2],["3",3],["4",4],["5",5]]) %>
+  </p>
+  
+<p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', playlists_path %>
