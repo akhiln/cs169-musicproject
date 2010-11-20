@@ -32,4 +32,15 @@
   <% end %>
 </ul>
 <%end%>
+
+<div class="profile" id="bookmarks">
+<p class="section_title"><%=@user.name+'\'s Bookmarks:' %></p>
+<% if not @bookmarks.nil? %>
+<ul class="music_list" id="bm_list">
+  <% @bookmarks.each do |bk| %>
+   <div class="bookmark_element">
+    <li class="pl_element"><%=link_to(bk.playlist.name,'/Playlists/show/'+bk.playlist.id.to_s)%> </li> </div>
+  <% end %>
+</ul>
+<%end%>
 </div>

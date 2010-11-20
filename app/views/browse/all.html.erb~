@@ -1,0 +1,4 @@
+<h2> Browse </h2>
+<% @genres.each do |genre| %>
+  <%=h genre %>
+<% end %>

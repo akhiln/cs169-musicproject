@@ -49,6 +49,7 @@ class UsersController < ApplicationController
     params[:id] ||= @current_user.id
     @user = User.find(params[:id])
     @songs = @user.songs
+    @bookmarks = @user.bookmarks
     if  !@songs.nil? && @songs.length > 10
       @songs = @songs[0..9]
     end

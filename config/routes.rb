@@ -26,7 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
-      
+     # for commenting:
      map.connect 'comment/song/new/:song_id', :controller => 'song_comment', :action => 'new'
      map.connect 'comment/song/create/:song_id', :controller => 'song_comment', :action => 'create'
      map.connect 'comment/playlist/new/:playlist_id', :controller => 'playlist_comment', :action => 'new'
@@ -38,6 +38,8 @@ ActionController::Routing::Routes.draw do |map|
      map.connect 'rating/playlist/create/:song_id', :controller => 'playlist_rating', :action => 'create'
      
 
+     # for bookmarking
+     map.connect 'bookmark/create/:playlist_id', :controller => 'bookmarks', :action => 'create'
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)

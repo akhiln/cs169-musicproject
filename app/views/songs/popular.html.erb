@@ -1,0 +1,9 @@
+<h1> Popular Songs </h1>
+
+<% for i in (0..@songs.size-1) do %>
+  <%= '<div id=' + "song_#{i}" + ' class="song">' %>
+  <%= '<div class=song_name>'+"#{@songs[i].name}"+'</div>' %>
+  <%= '<div class=song_genre>'+"#{@songs[i].genre}"+'</div>' %>
+  <%= '<div class=song_rating>'+"#{@songs[i].rating}"+'</div>' %>
+  <%= '</div>' %>
+<% end %>
