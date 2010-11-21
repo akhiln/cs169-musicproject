@@ -51,6 +51,24 @@ class SongsController < ApplicationController
     end
   end
   
+  def edit
+    @song = Song.find(params[:id])
+  end
+  
+  def update
+    @song = Song.find(params[:id])
+
+    respond_to do |format|
+      if @song.update_attributes(params[:song])
+        format.html { redirect_to(@song, :notice => 'Song was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @Song.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
   def index
     @Songs = Song.find(:all)
     if @Songs == nil

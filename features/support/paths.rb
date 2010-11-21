@@ -29,6 +29,8 @@ module NavigationHelpers
       '/users/edit/'+@user.id.to_s
     when /the login page/
        '/login'
+    when /the logout page/
+       '/logout'
     when /the Make new playlist page/
        '/Playlists/new'
 

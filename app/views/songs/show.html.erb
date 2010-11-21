@@ -2,7 +2,7 @@
 <%= @song.makePlayer %>
 <p class="songDescription"><%= @song.description %></p>
 <% if @auth %>
-<a href="/songs/delete/<%=@song.id%>">Delete</a> || <a href="/playlists/addsong/<%=@song.id%>">Add to Playlist</a> || <a href="/comment/song/new/<%=@song.id%>">Comment</a> || <a href="/rating/song/new/<%=@song.id%>">Rate</a>
+<a href="/songs/delete/<%=@song.id%>">Delete</a> || 
 <% end %>
 <a href="/playlists/addsong/<%=@song.id%>">Add to Playlist</a> || <a href="/comment/song/new/<%=@song.id%>">Comment</a> || <a href="/rating/song/new/<%=@song.id%>">Rate</a>
 <h2>Rating:</h2>

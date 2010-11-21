@@ -4644,3 +4644,1687 @@ Rendering template within layouts/application
 Rendering songs/show
   [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
 Completed in 23ms (View: 9, DB: 0) | 200 OK [http://www.example.com/songs/1]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'foo@bar.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'foo') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '82d45d65ef67ad18aa98f4e3cd3b389f283b0b38dbd01cef958c4ef0bf1a75822ec54783f7528cd11845024aacd53c80a63d1486f9589b7ab5ba4f3cfba291dd') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'e6SiFFD1c7Sj7njzKK8') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('foo', NULL, '2010-11-21 05:54:41', NULL, 'e6SiFFD1c7Sj7njzKK8', 'a9dbad6f02812b6b37bd378229098869f018e2bff9b1f94c1ddc943c32a1452e2f677e7443cf138be3fcf382d632545e1f6d751765f149058b194256380ced50', '2010-11-21 05:54:41', NULL, 'kTST0OAi48NwwBwrhTtz', NULL, 0, NULL, 'R0DYsDZIq2rJrtJhiQk', NULL, 0, '82d45d65ef67ad18aa98f4e3cd3b389f283b0b38dbd01cef958c4ef0bf1a75822ec54783f7528cd11845024aacd53c80a63d1486f9589b7ab5ba4f3cfba291dd', NULL, 'information!', NULL, 'foo', NULL, 'foo@bar.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 21:54:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 37ms (View: 32, DB: 4) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 21:54:41) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"foo", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'foo') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 05:54:41', "perishable_token" = 'GQwaQTXY9JjSbqcUkOXC', "last_request_at" = '2010-11-21 05:54:41', "current_login_at" = '2010-11-21 05:54:41' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 34ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:41', "perishable_token" = 'qO4MbyBdzqFoHfGX2n49', "last_request_at" = '2010-11-21 05:54:41' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (1.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 27ms (View: 9, DB: 2) | 200 OK [http://www.example.com/account]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+  [4;35;1mSong Create (0.0ms)[0m   [0mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'beque', '2010-11-21 05:54:41', '2010-11-21 05:54:41', NULL, NULL, NULL, NULL)[0m
+  [4;36;1mUsersong Create (0.0ms)[0m   [0;1mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 05:54:41', '2010-11-21 05:54:41', 1, 1)[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:41', "perishable_token" = '53Y0GUsyVLDhQFCeOuwh' WHERE "id" = 1[0m
+
+
+Processing PlaylistsController#new (for 127.0.0.1 at 2010-11-20 21:54:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"playlists"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:41', "perishable_token" = 'LDdcZ23BV5zZMr67bG2U', "last_request_at" = '2010-11-21 05:54:41' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering playlists/new
+Completed in 24ms (View: 12, DB: 2) | 200 OK [http://www.example.com/Playlists/new]
+
+
+Processing PlaylistsController#create (for 127.0.0.1 at 2010-11-20 21:54:41) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "playlist"=>{"name"=>"test", "description"=>""}, "controller"=>"playlists"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:41', "perishable_token" = 'BItmzLGeichagjyTZRZ', "last_request_at" = '2010-11-21 05:54:41' WHERE "id" = 1[0m
+  [4;36;1mPlaylist Create (0.0ms)[0m   [0;1mINSERT INTO "playlists" ("name", "rating", "created_at", "updated_at", "user_id", "description") VALUES('test', NULL, '2010-11-21 05:54:41', '2010-11-21 05:54:41', 1, '')[0m
+Redirected to http://www.example.com/playlists/1
+Completed in 13ms (DB: 1) | 302 Found [http://www.example.com/playlists]
+
+
+Processing PlaylistsController#show (for 127.0.0.1 at 2010-11-20 21:54:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"playlists"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:41', "perishable_token" = '2gfFSxJRK3M2JEXJ7fQ', "last_request_at" = '2010-11-21 05:54:41' WHERE "id" = 1[0m
+  [4;35;1mPlaylist Load (0.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering playlists/show
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 1)) [0m
+  [4;35;1mPlaylistComment Load (0.0ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments".playlist_id = 1) [0m
+Completed in 21ms (View: 10, DB: 0) | 200 OK [http://www.example.com/playlists/1]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'foo') LIMIT 1[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:41', "perishable_token" = 'QokIlGSI8gDyqnci5SdK', "last_request_at" = '2010-11-21 05:54:41' WHERE "id" = 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;35;1mPlaylist Load (0.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (1.0ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 20ms (View: 6, DB: 3) | 200 OK [http://www.example.com/users/show/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'a0ca2b0ee7101a5f329a29a17ef2bda81e49ad384d1b90bb038c4cbba5135270d1e2a7412ef9628e19f705c8c3f96737a3a18e986250df0a91bb3a76a3e2c628') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'ktkA63mAUNGevGd3mseT') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith', NULL, '2010-11-21 05:54:42', '2010-11-21 05:54:42', 'ktkA63mAUNGevGd3mseT', '8d3bb2c5d2df094c5de6a0b4f009a2dedb06834536e91de982fd4657f734e5f8dbf7fd607484f2d5d8dbb461ce487295bb91f6e530ce65d3dd9ef09a1a756e5d', '2010-11-21 05:54:42', NULL, 'HzmTEKAG6SZDcCzNNd', NULL, 0, '127.0.0.1', 'MRuCCx98slem8IbgpR6r', '2010-11-21 05:54:42', 1, 'a0ca2b0ee7101a5f329a29a17ef2bda81e49ad384d1b90bb038c4cbba5135270d1e2a7412ef9628e19f705c8c3f96737a3a18e986250df0a91bb3a76a3e2c628', NULL, 'information!', NULL, 'Smith', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 21:54:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 11ms (View: 9, DB: 4) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 21:54:42) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 2, "updated_at" = '2010-11-21 05:54:42', "perishable_token" = 'JbNP7Yskd6GlrC4A3cF', "last_request_at" = '2010-11-21 05:54:42', "last_login_at" = '2010-11-21 05:54:42', "last_login_ip" = '127.0.0.1', "current_login_at" = '2010-11-21 05:54:42' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 12ms (DB: 1) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:42) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:42', "perishable_token" = 'wB6rj5kB7pFinPohwQ4y', "last_request_at" = '2010-11-21 05:54:42' WHERE "id" = 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;35;1mPlaylist Load (0.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (0.0ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 21:54:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:42', "perishable_token" = 'HlCw6yYsOnTPHObnJjy', "last_request_at" = '2010-11-21 05:54:42' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 23ms (View: 11, DB: 1) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 21:54:42) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart3136-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:42', "perishable_token" = '9KhrVEXKYguceSTISk1', "last_request_at" = '2010-11-21 05:54:42' WHERE "id" = 1[0m
+  [4;35;1mSong Create (0.0ms)[0m   [0mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 05:54:42', '2010-11-21 05:54:42', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;36;1mUsersong Create (0.0ms)[0m   [0;1mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 05:54:42', '2010-11-21 05:54:42', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 78ms (DB: 0) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 21:54:42) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:42', "perishable_token" = '9wjBo7oAAX50lCqwSV', "last_request_at" = '2010-11-21 05:54:42' WHERE "id" = 1[0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;35;1mSongComment Load (0.0ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 32ms (View: 14, DB: 2) | 200 OK [http://www.example.com/songs/1]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 15ms (View: 12, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-20 21:54:43) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'testdummy@adsfkjkandsf.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'testdummy') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '6cad13e8ccc5a99e84b9dbbb877201bb402b08e74f85bf545ec08a23652db0f569f58a839bf04990fa0c4e6e538b2ae857e1dd390a80cc8c75010d7a78a4589b') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'nxKSi8xKnaJxHHCcTp0t') LIMIT 1[0m
+  [4;36;1mUser Create (3.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('test dummy', NULL, '2010-11-21 05:54:43', '2010-11-21 05:54:43', 'nxKSi8xKnaJxHHCcTp0t', 'a1f3eededca0a50a8766cd35a9c19293599a594f5263a454a0a0885d978357b6309ee1c95c5b3a21c3ac06e8552a3a7952aabc96649a3bb072eb749b45f16bf4', '2010-11-21 05:54:43', NULL, 'ufyo7cynpcMFP4L1DIVB', NULL, 0, '127.0.0.1', 'V0McET1eb75bxy85Za', '2010-11-21 05:54:43', 1, '6cad13e8ccc5a99e84b9dbbb877201bb402b08e74f85bf545ec08a23652db0f569f58a839bf04990fa0c4e6e538b2ae857e1dd390a80cc8c75010d7a78a4589b', NULL, 'a test user', NULL, 'testdummy', NULL, 'testdummy@adsfkjkandsf.com', NULL, 't')[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'JP7FPtEM2E9k5nGQnOFc', "pic" = '/images/default.jpg' WHERE "id" = 1[0m
+Redirected to http://www.example.com/Users/show/1
+Completed in 28ms (DB: 5) | 302 Found [http://www.example.com/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '6cad13e8ccc5a99e84b9dbbb877201bb402b08e74f85bf545ec08a23652db0f569f58a839bf04990fa0c4e6e538b2ae857e1dd390a80cc8c75010d7a78a4589b') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = '0cSVQw4bygK3LFO2EoN', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (1.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 20ms (View: 6, DB: 3) | 200 OK [http://www.example.com/Users/show/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'test dummy') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'test dummy') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'asd@adf.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'foo') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '36ab89a583c2e6ed763bc6225d14758f6cf5fd1e8f27dd86eeca157037c50d33c954a35df3971ee0638218c7c20408355a4e1f33d5b9fa36c486253232ec0eef') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'jdCt5TfdSHvmI6p4NKPW') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '6cad13e8ccc5a99e84b9dbbb877201bb402b08e74f85bf545ec08a23652db0f569f58a839bf04990fa0c4e6e538b2ae857e1dd390a80cc8c75010d7a78a4589b') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Foo', NULL, '2010-11-21 05:54:43', '2010-11-21 05:54:43', 'jdCt5TfdSHvmI6p4NKPW', 'a5e81d3f6af11c44b08c61dec05db8c3b15fef72439fc6ccf07ad78b257645e705f32420a59fabbed8c13801a7a0b092380deaa0e4118a5d68f4c165a35acf36', '2010-11-21 05:54:43', NULL, 'kkiywRBz8xIr0ssONHaF', NULL, 0, '127.0.0.1', 'kigtmPMpYtPTpEi2L8e', '2010-11-21 05:54:43', 1, '36ab89a583c2e6ed763bc6225d14758f6cf5fd1e8f27dd86eeca157037c50d33c954a35df3971ee0638218c7c20408355a4e1f33d5b9fa36c486253232ec0eef', NULL, 'information!', NULL, 'Foo', NULL, 'asd@adf.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'asds@adf.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'bar') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'cd104b9653c9d21324c007722a6100b020a261a53e8b7835d90b373caab650bc55a6c4008151744d1e442935e75e21c3aa0cd042fbdf4e0acb82a498766dce9f') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Z8iZECI2wNbUCo6L') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '36ab89a583c2e6ed763bc6225d14758f6cf5fd1e8f27dd86eeca157037c50d33c954a35df3971ee0638218c7c20408355a4e1f33d5b9fa36c486253232ec0eef') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = '88hCbQyuwLSOV0ZNcdu', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Bar', NULL, '2010-11-21 05:54:43', NULL, 'Z8iZECI2wNbUCo6L', 'ad55196a6c54163a76644be106a706b93cc7a811c165298e4db7a0d4f7afd3c57605fd8b50388e1ebb150f7a9e7e4fe046215a094d85058fc182cca80d848491', '2010-11-21 05:54:43', NULL, '9PzPPCgfOZHHB9BhEp0', NULL, 0, NULL, 'mGNfqcwMklcVv6pBl9p', NULL, 0, 'cd104b9653c9d21324c007722a6100b020a261a53e8b7835d90b373caab650bc55a6c4008151744d1e442935e75e21c3aa0cd042fbdf4e0acb82a498766dce9f', NULL, 'information!', NULL, 'Bar', NULL, 'asds@adf.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Bar') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 12ms (View: 10, DB: 5) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 21:54:43) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Bar", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'bar') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'g50sbjctz61LD80Kb1m', "last_request_at" = '2010-11-21 05:54:43', "current_login_at" = '2010-11-21 05:54:43' WHERE "id" = 2[0m
+Redirected to http://www.example.com/account
+Completed in 11ms (DB: 0) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = '70kLtxdu2mRq5XwkCvM', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 2[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 2)) [0m
+  [4;35;1mPlaylist Load (0.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (1.0ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 2) [0m
+Completed in 19ms (View: 6, DB: 3) | 200 OK [http://www.example.com/account]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Foo') LIMIT 1[0m
+  [4;36;1mSong Create (1.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Dear Bar', '2010-11-21 05:54:43', '2010-11-21 05:54:43', NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 05:54:43', '2010-11-21 05:54:43', 1, 1)[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'wcIazbvInfbBy1f0E9Ir' WHERE "id" = 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Foo') LIMIT 1[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'XDHemfolx3D0Y0EqwBdI', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 2[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://www.example.com/users/show/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'mine@adf.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'myname') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'd97a74ea52f5d1873ec39d40d4e7d5ec49f2be757048167ea6c93b2062f7ae776696464985b08d62d6d32873bb77b3dbc4de1e9c367fce50e8ce098a7ee53769') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = '2yVIjZaRgEu0Dwr6zKC') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('MyName', NULL, '2010-11-21 05:54:43', '2010-11-21 05:54:43', '2yVIjZaRgEu0Dwr6zKC', '4a7360f2eb50b7fab452bbd03998287cac290da27c5b2dc4200341445479300ca46a6e66923d4fd8a95c4981452f1a87155dd05e27fb67fd0019b0bc6a0facd3', '2010-11-21 05:54:43', NULL, '1n9vDcREeNBwiuoaDNYg', NULL, 0, '127.0.0.1', 'SCmlCFl112bZ1Z8k1', '2010-11-21 05:54:43', 1, 'd97a74ea52f5d1873ec39d40d4e7d5ec49f2be757048167ea6c93b2062f7ae776696464985b08d62d6d32873bb77b3dbc4de1e9c367fce50e8ce098a7ee53769', NULL, 'information!', NULL, 'MyName', NULL, 'mine@adf.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'MyName') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 12ms (View: 11, DB: 2) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 21:54:43) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"MyName", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'myname') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "login_count" = 2, "updated_at" = '2010-11-21 05:54:43', "perishable_token" = '8iYhisUdoieOtJ94FD1', "last_request_at" = '2010-11-21 05:54:43', "last_login_at" = '2010-11-21 05:54:43', "last_login_ip" = '127.0.0.1', "current_login_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 15ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'Vr64zAzdATXdVu6ZkPub', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 21ms (View: 8, DB: 3) | 200 OK [http://www.example.com/account]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'MyName') LIMIT 1[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'NPo4vJDprwqLvc9yRf6F', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;35;1mPlaylist Load (0.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (1.0ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 22ms (View: 7, DB: 2) | 200 OK [http://www.example.com/users/show/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'minee@adf.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'myname2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'f363947998a5b0a813e81f3a52a45bd30ab033dbc866ba2d241de1eedc76ef85310768b9a724e4c7b293d5e69748c704f46ae1ff137831a9ac34ac3c825cd0b9') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'q4GUojco2F50wpwUGra') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (5.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('MyName2', NULL, '2010-11-21 05:54:43', '2010-11-21 05:54:43', 'q4GUojco2F50wpwUGra', 'e1887f338452988b44b1782c35573285fd442cb9f186da80fb15405fa15d511d711e9c766a06cd214831f749df9e7cb6fa0e48e8162ab0417af7db22d334fa44', '2010-11-21 05:54:43', NULL, 'wyzD6lMb01NoAi9nBe2n', NULL, 0, '127.0.0.1', 'Q03LAXTcI8qZkZXob', '2010-11-21 05:54:43', 1, 'f363947998a5b0a813e81f3a52a45bd30ab033dbc866ba2d241de1eedc76ef85310768b9a724e4c7b293d5e69748c704f46ae1ff137831a9ac34ac3c825cd0b9', NULL, 'information!', NULL, 'MyName2', NULL, 'minee@adf.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'MyName2') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 11ms (View: 10, DB: 7) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 21:54:43) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"MyName2", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'myname2') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 2, "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'OtwKlq9TeN7ZCX3adiYK', "last_request_at" = '2010-11-21 05:54:43', "last_login_at" = '2010-11-21 05:54:43', "last_login_ip" = '127.0.0.1', "current_login_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 12ms (DB: 1) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'ig1iyrfdn2GIgNRZca', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;35;1mPlaylist Load (1.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (1.0ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 20ms (View: 6, DB: 4) | 200 OK [http://www.example.com/account]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'MyName2') LIMIT 1[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'tC2PEIjWUJcVJXifXYJ', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Completed in 19ms (View: 11, DB: 0) | 200 OK [http://www.example.com/users/edit/1]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-11-20 21:54:43) [PUT]
+  Parameters: {"commit"=>"Update", "upload"=>{"datafile"=>""}, "action"=>"update", "_method"=>"put", "id"=>"1", "controller"=>"users", "user"=>{"name"=>"MyName3", "bio"=>"information!"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'oXcxJFxfWGPCN0gaSSVO', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'sbFIeaFnvzVqhZsc9XM', "name" = 'MyName3' WHERE "id" = 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'AcyqR5FtzZlnHyZ6ZXw' WHERE "id" = 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'hFYe2zrjjNdASwQXKY0' WHERE "id" = 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 25ms (DB: 4) | 302 Found [http://www.example.com/Users/update/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'BUfjnc1maGEZkZq3Yi1P', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 20ms (View: 8, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'MyName3') LIMIT 1[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 21:54:43) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 05:54:43', "perishable_token" = 'LvalZygGqPiZxdaGkHJ7', "last_request_at" = '2010-11-21 05:54:43' WHERE "id" = 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;35;1mPlaylist Load (1.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (1.0ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 21ms (View: 6, DB: 4) | 200 OK [http://www.example.com/users/show/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'c08ab7413b3fcabd2ce052a9f397b47ea5a14d431c44225f4708eaa2b9e53c61f7fae31f28d1d70c943980f475a0f52c5b0b09019c8cdc3aed72cfa71922757b') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Nao9YBoF1CEO7irGrXB') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 06:27:15', NULL, 'Nao9YBoF1CEO7irGrXB', '4c96b610eadc2d1ce9966cbbf5cbc7d8cc149395eaa06b88a29724a6bed1c633c0d69cc343e3427e3d50212a40c852ec386b75dae596d6f933d1d02b91c69210', '2010-11-21 06:27:15', NULL, 'EohAPrP3khtHr4a610', NULL, 0, NULL, 'UD220JtfN36lBLYZFsKY', NULL, 0, 'c08ab7413b3fcabd2ce052a9f397b47ea5a14d431c44225f4708eaa2b9e53c61f7fae31f28d1d70c943980f475a0f52c5b0b09019c8cdc3aed72cfa71922757b', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:27:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 33, DB: 1) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 22:27:15) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://www.example.com/user_session]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8fc3fb8f41eb12ba0351224efabbfbb60431f20a4ba120a3c6d6e2dbd3ffbe7cbc6bd01d8578f5258006472b7bc4caa2e0e7d25543a127783e7e86fae91d547f') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'rnEivIu59moeAmYvK09W') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 06:27:15', '2010-11-21 06:27:15', 'rnEivIu59moeAmYvK09W', 'f34d0ec4b7e0fba5a3432219c71b9edc2100fcdfe73aa51cbeef6184ae38c44c5cd60cc55bc039e3531e52372d7f81ca844e5a4af3490e2c9d6214a52571db0c', '2010-11-21 06:27:15', NULL, 'lPRv6UTd6evvgUnJmyh', NULL, 0, '127.0.0.1', '1wg8FcK2OzLswbRsFz', '2010-11-21 06:27:15', 1, '8fc3fb8f41eb12ba0351224efabbfbb60431f20a4ba120a3c6d6e2dbd3ffbe7cbc6bd01d8578f5258006472b7bc4caa2e0e7d25543a127783e7e86fae91d547f', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'b6fe48a9d444bafc10411714e01c0e5cd916999d2c94dd4463fce248dff828c837a2c9e901b6f3c6fc073627e04ddcbceeeb999632fcaf2953e05f82875fd1a9') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'YhCXvvg6kGB2jmITS6Z') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 06:35:37', NULL, 'YhCXvvg6kGB2jmITS6Z', '4caef14d0fdec9b848d50937920c1315f3eee4e1cd74a86464a2f210503ec6f0d27f700a646c30742649a6a05e45bb448f8cb78bab9ac60302f0e085a650a1d7', '2010-11-21 06:35:37', NULL, 'IjEBPzY9MKUmEkIKwPG', NULL, 0, NULL, 'nLwweHeUwjprg0zIOQkg', NULL, 0, 'b6fe48a9d444bafc10411714e01c0e5cd916999d2c94dd4463fce248dff828c837a2c9e901b6f3c6fc073627e04ddcbceeeb999632fcaf2953e05f82875fd1a9', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 22:35:37) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 3ms (DB: 4) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:35:38) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 37ms (View: 33, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:35:38) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 10ms (View: 9, DB: 1) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 22:35:38) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 15ms (View: 10, DB: 1) | 200 OK [http://www.example.com/user_session]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'cad51831df9411388a7c08e1eae3f5bdb6382d252e12f43b2e5d48904cfd698dbdffa9af139f5f89a21b4f5f0ecfef429f2d2261207cab800f85a4117a63c1c5') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Vo45JNuO9CUdoEyALkbT') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 06:35:38', '2010-11-21 06:35:38', 'Vo45JNuO9CUdoEyALkbT', '0cc72c475fd00e402a47347336e6af17fda9768c6c82208d55bb2b74c60b7d789a614fba47c420a971eebae2f2947db7676612fcc69661327de0cee9a29ba50c', '2010-11-21 06:35:38', NULL, 'HiutptpF4GdleT9SkhNi', NULL, 0, '127.0.0.1', 'BhDwV9V2uYWQLRX25gi', '2010-11-21 06:35:38', 1, 'cad51831df9411388a7c08e1eae3f5bdb6382d252e12f43b2e5d48904cfd698dbdffa9af139f5f89a21b4f5f0ecfef429f2d2261207cab800f85a4117a63c1c5', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '90b92bbbc03da16f353395b6c08e0c1e92a217e8a3624772c62fd4a6dc1e9c0ed7242336702232e19d05ec0295977839726370b6570259ffa26ff32ef7c81bbf') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Q63c51xKrUCOXyR0vgaK') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 06:39:58', NULL, 'Q63c51xKrUCOXyR0vgaK', 'ae87536fad208fb785f7790f2f788df31250633a673b070e5718fdf195cf910cf4424cf16e7a5222d1cc5b68b06e94ba5e13ade9dbd10345b1b95447c7a90c85', '2010-11-21 06:39:58', NULL, 'khSUWfE8f0px8kO57DxF', NULL, 0, NULL, 'fbicJ4GCgljNq5Tk4Ty', NULL, 0, '90b92bbbc03da16f353395b6c08e0c1e92a217e8a3624772c62fd4a6dc1e9c0ed7242336702232e19d05ec0295977839726370b6570259ffa26ff32ef7c81bbf', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 22:39:59) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 2ms (DB: 2) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:39:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 33, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:39:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 22:39:59) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://www.example.com/user_session]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '7a188115a1fe7478dc2e9048516f3ba1e128525774caeb97d2a5286f190939711a5f1129e70a7aa0b258361a0ccb4af241b22b7f160a3f1f1ceb4fb293a5bf8c') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'slRsMAp6HLRxnjOKq5xm') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 06:39:59', '2010-11-21 06:39:59', 'slRsMAp6HLRxnjOKq5xm', '0b52388a66b15ca0e4d4500f744357940fb9d75b0aef630ffd1f2c86d5b04bb44c28f9cdd37a39719da78a09bbdb10d21b944c99a5a71df0e0833138ee78191d', '2010-11-21 06:39:59', NULL, 'dViGkl3pcU93nKEvZplH', NULL, 0, '127.0.0.1', 'RQZMzxT744ty6tg7c4Nt', '2010-11-21 06:39:59', 1, '7a188115a1fe7478dc2e9048516f3ba1e128525774caeb97d2a5286f190939711a5f1129e70a7aa0b258361a0ccb4af241b22b7f160a3f1f1ceb4fb293a5bf8c', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '0536a05db025e947aee0b3d02a007732b8e94aad9cb127c5784623ca986ea5dd654f74f191452b81b28a8c6ff3260a7aca18540d6aa483f8a51ee33e01466365') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = '96xJ4Pq0kUVmYOcvYJj') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 06:41:29', NULL, '96xJ4Pq0kUVmYOcvYJj', '327e3338e6d03f18ba395a371aac36da5035211f32e519bb340003e3dabf047caf01761b3c6185059733020d01cd3a3187c2ec301c00b0871e9bcdc017906086', '2010-11-21 06:41:29', NULL, 'WpCty3qsuZjH9BHTB6KJ', NULL, 0, NULL, 'QbiZ3mhqTDDlhesqWpJ', NULL, 0, '0536a05db025e947aee0b3d02a007732b8e94aad9cb127c5784623ca986ea5dd654f74f191452b81b28a8c6ff3260a7aca18540d6aa483f8a51ee33e01466365', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 22:41:29) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 4ms (DB: 4) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:41:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 37ms (View: 33, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:41:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 22:41:30) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 06:41:30', "perishable_token" = 'HCTrYlbApbmuFYBpVaJ', "last_request_at" = '2010-11-21 06:41:30', "current_login_at" = '2010-11-21 06:41:30' WHERE "id" = 1[0m
+Redirected to http://www.example.com/logout
+Completed in 33ms (DB: 3) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 22:41:30) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 06:41:30', "perishable_token" = 'RwrrzCz7JYkpdYPLPiLT', "last_request_at" = '2010-11-21 06:41:30' WHERE "id" = 1[0m
+Redirected to http://www.example.com/user_session/new
+Completed in 10ms (DB: 2) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:41:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'd6f6e3d05dedfb6b98467136ff3712bb1eeda416b769c3e871c44c7bcef93e5c068e6517c43c542ef6ceacb918dae5b8f9e9491929163937ddc9327182e57578') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'iDKOOK6piclrIIcG4MaF') LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 06:41:30', '2010-11-21 06:41:30', 'iDKOOK6piclrIIcG4MaF', '53cdc0cf593a5599a1c27f320b2724b7a25642860a504d8b36bad7657eba951b7739461e3c19815853dede7aaa2c353083a80029abc360ba27ba333bc0b30bd5', '2010-11-21 06:41:30', NULL, 'WuFH7U2PIckqzCXWVL', NULL, 0, '127.0.0.1', '4ECoLAUJaGD89gkEgs', '2010-11-21 06:41:30', 1, 'd6f6e3d05dedfb6b98467136ff3712bb1eeda416b769c3e871c44c7bcef93e5c068e6517c43c542ef6ceacb918dae5b8f9e9491929163937ddc9327182e57578', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '7bf5ce5a9a63af6a17b27b4866f87ec5421b45a2f700f53ca947765aab4073e4d85530046d4bd29b7651ac8993c699a11aae91115d11a2db45b02d7e9a273740') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Yaf1przQa3sHsKn0YMk') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 06:42:51', NULL, 'Yaf1przQa3sHsKn0YMk', 'b3633e2ffcc7f93a26010905c709429cdd02b0b2518e72864455317110ea340594a0aae4e7fee2567d9e25fdbb1971bfaf1bd5a3b22486b3d198dae5e665b15c', '2010-11-21 06:42:51', NULL, 'kkfUrFETfGZ3hoJ7b17', NULL, 0, NULL, 'gh85nAPCJLTkInZQDR4j', NULL, 0, '7bf5ce5a9a63af6a17b27b4866f87ec5421b45a2f700f53ca947765aab4073e4d85530046d4bd29b7651ac8993c699a11aae91115d11a2db45b02d7e9a273740', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:42:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 37ms (View: 32, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 22:42:51) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 06:42:51', "perishable_token" = 'Cna4KIKqS6O7ShZJvwWr', "last_request_at" = '2010-11-21 06:42:51', "current_login_at" = '2010-11-21 06:42:51' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 22:42:51) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:42:51', "perishable_token" = 'u2qaSDq8scXQWlc3tmD', "last_request_at" = '2010-11-21 06:42:51' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 10, DB: 3) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 22:42:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:42:51', "perishable_token" = 'HT5EVQ6qMXtzHjJscO8G', "last_request_at" = '2010-11-21 06:42:51' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 1) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 22:42:52) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart4584-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:42:52', "perishable_token" = 'td7LxoQtokpTWsnH5AKq', "last_request_at" = '2010-11-21 06:42:52' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 06:42:52', '2010-11-21 06:42:52', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 06:42:52', '2010-11-21 06:42:52', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 78ms (DB: 1) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 22:42:52) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:42:52', "perishable_token" = 'mTGOVtzXY5ZectVp6gaL', "last_request_at" = '2010-11-21 06:42:52' WHERE "id" = 1[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 23ms (View: 9, DB: 0) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '46e7e55e11dbb856ff311c283240d969682ad2eedcbb9f8debe7fefbe3b21fa827ba224512ad07cbe8e9da002eea8ed86f7ed86787ec3cb64b851bad1670bd95') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'b2yfEuXrPk3BkqfTSUlZ') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (7.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 06:42:52', '2010-11-21 06:42:52', 'b2yfEuXrPk3BkqfTSUlZ', '9ae92a451954cbab078a9a61999fe38f1f098ba8e58ebb3e61e82d82f1a8ed7b729040c605606b631f807769912cb650b76be6146951c0de5cfffc129e7a9f7f', '2010-11-21 06:42:52', NULL, 'Xm5Qms0EG6pRf1ysUA', NULL, 0, '127.0.0.1', 'nK8rY8enKD31b8dWiOnG', '2010-11-21 06:42:52', 1, '46e7e55e11dbb856ff311c283240d969682ad2eedcbb9f8debe7fefbe3b21fa827ba224512ad07cbe8e9da002eea8ed86f7ed86787ec3cb64b851bad1670bd95', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'bfdd03cbd591a624313aa0159f433b145bacb8b4965ec184a84ba1659876da4b32d12d5d9c89de861bcc1405e2ac64fc79a991e209b4dc1c75fc5ce8ec1f054b') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'dZwqkMLa3OGSIAXixGj') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 06:44:15', NULL, 'dZwqkMLa3OGSIAXixGj', '02e8e4a4b8a9a9fb09e3ca7474336c234083d0cccea0aafcfd2e1794704c09e5f45467a95c312fcff339e0acd93dbef3838872e5d26fbf59d96b1d38569d0b0a', '2010-11-21 06:44:15', NULL, 'jMYfbOxDWRxfHRN0OhY7', NULL, 0, NULL, '2OvOuuk4HzZRIn7f1nE', NULL, 0, 'bfdd03cbd591a624313aa0159f433b145bacb8b4965ec184a84ba1659876da4b32d12d5d9c89de861bcc1405e2ac64fc79a991e209b4dc1c75fc5ce8ec1f054b', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:44:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 33, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 22:44:15) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 06:44:15', "perishable_token" = 'TjjGHbGtd91PG819fr0', "last_request_at" = '2010-11-21 06:44:15', "current_login_at" = '2010-11-21 06:44:15' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 22:44:15) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:44:15', "perishable_token" = '86WJcFEOF08z7qymv68b', "last_request_at" = '2010-11-21 06:44:15' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 10, DB: 4) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 22:44:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:44:15', "perishable_token" = 'tFRIUNWLfKKdmOqoqaY', "last_request_at" = '2010-11-21 06:44:15' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 0) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 22:44:16) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart4548-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:44:16', "perishable_token" = 'SVOHFtfjg2jNEaxZ7o', "last_request_at" = '2010-11-21 06:44:16' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 06:44:16', '2010-11-21 06:44:16', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 06:44:16', '2010-11-21 06:44:16', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 80ms (DB: 1) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 22:44:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:44:16', "perishable_token" = 'bya3dORem89f6YXIU', "last_request_at" = '2010-11-21 06:44:16' WHERE "id" = 1[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (1.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 23ms (View: 9, DB: 3) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '78d976bd9bd8fd810402af6f5209e056618efe554b46152fd8861e17d669ca0f8271c1562a87292294a482735587b38c11f27713f99523ba0d5255b845ef095d') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = '3PWg0PeXkjE17wkIWweQ') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 06:44:16', '2010-11-21 06:44:16', '3PWg0PeXkjE17wkIWweQ', '1713603f928ae4d149eafa8e3c96defd6ff188916cb3d88ec97e41670c4ec1b531b3a39d63d00221afb0ff8655426de3e01f6f7752a8a0a5bb7f6a6466c8fd1b', '2010-11-21 06:44:16', NULL, 'mXPY3laYj6d0wcwhYET8', NULL, 0, '127.0.0.1', 'cQUkCfjsFPEjhkYQpUs9', '2010-11-21 06:44:16', 1, '78d976bd9bd8fd810402af6f5209e056618efe554b46152fd8861e17d669ca0f8271c1562a87292294a482735587b38c11f27713f99523ba0d5255b845ef095d', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'bc67ec2beacb3d40e0c2c87d59867758cf411f22259d35a5999e0db16fe3fd018ee631c737eb5894813d8b48ece51ad9b3728f6499675128b6871ffbcbdd0126') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'SJVJnvlbCqiyt4saCPzh') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 06:52:40', NULL, 'SJVJnvlbCqiyt4saCPzh', '0026eb4297b1e82c5262d051d30c064252046cc6488cedb93d603a441e17d3647f9f74411b9eccc7e8eff91021af6ae310b6c302815d0872e245d01764022c14', '2010-11-21 06:52:40', NULL, 'KJRHpM9XzmWOvkvKWYsn', NULL, 0, NULL, '95AZnqYSESINaxEqsdfz', NULL, 0, 'bc67ec2beacb3d40e0c2c87d59867758cf411f22259d35a5999e0db16fe3fd018ee631c737eb5894813d8b48ece51ad9b3728f6499675128b6871ffbcbdd0126', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 22:52:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 33, DB: 5) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 22:52:40) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 06:52:40', "perishable_token" = 'SjeQb9EaZWJBesPOkh8', "last_request_at" = '2010-11-21 06:52:40', "current_login_at" = '2010-11-21 06:52:40' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 34ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 22:52:40) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:52:40', "perishable_token" = 'texG2SEo2b4ry3eY2OV', "last_request_at" = '2010-11-21 06:52:40' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (1.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 27ms (View: 8, DB: 2) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 22:52:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:52:40', "perishable_token" = 'pX60LNO8csbdhJP9eSAy', "last_request_at" = '2010-11-21 06:52:40' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 2) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 22:52:41) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart7396-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:52:41', "perishable_token" = 'ZkCpYw4Y3hxzd0u58z2', "last_request_at" = '2010-11-21 06:52:41' WHERE "id" = 1[0m
+  [4;36;1mSong Create (1.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 06:52:41', '2010-11-21 06:52:41', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (1.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 06:52:41', '2010-11-21 06:52:41', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 81ms (DB: 3) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 22:52:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 06:52:41', "perishable_token" = 'Q9WxQDXihzCjhBrLbLA', "last_request_at" = '2010-11-21 06:52:41' WHERE "id" = 1[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 24ms (View: 10, DB: 1) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8bfa07c4b1a36d7ff1ce9616bd3940b165e859e30c9b9a58ac333431297fccb8639937197d91289c3dff78050c37783987a52d427041cad52725c224a269a1fd') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'f97FQBzK4o40mi3xk') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 06:52:41', '2010-11-21 06:52:41', 'f97FQBzK4o40mi3xk', '71d9c55679e58c635e94cfd53399db04df9b7ac86f4796105e8c1a3298f03199e1176c91a91f786d0c751babd9f8bb86c7d50626c7be91c12b841b0a51e62d5b', '2010-11-21 06:52:41', NULL, 'wi6jPRdzjCw5oeWfNdg', NULL, 0, '127.0.0.1', 'BC0SPLRxJqYomVYgDGB', '2010-11-21 06:52:41', 1, '8bfa07c4b1a36d7ff1ce9616bd3940b165e859e30c9b9a58ac333431297fccb8639937197d91289c3dff78050c37783987a52d427041cad52725c224a269a1fd', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '64f3df206d9ca638eef69a507225e5d94ce7010d92c86ddf433778ba508bc22b28aee6ccf50031855054d5116ec30e2338446fe8105672c2687eb395a931ddba') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'cQJR13Y6U6pip67MZELe') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:08:59', NULL, 'cQJR13Y6U6pip67MZELe', 'de364cb7cd713b81b04aa93fab745a798c091c404df4bae45d3a204f39a4b37e9d8e463d07d1d28ea560b29f54342027abe413d5c58f51a15745813c818e6ea1', '2010-11-21 07:08:59', NULL, 'yg7lHLleNlOR9XjOZY4', NULL, 0, NULL, 'UVjWoqFBnOq8dX70C6pH', NULL, 0, '64f3df206d9ca638eef69a507225e5d94ce7010d92c86ddf433778ba508bc22b28aee6ccf50031855054d5116ec30e2338446fe8105672c2687eb395a931ddba', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:08:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 39ms (View: 34, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:08:59) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:08:59', "perishable_token" = '3WA5VQiCZBtFJ9S6TD', "last_request_at" = '2010-11-21 07:08:59', "current_login_at" = '2010-11-21 07:08:59' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:08:59) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:08:59', "perishable_token" = 'pZv9D5PIArSyR2ti4h', "last_request_at" = '2010-11-21 07:08:59' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 10, DB: 4) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:08:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:08:59', "perishable_token" = 'wavlQePoyCROjQhfT8pB', "last_request_at" = '2010-11-21 07:08:59' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 1) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:09:00) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart6540-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:09:00', "perishable_token" = '5BzE5aqVlpIfJygdz75', "last_request_at" = '2010-11-21 07:09:00' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:09:00', '2010-11-21 07:09:00', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:09:00', '2010-11-21 07:09:00', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 77ms (DB: 1) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:09:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:09:00', "perishable_token" = 'kjGuVuI02F8mFc7LqQ', "last_request_at" = '2010-11-21 07:09:00' WHERE "id" = 1[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 22ms (View: 9, DB: 1) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'b94292f19f16629beae988648ec16ea6e7bc8c4f951bde69a651a19b716bb5c9cc07d9f2b7d2013d977e8e814f8a2beb1d4fbf7269eb6d7a3ad33c02855bcf6a') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'JDVgwcSEcXvCMtvqmS') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:09:00', '2010-11-21 07:09:00', 'JDVgwcSEcXvCMtvqmS', '8dd806b78bb14cba646afd3cbf643c28f7219d22cc1f08e6abc8ad7c763ca20d1cffc5258cf8ca5ee77dc0b59ea966bcb6c11ff07cc2c58d42da60e56121f039', '2010-11-21 07:09:00', NULL, 'uVAqiMEhjepKFAZCfYNp', NULL, 0, '127.0.0.1', 'ffeUj9c5qhrmD7yYzx7U', '2010-11-21 07:09:00', 1, 'b94292f19f16629beae988648ec16ea6e7bc8c4f951bde69a651a19b716bb5c9cc07d9f2b7d2013d977e8e814f8a2beb1d4fbf7269eb6d7a3ad33c02855bcf6a', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:09:00', "perishable_token" = 'idEAaWaCamRq0qQmAHt' WHERE "id" = 1[0m
+  [4;36;1mSong Create (1.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:09:00', '2010-11-21 07:09:00', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (1.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:09:00', '2010-11-21 07:09:00', 1, 1)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '895c0640a1e436f89f0d5c4491cbcf5486defda0b38e59417f0d788b9a4ff9b35036bb614d01874c2b2b40758859e67b6a18433c9d5c7d06d827867734d6e367') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = '3zreLhMiXB6RULRgj7q') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:10:18', NULL, '3zreLhMiXB6RULRgj7q', '55d26e5583c479d34e5508877907c3993abe3c8f29eb1df004e16906a7b1b92d7e1583c604140d339fbcbea4788f253f8e6fd82adc327528d5522315b4b4412f', '2010-11-21 07:10:18', NULL, 'voTdjQa6XautaBj5OpB3', NULL, 0, NULL, '6BrM8FdkEAMfi7oNc6', NULL, 0, '895c0640a1e436f89f0d5c4491cbcf5486defda0b38e59417f0d788b9a4ff9b35036bb614d01874c2b2b40758859e67b6a18433c9d5c7d06d827867734d6e367', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:10:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 33, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:10:18) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:10:18', "perishable_token" = 'xsBuJUhkxIK1DCz6hRlO', "last_request_at" = '2010-11-21 07:10:18', "current_login_at" = '2010-11-21 07:10:18' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:10:18) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:10:18', "perishable_token" = 'tm9jhX5dK4aJ7Zf1qNwt', "last_request_at" = '2010-11-21 07:10:18' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (1.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 27ms (View: 9, DB: 2) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:10:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:10:18', "perishable_token" = 'axlYy2J1WT15Q19nPO', "last_request_at" = '2010-11-21 07:10:18' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 26ms (View: 14, DB: 0) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:10:19) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart6784-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:10:19', "perishable_token" = 'q19AhvY10JUNxrkAmXl', "last_request_at" = '2010-11-21 07:10:19' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:10:19', '2010-11-21 07:10:19', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:10:19', '2010-11-21 07:10:19', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 83ms (DB: 0) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:10:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:10:19', "perishable_token" = 'sttwziKcQL0yDeI5el6', "last_request_at" = '2010-11-21 07:10:19' WHERE "id" = 1[0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 24ms (View: 10, DB: 3) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '466343e13f872da615f5a4e4ed9bafb8c3f476936020b9c248f46e2390bbf8bb09f53c99ec3400be363b5f9d28a052f257b6680d41e243185e43e3c9fbcfba9a') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'wZqoLcVic4ArNJJ6xRj') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:10:19', '2010-11-21 07:10:19', 'wZqoLcVic4ArNJJ6xRj', '0b3786eccde44b2699ac4e1185eb22403e4c91fb34702d593c08f3d1d0c834e4e380d1d74e8620c4d4f68e63b2c7a2ad343ea1da709d385d4374313f9290b782', '2010-11-21 07:10:19', NULL, 'LmjG9xPVoXCyDCTH7xp', NULL, 0, '127.0.0.1', 'jkaWoQZPhPAZRK0HfIBr', '2010-11-21 07:10:19', 1, '466343e13f872da615f5a4e4ed9bafb8c3f476936020b9c248f46e2390bbf8bb09f53c99ec3400be363b5f9d28a052f257b6680d41e243185e43e3c9fbcfba9a', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:10:19', "perishable_token" = 'B2yzIvpm5PJTd7NFxJf1' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:10:19', '2010-11-21 07:10:19', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:10:19', '2010-11-21 07:10:19', 1, 1)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '86c5ad01d8dc8126782a9f088ba0841b58793dc695b4c5519342ff8664942c7e234a581b2268e0dda8fc9893c8fb44c095604bb17e3c9b648ed02940b51f9e6f') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'BCJJBnQobZNNL6xFULb7') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:15:02', NULL, 'BCJJBnQobZNNL6xFULb7', 'f669e2faba722ec451c6d81ee7f841e5359ce05b10eb8c5bd8eb86734134de814fbded5aeff70dfbc295e16ad337e0b2b8438a9f9983314e665aca6be1d8348c', '2010-11-21 07:15:02', NULL, 'sJUwl1ldjRimvfZGmEqP', NULL, 0, NULL, 'OsU9ow0TUKj7XqOESET9', NULL, 0, '86c5ad01d8dc8126782a9f088ba0841b58793dc695b4c5519342ff8664942c7e234a581b2268e0dda8fc9893c8fb44c095604bb17e3c9b648ed02940b51f9e6f', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:15:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 32, DB: 5) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:15:02) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:15:02', "perishable_token" = 'bJGmFZ9ZxkTsVTlCmgxv', "last_request_at" = '2010-11-21 07:15:02', "current_login_at" = '2010-11-21 07:15:02' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:15:02) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:15:02', "perishable_token" = 'yaTNXsRukncDHdku429Q', "last_request_at" = '2010-11-21 07:15:02' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 10, DB: 2) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:15:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:15:02', "perishable_token" = 'j2CXN4Un8Yl24xcuxyaf', "last_request_at" = '2010-11-21 07:15:02' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 26ms (View: 14, DB: 0) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:15:03) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart7268-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:15:03', "perishable_token" = 'B54zoUZZtSYfNdnQfauC', "last_request_at" = '2010-11-21 07:15:03' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:15:03', '2010-11-21 07:15:03', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (1.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:15:03', '2010-11-21 07:15:03', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 75ms (DB: 1) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:15:03) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:15:03', "perishable_token" = 'fZgxWkKI6qNiHCDeOy', "last_request_at" = '2010-11-21 07:15:03' WHERE "id" = 1[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 22ms (View: 9, DB: 2) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '0e6c8ddccede4a4b842245717f086287063b1cc8aeb5044a9f26c3546916be2aa107fb2a03f9b6af1d5ffe77f0e3eb9554ed9d11d8420a12a16c3ffe261d247f') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'LD1gyEDaln74Mh1hAdjc') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:15:03', '2010-11-21 07:15:03', 'LD1gyEDaln74Mh1hAdjc', '7c46ef817cc879addb1408e97a03b506bcf2caa875ec954bc7b0795f2f89aabecbc95eea5e96536bd2744a994133ff44011366f596472cc0052310fca7a147d2', '2010-11-21 07:15:03', NULL, '9EtFfemkTIliSNM3CO5g', NULL, 0, '127.0.0.1', 'snko9iYz0XPy5ryNZsM8', '2010-11-21 07:15:03', 1, '0e6c8ddccede4a4b842245717f086287063b1cc8aeb5044a9f26c3546916be2aa107fb2a03f9b6af1d5ffe77f0e3eb9554ed9d11d8420a12a16c3ffe261d247f', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:15:03', "perishable_token" = '1kfuGSFwTLsm4612iPpq' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:15:03', '2010-11-21 07:15:03', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:15:03', '2010-11-21 07:15:03', 1, 1)[0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
+
+
+Processing SongsController#edit (for 127.0.0.1 at 2010-11-20 23:15:03) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"songs"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 2ms (DB: 7) | 302 Found [http://www.example.com/songs/edit/1]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:15:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'f6a08a6c674b1c244dcb30daa0d3c8eb2e6852634f542982cf8d10a16de2acbd9a010e121e62fd55f9482c019cf097cfb4e51bc6e32307213e6f1264047a8933') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'm7cOSOQGiKVu59Yl5fSL') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:40:40', NULL, 'm7cOSOQGiKVu59Yl5fSL', '22050e370dcbd0f7181a64886c916ccfbd06b3e7b53658c655fb60b21357c8522c9b686e04130a54b1bb2532ffcfdcc93c10348486e373077fb90674d114d71b', '2010-11-21 07:40:40', NULL, 'ssFZ5dHdQpaA3ZwxESdA', NULL, 0, NULL, 'ABmyfpGa2VDFQB7OVp1f', NULL, 0, 'f6a08a6c674b1c244dcb30daa0d3c8eb2e6852634f542982cf8d10a16de2acbd9a010e121e62fd55f9482c019cf097cfb4e51bc6e32307213e6f1264047a8933', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:40:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 34, DB: 2) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:40:41) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:40:41', "perishable_token" = '4q0gs4w9wPMQiI0CJWSi', "last_request_at" = '2010-11-21 07:40:41', "current_login_at" = '2010-11-21 07:40:41' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:40:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:40:41', "perishable_token" = '9bMezc6bQRSMH9WUhUT', "last_request_at" = '2010-11-21 07:40:41' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 10, DB: 2) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:40:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:40:41', "perishable_token" = 'IjISsTCotN4sPJF5Si', "last_request_at" = '2010-11-21 07:40:41' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 1) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:40:41) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart4856-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:40:41', "perishable_token" = 'aNY60JUnFroLoIaHz8M', "last_request_at" = '2010-11-21 07:40:41' WHERE "id" = 1[0m
+  [4;36;1mSong Create (1.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:40:41', '2010-11-21 07:40:41', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:40:41', '2010-11-21 07:40:41', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 77ms (DB: 3) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:40:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:40:41', "perishable_token" = 'wck6T5t4uttHZAmZTNQ6', "last_request_at" = '2010-11-21 07:40:41' WHERE "id" = 1[0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 23ms (View: 9, DB: 3) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '6d789137f07fd0fee73b44fb59bda70a53e8c97b03dd73a8cc29eb4832f65a4b4dcd6f6ed508d43db3321871b5231dcfdae5e4c532c22b118fb835ed138f53ac') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = '2NwNglb20kWIe3GHevB4') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:40:42', '2010-11-21 07:40:42', '2NwNglb20kWIe3GHevB4', 'c7abbed8bd5564adfb590de3a35da647c11d8c93c92c62c2226b3ae3b130e791e6de4c27d1c14a0304856df94eb0476de506fa329de4de5fa72778100c51d525', '2010-11-21 07:40:42', NULL, 'buZkSBQPeXxzJFggYk0G', NULL, 0, '127.0.0.1', 'aEnq72bWWql5jyr9LUvo', '2010-11-21 07:40:42', 1, '6d789137f07fd0fee73b44fb59bda70a53e8c97b03dd73a8cc29eb4832f65a4b4dcd6f6ed508d43db3321871b5231dcfdae5e4c532c22b118fb835ed138f53ac', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:40:42', "perishable_token" = 'ULZrngSGjqTM2NwHUlc' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:40:42', '2010-11-21 07:40:42', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:40:42', '2010-11-21 07:40:42', 1, 1)[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
+
+
+Processing SongsController#edit (for 127.0.0.1 at 2010-11-20 23:40:42) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"songs"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 2ms (DB: 6) | 302 Found [http://www.example.com/songs/edit/1]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:40:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '2643d2140ff5274072a86994377afd1a57be8e897b2c39be26d060a94d554b04dce25fe5f751d66bb9fb08460e70983a6eb254f802da70cdc8bceab4de2ba7e1') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'ABLtcqfKw5KLgIDmnUO') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:47:46', NULL, 'ABLtcqfKw5KLgIDmnUO', '75019f320d8b39b6458f27b945e538b771cb7d2a598a562de2fbb80e60f7ab1f4117d918f9fd10226079efd3c9e77b2c829fb1d5409fceace9acb98f0f2665a3', '2010-11-21 07:47:46', NULL, 'BXMC9dGRX6fWnxBuU5sb', NULL, 0, NULL, 'iuaAgWbCdw3gtRvQSqFt', NULL, 0, '2643d2140ff5274072a86994377afd1a57be8e897b2c39be26d060a94d554b04dce25fe5f751d66bb9fb08460e70983a6eb254f802da70cdc8bceab4de2ba7e1', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:47:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 39ms (View: 34, DB: 2) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:47:46) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:47:46', "perishable_token" = 'FC9mmP1DFFQGC90u8b21', "last_request_at" = '2010-11-21 07:47:46', "current_login_at" = '2010-11-21 07:47:46' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 3) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:47:46) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:47:46', "perishable_token" = 'GcuchqYZkhTSo01C49z', "last_request_at" = '2010-11-21 07:47:46' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 10, DB: 1) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:47:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:47:46', "perishable_token" = 'jUJOWfEPzwthy7hFiWz', "last_request_at" = '2010-11-21 07:47:46' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 2) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:47:47) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart6416-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:47:47', "perishable_token" = 'aliDeLmF9QqiiKu1czb2', "last_request_at" = '2010-11-21 07:47:47' WHERE "id" = 1[0m
+  [4;36;1mSong Create (1.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:47:47', '2010-11-21 07:47:47', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:47:47', '2010-11-21 07:47:47', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 76ms (DB: 1) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:47:47) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:47:47', "perishable_token" = 'OSX1mxe9Kb3oypb16d0', "last_request_at" = '2010-11-21 07:47:47' WHERE "id" = 1[0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 24ms (View: 9, DB: 1) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '12b2256b6ae5a29a21e9d97de9872c5931426ada1d26735bd12ba5742faa861358b83a5d84ca48138513812afb1a3dbea34a5928d7f0bb9612785e4322231be6') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Ms1HSKE3G4uRPbqY2lI') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:47:47', '2010-11-21 07:47:47', 'Ms1HSKE3G4uRPbqY2lI', 'bcf37ac81f178201da23dc20a5bd02586eadde99a4cdabb426f320b291102c023e8c50e52a095cda0c1b3f057c16e4e16c8f66831084e03cb7b209011fc6f2f3', '2010-11-21 07:47:47', NULL, 'b2gHlLuUHY66t7KK5Jq3', NULL, 0, '127.0.0.1', 'GogwaIugaKq606TNlp', '2010-11-21 07:47:47', 1, '12b2256b6ae5a29a21e9d97de9872c5931426ada1d26735bd12ba5742faa861358b83a5d84ca48138513812afb1a3dbea34a5928d7f0bb9612785e4322231be6', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:47:47', "perishable_token" = 'WZQc0kRzIuwTPYz0sKm' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:47:47', '2010-11-21 07:47:47', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:47:47', '2010-11-21 07:47:47', 1, 1)[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
+
+
+Processing SongsController#edit (for 127.0.0.1 at 2010-11-20 23:47:47) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"songs"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 2ms (DB: 7) | 302 Found [http://www.example.com/songs/edit/1]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:47:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'e47cc31db2af52e10c14dd4aff5c4b59a5684a0980dd443a57053bc3f4b4d5439da3147050258b0f28bbbe684b6c37589bb032e905d02d151d9446539b427dcf') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'VXeRstf1tkLQNThKZXs') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:48:51', NULL, 'VXeRstf1tkLQNThKZXs', '6a7be5acd213efafcfc702814ad51868916d688e37ed097732ca90b459e75fd9930ca0c43d6d7da1d2c89cc799dfc54975f28673311bd28de598cf7561513e53', '2010-11-21 07:48:51', NULL, 'ADEFJeSg2QlEafEjeqLh', NULL, 0, NULL, '1OzpQPOZE4PUDey0vZZ0', NULL, 0, 'e47cc31db2af52e10c14dd4aff5c4b59a5684a0980dd443a57053bc3f4b4d5439da3147050258b0f28bbbe684b6c37589bb032e905d02d151d9446539b427dcf', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:48:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 33, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:48:52) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:48:52', "perishable_token" = 'H1UUECdXbxqNyp6Omxcd', "last_request_at" = '2010-11-21 07:48:52', "current_login_at" = '2010-11-21 07:48:52' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 34ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:48:52) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:48:52', "perishable_token" = 'vnN5fegf6nqQELWoilpP', "last_request_at" = '2010-11-21 07:48:52' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 11, DB: 0) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:48:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:48:52', "perishable_token" = 'owg2CEls61oFGkbTrHmv', "last_request_at" = '2010-11-21 07:48:52' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 0) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:48:52) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart5496-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:48:53', "perishable_token" = 'qFSnCpc8TFphGYxta8Q', "last_request_at" = '2010-11-21 07:48:53' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:48:53', '2010-11-21 07:48:53', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (1.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:48:53', '2010-11-21 07:48:53', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 76ms (DB: 2) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:48:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:48:53', "perishable_token" = 'sJ4WSDnaFPLqUkJQO4', "last_request_at" = '2010-11-21 07:48:53' WHERE "id" = 1[0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 23ms (View: 9, DB: 3) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '3b31da07a6848c592cbba83e9c747e79321782577470378e3dd8c33656d40654a1dc502d84288f31536e1d6fdfbd20c730764d0038ab219020a280925a3e370f') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'g236PHyLpsHyjGlgSRo0') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:48:53', '2010-11-21 07:48:53', 'g236PHyLpsHyjGlgSRo0', '37a6fa4ce92a230ab8bfbd0fd552d1dd73a71029e48ab9c4cc528ae36d235e78a0966340bf69151394e9861e611381737793d0c9ba61218675830b2d62ddd2f7', '2010-11-21 07:48:53', NULL, 'wZJnbKFxZPdiB4XiyOw', NULL, 0, '127.0.0.1', 'LqfiaoCo303v9lvIj', '2010-11-21 07:48:53', 1, '3b31da07a6848c592cbba83e9c747e79321782577470378e3dd8c33656d40654a1dc502d84288f31536e1d6fdfbd20c730764d0038ab219020a280925a3e370f', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:48:53', "perishable_token" = 'p5y78egzqOPShGhymUy' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:48:53', '2010-11-21 07:48:53', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:48:53', '2010-11-21 07:48:53', 1, 1)[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
+
+
+Processing SongsController#edit (for 127.0.0.1 at 2010-11-20 23:48:53) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"songs"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 3ms (DB: 6) | 302 Found [http://www.example.com/songs/edit/1]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:48:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '434569a38d7d79ad5883a8caecf909394c5ca5ca767be1ccd4830ce77c58331eb6e3b6b5f1bfeb63203cff758db4ecdbf94f12f0e7c6cbe560240ae0ccca3096') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'sEZmz1MZdIl2uJM2qcW') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:50:00', NULL, 'sEZmz1MZdIl2uJM2qcW', '2ff24076eeb89244cd1729b24e42fc1df48d4d725b0d76d41a2cf85f95b83e6f5e4d92dc2001df108f0fd66726271e5115f0674a10e6378bbd7e2a3485c4b4f6', '2010-11-21 07:50:00', NULL, 'yTDPulFyjHoidUFgIb8v', NULL, 0, NULL, 'WBtf2fUbmup4KYZFVHh', NULL, 0, '434569a38d7d79ad5883a8caecf909394c5ca5ca767be1ccd4830ce77c58331eb6e3b6b5f1bfeb63203cff758db4ecdbf94f12f0e7c6cbe560240ae0ccca3096', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:50:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 39ms (View: 33, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:50:01) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:50:01', "perishable_token" = 'iTDIzGLbun1ke6AlP0aS', "last_request_at" = '2010-11-21 07:50:01', "current_login_at" = '2010-11-21 07:50:01' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 3) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:50:01) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:50:01', "perishable_token" = '7aLtCwePcY9hcqJV2cD0', "last_request_at" = '2010-11-21 07:50:01' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 10, DB: 2) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:50:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:50:01', "perishable_token" = 'S7eL2Zr4I6RYIZiYP1x1', "last_request_at" = '2010-11-21 07:50:01' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 0) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:50:02) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart4696-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:50:02', "perishable_token" = 'LeSnTdWkTVQF1SFjndce', "last_request_at" = '2010-11-21 07:50:02' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:50:02', '2010-11-21 07:50:02', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:50:02', '2010-11-21 07:50:02', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 78ms (DB: 0) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:50:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:50:02', "perishable_token" = 'if0Zjf8uzxnQvwgSvWWf', "last_request_at" = '2010-11-21 07:50:02' WHERE "id" = 1[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (1.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 32ms (View: 8, DB: 5) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'decc8385924bd6678c619ae98588884392f73386866946be0b9f2d8c746501a31387525144b688370b18f3b678b3e06dfc5be61525f589bc378339e62a382c2e') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = '58a6hfHeipxEBoQEaZak') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:50:02', '2010-11-21 07:50:02', '58a6hfHeipxEBoQEaZak', 'a7fae3f2761f90e28067296b98dcbba97c811a22c84e4fd6299dd942d7727d2d8dc23e023fe8d5a64ac0243041bf2d25c1cfdec1e8d0e7fcc306e6da395d181c', '2010-11-21 07:50:02', NULL, 'n8hrgczjO2qk34TuM8', NULL, 0, '127.0.0.1', 'DkMBGUOlvGe7y4hR1hLN', '2010-11-21 07:50:02', 1, 'decc8385924bd6678c619ae98588884392f73386866946be0b9f2d8c746501a31387525144b688370b18f3b678b3e06dfc5be61525f589bc378339e62a382c2e', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:50:02', "perishable_token" = 'jn8wvZC1OKBPoj55p0a' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:50:02', '2010-11-21 07:50:02', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (1.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:50:02', '2010-11-21 07:50:02', 1, 1)[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '2f1518135c2ad1aef78c5f9a20394ab809a96915da5a83d8885148fb55abaa6e33f8659c52841db08acde4022fd80648da31d41b3cac94443a1d1f059c3eb9f1') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'CBAROoCPte6wxwLoU') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:51:10', NULL, 'CBAROoCPte6wxwLoU', 'e59661618671806cfef722646b53690513eb9ed2953916d4f29e3be73cea0af497b48b587df61cc51436f1ec1d7f98f8f48f6595d9b2572fd50d5a546c02b0ad', '2010-11-21 07:51:10', NULL, 'iu78hcC2X6XIp1TuVT2E', NULL, 0, NULL, 'nYWljcuyhvqkQDHH8n4', NULL, 0, '2f1518135c2ad1aef78c5f9a20394ab809a96915da5a83d8885148fb55abaa6e33f8659c52841db08acde4022fd80648da31d41b3cac94443a1d1f059c3eb9f1', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:51:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 39ms (View: 34, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:51:11) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:51:11', "perishable_token" = 'GEeBT9Lpy6YA71IVLsq', "last_request_at" = '2010-11-21 07:51:11', "current_login_at" = '2010-11-21 07:51:11' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 35ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:51:11) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:51:11', "perishable_token" = 'iJUXHGrC9DmqhpeHT3Mw', "last_request_at" = '2010-11-21 07:51:11' WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (1.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 27ms (View: 9, DB: 2) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:51:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:51:11', "perishable_token" = '98mumiDXxC0xlEcCgEUs', "last_request_at" = '2010-11-21 07:51:11' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 14, DB: 0) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:51:11) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart6604-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:51:11', "perishable_token" = '9qdQoH3i8lldODd4oQE', "last_request_at" = '2010-11-21 07:51:11' WHERE "id" = 1[0m
+  [4;36;1mSong Create (1.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:51:11', '2010-11-21 07:51:11', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (1.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:51:11', '2010-11-21 07:51:11', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 80ms (DB: 3) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:51:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:51:12', "perishable_token" = 'kB5U3p0bLyrOMseBJy', "last_request_at" = '2010-11-21 07:51:12' WHERE "id" = 1[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 24ms (View: 10, DB: 2) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '34f72265b704630183f49a3b7a8c6e8cbae43a3221f6f9443c04133f45319d412ab351b2eb7e9c8f31e6ebf3ad08e7b8c3942b6b891ff461fa22dad97fe64ae0') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Yn7D5J9pTkvvk7fG6nW') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:51:12', '2010-11-21 07:51:12', 'Yn7D5J9pTkvvk7fG6nW', '245a33330df24a150246fc00e269bf3eea88187919a00f4ee3a3a884de7ab974972e3eb84d28a50d74de21bd1b85cd351242bf808668ed0833ef7868ca0096e1', '2010-11-21 07:51:12', NULL, '78DCtnbaUZVo5nxps8xK', NULL, 0, '127.0.0.1', 'xJ4jfVJUODbRMnAilmfv', '2010-11-21 07:51:12', 1, '34f72265b704630183f49a3b7a8c6e8cbae43a3221f6f9443c04133f45319d412ab351b2eb7e9c8f31e6ebf3ad08e7b8c3942b6b891ff461fa22dad97fe64ae0', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:51:12', "perishable_token" = 'UoLWoHBWGmsd7WcUHFq' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:51:12', '2010-11-21 07:51:12', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:51:12', '2010-11-21 07:51:12', 1, 1)[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
+
+
+Processing SongsController#edit (for 127.0.0.1 at 2010-11-20 23:51:12) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"songs"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 3ms (DB: 5) | 302 Found [http://www.example.com/songs/edit/1]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:51:12) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 12ms (View: 11, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '8637fa1d90a9e9be220501d5c071790e7fe9fa56eac39c7f7e0864fca109f174c8653a91c4c3be6d6c8b808e831d972a97c1a0c1791fdc18d430576bf40f9cb0') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'sztbAlX9AZoeUKbWTLjY') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:52:41', NULL, 'sztbAlX9AZoeUKbWTLjY', '029b932dcbf2eea2062882656e01200b6f4117e8a86fa3003bd7de79c0bf669090337f45c743a43b1da054b901edb5e6e3c3343028655e090100daf3a83758f3', '2010-11-21 07:52:41', NULL, 'IRdSRK0Ajsi3t5JQdrPe', NULL, 0, NULL, 'qoEC5NYCjf3LGK6OFeNc', NULL, 0, '8637fa1d90a9e9be220501d5c071790e7fe9fa56eac39c7f7e0864fca109f174c8653a91c4c3be6d6c8b808e831d972a97c1a0c1791fdc18d430576bf40f9cb0', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:52:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 39ms (View: 34, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:52:41) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (2.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:52:41', "perishable_token" = 'VxsQKbM2u1l54iJC8h3', "last_request_at" = '2010-11-21 07:52:41', "current_login_at" = '2010-11-21 07:52:41' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 34ms (DB: 3) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:52:41) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:52:41', "perishable_token" = 'mPRmoZItQy4KxbgMPt0y', "last_request_at" = '2010-11-21 07:52:41' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (0.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (1.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 28ms (View: 9, DB: 5) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:52:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:52:41', "perishable_token" = 'gIrD1YRsdE5zemam4q', "last_request_at" = '2010-11-21 07:52:41' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 26ms (View: 14, DB: 0) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:52:42) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart6676-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:52:42', "perishable_token" = 'q6LUDGfH1ijVopChm3gZ', "last_request_at" = '2010-11-21 07:52:42' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:52:42', '2010-11-21 07:52:42', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:52:42', '2010-11-21 07:52:42', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 79ms (DB: 1) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:52:42) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:52:42', "perishable_token" = 'TYQtujgfyU7ltUtMyBx', "last_request_at" = '2010-11-21 07:52:42' WHERE "id" = 1[0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 23ms (View: 9, DB: 2) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '43288fc5bd131a937bcc2b34495c04f75aec4bf788369f2ff8ed63e1ab9e01e434163d267ea2670dc4f85bb68393a3bd43d22c22c52b030daf2a37d31011109e') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 't6bHCtKDQyY0GrK84En') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:52:42', '2010-11-21 07:52:42', 't6bHCtKDQyY0GrK84En', 'b94c89c68c62e70eec444ad5df9585e6e7617d16b7f3178d8bd1b35cf2b1077d77fda248f25ba8362a3334108f8e1f0f5c8d6879457e81762a3f62ea3960550b', '2010-11-21 07:52:42', NULL, 'e0AxNRZyIgZSZ0Lq3zJz', NULL, 0, '127.0.0.1', '64wFjIvPvlVgX3Icg', '2010-11-21 07:52:42', 1, '43288fc5bd131a937bcc2b34495c04f75aec4bf788369f2ff8ed63e1ab9e01e434163d267ea2670dc4f85bb68393a3bd43d22c22c52b030daf2a37d31011109e', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:52:42', "perishable_token" = 'XAA259v70SyEsO1aB2v' WHERE "id" = 1[0m
+  [4;36;1mSong Create (1.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:52:42', '2010-11-21 07:52:42', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:52:42', '2010-11-21 07:52:42', 1, 1)[0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
+
+
+Processing SongsController#edit (for 127.0.0.1 at 2010-11-20 23:52:42) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"songs"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 2ms (DB: 7) | 302 Found [http://www.example.com/songs/edit/1]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:52:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'ff2dcef399351bc697b44d6b67e0bec13f1e5c1e69b52e4b14d9ae138935cc2073f754c33e35adaccb84524e45bb6b3118ad075d952771ad3be2c5efa89cf309') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'OJ1fSDO4ViBGzAEve4RD') LIMIT 1[0m
+  [4;36;1mUser Create (2.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith1', NULL, '2010-11-21 07:54:25', NULL, 'OJ1fSDO4ViBGzAEve4RD', 'b388ac48942c35a60ff60eee82fa306f185b02389f7678a6ae0d8c2b67a12389e414694b9444091e7f9c9eaec4927b3e2d3d57c10d5963dee76355c182099325', '2010-11-21 07:54:25', NULL, 'N5S5jN5Oaturw7prfX3V', NULL, 0, NULL, 'h4HgeyKk3tTV5lgHm69s', NULL, 0, 'ff2dcef399351bc697b44d6b67e0bec13f1e5c1e69b52e4b14d9ae138935cc2073f754c33e35adaccb84524e45bb6b3118ad075d952771ad3be2c5efa89cf309', NULL, 'information!', NULL, 'Smith1', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith1') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:54:25) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 37ms (View: 33, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:54:26) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith1", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "login_count" = 1, "current_login_ip" = '127.0.0.1', "updated_at" = '2010-11-21 07:54:26', "perishable_token" = 'nW5lmscOOdSxu4TrJyYz', "last_request_at" = '2010-11-21 07:54:26', "current_login_at" = '2010-11-21 07:54:26' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 33ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:54:26) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:26', "perishable_token" = 'anzuyRxGHXja2m1HGTR', "last_request_at" = '2010-11-21 07:54:26' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;36;1mPlaylist Load (1.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.0ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 27ms (View: 10, DB: 2) | 200 OK [http://www.example.com/account]
+
+
+Processing SongsController#new (for 127.0.0.1 at 2010-11-20 23:54:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:26', "perishable_token" = 'a3AviIUyQxCuBRtpHWy8', "last_request_at" = '2010-11-21 07:54:26' WHERE "id" = 1[0m
+Rendering template within layouts/application
+Rendering songs/new
+Completed in 27ms (View: 13, DB: 1) | 200 OK [http://www.example.com/songs/new]
+
+
+Processing SongsController#create (for 127.0.0.1 at 2010-11-20 23:54:26) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"datafile"=>#<File:C:/Users/Brian/AppData/Local/Temp/RackMultipart4952-0>}, "action"=>"create", "controller"=>"songs", "song"=>{"name"=>"Some bad song", "album"=>"Terrible Album", "genre"=>"unlikeable", "description"=>"May cause your ears to bleed"}}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:26', "perishable_token" = 'gY2ts1mpUkbxvHx8Wmg8', "last_request_at" = '2010-11-21 07:54:26' WHERE "id" = 1[0m
+  [4;36;1mSong Create (0.0ms)[0m   [0;1mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Some bad song', '2010-11-21 07:54:26', '2010-11-21 07:54:26', 'Terrible Album', 'unlikeable', NULL, 'May cause your ears to bleed')[0m
+  [4;35;1mUsersong Create (0.0ms)[0m   [0mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:54:26', '2010-11-21 07:54:26', 1, 1)[0m
+Redirected to http://www.example.com/songs/1
+Completed in 84ms (DB: 2) | 302 Found [http://www.example.com/songs]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:54:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:26', "perishable_token" = '5bH1WjELkn8ibgD2HK4', "last_request_at" = '2010-11-21 07:54:26' WHERE "id" = 1[0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.0ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 24ms (View: 9, DB: 2) | 200 OK [http://www.example.com/songs/1]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'ouhg@ieurhgi.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith2') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '7f3f2dd10997b5dc3e7daa8a0ab959517e15b5c8bcbe7a085b19d7fcfb2f9d4574a2454d8018205b039587535236b10bb20112d80ae1ae2cc9803177364946cc') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'yFwpiRKpDSZ66AxrlpaO') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (2.0ms)[0m   [0mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith2', NULL, '2010-11-21 07:54:26', '2010-11-21 07:54:26', 'yFwpiRKpDSZ66AxrlpaO', '1c6df2d30e1a667f5d455b328f0ce3a4e19b931874438b84712914859f47f873d8849b37cd0fb6ad5cb00c82616097106cb60522308bf19e07b9e08235a832e0', '2010-11-21 07:54:26', NULL, 'HvSPQGgRNV6FdwzVpr7B', NULL, 0, '127.0.0.1', 'S5Erl1jIKlY5g2MYPefl', '2010-11-21 07:54:26', 1, '7f3f2dd10997b5dc3e7daa8a0ab959517e15b5c8bcbe7a085b19d7fcfb2f9d4574a2454d8018205b039587535236b10bb20112d80ae1ae2cc9803177364946cc', NULL, 'information!', NULL, 'Smith2', NULL, 'ouhg@ieurhgi.com', '/images/default.jpg', 't')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 23:54:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 10ms (View: 9, DB: 3) | 200 OK [http://www.example.com/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-20 23:54:27) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "login"=>"Smith2", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'smith2') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "login_count" = 2, "updated_at" = '2010-11-21 07:54:27', "perishable_token" = 'zsUdfmpFJXunmtTxTPs', "last_request_at" = '2010-11-21 07:54:27', "last_login_at" = '2010-11-21 07:54:26', "last_login_ip" = '127.0.0.1', "current_login_at" = '2010-11-21 07:54:27' WHERE "id" = 1[0m
+Redirected to http://www.example.com/account
+Completed in 12ms (DB: 2) | 302 Found [http://www.example.com/user_session]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-20 23:54:27) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:27', "perishable_token" = 'lICGwjXbe9RCY9q53PzU', "last_request_at" = '2010-11-21 07:54:27' WHERE "id" = 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 1)) [0m
+  [4;35;1mPlaylist Load (0.0ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (0.0ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 1) [0m
+Completed in 19ms (View: 7, DB: 2) | 200 OK [http://www.example.com/account]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith2') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:27', "perishable_token" = 'r6A6t92qCE5eDRRTMnlG' WHERE "id" = 1[0m
+  [4;35;1mSong Create (0.0ms)[0m   [0mINSERT INTO "songs" ("rating", "name", "created_at", "updated_at", "album", "genre", "length", "description") VALUES(NULL, 'Fubarbaz.mp3', '2010-11-21 07:54:27', '2010-11-21 07:54:27', 'Albumatic', 'Genrefull', NULL, 'WHEEEEEEEE!')[0m
+  [4;36;1mUsersong Create (0.0ms)[0m   [0;1mINSERT INTO "usersongs" ("created_at", "updated_at", "user_id", "song_id") VALUES('2010-11-21 07:54:27', '2010-11-21 07:54:27', 1, 1)[0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
+
+
+Processing SongsController#edit (for 127.0.0.1 at 2010-11-20 23:54:27) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"songs"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:27', "perishable_token" = 'nBKLqrr4CTXANuxCUGFX', "last_request_at" = '2010-11-21 07:54:27' WHERE "id" = 1[0m
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering songs/edit
+Completed in 22ms (View: 11, DB: 5) | 200 OK [http://www.example.com/songs/edit/1]
+
+
+Processing SongsController#update (for 127.0.0.1 at 2010-11-20 23:54:27) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "id"=>"1", "controller"=>"songs", "song"=>{"name"=>"Bazowski.mp3", "album"=>"Ally the Bum", "genre"=>"Alternative Energy", "description"=>"!EEEEEEEEEEHW"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:27', "perishable_token" = 'gSFsl7U4HHBz2qCo7FWI', "last_request_at" = '2010-11-21 07:54:27' WHERE "id" = 1[0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;36;1mSong Update (0.0ms)[0m   [0;1mUPDATE "songs" SET "updated_at" = '2010-11-21 07:54:27', "album" = 'Ally the Bum', "genre" = 'Alternative Energy', "name" = 'Bazowski.mp3', "description" = '!EEEEEEEEEEHW' WHERE "id" = 1[0m
+Redirected to http://www.example.com/songs/1
+Completed in 15ms (DB: 1) | 302 Found [http://www.example.com/songs/1]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-20 23:54:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"songs"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Update (0.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-21 07:54:27', "perishable_token" = 'PXzOVKiFNth5RNV4DNl', "last_request_at" = '2010-11-21 07:54:27' WHERE "id" = 1[0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 1) AND (("usersongs".song_id = 1)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;35;1mSongComment Load (0.0ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 1) [0m
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://www.example.com/songs/1]
+  [4;36;1mSong Load (0.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."name" = 'Bazowski.mp3') LIMIT 1[0m
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."name" = 'Fubarbaz.mp3') LIMIT 1[0m
