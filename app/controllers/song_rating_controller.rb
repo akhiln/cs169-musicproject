@@ -21,8 +21,10 @@ class SongRatingController < ApplicationController
     @song_rating.song_id = params[:song_id]
     @song = Song.find(params[:song_id])
     if @song_rating.save
+      @song.updateRating
       redirect_to(@song, :notice => 'Rating was successfully created.')
     else
+      @song.updateRating
       SongRating.delete(@song_rating.id)
       format.html { render :action => "new", :error => 'Your rating could not be saved. Please try again.'}
       format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }

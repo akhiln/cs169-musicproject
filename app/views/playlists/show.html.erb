@@ -12,7 +12,7 @@
 <% end %>
 <a href="/comment/playlist/new/<%=@playlist.id%>">Comment</a> || <a href="/rating/playlist/new/<%=@playlist.id%>">Rate</a> || <a href="/bookmark/create/<%=@playlist.id%>">Bookmark</a>
 <h2>Rating:</h2>
-<%= @playlist.rating %>
+<%= @playlist.ratingString %>
 <h2>Comments</h2>
 <% if not @comments.nil? %>
   <% @comments.each do |comment| %>

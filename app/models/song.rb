@@ -43,17 +43,27 @@ class Song < ActiveRecord::Base
     ""
   end
   
-  def rating
+  def ratingString
+    if self.rating == nil
+      "-"
+    else
+      sprintf("%.2f", self.rating)
+    end
+  end
+  
+  def updateRating
     total = 0.0
     count = 0.0
     self.song_ratings.each do |song_rating|
       count = count + 1
       total = total + song_rating.rating
     end
-    if count <= 0
-      "-"
-    else
-      sprintf("%.2f",(total / count))
+    if count == 0
+      self.rating = nil
+      self.save
+    elsif self.rating != total/count
+      self.rating = total/count
+      self.save
     end
   end
 end
