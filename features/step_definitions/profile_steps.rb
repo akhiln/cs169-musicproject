@@ -22,10 +22,10 @@ Given /^I am signed in as "([^"]*)" using password "([^"]*)"$/ do |login, pw|
    visit path_to('the login page')
    fill_in('Login', :with => login)
    fill_in('Password', :with => pw)
-   click_button('Log in')
+   click_button('Login')
    current_path = URI.parse(current_url).path
    if current_path.respond_to? :should
-     current_path.should == '/users/show/'+@user.id.to_s
+     current_path.should == '/account'
    else
      assert_equal path_to(page_name), current_path
    end
