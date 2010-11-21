@@ -1,9 +1,10 @@
 <h1> Popular Songs </h1>
 
-<% for i in (0..@songs.size-1) do %>
-  <%= '<div id=' + "song_#{i}" + ' class="song">' %>
-  <%= '<div class=song_name>'+"#{@songs[i].name}"+'</div>' %>
-  <%= '<div class=song_genre>'+"#{@songs[i].genre}"+'</div>' %>
-  <%= '<div class=song_rating>'+"#{@songs[i].rating}"+'</div>' %>
-  <%= '</div>' %>
+<% for i in (0..[@songs.size-1,20].min) do %>
+  <% content_tag :div, "", :id => "song_#{i}", :class => "song" do %>
+    <%= content_tag :div, "#{@songs[i].name}", :class => "song_name" %>
+    <%= content_tag :div, "#{@songs[i].genre}", :class => "song_genre" %>
+    <%= content_tag :div, "#{@songs[i].rating}", :class => "song_rating" %>
+    <%= content_tag :div, "#{@songs[i].users[0].login}", :class => "song_user" %>
+  <% end %>
 <% end %>
