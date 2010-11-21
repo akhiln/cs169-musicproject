@@ -1,0 +1,9 @@
+<h1> Popular Playlists </h1>
+
+<% for i in (0..[@playlists.size-1,20].min) do %>
+  <% content_tag :div, "", :id => "playlist_#{i}", :class => "playlist" do %>
+    <%= content_tag :div, "#{@playlists[i].name}", :class => "playlist_name" %>
+    <%= content_tag :div, "#{@playlists[i].rating}", :class => "playlist_rating" %>
+    <%= content_tag :div, "#{@playlists[i].user.login}", :class => "playlist_user" %>
+  <% end %>
+<% end %>
