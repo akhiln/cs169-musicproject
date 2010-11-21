@@ -16383,3 +16383,130 @@ ActionController::UnknownAction (No action responded to jwplayer. Actions: creat
   C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
 
 Rendering rescues/layout (not_found)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 17:25:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 10898ms (View: 33, DB: 0) | 200 OK [http://127.0.0.1/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-20 17:25:45) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 151ms (View: 105, DB: 0) | 200 OK [http://127.0.0.1/users/new]
+
+
+Processing UsersController#jwplayer to swf (for 127.0.0.1 at 2010-11-20 17:25:49) [GET]
+  Parameters: {"format"=>"swf", "action"=>"jwplayer", "id"=>"player", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to jwplayer. Actions: create, edit, new, show, and update):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (122.0ms)[0m   [0;1mCREATE TABLE "bookmarks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "playlist_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (145.0ms)[0m   [0;1mCREATE TABLE "playlist_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "created_at" datetime, "updated_at" datetime, "playlist_id" integer, "user_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (106.0ms)[0m   [0;1mCREATE TABLE "playlist_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "playlist_id" integer, "rating" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (127.0ms)[0m   [0;1mCREATE TABLE "playlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "user_id" integer, "rating" float, "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (110.0ms)[0m   [0;1mCREATE TABLE "playlistsongs" ("playlist_id" integer, "song_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (92.0ms)[0m   [0;1mCREATE TABLE "song_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "created_at" datetime, "updated_at" datetime, "song_id" integer, "user_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (103.0ms)[0m   [0;1mCREATE TABLE "song_ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "user_id" integer, "song_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (111.0ms)[0m   [0;1mCREATE TABLE "songs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "album" varchar(255), "length" float, "genre" varchar(255), "description" text, "rating" float, "created_at" datetime, "updated_at" datetime, "name" varchar(255)) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (118.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(128) DEFAULT '' NOT NULL, "created_at" datetime, "updated_at" datetime, "old_remember_token" varchar(40), "old_remember_token_expires_at" datetime, "pic" varchar(255), "bio" varchar(255), "password_reset_code" varchar(255), "activation_code" varchar(255), "login_count" integer DEFAULT 0 NOT NULL, "failed_login_count" integer DEFAULT 0 NOT NULL, "last_request_at" datetime, "current_login_at" datetime, "last_login_at" datetime, "current_login_ip" varchar(255), "last_login_ip" varchar(255), "persistence_token" varchar(255), "single_access_token" varchar(255), "perishable_token" varchar(255), "active" boolean DEFAULT 't' NOT NULL) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (119.0ms)[0m   [0;1mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;35;1mSQL (142.0ms)[0m   [0mCREATE INDEX "index_users_on_perishable_token" ON "users" ("perishable_token")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (89.0ms)[0m   [0mCREATE TABLE "usersongs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "song_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (98.0ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("schema_migrations")[0m
+  [4;35;1mSQL (99.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (108.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101120225831')[0m
+  [4;35;1mSQL (100.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101015045340')[0m
+  [4;36;1mSQL (133.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101015045608')[0m
+  [4;35;1mSQL (117.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101015050128')[0m
+  [4;36;1mSQL (119.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101015050533')[0m
+  [4;35;1mSQL (85.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101162435')[0m
+  [4;36;1mSQL (99.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101202541')[0m
+  [4;35;1mSQL (110.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101203525')[0m
+  [4;36;1mSQL (110.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101102015359')[0m
+  [4;35;1mSQL (102.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101102020048')[0m
+  [4;36;1mSQL (124.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101102022250')[0m
+  [4;35;1mSQL (96.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101102025313')[0m
+  [4;36;1mSQL (111.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101102030427')[0m
+  [4;35;1mSQL (122.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101102032208')[0m
+  [4;36;1mSQL (202.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101116000000')[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101119035949')[0m
+  [4;36;1mSQL (100.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101119040017')[0m
+  [4;35;1mSQL (123.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('2010111904100')[0m
+  [4;36;1mSQL (87.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101119062936')[0m
+  [4;35;1mSQL (88.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101119063259')[0m

@@ -4267,3 +4267,161 @@ Processing UsersController#show (for 127.0.0.1 at 2010-11-02 16:23:07) [GET]
 Rendering template within layouts/application
 Rendering users/show
 Completed in 14ms (View: 4, DB: 4) | 200 OK [http://www.example.com/users/show/1]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 17:06:18) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 17:06:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 40ms (View: 35, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-20 17:06:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 15ms (View: 13, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-20 17:06:18) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-20 17:06:18) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 17:16:02) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 17:16:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 35, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-20 17:16:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-20 17:16:02) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-20 17:16:02) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 17:21:00) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 20790ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 17:21:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 40ms (View: 33, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-20 17:21:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-20 17:21:21) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-20 17:21:21) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 17:22:17) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 20718ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 17:22:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 37ms (View: 33, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-20 17:22:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-20 17:22:38) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-20 17:22:38) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-20 17:28:13) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+Redirected to http://www.example.com/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 17:28:13) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 38ms (View: 34, DB: 0) | 200 OK [http://www.example.com/user_session/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-20 17:28:13) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://www.example.com/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-11-20 17:28:13) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2010-11-20 17:28:13) [POST]
+  Parameters: {"commit"=>"Sign up", "upload"=>{"datafile"=>""}, "action"=>"create", "controller"=>"users", "user"=>{"name"=>"test dummy", "password_confirmation"=>"[FILTERED]", "bio"=>"a test user", "login"=>"testdummy", "password"=>"[FILTERED]", "email"=>"testdummy@adsfkjkandsf.com"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'auhgeirugh@iuhriguer.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'smith') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '5d8de379601bd7b793958565dd09c152cc59863d617ff2f0d3655b44bdaf53ebb8d7b359dac42d6fc27012eadb677b250c264dbff8ce148091f592353d690868') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = '7GoDWq7QJoloTC1bQm7t') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "old_remember_token", "created_at", "last_request_at", "single_access_token", "crypted_password", "updated_at", "password_reset_code", "perishable_token", "activation_code", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "login_count", "persistence_token", "old_remember_token_expires_at", "bio", "last_login_ip", "login", "last_login_at", "email", "pic", "active") VALUES('Smith', NULL, '2010-11-21 05:26:11', NULL, '7GoDWq7QJoloTC1bQm7t', '4cba85d454bc3ce9ba7638f9bf3eab9bfbe95bcf28b7e4c523ec63dd8e55392b2b9f3ce88aaa5377f6e1cf06d0e5e0d1091ca75f262224dcae10ef5005b708b1', '2010-11-21 05:26:11', NULL, '96HceSOSyDK0dNdEgJc1', NULL, 0, NULL, 'gkzuvQtw0bSNgleDxTl', NULL, 0, '5d8de379601bd7b793958565dd09c152cc59863d617ff2f0d3655b44bdaf53ebb8d7b359dac42d6fc27012eadb677b250c264dbff8ce148091f592353d690868', NULL, 'information!', NULL, 'Smith', NULL, 'auhgeirugh@iuhriguer.com', '/images/default.jpg', 't')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Smith') LIMIT 1[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-20 21:26:11) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 39ms (View: 33, DB: 1) | 200 OK [http://www.example.com/login]
