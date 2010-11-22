@@ -1,0 +1,10 @@
+<h2> My Playlists </h2>
+
+<% if @playlists.size > 0 %>
+  <% @playlists.each do |p| %>
+    <%= link_to "#{p.name}", "/playlists/show/#{p.id}" %>
+  <% end %>
+<% else %>
+  You haven't created any playlists yet! 
+<% end %>
+
