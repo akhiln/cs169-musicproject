@@ -9,4 +9,13 @@ class BrowseController < ApplicationController
       format.xml { render :xml => @genres }
     end
   end
+
+  def genre
+    @genre = params[:id]
+    @songs = Song.find_by_sql("SELECT * FROM songs WHERE songs.genre = '#{@genre}'")
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @genres }
+    end
+  end
 end

@@ -1,4 +1,6 @@
 <h2> Browse </h2>
+<% i = 0 %>
 <% @genres.each do |genre| %>
-  <%=h genre %>
+  <%=h content_tag :div, link_to(genre.to_s, :controller=>:browse, :action=>:genre, :id=>"#{genre}"), :id=>i.to_s, :class=>:genre %>
+  <% i += 1 %>
 <% end %>
