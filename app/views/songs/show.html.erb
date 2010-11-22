@@ -5,6 +5,7 @@
 <a href="/songs/delete/<%=@song.id%>">Delete</a> || 
 <% end %>
 <a href="/playlists/addsong/<%=@song.id%>">Add to Playlist</a> || <a href="/comment/song/new/<%=@song.id%>">Comment</a> || <a href="/rating/song/new/<%=@song.id%>">Rate</a>
+<p> URL: <%= @song.song.url %></p>
 <h2>Rating:</h2>
 <%= @song.ratingString %>
 <h2>Comments</h2>

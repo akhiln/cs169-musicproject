@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101120225831) do
+ActiveRecord::Schema.define(:version => 20101121000000) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -75,6 +75,9 @@ ActiveRecord::Schema.define(:version => 20101120225831) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "song_file_name"
+    t.string   "song_content_type"
+    t.integer  "song_file_size"
   end
 
   create_table "users", :force => true do |t|

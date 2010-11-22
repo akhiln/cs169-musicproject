@@ -6,6 +6,12 @@ class Song < ActiveRecord::Base
   has_many :usersongs
   has_many :users, :through => :usersongs
 
+  has_attached_file :song,
+     :storage => :s3,
+     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
+     :path => "/songs/:id"
+
+  
   def upload(uploadFile)
     if uploadFile == nil
       return false
