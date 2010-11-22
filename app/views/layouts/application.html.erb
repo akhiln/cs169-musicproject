@@ -15,6 +15,7 @@
 		<%= image_tag "logo.gif", :align=>"left" %>
 		<div id="login_links">
 			<% if current_user %>
+			        <%= link_to "Home", account_path %> |
 				<%= link_to "Edit Profile", edit_user_path(:current), :class => 'ajaxify' %> |
 				<%= link_to "Logout", logout_path, :class => 'ajaxify' %>
 			<% else %>

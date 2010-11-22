@@ -1,0 +1,9 @@
+<h2> My Songs </h2>
+
+<% if @songs.size > 0 %>
+  <% @songs.each do |s| %>
+    <%= link_to "#{s.name}", "/songs/show/#{s.id}" %>
+  <% end %>
+<% else %>
+  You haven't uploaded any songs yet!
+<% end %>
