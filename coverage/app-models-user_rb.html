@@ -9,7 +9,7 @@
     <script type="text/javascript" src="rcov.js"></script>
   </head>
   <body>
-    <h1>Jukebox C0 Coverage Information - RCov</h1>
+    <h1>Cs169 Musicproject C0 Coverage Information - RCov</h1>
     <h2>app/models/user.rb</h2>
 
     
@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-user_rb.html">app/models/user.rb</a></td>
-            <td class='right_align'><tt>70</tt></td>
-            <td class='right_align'><tt>44</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>64.29%</tt></div>
+            <td class='right_align'><tt>58</tt></td>
+            <td class='right_align'><tt>20</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:64px"></div>
-            <div class="uncovered" style="width:36px"></div>
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>52.27%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:52px"></div>
-            <div class="uncovered" style="width:48px"></div>
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -56,8 +56,8 @@
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line1">1</a> require 'digest/sha1'</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line1">1</a> </pre></td>
           </tr>
         
           
@@ -74,164 +74,164 @@
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line4">4</a>   include Authentication</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line4">4</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line5">5</a>   include Authentication::ByPassword</pre></td>
+            <td><pre><a name="line5">5</a>   has_many :song_comments</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line6">6</a>   include Authentication::ByCookieToken</pre></td>
+            <td><pre><a name="line6">6</a>   has_many :song_ratings</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line7">7</a>   has_many :playlist_comments</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line8">8</a>   has_many :bookmarks</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line9">9</a>   has_many :usersongs</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line10">10</a>   has_many :songs, :through =&gt; :usersongs </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line11">11</a>   has_many :playlists</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line7">7</a>   </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line8">8</a>   has_many :usersongs</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line9">9</a>   has_many :songs, :through =&gt; :usersongs </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line10">10</a>   has_many :playlists</pre></td>
+            <td><pre><a name="line12">12</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line11">11</a> </pre></td>
+            <td><pre><a name="line13">13</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line12">12</a>   validates_presence_of     :login</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line13">13</a>   validates_length_of       :login,    :within =&gt; 3..40</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line14">14</a>   validates_uniqueness_of   :login</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line15">15</a>   validates_format_of       :login,    :with =&gt; Authentication.login_regex, :message =&gt; Authentication.bad_login_message</pre></td>
+            <td><pre><a name="line14">14</a>   has_attached_file :photo,</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line16">16</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line17">17</a>   validates_format_of       :name,     :with =&gt; Authentication.name_regex,  :message =&gt; Authentication.bad_name_message, :allow_nil =&gt; true</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line18">18</a>   validates_length_of       :name,     :maximum =&gt; 100</pre></td>
+            <td><pre><a name="line15">15</a>      #:default_url =&gt; '/images/default.jpg',</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line19">19</a> </pre></td>
+            <td><pre><a name="line16">16</a>      :storage =&gt; :s3,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line17">17</a>      :s3_credentials =&gt; &quot;#{RAILS_ROOT}/config/s3.yml&quot;, </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line18">18</a>      :styles =&gt; {</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line19">19</a>            :thumb =&gt; &quot;100x100#&quot;,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line20">20</a>            :large =&gt; &quot;850x150#&quot; },</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line21">21</a>      :path =&gt; &quot;/photos/:id/:style.:extension&quot;,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line22">22</a>      :default_style =&gt; :large</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line23">23</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line24">24</a>   #validates_attachment_content_type :photo, :content_type =&gt; [&quot;image/jpeg&quot;,&quot;image/jpg&quot;,&quot;image/png&quot;]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line25">25</a>   #validates_attachment_size :photo, :less_than =&gt; 3.megabytes</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line26">26</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line20">20</a>   validates_presence_of     :email</pre></td>
+            <td><pre><a name="line27">27</a>   acts_as_authentic do |c|</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line28">28</a>     #c.transition_from_restful_authentication = true</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line21">21</a>   validates_length_of       :email,    :within =&gt; 6..100 #r@a.wk</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line22">22</a>   validates_uniqueness_of   :email</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line23">23</a>   validates_format_of       :email,    :with =&gt; Authentication.email_regex, :message =&gt; Authentication.bad_email_message</pre></td>
+            <td><pre><a name="line29">29</a>     c.login_field = :login</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line24">24</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line25">25</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line26">26</a>   # HACK HACK HACK -- how to do attr_accessible from here?</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line27">27</a>   # prevents a user from submitting a crafted form that bypasses activation</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line28">28</a>   # anything else you want your user to change should be added here.</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line29">29</a>   attr_accessible :login, :email, :name, :password, :password_confirmation</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line30">30</a> </pre></td>
+            <td><pre><a name="line30">30</a>   end</pre></td>
           </tr>
         
           
@@ -249,235 +249,163 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line33">33</a>   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.</pre></td>
+            <td><pre><a name="line33">33</a> #  def upload_picture(uploadFile)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line34">34</a>   #</pre></td>
+            <td><pre><a name="line34">34</a> #    if uploadFile == nil</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line35">35</a>   # uff.  this is really an authorization, not authentication routine.  </pre></td>
+            <td><pre><a name="line35">35</a> #       self.pic = &quot;/images/default.jpg&quot;</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line36">36</a>   # We really need a Dispatch Chain here or something.</pre></td>
+            <td><pre><a name="line36">36</a> #       self.save</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line37">37</a>   # This will also let us return a human error message.</pre></td>
+            <td><pre><a name="line37">37</a> #    elsif uploadFile['datafile'] == nil || uploadFile['datafile'] == &quot;&quot;</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line38">38</a>   #</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line39">39</a>   def self.authenticate(login, password)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line40">40</a>     return nil if login.blank? || password.blank?</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line41">41</a>     u = find_by_login(login.downcase) # need to get the salt</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line42">42</a>     u &amp;&amp; u.authenticated?(password) ? u : nil</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line43">43</a>   end</pre></td>
+            <td><pre><a name="line38">38</a> #       self.pic = &quot;/images/default.jpg&quot;</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line44">44</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line45">45</a>   def login=(value)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line46">46</a>     write_attribute :login, (value ? value.downcase : nil)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line47">47</a>   end</pre></td>
+            <td><pre><a name="line39">39</a> #       self.save</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line48">48</a> </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line49">49</a>   def email=(value)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line50">50</a>     write_attribute :email, (value ? value.downcase : nil)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line51">51</a>   end</pre></td>
+            <td><pre><a name="line40">40</a> #    else</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line52">52</a> </pre></td>
+            <td><pre><a name="line41">41</a> #      name = self.login.hash.to_s</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line53">53</a>   def upload_picture(uploadFile)</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line42">42</a> #      directory = &quot;/images&quot;</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line54">54</a>     name = self.login.hash.to_s</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line43">43</a> #      # create the file path</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line55">55</a>     directory = &quot;/images&quot;</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line44">44</a> #      path = File.join(directory, name)</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line56">56</a>     # create the file path</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line45">45</a> #      # write the file</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line57">57</a>     path = File.join(directory, name)</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line46">46</a> #      begin</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line58">58</a>     # write the file</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line47">47</a> #        File.open('public' + path, &quot;wb&quot;) { |f| f.write(uploadFile['datafile'].read) }</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line59">59</a>     begin</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line48">48</a> #        self.pic = path</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line60">60</a>     File.open('public' + path, &quot;wb&quot;) { |f| f.write(uploadFile['datafile'].read) }</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line49">49</a> #        self.save</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line61">61</a> 	self.pic = path</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line50">50</a> #      rescue</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line62">62</a> 	self.save</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line51">51</a> #         self.pic = &quot;/images/default.jpg&quot;</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line63">63</a>     rescue</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line52">52</a> #         self.save</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line64">64</a>        self.pic = &quot;/images/default.jpg&quot;</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line53">53</a> #      end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line65">65</a>        self.save</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line54">54</a> #    end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line66">66</a>     end</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line55">55</a> #  end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line67">67</a>   end</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line56">56</a> </pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line68">68</a> </pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line57">57</a>   </pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line69">69</a>   </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line70">70</a> end</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line58">58</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Tue Nov 02 16:21:19 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Tue Nov 23 02:12:24 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

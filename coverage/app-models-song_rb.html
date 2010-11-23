@@ -9,7 +9,7 @@
     <script type="text/javascript" src="rcov.js"></script>
   </head>
   <body>
-    <h1>Jukebox C0 Coverage Information - RCov</h1>
+    <h1>Cs169 Musicproject C0 Coverage Information - RCov</h1>
     <h2>app/models/song.rb</h2>
 
     
@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-song_rb.html">app/models/song.rb</a></td>
-            <td class='right_align'><tt>41</tt></td>
-            <td class='right_align'><tt>36</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>21.95%</tt></div>
+            <td class='right_align'><tt>80</tt></td>
+            <td class='right_align'><tt>69</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>28.75%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:22px"></div>
-            <div class="uncovered" style="width:78px"></div>
+            <div class="covered" style="width:29px"></div>
+            <div class="uncovered" style="width:71px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>19.44%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>23.19%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:19px"></div>
-            <div class="uncovered" style="width:81px"></div>
+            <div class="covered" style="width:23px"></div>
+            <div class="uncovered" style="width:77px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -63,247 +63,481 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line2">2</a>   has_many :playlistsongs</pre></td>
+            <td><pre><a name="line2">2</a>   has_many :song_comments</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line3">3</a>   has_many :playlists, :through =&gt; :playlistsongs</pre></td>
+            <td><pre><a name="line3">3</a>   has_many :song_ratings</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line4">4</a>   has_many :usersongs</pre></td>
+            <td><pre><a name="line4">4</a>   has_many :playlistsongs</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line5">5</a>   has_many :users, :through =&gt; :usersongs</pre></td>
+            <td><pre><a name="line5">5</a>   has_many :playlists, :through =&gt; :playlistsongs</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line6">6</a>   has_many :usersongs</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line7">7</a>   has_many :users, :through =&gt; :usersongs</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line6">6</a> </pre></td>
+            <td><pre><a name="line8">8</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line7">7</a>   def upload(uploadFile)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line8">8</a>     if uploadFile == nil</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line9">9</a>       return false</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line10">10</a>     end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line11">11</a>     if uploadFile['datafile'] == nil || uploadFile['datafile'] == &quot;&quot;</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line12">12</a>       return false</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line13">13</a>     end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line14">14</a>     </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line15">15</a>     name = uploadFile['datafile'].original_filename</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line16">16</a>     directory = &quot;public/songs&quot;</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line17">17</a>     # create the file path</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line18">18</a>     if name[-4,4] == &quot;.mp3&quot;</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line19">19</a>       path = File.join(directory, self.id.to_s + &quot;.mp3&quot;)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line20">20</a>       # write the file</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line21">21</a>       File.open(path, &quot;wb&quot;) { |f| f.write(uploadFile['datafile'].read) }</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line22">22</a>       @source = path</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line23">23</a>       self.save</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line24">24</a>       return true</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line25">25</a>     else</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line26">26</a>       false</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line27">27</a>     end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line28">28</a>   end</pre></td>
+            <td><pre><a name="line9">9</a>   has_attached_file :song,</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line29">29</a>   </pre></td>
+            <td><pre><a name="line10">10</a>      :storage =&gt; :s3,</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line11">11</a>      :s3_credentials =&gt; &quot;#{RAILS_ROOT}/config/s3.yml&quot;, </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line12">12</a>      :path =&gt; &quot;/songs/:id&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line13">13</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line14">14</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line30">30</a>   def makePlayer</pre></td>
+            <td><pre><a name="line15">15</a>   def upload(uploadFile)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line31">31</a>     player_id = &quot;audioplayer&quot; + self.id.to_s + rand(300).to_s</pre></td>
+            <td><pre><a name="line16">16</a>     if uploadFile == nil</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line32">32</a>     &quot;&lt;script language=\&quot;JavaScript\&quot; src=\&quot;/player/audio-player.js\&quot;&gt;&lt;/script&gt;</pre></td>
+            <td><pre><a name="line17">17</a>       return false</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line33">33</a>     &lt;object type=\&quot;application/x-shockwave-flash\&quot; data=\&quot;/player/player.swf\&quot; id=\&quot;&quot; + player_id + &quot;\&quot; height=\&quot;24\&quot; width=\&quot;290\&quot;&gt;</pre></td>
+            <td><pre><a name="line18">18</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line34">34</a>     &lt;param name=\&quot;movie\&quot; value=\&quot;/player/player.swf\&quot;&gt;</pre></td>
+            <td><pre><a name="line19">19</a>     if uploadFile['datafile'] == nil || uploadFile['datafile'] == &quot;&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line35">35</a>     &lt;param name=\&quot;FlashVars\&quot; value=\&quot;playerID=&quot; + player_id + &quot;&amp;soundFile=/songs/&quot; + self.id.to_s + &quot;.mp3\&quot;&gt;</pre></td>
+            <td><pre><a name="line20">20</a>       return false</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line36">36</a>     &lt;param name=\&quot;quality\&quot; value=\&quot;high\&quot;&gt;</pre></td>
+            <td><pre><a name="line21">21</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line37">37</a>     &lt;param name=\&quot;menu\&quot; value=\&quot;false\&quot;&gt;</pre></td>
+            <td><pre><a name="line22">22</a>     </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line38">38</a>     &lt;param name=\&quot;wmode\&quot; value=\&quot;transparent\&quot;&gt;</pre></td>
+            <td><pre><a name="line23">23</a>     name = uploadFile['datafile'].original_filename</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line39">39</a>     &lt;/object&gt;&quot;</pre></td>
+            <td><pre><a name="line24">24</a>     directory = &quot;public/songs&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line40">40</a>   end</pre></td>
+            <td><pre><a name="line25">25</a>     # create the file path</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line41">41</a> end</pre></td>
+            <td><pre><a name="line26">26</a>     if name[-4,4] == &quot;.mp3&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line27">27</a>       path = File.join(directory, self.id.to_s + &quot;.mp3&quot;)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line28">28</a>       # write the file</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line29">29</a>       File.open(path, &quot;wb&quot;) { |f| f.write(uploadFile['datafile'].read) }</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line30">30</a>       @source = path</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line31">31</a>       self.save</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line32">32</a>       return true</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line33">33</a>     else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line34">34</a>       false</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line35">35</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line36">36</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line37">37</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line38">38</a>   def makePlayer</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line39">39</a>     '   player_id = &quot;audioplayer&quot; + self.id.to_s + rand(300).to_s</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line40">40</a>     &quot;&lt;script language=\&quot;JavaScript\&quot; src=\&quot;/player/audio-player.js\&quot;&gt;&lt;/script&gt;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line41">41</a>     &lt;object type=\&quot;application/x-shockwave-flash\&quot; data=\&quot;/player/player.swf\&quot; id=\&quot;&quot; + player_id + &quot;\&quot; height=\&quot;24\&quot; width=\&quot;290\&quot;&gt;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line42">42</a>     &lt;param name=\&quot;movie\&quot; value=\&quot;/player/player.swf\&quot;&gt;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line43">43</a>     &lt;param name=\&quot;FlashVars\&quot; value=\&quot;playerID=&quot; + player_id + &quot;&amp;soundFile=/songs/&quot; + self.id.to_s + &quot;.mp3\&quot;&gt;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line44">44</a>     &lt;param name=\&quot;quality\&quot; value=\&quot;high\&quot;&gt;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line45">45</a>     &lt;param name=\&quot;menu\&quot; value=\&quot;false\&quot;&gt;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line46">46</a>     &lt;param name=\&quot;wmode\&quot; value=\&quot;transparent\&quot;&gt;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line47">47</a>     &lt;/object&gt;&quot;  '</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line48">48</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line49">49</a>     &quot;&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line50">50</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line51">51</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line52">52</a>   def renderRow</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line53">53</a> 	link = link_to_remote self.name, {:url=&gt;'/songs/show/'+self.id.to_s, :update=&gt;'main_content'}</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line54">54</a> 	return link</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line55">55</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line56">56</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line57">57</a>   def ratingString</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line58">58</a>     if self.rating == nil</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line59">59</a>       &quot;-&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line60">60</a>     else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line61">61</a>       sprintf(&quot;%.2f&quot;, self.rating)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line62">62</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line63">63</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line64">64</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line65">65</a>   def updateRating</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line66">66</a>     total = 0.0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line67">67</a>     count = 0.0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line68">68</a>     self.song_ratings.each do |song_rating|</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line69">69</a>       count = count + 1</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line70">70</a>       total = total + song_rating.rating</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line71">71</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line72">72</a>     if count == 0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line73">73</a>       self.rating = nil</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line74">74</a>       self.save</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line75">75</a>     elsif self.rating != total/count</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line76">76</a>       self.rating = total/count</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line77">77</a>       self.save</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line78">78</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line79">79</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line80">80</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Tue Nov 02 16:21:19 -0700 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Tue Nov 23 02:12:24 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>
