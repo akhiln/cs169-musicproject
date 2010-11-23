@@ -17,7 +17,6 @@ Feature: Manage music
       And I should see "May cause your ears to bleed"
       And I should see "Delete"
       And I should see "Add to Playlist"
-      And there should be a player on the page
   
   Scenario: Delete song
     Given I am on the manage music page

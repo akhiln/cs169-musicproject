@@ -35,7 +35,7 @@
 				<%= link_to_remote "Popular Songs", {:url=>popular_songs_path(), :update => 'main_content'} %>
 			</li>
 			<li>
-				<%= link_to_remote "Popular Playlists", (:url=>popular_playlists_path(), :update => 'main_content'} %>
+				<%= link_to_remote "Popular Playlists", {:url=>popular_playlists_path(), :update => 'main_content'} %>
 			</li>
 			<% if current_user %>
 				<li>
