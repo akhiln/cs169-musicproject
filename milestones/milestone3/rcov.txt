@@ -1,1 +1,51 @@
-C:\Users\Brian\Git\cs169-musicproject>rake spec:rcov(in C:/Users/Brian/Git/cs169-musicproject)rm -r coverage.........................................Finished in 25.078435 seconds41 examples, 0 failures+----------------------------------------------------+-------+-------+--------+|                  File                              | Lines |  LOC  |  COV   |+----------------------------------------------------+-------+-------+--------+|app/controllers/application_controller.rb           |    43 |    37 |  32.4% ||app/controllers/bookmarks_controller.rb             |    14 |    14 |  21.4% ||app/controllers/browse_controller.rb                |    21 |    19 |  21.1% ||app/controllers/index_controller.rb                 |     5 |     4 | 100.0% ||app/controllers/playlist_comment_controller.rb      |    27 |    24 |  16.7% ||app/controllers/playlist_rating_controller.rb       |    33 |    31 |  12.9% ||app/controllers/playlists_controller.rb             |    59 |    50 | 100.0% ||app/controllers/song_comment_controller.rb          |    26 |    24 |  16.7% ||app/controllers/song_rating_controller.rb           |    33 |    31 |  12.9% ||app/controllers/songs_controller.rb                 |   120 |    79 | 100.0% ||app/controllers/user_sessions_controller.rb         |    24 |    21 |  28.6% ||app/controllers/users_controller.rb                 |    58 |    49 |  16.3% ||app/helpers/application_helper.rb                   |     3 |     2 | 100.0% ||app/helpers/bookmarks_helper.rb                     |     2 |     2 | 100.0% ||app/helpers/playlist_comment_helper.rb              |     2 |     2 | 100.0% ||app/helpers/playlist_rating_helper.rb               |     2 |     2 | 100.0% ||app/helpers/playlists_helper.rb                     |     2 |     2 | 100.0% ||app/helpers/playlists_songs_helper.rb               |     2 |     2 | 100.0% ||app/helpers/sessions_helper.rb                      |     2 |     2 | 100.0% ||app/helpers/song_comment_helper.rb                  |     2 |     2 | 100.0% ||app/helpers/song_rating_helper.rb                   |     2 |     2 | 100.0% ||app/helpers/songs_helper.rb                         |     2 |     2 | 100.0% ||app/helpers/user_sessions_helper.rb                 |     2 |     2 | 100.0% ||app/helpers/users_helper.rb                         |    93 |    34 |  14.7% ||app/helpers/users_songs_helper.rb                   |     2 |     2 | 100.0% ||app/models/bookmark.rb                              |     4 |     4 | 100.0% ||app/models/playlist.rb                              |    43 |    39 |  28.2% ||app/models/playlist_comment.rb                      |     4 |     4 | 100.0% ||app/models/playlist_rating.rb                       |     4 |     4 | 100.0% ||app/models/playlistsong.rb                          |     6 |     5 | 100.0% ||app/models/song.rb                                  |    73 |    60 | 100.0% ||app/models/song_comment.rb                          |     4 |     4 | 100.0% ||app/models/song_rating.rb                           |     4 |     4 | 100.0% ||app/models/user.rb                                  |    58 |    20 | 100.0% ||app/models/user_session.rb                          |     2 |     2 | 100.0% ||app/models/usersong.rb                              |     6 |     5 | 100.0% |+----------------------------------------------------+-------+-------+--------+|Total                                               |   789 |   592 |  56.4% |+----------------------------------------------------+-------+-------+--------+56.4%   36 file(s)   789 Lines   592 LOC
+C:\Users\Brian\Git\cs169-musicproject>rake spec:rcov
+(in C:/Users/Brian/Git/cs169-musicproject)
+rm -r coverage
+.........................................
+
+Finished in 25.078435 seconds
+
+41 examples, 0 failures
++----------------------------------------------------+-------+-------+--------+
+|                  File                              | Lines |  LOC  |  COV   |
++----------------------------------------------------+-------+-------+--------+
+|app/controllers/application_controller.rb           |    43 |    37 |  32.4% |
+|app/controllers/bookmarks_controller.rb             |    14 |    14 |  21.4% |
+|app/controllers/browse_controller.rb                |    21 |    19 |  21.1% |
+|app/controllers/index_controller.rb                 |     5 |     4 | 100.0% |
+|app/controllers/playlist_comment_controller.rb      |    27 |    24 |  16.7% |
+|app/controllers/playlist_rating_controller.rb       |    33 |    31 |  12.9% |
+|app/controllers/playlists_controller.rb             |    59 |    50 | 100.0% |
+|app/controllers/song_comment_controller.rb          |    26 |    24 |  16.7% |
+|app/controllers/song_rating_controller.rb           |    33 |    31 |  12.9% |
+|app/controllers/songs_controller.rb                 |   120 |    79 | 100.0% |
+|app/controllers/user_sessions_controller.rb         |    24 |    21 |  28.6% |
+|app/controllers/users_controller.rb                 |    58 |    49 |  16.3% |
+|app/helpers/application_helper.rb                   |     3 |     2 | 100.0% |
+|app/helpers/bookmarks_helper.rb                     |     2 |     2 | 100.0% |
+|app/helpers/playlist_comment_helper.rb              |     2 |     2 | 100.0% |
+|app/helpers/playlist_rating_helper.rb               |     2 |     2 | 100.0% |
+|app/helpers/playlists_helper.rb                     |     2 |     2 | 100.0% |
+|app/helpers/playlists_songs_helper.rb               |     2 |     2 | 100.0% |
+|app/helpers/sessions_helper.rb                      |     2 |     2 | 100.0% |
+|app/helpers/song_comment_helper.rb                  |     2 |     2 | 100.0% |
+|app/helpers/song_rating_helper.rb                   |     2 |     2 | 100.0% |
+|app/helpers/songs_helper.rb                         |     2 |     2 | 100.0% |
+|app/helpers/user_sessions_helper.rb                 |     2 |     2 | 100.0% |
+|app/helpers/users_helper.rb                         |    93 |    34 |  14.7% |
+|app/helpers/users_songs_helper.rb                   |     2 |     2 | 100.0% |
+|app/models/bookmark.rb                              |     4 |     4 | 100.0% |
+|app/models/playlist.rb                              |    43 |    39 |  28.2% |
+|app/models/playlist_comment.rb                      |     4 |     4 | 100.0% |
+|app/models/playlist_rating.rb                       |     4 |     4 | 100.0% |
+|app/models/playlistsong.rb                          |     6 |     5 | 100.0% |
+|app/models/song.rb                                  |    73 |    60 | 100.0% |
+|app/models/song_comment.rb                          |     4 |     4 | 100.0% |
+|app/models/song_rating.rb                           |     4 |     4 | 100.0% |
+|app/models/user.rb                                  |    58 |    20 | 100.0% |
+|app/models/user_session.rb                          |     2 |     2 | 100.0% |
+|app/models/usersong.rb                              |     6 |     5 | 100.0% |
++----------------------------------------------------+-------+-------+--------+
+|Total                                               |   789 |   592 |  56.4% |
++----------------------------------------------------+-------+-------+--------+
+56.4%   36 file(s)   789 Lines   592 LOC
