@@ -26,7 +26,7 @@ Feature: Song Rating
     Then I should see "Fubarbaz.mp3"
       And I should see "3.00"
       
-  Scenario: Ratings are averaged between users
+  Scenario: Song ratings are averaged between users
     Given there is a profile named "Smith" with password "password" and email "sredrog@iuhriguer.com"  
       And I am signed in as "Smith" using password "password" 
       And there is a profile named "Brown" with password "password" and email "srsieugr@eghir.com"
