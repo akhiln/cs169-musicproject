@@ -13,16 +13,7 @@ Feature: Manage music
       And I fill in "song_description" with "May cause your ears to bleed"
       And I upload the song "Kalimba.mp3"
       And I press "Create"
-    Then I should see "Some bad song"
-      And I should see "May cause your ears to bleed"
-      And I should see "Delete"
-      And I should see "Add to Playlist"
-  
-  Scenario: Delete song
-    Given I am on the manage music page
-      And there is a song called "Foo"
-    When I click the delete button
-    Then "Foo" should be deleted from the database
+    Then show me the page
   
   Scenario: Edit song
     Given there is a profile named "Smith2" with password "password" and email "ouhg@ieurhgi.com"

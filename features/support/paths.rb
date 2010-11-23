@@ -33,6 +33,10 @@ module NavigationHelpers
        '/logout'
     when /the Make new playlist page/
        '/Playlists/new'
+       
+    when /the rating page for the song "([^"]*)"/
+      @song = Song.find_by_name($1)
+      '/rating/song/new/'+@song.id.to_s
 
     else
       begin
