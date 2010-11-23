@@ -5,6 +5,9 @@ require File.expand_path(File.join(File.dirname(__FILE__),'..','config','environ
 require 'spec/autorun'
 require 'spec/rails'
 
+require 'authlogic/test_case'
+include Authlogic::TestCase
+
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
 
@@ -53,13 +56,10 @@ Spec::Runner.configure do |config|
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end
 
-def login_as(user)
-  case user
-    when :admin
-      @current_user = mock_model(User)
-      User.should_receive(:find_by_id).any_number_of_times.and_return(@current_user)
-      request.session[:user] = @current_user
-    else
-      request.session[:user] = nil
+def auth_login
+  if @myUser == nil
+    @myUser = User.create(:login=>"tester", :password=>"passwordrific", :password_confirmation=>"passwordrific", :email=>"fubar@silly.com")
+    @controller.stub!(:current_user).and_return(@myUser)
   end
 end
+

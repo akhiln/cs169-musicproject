@@ -7,7 +7,7 @@ class SongsController < ApplicationController
      @song = Song.new(params[:song])
      respond_to do |format|      
        if @song.save
-         @users_songs = Usersong.new({:user_id => @current_user.id, :song_id => @song.id})
+         @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
         if @users_songs.save
          format.html { redirect_to(@song, :notice => 'Song was successfully created.') } 
          format.xml  { render :xml => @song, :status => :created, :location => @song }
@@ -58,7 +58,7 @@ class SongsController < ApplicationController
   def show
     @song = Song.find(params[:id])
     @comments = @song.song_comments
-    if @song.users.include?(@current_user)
+    if @song.users.include?(current_user)
       @auth = true
     else
       @auth = false
@@ -101,7 +101,7 @@ class SongsController < ApplicationController
   def delete
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to(@current_user, :notice => "Song successfully deleted")
+    redirect_to(current_user, :notice => "Song successfully deleted")
   end
   
   def my
