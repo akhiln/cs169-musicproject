@@ -1,0 +1,4 @@
+https://github.com/jackywu07/Debate
+http://deep-sunset-45.heroku.com/debates/1
+
+I like the pros/cons feature on the Debate website. The view is well implemented with opposing divs with opposite coloring scemes, and it makes a nice frame for the debate. Looking at the code, it appears that they structure their site primarily using the models debate, comment and argument, so each user can make arguments and then comments on arguments. This seems like a very flexible architechture, and they are using inherintance and polymorphism. Overall, it seems like an impressive back end and the views are pretty nice too.
