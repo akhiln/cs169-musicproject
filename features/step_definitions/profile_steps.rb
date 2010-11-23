@@ -44,7 +44,7 @@ end
 
 Then /^the picture of "(.*)" is default$/ do |user_name|
   @user = User.find_by_name(user_name)
-  assert @user.pic == "/images/default.jpg"
+  assert @user.photo.url == "/photos/large/missing.png"
 end
 
 

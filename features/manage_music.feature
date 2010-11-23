@@ -18,12 +18,6 @@ Feature: Manage music
       And I should see "Delete"
       And I should see "Add to Playlist"
   
-  Scenario: Delete song
-    Given I am on the manage music page
-      And there is a song called "Foo"
-    When I click the delete button
-    Then "Foo" should be deleted from the database
-  
   Scenario: Edit song
     Given there is a profile named "Smith2" with password "password" and email "ouhg@ieurhgi.com"
       And I am signed in as "Smith2" using password "password"

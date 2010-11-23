@@ -32,7 +32,7 @@ Feature: User Profiles
   When I am on the profile for "MyName"
   Then I should see "Add a song" within "#songs"
     And I should see "Make a new playlist" within "#playlists"
-    And I should see "Edit Profile" within "#info"
+    And I should see "Edit My Profile"
 
 Scenario: Edit my information
   Given there is a profile named "MyName2" with password "blahblah" and email "minee@adf.com"

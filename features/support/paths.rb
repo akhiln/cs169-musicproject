@@ -33,6 +33,24 @@ module NavigationHelpers
        '/logout'
     when /the Make new playlist page/
        '/Playlists/new'
+       
+    when /the rating page for the song "([^"]*)"/
+      @song = Song.find_by_name($1)
+      '/rating/song/new/'+@song.id.to_s
+      
+    when /the rating page for the playlist "([^"]*)"/
+      @playlist = Playlist.find_by_name($1)
+      '/rating/playlist/new/'+@playlist.id.to_s
+
+    when /the show page for the song "([^"]*)"/
+      @song = Song.find_by_name($1)
+      '/songs/show/'+@song.id.to_s
+
+    when /the home page/
+       '/'
+
+    when /the browse page/
+       '/browse'
 
     else
       begin

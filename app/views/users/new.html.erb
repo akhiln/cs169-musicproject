@@ -4,7 +4,7 @@
 
 <%= error_messages_for :user %>
 
-<% form_remote_for :user, {:url => users_path, :html => { :multipart => true }, :update=>'main_content'} do |f| -%>
+<% form_for @user, {:url => '/Users/create/'+@user.id.to_s, :html => { :multipart => true }} do |f| -%>
 <p><%= f.label :name %><br/>
 <%= f.text_field :name %></p>
 
@@ -22,8 +22,8 @@
 <p><%= f.label :password_confirmation, 'Confirm Password' %><br/>
 <%= f.password_field :password_confirmation %></p>
 
-<p><label for="upload_file">Select a Profile Picture</label><br/> 
-  <%= file_field 'upload', 'datafile' %></p>
+<p>Select a Profile Picture<br/> 
+  <%= f.file_field :photo %></p>
 
 <p><%= submit_tag 'Sign up' %></p>
 <% end -%>
