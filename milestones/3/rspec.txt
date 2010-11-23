@@ -1,0 +1,71 @@
+(in /home/jamesparker/proj/cs169-musicproject)
+PlaylistsControllerMake a new playlist
+  should create the playlist
+  should save the playlist
+  should be redirect
+PlaylistsControllerList all playlists for a user
+  should get all playlists for the user
+PlaylistsControllerList all songs in a playlist
+  should get all songs for the playlist
+PlaylistsControllerMake new playlist
+  should make a new list
+PlaylistsControllerDelete a playlist
+  should call destroy
+  should redirect
+PlaylistsControllerAdd song to playlist
+  should find all possible lists
+  should create a new PlaylistSong
+PlaylistsControllerFind popular playlists
+  should include popular playlists
+PlaylistsControllerFind playlists owned by the current user
+  should include playlists owned by the user
+SongsControllerMake a new song
+  should create the playlist
+  should save the playlist
+  should be redirect
+  should render new if it fails
+  should render new from the new action
+SongsControllerShow a song
+  should render show
+  should set auth when owned by the current user
+  should not set auth when not owned by the current user
+SongsControllerEdit a song
+  should render the edit page with @song set appropriately
+  should redirect to the song's page on a good update
+  should send you back to edit on a bad update
+SongsControllerView index of all songs
+  should pass on the list of all songs
+  should pass an empty list if it gets nil
+SongsControllerDelete a song
+  should redirect after being destroyed
+SongsControllerDisplay my songs
+  should return my songs
+SongsControllerDisplay popular songs
+  should return the most popular songs
+Usersong
+  When creating a valid user song
+    a song id and user id is required
+Playlistsong
+  When creating a valid playlist song
+    a playlist id and song id is required
+Playlist
+  When creating a valid playlist
+    a name and user id is required
+Songupload a new song
+  should save a valid file into public/songs/:id
+  should return false if uploadFile is nil
+  should return false if there is no data in the argument
+  should return false if the filename does not end in .mp3
+Songmake a player
+  should return and empty string, because it doesn't do anything anymore
+Songgenerate an Ajax link to the song's show page
+  should return an HTML/JS tag to make an Ajax call
+Songgenerate a string representation of the song's rating
+  should round past the 2nd decimal place
+  should print - for unrated songs
+  should average ratings when recalculating
+  should set rating to nil if there aren't any ratings
+
+Finished in 2.323467 seconds
+
+41 examples, 0 failures
