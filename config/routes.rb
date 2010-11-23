@@ -16,7 +16,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :playlists, :collection => { :popular => :get, :my => :get }
   map.resources :songs, :collection => { :popular => :get, :my => :get }
-  map.resources :songs
   
   map.resources :users_songs
  
