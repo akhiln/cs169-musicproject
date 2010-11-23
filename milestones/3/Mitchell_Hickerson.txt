@@ -1,0 +1,9 @@
+I chose to look at the "whiteboard" website at 
+http://white-board.heroku.com
+which is aimed at hosting collaboration through the use of an online
+drawable whiteboard.
+      One feature that I enjoyed was viewing the available gallery
+of whiteboards as a group of thumbnails.  It allowed me to pick out
+which picture was mine relatively quikly; I could see this becoming
+a problem if they don't add a search function, however.  They create
+a thumbnail for the gallery inside the gallery's create controller.

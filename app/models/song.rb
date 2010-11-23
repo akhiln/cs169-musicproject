@@ -36,8 +36,8 @@ class Song < ActiveRecord::Base
   end
   
   def makePlayer
-    '<a href="#" onclick="playListAdd(song.name, "/songs/" + self.id.to_s + ".mp3")"><img src="/images/play.png"></a>
-	<a href="#" onclick="playListAddAndPlay(song.name, "/songs/" + self.id.to_s + ".mp3")"><img src="/images/playadd.png"></a>'
+    #'<a href="#" onclick="playListAdd(song.name, "/songs/" + self.id.to_s + ".mp3")"><img src="/images/play.png"></a>
+    #<a href="#" onclick="playListAddAndPlay(song.name, "/songs/" + self.id.to_s + ".mp3")"><img src="/images/playadd.png"></a>'
 
     ""
   end
