@@ -22,8 +22,8 @@
 <p><%= f.label :password_confirmation, 'Confirm Password' %><br/>
 <%= f.password_field :password_confirmation %></p>
 
-<p><label for="upload_file">Select a Profile Picture</label><br/> 
-  <%= file_field 'upload', 'datafile' %></p>
+<p>Select a Profile Picture<br/> 
+  <%= f.file_field :photo%></p>
 
 <p><%= submit_tag 'Sign up' %></p>
 <% end -%>

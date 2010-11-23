@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
            :large => "850x150" },
      :path => "/photos/:id/:style.:extension",
      :default_style => :large,
-     :default => '/public/images/default.jpg'
+     :default_url => '/images/default.jpg'
 
   validates_attachment_content_type :photo, :content_type => ["image/jpeg","image/jpg","image/png"]
   validates_attachment_size :photo, :less_than => 3.megabytes
