@@ -1,0 +1,4 @@
+I looked at the whiteboard application that allows users to create virtual whiteboards and share them.
+The ability to create whiteboards and the implementation of that features is done really well. I admire
+the fact that the whiteboard creation isn't done using flash, as is typical, but is done using HTML5.
+The app runs really smoothly with not hiccups, as I would have expected from something as complicated.
