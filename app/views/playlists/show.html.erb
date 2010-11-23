@@ -3,7 +3,7 @@
 <% if not @songs.nil? %>
 <ul class="music_list" id="song_list">
   <% @songs.each do |song| %>
-    <li class="song_element"><%=link_to(song.name,'/Songs/show/'+song.id.to_s)%> <%=song.makePlayer%></li>
+    <li class="song_element"><%=link_to_remote(song.name,:url=>'/Songs/show/'+song.id.to_s,:update=>'main_content')%> <%=song.makePlayer%></li>
   <% end %>
 </ul>
 <%end%>

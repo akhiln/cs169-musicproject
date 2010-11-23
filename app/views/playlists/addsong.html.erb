@@ -1,5 +1,5 @@
 <h2>Add <%=@song.name%> to playlist</h2>
-<% form_tag(:controller => "playlists", :action => "confirmaddsong", :method => "post")  do %>
+<% form_remote_tag(:controller => "playlists", :action => "confirmaddsong", :method => "post", :update=>'main_content')  do %>
 	<%= hidden_field_tag(:song_id, @song_id) %>
 	<% @playlists.each do |playlist| %>
 		<%= radio_button_tag(:playlist, playlist.id) %>

@@ -1,6 +1,6 @@
 <h1>New playlist</h1>
 
-<% form_for(@playlist)  do |f| %>
+<% form_remote_for(@playlist, :update=>'main_content')  do |f| %>
   <%= f.error_messages %>
 
   <p>

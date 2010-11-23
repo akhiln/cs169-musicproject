@@ -9,13 +9,15 @@
 <div class="profile" id="songs">
 <p class="section_title"><%="Songs by "+@user.name%></p>
 <% if @user.id == @current_user.id %>
-<p><%=link_to('Add a song','/Songs/new')%>
+<p><%=link_to_remote 'Add a song', {:url=>'/Songs/new', :update=>'main_content'} %>
 <%end%>
 
 <% if not @songs.nil? %>
 <ul class="music_list" id="song_list">
   <% @songs.each do |song| %>
-    <li class="song_element"><%=link_to(song.name,'/songs/show/'+song.id.to_s)%> <%=song.makePlayer%></li>
+    <li class="song_element">
+		<%=link_to_remote song.name, {:url=>'/songs/show/'+song.id.to_s, :update=>'main_content'}%><%=song.makePlayer%>
+	</li>
   <% end %>
 </ul>
 <%end%>
@@ -23,12 +25,14 @@
 <div class="profile" id="playlists">
 <p class="section_title"><%="Playlists by "+@user.name%></p>
 <% if @user.id == @current_user.id %>
-<p><%=link_to('Make a new playlist','/Playlists/new')%></p>
+<p><%=link_to_remote 'Make a new playlist', {:url=>'/Playlists/new', :update=>'main_content'}%></p>
 <%end%>
 <% if not @playlists.nil? %>
 <ul class="music_list" id="pl_list">
   <% @playlists.each do |pl| %>
-    <li class="pl_element"><%=link_to(pl.name,'/Playlists/show/'+pl.id.to_s)%> </li>
+    <li class="pl_element">
+		<%=link_to_remote pl.name, {:url=>'/Playlists/show/'+pl.id.to_s, :update=>'main_content'}%>
+	</li>
   <% end %>
 </ul>
 <%end%>
@@ -39,7 +43,9 @@
 <ul class="music_list" id="bm_list">
   <% @bookmarks.each do |bk| %>
    <div class="bookmark_element">
-    <li class="pl_element"><%=link_to(bk.playlist.name,'/Playlists/show/'+bk.playlist.id.to_s)%> </li> </div>
+    <li class="pl_element">
+		<%=link_to_remote bk.playlist.name, {:url=>'/Playlists/show/'+bk.playlist.id.to_s, :update=>'main_content'}%>
+	</li> </div>
   <% end %>
 </ul>
 <%end%>
