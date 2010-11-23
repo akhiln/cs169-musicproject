@@ -13,7 +13,10 @@ Feature: Manage music
       And I fill in "song_description" with "May cause your ears to bleed"
       And I upload the song "Kalimba.mp3"
       And I press "Create"
-    Then show me the page
+    Then I should see "Some bad song"
+      And I should see "May cause your ears to bleed"
+      And I should see "Delete"
+      And I should see "Add to Playlist"
   
   Scenario: Edit song
     Given there is a profile named "Smith2" with password "password" and email "ouhg@ieurhgi.com"
