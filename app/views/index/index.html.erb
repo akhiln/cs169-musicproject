@@ -18,8 +18,8 @@
 		<%= image_tag "logo.gif", :align=>"left" %>
 		<div id="login_links">
 			<% if current_user %>
-			    <%= link_to_remote "Home", {:url=>root_path, :update=>'main_content'} %> |
-				<%= link_to_remote "Edit Profile", {:url=>edit_user_path(:current), :update=>'main_content'} %> |
+			    <%= link_to "Home", {:url=>root_path} %> |
+				<%= link_to_remote "Edit Profile", {:url=>edit_user_path(:edit), :update=>'main_content'} %> |
 				<%= link_to "Logout", logout_path, :class => 'ajaxify' %>
 			<% else %>
 				<%= link_to_remote "Register", {:url=>signup_path, :update=>'main_content'} %> |
