@@ -8,9 +8,10 @@ class Song < ActiveRecord::Base
 
   has_attached_file :song,
      :storage => :s3,
-     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
-     :path => "/songs/:id"
-
+     :s3_credentials => { :access_key_id     => ENV['S3_KEY'], 
+                        :secret_access_key => ENV['S3_SECRET'] },
+     :path => "/songs/:id",
+     :bucket => "prod.jukebox"
   
   def upload(uploadFile)
     if uploadFile == nil
