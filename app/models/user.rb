@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
      :storage => :s3,
      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
      :styles => {
-           :thumb => "100x100",
-           :large => "850x150" },
+           :thumb => "100x100^",
+           :large => "850x150^" },
      :path => "/photos/:id/:style.:extension",
      :default_style => :large,
      :default_url => '/images/default.jpg'
