@@ -1,0 +1,234 @@
+Using the default profile...
+Feature: Song Rating
+  In order to provide a quantitative assessment of a song's quality
+  the user
+  wants to be able to rate songs
+
+  Scenario: Initially rate a song                                                                                                 # features/song_ratings.feature:6
+    Given there is a profile named "Smith" with password "password" and email "srguh@iuhriguer.com"                               # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                                                       # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsh@eghir.com"                                      # features/step_definitions/profile_steps.rb:8
+    And "Brown" has uploaded a song with name "Fubarbaz.mp3", album "Albumatic", genre "Genrefull", and description "WHEEEEEEEE!" # features/step_definitions/music_steps.rb:6
+    And I am on the rating page for the song "Fubarbaz.mp3"                                                                       # features/step_definitions/web_steps.rb:19
+    When I select "5" from "song_rating_rating"                                                                                   # features/step_definitions/web_steps.rb:70
+    And I press "Submit"                                                                                                          # features/step_definitions/web_steps.rb:27
+    Then I should see "Fubarbaz.mp3"                                                                                              # features/step_definitions/web_steps.rb:107
+    And I should see "5.00"                                                                                                       # features/step_definitions/web_steps.rb:107
+
+  Scenario: Change the rating of a song by rating it again                                                                        # features/song_ratings.feature:17
+    Given there is a profile named "Smith" with password "password" and email "sredrog@iuhriguer.com"                             # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                                                       # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsieugr@eghir.com"                                  # features/step_definitions/profile_steps.rb:8
+    And "Brown" has uploaded a song with name "Fubarbaz.mp3", album "Albumatic", genre "Genrefull", and description "WHEEEEEEEE!" # features/step_definitions/music_steps.rb:6
+    And "Smith" has given the song "Fubarbaz.mp3" a rating of "5"                                                                 # features/step_definitions/song_rating_steps.rb:1
+    And I am on the rating page for the song "Fubarbaz.mp3"                                                                       # features/step_definitions/web_steps.rb:19
+    When I select "3" from "song_rating_rating"                                                                                   # features/step_definitions/web_steps.rb:70
+    And I press "Submit"                                                                                                          # features/step_definitions/web_steps.rb:27
+    Then I should see "Fubarbaz.mp3"                                                                                              # features/step_definitions/web_steps.rb:107
+    And I should see "3.00"                                                                                                       # features/step_definitions/web_steps.rb:107
+
+  Scenario: Song ratings are averaged between users                                                                               # features/song_ratings.feature:29
+    Given there is a profile named "Smith" with password "password" and email "sredrog@iuhriguer.com"                             # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                                                       # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsieugr@eghir.com"                                  # features/step_definitions/profile_steps.rb:8
+    And "Brown" has uploaded a song with name "Fubarbaz.mp3", album "Albumatic", genre "Genrefull", and description "WHEEEEEEEE!" # features/step_definitions/music_steps.rb:6
+    And "Brown" has given the song "Fubarbaz.mp3" a rating of "5"                                                                 # features/step_definitions/song_rating_steps.rb:1
+    And I am on the rating page for the song "Fubarbaz.mp3"                                                                       # features/step_definitions/web_steps.rb:19
+    When I select "3" from "song_rating_rating"                                                                                   # features/step_definitions/web_steps.rb:70
+    And I press "Submit"                                                                                                          # features/step_definitions/web_steps.rb:27
+    Then I should see "Fubarbaz.mp3"                                                                                              # features/step_definitions/web_steps.rb:107
+    And I should see "4.00"                                                                                                       # features/step_definitions/web_steps.rb:107
+
+Feature: Manage music
+  In order to manage their music
+  the user
+  wants to upload, delete and update their songs.
+
+  #  Scenario: Upload new song
+  #    Given there is a profile named "Smith1" with password "password" and email "auhgeirugh@iuhriguer.com"
+  #      And I am signed in as "Smith1" using password "password"
+  #      And I am on the upload song page
+  #    When I fill in "song_name" with "Some bad song"
+  #      And I fill in "song_album" with "Terrible Album"
+  #      And I fill in "song_genre" with "unlikeable"
+  #      And I fill in "song_description" with "May cause your ears to bleed"
+  #      And I upload the song "Kalimba.mp3"
+  #      And I press "Create"
+  #    Then I should see "Some bad song"
+  #      And I should see "May cause your ears to bleed"
+  #      And I should see "Delete"
+  #      And I should see "Add to Playlist"
+  Scenario: Edit song                                                                                                              # features/manage_music.feature:21
+    Given there is a profile named "Smith2" with password "password" and email "ouhg@ieurhgi.com"                                  # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith2" using password "password"                                                                       # features/step_definitions/profile_steps.rb:20
+    And "Smith2" has uploaded a song with name "Fubarbaz.mp3", album "Albumatic", genre "Genrefull", and description "WHEEEEEEEE!" # features/step_definitions/music_steps.rb:6
+    And I am editing the song "Fubarbaz.mp3"                                                                                       # features/step_definitions/music_steps.rb:13
+    When I fill in "song_name" with "Bazowski.mp3"                                                                                 # features/step_definitions/web_steps.rb:39
+    And I fill in "song_album" with "Ally the Bum"                                                                                 # features/step_definitions/web_steps.rb:39
+    And I fill in "song_genre" with "Alternative Energy"                                                                           # features/step_definitions/web_steps.rb:39
+    And I fill in "song_description" with "!EEEEEEEEEEHW"                                                                          # features/step_definitions/web_steps.rb:39
+    And I press "Update"                                                                                                           # features/step_definitions/web_steps.rb:27
+    Then the database should contain a song named "Bazowski.mp3"                                                                   # features/step_definitions/music_steps.rb:18
+    And the database should not contain a song named "Fubarbaz.mp3"                                                                # features/step_definitions/music_steps.rb:23
+
+Feature: Playlist Rating
+  In order to provide a quantitative assessment of a playlist's quality
+  the user
+  wants to be able to rate playlist
+
+  Scenario: Initially rate a playlist                                                                    # features/playlist_ratings.feature:6
+    Given there is a profile named "Smith" with password "password" and email "srguh@iuhriguer.com"      # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                              # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsh@eghir.com"             # features/step_definitions/profile_steps.rb:8
+    And "Brown" has created a playlist with name "Wii would like to play", and description "WHEEEEEEEE!" # features/step_definitions/playlist_rating_steps.rb:2
+    And I am on the rating page for the playlist "Wii would like to play"                                # features/step_definitions/web_steps.rb:19
+    When I select "5" from "playlist_rating_rating"                                                      # features/step_definitions/web_steps.rb:70
+    And I press "Submit"                                                                                 # features/step_definitions/web_steps.rb:27
+    Then I should see "Wii would like to play"                                                           # features/step_definitions/web_steps.rb:107
+    And I should see "5.00"                                                                              # features/step_definitions/web_steps.rb:107
+
+  Scenario: Change the rating of a playlist by rating it again                                           # features/playlist_ratings.feature:17
+    Given there is a profile named "Smith" with password "password" and email "srguh@iuhriguer.com"      # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                              # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsh@eghir.com"             # features/step_definitions/profile_steps.rb:8
+    And "Brown" has created a playlist with name "Wii would like to play", and description "WHEEEEEEEE!" # features/step_definitions/playlist_rating_steps.rb:2
+    And "Smith" has given the playlist "Wii would like to play" a rating of "5"                          # features/step_definitions/playlist_rating_steps.rb:8
+    And I am on the rating page for the playlist "Wii would like to play"                                # features/step_definitions/web_steps.rb:19
+    When I select "3" from "playlist_rating_rating"                                                      # features/step_definitions/web_steps.rb:70
+    And I press "Submit"                                                                                 # features/step_definitions/web_steps.rb:27
+    Then I should see "Wii would like to play"                                                           # features/step_definitions/web_steps.rb:107
+    And I should see "3.00"                                                                              # features/step_definitions/web_steps.rb:107
+
+  Scenario: Playlist ratings are averaged between users                                                  # features/playlist_ratings.feature:29
+    Given there is a profile named "Smith" with password "password" and email "sredrog@iuhriguer.com"    # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                              # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsieugr@eghir.com"         # features/step_definitions/profile_steps.rb:8
+    And "Brown" has created a playlist with name "Wii would like to play", and description "WHEEEEEEEE!" # features/step_definitions/playlist_rating_steps.rb:2
+    And "Brown" has given the playlist "Wii would like to play" a rating of "5"                          # features/step_definitions/playlist_rating_steps.rb:8
+    And I am on the rating page for the playlist "Wii would like to play"                                # features/step_definitions/web_steps.rb:19
+    When I select "3" from "playlist_rating_rating"                                                      # features/step_definitions/web_steps.rb:70
+    And I press "Submit"                                                                                 # features/step_definitions/web_steps.rb:27
+    Then I should see "Wii would like to play"                                                           # features/step_definitions/web_steps.rb:107
+    And I should see "4.00"                                                                              # features/step_definitions/web_steps.rb:107
+
+Feature: Song Commenting
+  In order to provide a community driven experience, users can leave comments on songs.
+
+  Scenario: Leave a comment on a song                                                               # features/song_comments.feature:4
+    Given there is a profile named "Smith" with password "password" and email "srguh@iuhriguer.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                         # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsh@eghir.com"        # features/step_definitions/profile_steps.rb:8
+    And "Brown" has created a song with name "Cool", and description "WHEEEEEEEE!"                  # features/step_definitions/song_comment_steps.rb:2
+    And I am on the comment page for the song "Cool"                                                # features/step_definitions/web_steps.rb:19
+    When I fill in "song_comment_text" with "A Test Comment"                                        # features/step_definitions/web_steps.rb:39
+    And I press "Post"                                                                              # features/step_definitions/web_steps.rb:27
+    Then I should see "A Test Comment"                                                              # features/step_definitions/web_steps.rb:107
+
+Feature: User Profiles
+  In order to find music
+  the user
+  wants to create and view profiles
+
+  Scenario: create an account                               # features/user_profiles.feature:6
+    Given I am not signed in                                # features/step_definitions/profile_steps.rb:4
+    And I am on the signup page                             # features/step_definitions/web_steps.rb:19
+    When I fill in "Name" with "test dummy"                 # features/step_definitions/web_steps.rb:39
+    And I fill in "Bio" with "a test user"                  # features/step_definitions/web_steps.rb:39
+    And I fill in "Login" with "testdummy"                  # features/step_definitions/web_steps.rb:39
+    And I fill in "Email" with "testdummy@adsfkjkandsf.com" # features/step_definitions/web_steps.rb:39
+    And I fill in "Password" with "password"                # features/step_definitions/web_steps.rb:39
+    And I fill in "Confirm Password" with "password"        # features/step_definitions/web_steps.rb:39
+    And I press "Sign up"                                   # features/step_definitions/web_steps.rb:27
+    Then there should be a user named "test dummy"          # features/step_definitions/profile_steps.rb:40
+    And the picture of "test dummy" is default              # features/step_definitions/profile_steps.rb:45
+
+  Scenario: view someone else's profile                                                      # features/user_profiles.feature:19
+    Given there is a profile named "Foo" with password "blahblah" and email "asd@adf.com"    # features/step_definitions/profile_steps.rb:8
+    And there is a profile named "Bar" with password "blahblahblah" and email "asds@adf.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Bar" using password "blahblahblah"                                # features/step_definitions/profile_steps.rb:20
+    And "Foo" has uploaded a song called "Dear Bar"                                          # features/step_definitions/profile_steps.rb:34
+    When I am on the profile for "Foo"                                                       # features/step_definitions/web_steps.rb:19
+    Then I should see "Dear Bar" within "#songs"                                             # features/step_definitions/web_steps.rb:107
+    And I should see "Foo" within "#name_and_pic"                                            # features/step_definitions/web_steps.rb:107
+    And should not see "Add a song" within "#songs"                                          # features/step_definitions/web_steps.rb:128
+
+  Scenario: View  my own profile                                                              # features/user_profiles.feature:29
+    Given there is a profile named "MyName" with password "blahblah" and email "mine@adf.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "MyName" using password "blahblah"                                  # features/step_definitions/profile_steps.rb:20
+    When I am on the profile for "MyName"                                                     # features/step_definitions/web_steps.rb:19
+    Then I should see "Add a song" within "#songs"                                            # features/step_definitions/web_steps.rb:107
+    And I should see "Make a new playlist" within "#playlists"                                # features/step_definitions/web_steps.rb:107
+    And I should see "Edit My Profile"                                                        # features/step_definitions/web_steps.rb:107
+
+  Scenario: Edit my information                                                                 # features/user_profiles.feature:37
+    Given there is a profile named "MyName2" with password "blahblah" and email "minee@adf.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "MyName2" using password "blahblah"                                   # features/step_definitions/profile_steps.rb:20
+    When I am on the edit user page for "MyName2"                                               # features/step_definitions/web_steps.rb:19
+    And I fill in "Name" with "MyName3"                                                         # features/step_definitions/web_steps.rb:39
+    And I press "Update"                                                                        # features/step_definitions/web_steps.rb:27
+    And I am on the profile for "MyName3"                                                       # features/step_definitions/web_steps.rb:19
+    Then I should see "MyName3" within "#name_and_pic"                                          # features/step_definitions/web_steps.rb:107
+    And I should not see "MyName2"                                                              # features/step_definitions/web_steps.rb:128
+
+Feature: Browse By Genre
+  In order to discover new music, the user wants to browse music by genre
+
+  Scenario: Browse By Genre                                                                         # features/browse_by_genre.feature:4
+    Given there is a profile named "Smith" with password "password" and email "srguh@iuhriguer.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                         # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsh@eghir.com"        # features/step_definitions/profile_steps.rb:8
+    And "Brown" has created a song named "Cool", with genre "Rock"                                  # features/step_definitions/genre_steps.rb:1
+    When I go to the browse page                                                                    # features/step_definitions/web_steps.rb:23
+    Then I should see "Rock"                                                                        # features/step_definitions/web_steps.rb:107
+
+Feature: Create Playlists
+  In order to share music
+  the user
+  wants to create a playlist
+
+  Scenario: Create new playlist                                                            # features/create_playlists.feature:6
+    Given there is a profile named "foo" with password "barbarbar" and email "foo@bar.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "foo" using password "barbarbar"                                 # features/step_definitions/profile_steps.rb:20
+    And "foo" has uploaded a song called "beque"                                           # features/step_definitions/profile_steps.rb:34
+    When I visit Make a new playlist                                                       # features/step_definitions/create_playlist_steps.rb:1
+    And I name it "test"                                                                   # features/step_definitions/create_playlist_steps.rb:5
+    And I am on the profile for "foo"                                                      # features/step_definitions/web_steps.rb:19
+    Then I should see "test" within "#playlists"                                           # features/step_definitions/web_steps.rb:107
+
+Feature: List Uploaded Songs
+  In order to view all of the songs they have uploaded
+  the user
+  wants a listing of all of their songs
+
+  Scenario: View my songs without uploading songs                                                   # features/my_songs.feature:6
+    Given there is a profile named "Smith" with password "password" and email "srguh@iuhriguer.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                         # features/step_definitions/profile_steps.rb:20
+    When I go to the my songs page                                                                  # features/step_definitions/web_steps.rb:23
+    And I should see "You haven't uploaded any songs yet!" within "#songs"                          # features/step_definitions/web_steps.rb:107
+
+  Scenario: View my songs after uploading a song                                                    # features/my_songs.feature:12
+    Given there is a profile named "Smith" with password "password" and email "srguh@iuhriguer.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                         # features/step_definitions/profile_steps.rb:20
+    And "Smith" has created a song named "Cool", with genre "Rock"                                  # features/step_definitions/genre_steps.rb:1
+    And "Smith" has created a song named "Sad", with genre "Blues"                                  # features/step_definitions/genre_steps.rb:1
+    When I go to the my songs page                                                                  # features/step_definitions/web_steps.rb:23
+    Then show me the page                                                                           # features/step_definitions/web_steps.rb:217
+    And I should see "Cool" within "#songs"                                                         # features/step_definitions/web_steps.rb:107
+    And I should see "Sad" within "#songs"                                                          # features/step_definitions/web_steps.rb:107
+
+Feature: Playlist Commenting
+  In order to provide a community driven experience, users can leave comments on playlists.
+
+  Scenario: Leave a comment on a playlist                                                           # features/playlist_comments.feature:4
+    Given there is a profile named "Smith" with password "password" and email "srguh@iuhriguer.com" # features/step_definitions/profile_steps.rb:8
+    And I am signed in as "Smith" using password "password"                                         # features/step_definitions/profile_steps.rb:20
+    And there is a profile named "Brown" with password "password" and email "srsh@eghir.com"        # features/step_definitions/profile_steps.rb:8
+    And "Brown" has created a playlist with name "Cool Playlist", and description "WHEEEEEEEE!"     # features/step_definitions/playlist_rating_steps.rb:2
+    And I am on the comment page for the playlist "Cool Playlist"                                   # features/step_definitions/web_steps.rb:19
+    When I fill in "playlist_comment_text" with "A Test Comment"                                    # features/step_definitions/web_steps.rb:39
+    And I press "Post"                                                                              # features/step_definitions/web_steps.rb:27
+    Then I should see "A Test Comment"                                                              # features/step_definitions/web_steps.rb:107
+
+17 scenarios (17 passed)
+143 steps (143 passed)
+0m27.259s
