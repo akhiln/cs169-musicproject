@@ -29,9 +29,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update_attributes(params[:user])
     success = @user.save
-    if not params[:upload].nil?
-      success = success && @user.upload_picture(params[:upload])
-    end
     respond_to do |format|
       if success
         flash[:notice] = 'Your information was successfully updated.'
