@@ -2,7 +2,7 @@
 
 <% if @playlists.size > 0 %>
   <% @playlists.each do |p| %>
-    <%= link_to "#{p.name}", "/playlists/show/#{p.id}" %>
+    <%= link_to_remote "#{p.name}", {:url=>"/playlists/show/#{p.id}", :update=>'main_content'} %>
   <% end %>
 <% else %>
   You haven't created any playlists yet! 

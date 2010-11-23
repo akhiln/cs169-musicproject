@@ -49,6 +49,11 @@ class Song < ActiveRecord::Base
     ""
   end
   
+  def renderRow
+	link = link_to_remote self.name, {:url=>'/songs/show/'+self.id.to_s, :update=>'main_content'}
+	return link
+  end
+  
   def ratingString
     if self.rating == nil
       "-"

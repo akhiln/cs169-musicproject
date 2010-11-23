@@ -8,6 +8,10 @@ class Playlist < ActiveRecord::Base
 	
 	validates_presence_of :name, :user_id
   
+  def renderRow
+	link = link_to_remote self.name, {:url=>'/Playlists/show/'+self.id.to_s, :update=>'main_content'}
+	return link
+  end
   
   def ratingString
     if self.rating == nil
