@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe SongsController, "Make a new playlist" do
   before(:each) do
+    auth_login
     Song.stub!(:new).and_return(@song = mock_model(Song, {:save=>true, :upload=>true}))
-	assigns[:current_user] = mock_model(User, :id=>0)
-	User.stub!(:id).and_return(0)
-	login_as(:admin)
+    assigns[:current_user] = mock_model(User, :id=>0)
+    User.stub!(:id).and_return(0)
   end
   
   def do_create
-	assigns[:current_user] = mock_model(User, :id=>0)
+    assigns[:current_user] = mock_model(User, :id=>0)
     post :create, :song=>{:id=>0}
   end
   

@@ -16,20 +16,20 @@ class PlaylistsController < ApplicationController
 	
 	def create
 		@playlist = Playlist.new(params[:playlist])
-		@playlist.user_id = @current_user.id
+		@playlist.user_id = current_user.id
 		@playlist.save
 		redirect_to(@playlist, :notice => 'Playlist was successfully created.')
 	end
 	
 	def delete
 		Playlist.find(params[:id]).destroy
-		redirect_to(@current_user)
+		redirect_to(current_user)
 	end
 	
 	def addsong
 		@song_id = params[:id]
 		@song = Song.find(@song_id)
-		@playlists = @current_user.playlists
+		@playlists = current_user.playlists
 	end
 	
 	def confirmaddsong
