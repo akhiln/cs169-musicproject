@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101121000000) do
+ActiveRecord::Schema.define(:version => 20101122000000) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -105,6 +105,9 @@ ActiveRecord::Schema.define(:version => 20101121000000) do
     t.string   "single_access_token"
     t.string   "perishable_token"
     t.boolean  "active",                                       :default => true, :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

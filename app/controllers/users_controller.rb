@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     
     success = @user.save
     if success && @user.errors.empty?
-      # save the profile picture:
-          @user.upload_picture(params[:upload])
+      # save the profile picture: (note: now done with paperclip)
+         # @user.upload_picture(params[:upload])
       redirect_to '/Users/show/'+@user.id.to_s
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
     else
