@@ -18855,3 +18855,904 @@ ActionController::UnknownAction (No action responded to jwplayer. Actions: creat
   C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
 
 Rendering rescues/layout (not_found)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 19:57:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+ERROR: compiling _run_erb_app47views47index47index46html46erb RAISED compile error
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected tASSOC, expecting ')'
+...e "Popular Playlists", (:url=>popular_playlists_path(), :upd...
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected ',', expecting ')'
+...url=>popular_playlists_path(), :update => 'main_content'} )....
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected '}', expecting ')'
+...(), :update => 'main_content'} ).to_s); @output_buffer.conca...
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:81: syntax error, unexpected kENSURE, expecting ')'
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:83: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47index47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<html>\n<head>\n  "
+
+; @output_buffer.concat(( stylesheet_link_tag 'general' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( stylesheet_link_tag 'jquery-ui' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( javascript_include_tag 'jquery' ).to_s); @output_buffer.concat "\n  <script language=\"javascript\" type=\"text/javascript\">\n    $j = jQuery.noConflict();\n  </script>\n  "
+
+
+
+; @output_buffer.concat(( javascript_include_tag 'ajaxify' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( javascript_include_tag 'jwplayer', 'application' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( javascript_include_tag :defaults ).to_s); @output_buffer.concat "\n\n  <script type=\"text/javascript\">   $(document).ready(function() {    $('.ajaxify').ajaxify(); });</script>\n\n</head>\n<body>\n<div id=\"main\">\n\t<div id=\"app_header\">\n\t\t"
+
+
+
+
+
+
+
+; @output_buffer.concat(( image_tag "logo.gif", :align=>"left" ).to_s); @output_buffer.concat "\n\t\t<div id=\"login_links\">\n\t\t\t"
+
+;  if current_user ; @output_buffer.concat "\n\t\t\t    "
+; @output_buffer.concat(( link_to_remote "Home", {:url=>root_path, :update=>'main_content'} ).to_s); @output_buffer.concat " |\n\t\t\t\t"
+; @output_buffer.concat(( link_to_remote "Edit Profile", {:url=>edit_user_path(:current), :update=>'main_content'} ).to_s); @output_buffer.concat " |\n\t\t\t\t"
+; @output_buffer.concat(( link_to "Logout", logout_path, :class => 'ajaxify' ).to_s); @output_buffer.concat "\n\t\t\t"
+;  else ; @output_buffer.concat "\n\t\t\t\t"
+; @output_buffer.concat(( link_to_remote "Register", {:url=>signup_path, :update=>'main_content'} ).to_s); @output_buffer.concat " |\n\t\t\t\t"
+; @output_buffer.concat(( link_to_remote "Login", {:url=>login_path, :update=>'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t"
+;  end ; @output_buffer.concat "\n\t\t</div>\n\t</div>\n\t\n\t<div id=\"nav\">\n\t\t<ul>\n\t\t\t<li>\n\t\t\t\t"
+
+
+
+
+
+
+; @output_buffer.concat(( link_to_remote "Popular Songs", {:url=>popular_songs_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\t"
+
+
+; @output_buffer.concat(( link_to_remote "Popular Playlists", (:url=>popular_playlists_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t</li>\n\t\t\t"
+
+;  if current_user ; @output_buffer.concat "\n\t\t\t\t<li>\n\t\t\t\t\t"
+
+; @output_buffer.concat(( link_to_remote "My Songs", {:url=>my_songs_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t"
+
+
+; @output_buffer.concat(( link_to_remote "My Playlists", {:url=>my_playlists_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t\t</li>\n\t\t\t"
+
+;  end ; @output_buffer.concat "\n\t\t\t<li>\n\t\t\t\t"
+
+; @output_buffer.concat(( link_to_remote "Browse", {:url=>browse_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t\n\t<div id=\"main_content\">\n\t\t"
+
+
+
+
+
+; @output_buffer.concat((yield).to_s); @output_buffer.concat "\n\t</div>\n\t\n</div>\n\n<div id=\"persistent_player\">\n  <object id=\"player\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" name=\"player\" width=\"328\" height=\"200\"> \n    <param name=\"movie\" value=\"player.swf\" /> \n    <param name=\"allowfullscreen\" value=\"true\" /> \n    <param name=\"allowscriptaccess\" value=\"always\" /> \n    <param name=\"flashvars\" value=\"\" /> \n    <embed \n       type=\"application/x-shockwave-flash\"\n       id=\"player2\"\n       name=\"player2\"\n       src=\"jwplayer/player.swf\" \n       width=\"800\" \n       height=\"20\"\n       allowscriptaccess=\"always\" \n       allowfullscreen=\"true\"\n       /> \n  </object>\n</div>\n\n</body>\n</html>s"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:83:in `compile!'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected tASSOC, expecting ')'
+...e "Popular Playlists", (:url=>popular_playlists_path(), :upd...
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected ',', expecting ')'
+...url=>popular_playlists_path(), :update => 'main_content'} )....
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected '}', expecting ')'
+...(), :update => 'main_content'} ).to_s); @output_buffer.conca...
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:81: syntax error, unexpected kENSURE, expecting ')'
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:83: syntax error, unexpected kEND, expecting ')') on line #38 of app/views/index/index.html.erb:
+35: 				<%= link_to_remote "Popular Songs", {:url=>popular_songs_path(), :update => 'main_content'} %>
+36: 			</li>
+37: 			<li>
+38: 				<%= link_to_remote "Popular Playlists", (:url=>popular_playlists_path(), :update => 'main_content'} %>
+39: 			</li>
+40: 			<% if current_user %>
+41: 				<li>
+
+    app/views/index/index.html.erb:83:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (131.1ms)
+Rendered rescues/_request_and_response (4.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:03:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+ERROR: compiling _run_erb_app47views47index47index46html46erb RAISED compile error
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected tASSOC, expecting ')'
+...e "Popular Playlists", (:url=>popular_playlists_path(), :upd...
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected ',', expecting ')'
+...url=>popular_playlists_path(), :update => 'main_content'} )....
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected '}', expecting ')'
+...(), :update => 'main_content'} ).to_s); @output_buffer.conca...
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:81: syntax error, unexpected kENSURE, expecting ')'
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:83: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47index47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<html>\n<head>\n  "
+
+; @output_buffer.concat(( stylesheet_link_tag 'general' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( stylesheet_link_tag 'jquery-ui' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( javascript_include_tag 'jquery' ).to_s); @output_buffer.concat "\n  <script language=\"javascript\" type=\"text/javascript\">\n    $j = jQuery.noConflict();\n  </script>\n  "
+
+
+
+; @output_buffer.concat(( javascript_include_tag 'ajaxify' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( javascript_include_tag 'jwplayer', 'application' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( javascript_include_tag :defaults ).to_s); @output_buffer.concat "\n\n  <script type=\"text/javascript\">   $(document).ready(function() {    $('.ajaxify').ajaxify(); });</script>\n\n</head>\n<body>\n<div id=\"main\">\n\t<div id=\"app_header\">\n\t\t"
+
+
+
+
+
+
+
+; @output_buffer.concat(( image_tag "logo.gif", :align=>"left" ).to_s); @output_buffer.concat "\n\t\t<div id=\"login_links\">\n\t\t\t"
+
+;  if current_user ; @output_buffer.concat "\n\t\t\t    "
+; @output_buffer.concat(( link_to_remote "Home", {:url=>root_path, :update=>'main_content'} ).to_s); @output_buffer.concat " |\n\t\t\t\t"
+; @output_buffer.concat(( link_to_remote "Edit Profile", {:url=>edit_user_path(:current), :update=>'main_content'} ).to_s); @output_buffer.concat " |\n\t\t\t\t"
+; @output_buffer.concat(( link_to "Logout", logout_path, :class => 'ajaxify' ).to_s); @output_buffer.concat "\n\t\t\t"
+;  else ; @output_buffer.concat "\n\t\t\t\t"
+; @output_buffer.concat(( link_to_remote "Register", {:url=>signup_path, :update=>'main_content'} ).to_s); @output_buffer.concat " |\n\t\t\t\t"
+; @output_buffer.concat(( link_to_remote "Login", {:url=>login_path, :update=>'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t"
+;  end ; @output_buffer.concat "\n\t\t</div>\n\t</div>\n\t\n\t<div id=\"nav\">\n\t\t<ul>\n\t\t\t<li>\n\t\t\t\t"
+
+
+
+
+
+
+; @output_buffer.concat(( link_to_remote "Popular Songs", {:url=>popular_songs_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\t"
+
+
+; @output_buffer.concat(( link_to_remote "Popular Playlists", (:url=>popular_playlists_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t</li>\n\t\t\t"
+
+;  if current_user ; @output_buffer.concat "\n\t\t\t\t<li>\n\t\t\t\t\t"
+
+; @output_buffer.concat(( link_to_remote "My Songs", {:url=>my_songs_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t"
+
+
+; @output_buffer.concat(( link_to_remote "My Playlists", {:url=>my_playlists_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t\t</li>\n\t\t\t"
+
+;  end ; @output_buffer.concat "\n\t\t\t<li>\n\t\t\t\t"
+
+; @output_buffer.concat(( link_to_remote "Browse", {:url=>browse_path(), :update => 'main_content'} ).to_s); @output_buffer.concat "\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t\n\t<div id=\"main_content\">\n\t\t"
+
+
+
+
+
+; @output_buffer.concat((yield).to_s); @output_buffer.concat "\n\t</div>\n\t\n</div>\n\n<div id=\"persistent_player\">\n  <object id=\"player\" classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" name=\"player\" width=\"328\" height=\"200\"> \n    <param name=\"movie\" value=\"player.swf\" /> \n    <param name=\"allowfullscreen\" value=\"true\" /> \n    <param name=\"allowscriptaccess\" value=\"always\" /> \n    <param name=\"flashvars\" value=\"\" /> \n    <embed \n       type=\"application/x-shockwave-flash\"\n       id=\"player2\"\n       name=\"player2\"\n       src=\"jwplayer/player.swf\" \n       width=\"800\" \n       height=\"20\"\n       allowscriptaccess=\"always\" \n       allowfullscreen=\"true\"\n       /> \n  </object>\n</div>\n\n</body>\n</html>s"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:83:in `compile!'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+/var/lib/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected tASSOC, expecting ')'
+...e "Popular Playlists", (:url=>popular_playlists_path(), :upd...
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected ',', expecting ')'
+...url=>popular_playlists_path(), :update => 'main_content'} )....
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:38: syntax error, unexpected '}', expecting ')'
+...(), :update => 'main_content'} ).to_s); @output_buffer.conca...
+                              ^
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:81: syntax error, unexpected kENSURE, expecting ')'
+/home/jamesparker/proj/cs169-musicproject/app/views/index/index.html.erb:83: syntax error, unexpected kEND, expecting ')') on line #38 of app/views/index/index.html.erb:
+35: 				<%= link_to_remote "Popular Songs", {:url=>popular_songs_path(), :update => 'main_content'} %>
+36: 			</li>
+37: 			<li>
+38: 				<%= link_to_remote "Popular Playlists", (:url=>popular_playlists_path(), :update => 'main_content'} %>
+39: 			</li>
+40: 			<% if current_user %>
+41: 				<li>
+
+    app/views/index/index.html.erb:83:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (146.8ms)
+Rendered rescues/_request_and_response (3.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:08:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:04', "perishable_token" = 'rtHhu5z27XjfAUWvfecf', "last_request_at" = '2010-11-23 04:08:04' WHERE "id" = 10[0m
+Completed in 221ms (View: 211, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-22 20:08:13) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:13', "perishable_token" = '6MTonpZLY41hBrqZx1u', "last_request_at" = '2010-11-23 04:08:13' WHERE "id" = 10[0m
+  [4;36;1mSong Load (3.4ms)[0m   [0;1mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 40)) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 39)) [0m
+  [4;35;1mUser Load (3.1ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 34)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 35)) [0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 42)) [0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 37)) [0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 43)) [0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 44)) [0m
+Completed in 212ms (View: 77, DB: 18) | 200 OK [http://localhost/songs/popular]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 20:08:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (6.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:19', "perishable_token" = 'JTWWOQmUlnc87y8EPYbY', "last_request_at" = '2010-11-23 04:08:19' WHERE "id" = 10[0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (2.7ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (0.0ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 10) [0m
+Completed in 402ms (View: 43, DB: 12) | 200 OK [http://localhost/account?id=10]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-22 20:08:30) [GET]
+  Parameters: {"action"=>"show", "id"=>"39", "controller"=>"songs"}
+  [4;35;1mUser Load (6.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:30', "perishable_token" = 'lCi6jqedNdvZijiTxgve', "last_request_at" = '2010-11-23 04:08:30' WHERE "id" = 10[0m
+  [4;35;1mSong Load (0.8ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 39) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 39)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;35;1mSongComment Load (0.4ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 39) [0m
+Completed in 238ms (View: 46, DB: 9) | 200 OK [http://localhost/songs/39]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-22 20:08:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"34", "controller"=>"songs"}
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:37', "perishable_token" = 'hlNubQWsL6cYZzUzw25D', "last_request_at" = '2010-11-23 04:08:37' WHERE "id" = 10[0m
+  [4;36;1mSong Load (0.7ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 34) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 34)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.3ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 34) [0m
+Completed in 433ms (View: 19, DB: 3) | 200 OK [http://localhost/songs/34]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-11-22 20:08:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"34", "controller"=>"songs"}
+  [4;35;1mUser Load (7.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:44', "perishable_token" = 'hJhinmH3Iam1mtxwkdWo', "last_request_at" = '2010-11-23 04:08:44' WHERE "id" = 10[0m
+  [4;35;1mSong Load (1.1ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 34) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 34)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;35;1mSongComment Load (0.3ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 34) [0m
+Completed in 187ms (View: 19, DB: 10) | 200 OK [http://localhost/songs/34]
+
+
+Processing PlaylistsController#addsong (for 127.0.0.1 at 2010-11-22 20:08:48) [GET]
+  Parameters: {"action"=>"addsong", "id"=>"34", "controller"=>"playlists"}
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:48', "perishable_token" = 'jX9f53PqhhLHEGaZtsk', "last_request_at" = '2010-11-23 04:08:48' WHERE "id" = 10[0m
+  [4;36;1mSong Load (0.8ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 34) [0m
+Rendering template within layouts/application
+Rendering playlists/addsong
+  [4;35;1mPlaylist Load (0.9ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Completed in 199ms (View: 41, DB: 4) | 200 OK [http://localhost/playlists/addsong/34]
+
+
+Processing PlaylistsController#confirmaddsong (for 127.0.0.1 at 2010-11-22 20:08:51) [POST]
+  Parameters: {"commit"=>"Add", "method"=>"post", "action"=>"confirmaddsong", "playlist"=>"6", "controller"=>"playlists", "song_id"=>"34"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:51', "perishable_token" = 'DXmEna56ow2WqfFtM5', "last_request_at" = '2010-11-23 04:08:51' WHERE "id" = 10[0m
+  [4;36;1mPlaylistsong Create (0.5ms)[0m   [0;1mINSERT INTO "playlistsongs" ("playlist_id", "created_at", "updated_at", "song_id") VALUES(6, '2010-11-23 04:08:51', '2010-11-23 04:08:51', 34)[0m
+  [4;35;1mPlaylist Load (0.6ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 6) [0m
+Redirected to http://localhost:3000/playlists/6
+Completed in 222ms (DB: 4) | 302 Found [http://localhost/playlists/confirmaddsong?method=post]
+
+
+Processing PlaylistsController#show (for 127.0.0.1 at 2010-11-22 20:08:52) [GET]
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"playlists"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-23 04:08:52', "perishable_token" = 'CymudDlsVHxadbWLV4dt', "last_request_at" = '2010-11-23 04:08:52' WHERE "id" = 10[0m
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering playlists/show
+  [4;35;1mSong Load (1.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 6)) [0m
+  [4;36;1mPlaylistComment Load (0.3ms)[0m   [0;1mSELECT * FROM "playlist_comments" WHERE ("playlist_comments".playlist_id = 6) [0m
+Completed in 273ms (View: 55, DB: 4) | 200 OK [http://localhost/playlists/6]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:09:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (2.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:03', "perishable_token" = 'ac0fK7sh2JXUfMAjJIyl', "last_request_at" = '2010-11-23 04:09:03' WHERE "id" = 10[0m
+Completed in 389ms (View: 362, DB: 5) | 200 OK [http://localhost/]
+
+
+Processing UsersController#current (for 127.0.0.1 at 2010-11-22 20:09:12) [POST]
+  Parameters: {"action"=>"current", "id"=>"edit", "controller"=>"users"}
+
+ActionController::UnknownAction (No action responded to current. Actions: create, edit, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PlaylistsController#my (for 127.0.0.1 at 2010-11-22 20:09:15) [POST]
+  Parameters: {"action"=>"my", "controller"=>"playlists"}
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:15', "perishable_token" = 'th2A5IutE5xVa6E05U3U', "last_request_at" = '2010-11-23 04:09:15' WHERE "id" = 10[0m
+Rendering template within layouts/application
+Rendering playlists/my
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+  [4;36;1mPlaylist Load (0.9ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Completed in 195ms (View: 42, DB: 4) | 200 OK [http://localhost/playlists/my]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:09:19) [POST]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:19', "perishable_token" = 'sxStFdrlFlUc4Vwkxvt2', "last_request_at" = '2010-11-23 04:09:19' WHERE "id" = 10[0m
+Completed in 191ms (View: 176, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:09:25) [POST]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:26', "perishable_token" = 'CKQlpdz0Wi46AEsTl9Un', "last_request_at" = '2010-11-23 04:09:26' WHERE "id" = 10[0m
+Completed in 142ms (View: 130, DB: 4) | 200 OK [http://localhost/]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:09:35) [POST]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (4.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:35', "perishable_token" = 'tiiOp4o3IlZJfG5tLIM', "last_request_at" = '2010-11-23 04:09:35' WHERE "id" = 10[0m
+Completed in 185ms (View: 169, DB: 6) | 200 OK [http://localhost/]
+
+
+Processing PlaylistsController#my (for 127.0.0.1 at 2010-11-22 20:09:36) [POST]
+  Parameters: {"action"=>"my", "controller"=>"playlists"}
+  [4;35;1mUser Load (5.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:37', "perishable_token" = 'XtQeYb66NrfPmbDZmy', "last_request_at" = '2010-11-23 04:09:37' WHERE "id" = 10[0m
+Rendering template within layouts/application
+Rendering playlists/my
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+  [4;36;1mPlaylist Load (0.5ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Completed in 184ms (View: 12, DB: 7) | 200 OK [http://localhost/playlists/my]
+
+
+Processing SongsController#my (for 127.0.0.1 at 2010-11-22 20:09:40) [POST]
+  Parameters: {"action"=>"my", "controller"=>"songs"}
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:40', "perishable_token" = 'wvvU3kpfU9pmX4vIfBU', "last_request_at" = '2010-11-23 04:09:40' WHERE "id" = 10[0m
+Rendering template within layouts/application
+Rendering songs/my
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mSong Load (5.5ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+Completed in 236ms (View: 45, DB: 10) | 200 OK [http://localhost/songs/my]
+
+
+Processing PlaylistsController#popular (for 127.0.0.1 at 2010-11-22 20:09:41) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"playlists"}
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:41', "perishable_token" = 'VWz3asHXTQyygC59Vp3U', "last_request_at" = '2010-11-23 04:09:41' WHERE "id" = 10[0m
+  [4;35;1mPlaylist Load (2.1ms)[0m   [0mSELECT * FROM "playlists" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering playlists/popular
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
+Completed in 203ms (View: 37, DB: 11) | 200 OK [http://localhost/playlists/popular]
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-22 20:09:42) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:42', "perishable_token" = 'yed6XpfsgYaGL9JOE5x', "last_request_at" = '2010-11-23 04:09:42' WHERE "id" = 10[0m
+  [4;35;1mSong Load (5.3ms)[0m   [0mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+  [4;36;1mUser Load (3.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 39)) [0m
+  [4;35;1mUser Load (5.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 42)) [0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 37)) [0m
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 35)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 40)) [0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 44)) [0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 34)) [0m
+  [4;35;1mUser Load (2.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 43)) [0m
+Completed in 417ms (View: 227, DB: 28) | 200 OK [http://localhost/songs/popular]
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-11-22 20:09:44) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:44', "perishable_token" = '9QY8g2B9kN9JwsdFoTv', "last_request_at" = '2010-11-23 04:09:44' WHERE "id" = 10[0m
+  [4;36;1mSong Load (2.9ms)[0m   [0;1mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 40)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 44)) [0m
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 39)) [0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 42)) [0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 43)) [0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 34)) [0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 37)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 35)) [0m
+Completed in 201ms (View: 67, DB: 16) | 200 OK [http://localhost/songs/popular]
+
+
+Processing PlaylistsController#popular (for 127.0.0.1 at 2010-11-22 20:09:45) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"playlists"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:45', "perishable_token" = 'U5mOr297pUTdfUPK7tO', "last_request_at" = '2010-11-23 04:09:45' WHERE "id" = 10[0m
+  [4;35;1mPlaylist Load (1.5ms)[0m   [0mSELECT * FROM "playlists" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering playlists/popular
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (2.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Completed in 422ms (View: 28, DB: 13) | 200 OK [http://localhost/playlists/popular]
+
+
+Processing SongsController#my (for 127.0.0.1 at 2010-11-22 20:09:45) [POST]
+  Parameters: {"action"=>"my", "controller"=>"songs"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:46', "perishable_token" = 'lplb7v8eveuya01ajm', "last_request_at" = '2010-11-23 04:09:46' WHERE "id" = 10[0m
+Rendering template within layouts/application
+Rendering songs/my
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mSong Load (1.4ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+Completed in 163ms (View: 39, DB: 4) | 200 OK [http://localhost/songs/my]
+
+
+Processing PlaylistsController#my (for 127.0.0.1 at 2010-11-22 20:09:47) [POST]
+  Parameters: {"action"=>"my", "controller"=>"playlists"}
+  [4;35;1mUser Load (3.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:47', "perishable_token" = 'W666Es954WCp2uTnZpPF', "last_request_at" = '2010-11-23 04:09:47' WHERE "id" = 10[0m
+Rendering template within layouts/application
+Rendering playlists/my
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Completed in 354ms (View: 15, DB: 4) | 200 OK [http://localhost/playlists/my]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-11-22 20:09:54) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (5.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7b3bbbf8356797f3e558c94ffd5bcf5bce90a81aec97a9d972c7209f716df514771dcd344f0ff433cc94de3529d487dd157201a77ec61d34b5c1a264a5562d49') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-11-23 04:09:54', "perishable_token" = 'BU5Djvtg5UeLE7J1bWD', "last_request_at" = '2010-11-23 04:09:54' WHERE "id" = 10[0m
+Redirected to http://localhost:3000/
+Completed in 171ms (DB: 6) | 302 Found [http://localhost/logout]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:09:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+Completed in 239ms (View: 229, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-11-22 20:09:58) [POST]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 147ms (View: 63, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-11-22 20:10:04) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"surfer"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'surfer') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 467ms (View: 30, DB: 2) | 200 OK [http://localhost/user_session]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:19:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+Completed in 95ms (View: 88, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-22 20:20:07) [POST]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 270ms (View: 58, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-22 20:20:08) [POST]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 83ms (View: 24, DB: 0) | 200 OK [http://localhost/signup]
+  [4;36;1mSQL (8.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateForiegnKeysForComments (2010111904100)
+Migrating to CreateSongs (20101015045340)
+Migrating to CreatePlaylists (20101015045608)
+Migrating to CreateUsersSongs (20101015050128)
+Migrating to CreatePlaylistsSongs (20101015050533)
+Migrating to AlterDbForSongDependence (20101101162435)
+Migrating to CreateUsers (20101101202541)
+Migrating to UpdateUserFieldsAfterAuth (20101101203525)
+Migrating to AddBackPlaylistSongs (20101102015359)
+Migrating to AddSongNameField (20101102020048)
+Migrating to RenameUsersTablePlaylistsIdToUsersId (20101102022250)
+Migrating to ChangePluralDbNames (20101102025313)
+Migrating to RenameUsersSongsToUserssongs (20101102030427)
+Migrating to RenamePlaylistsSongsToPlaylistsongs (20101102032208)
+Migrating to TransitionToAuthlogic (20101116000000)
+Migrating to CreateSongComments (20101119035949)
+Migrating to CreatePlaylistComments (20101119040017)
+Migrating to CreateBookmarks (20101119062936)
+Migrating to CreateSongRatings (20101119063259)
+Migrating to CreatePlaylistRatings (20101120225831)
+Migrating to AddAttachmentToSong (20101121000000)
+Migrating to AddPhotoToUser (20101122000000)
+  [4;36;1mSQL (1.9ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mALTER TABLE "users" ADD "photo_file_name" varchar(255)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "users" ADD "photo_content_type" varchar(255)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mALTER TABLE "users" ADD "photo_file_size" integer[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101122000000')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mPRAGMA index_list("bookmarks")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("playlist_comments")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("playlist_ratings")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("playlists")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("playlistsongs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("song_comments")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("song_ratings")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("songs")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_perishable_token')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("usersongs")[0m
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:53:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+
+ActionView::TemplateError (/home/jamesparker/proj/cs169-musicproject/app/models/user.rb:21: syntax error, unexpected ':', expecting tASSOC
+     :default_style :large
+                     ^) on line #21 of app/views/index/index.html.erb:
+18: 	<div id="app_header">
+19: 		<%= image_tag "logo.gif", :align=>"left" %>
+20: 		<div id="login_links">
+21: 			<% if current_user %>
+22: 			    <%= link_to_remote "Home", {:url=>root_path, :update=>'main_content'} %> |
+23: 				<%= link_to_remote "Edit Profile", {:url=>edit_user_path(:current), :update=>'main_content'} %> |
+24: 				<%= link_to "Logout", logout_path, :class => 'ajaxify' %>
+
+    /var/lib/gems/1.8/gems/aws-s3-0.6.2/lib/aws/s3/extensions.rb:206:in `const_missing'
+    authlogic (2.1.6) lib/authlogic/session/klass.rb:33:in `klass'
+    authlogic (2.1.6) lib/authlogic/session/password.rb:90:in `login_field'
+    authlogic (2.1.6) lib/authlogic/session/password.rb:213:in `login_field'
+    authlogic (2.1.6) lib/authlogic/session/password.rb:118:in `initialize'
+    authlogic (2.1.6) lib/authlogic/session/activation.rb:48:in `initialize'
+    authlogic (2.1.6) lib/authlogic/session/klass.rb:64:in `initialize'
+    authlogic (2.1.6) lib/authlogic/session/scopes.rb:79:in `initialize'
+    authlogic (2.1.6) lib/authlogic/session/persistence.rb:37:in `new'
+    authlogic (2.1.6) lib/authlogic/session/persistence.rb:37:in `find'
+    app/controllers/application_controller.rb:9:in `current_user_session'
+    app/controllers/application_controller.rb:14:in `current_user'
+    (eval):2:in `send'
+    (eval):2:in `current_user'
+    app/views/index/index.html.erb:21
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (304.5ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 20:54:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+Completed in 157ms (View: 149, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-22 20:54:20) [POST]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 106ms (View: 49, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 21:02:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+Completed in 139ms (View: 117, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-22 21:02:20) [POST]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 141ms (View: 38, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-11-22 21:05:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+Rendering template within layouts/application
+Rendering index/index
+Completed in 112ms (View: 108, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-11-22 21:05:03) [POST]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 206ms (View: 65, DB: 0) | 200 OK [http://localhost/signup]
