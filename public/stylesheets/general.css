@@ -116,3 +116,15 @@ border-left:none
 	border-bottom: 2px solid black;
 	left: 2px;
 }
+
+.playlist_row {
+	width:700px;
+	background-color: #c2c2c2;
+	display:block;
+}
+
+.playlist_row div {
+border-left: 1px white;
+float: left;
+display: inline;
+}
