@@ -9,8 +9,12 @@ class Playlist < ActiveRecord::Base
 	validates_presence_of :name, :user_id
   
   def renderRow
-	link = link_to_remote self.name, {:url=>'/Playlists/show/'+self.id.to_s, :update=>'main_content'}
-	return link
+	songsString = ''
+    self.songs.each do |song|
+		songsString += 'playListAdd(\'' + song.name + '\',\'/songs/' + self.id.to_s + '.mp3\'); '
+	end
+	return '<a href="#" onclick="'+songsString+'"><img src="/images/play.png"></a>
+	<a href="#" onclick="'+songsString+'"><img src="/images/playadd.png"></a>'
   end
   
   def ratingString
