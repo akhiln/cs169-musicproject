@@ -4,7 +4,7 @@ before_filter :require_user
 
   def new
      @playlist_comment = PlaylistComment.new
-     @playlist = Playlist.find(params[:song_id])
+     @playlist = Playlist.find(params[:playlist_id])
      respond_to do |format|
         format.html
         format.xml   { render :xml => @playlist_comment }

@@ -1,4 +1,7 @@
-Milestone 3:
+Milestone 3 Features:
+
 playlist_ratings.feature
 song_ratings.feature
 browse_by_genre.feature
+song_comment.feature
+playlist_comment.feature
