@@ -46,6 +46,12 @@ module NavigationHelpers
       @song = Song.find_by_name($1)
       '/songs/show/'+@song.id.to_s
 
+    when /the home page/
+       '/'
+
+    when /the browse page/
+       '/browse'
+
     else
       begin
         page_name =~ /the (.*) page/
