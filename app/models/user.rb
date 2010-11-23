@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   has_attached_file :photo,
      #:default_url => '/images/default.jpg',
      :storage => :s3,
-     #:s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
+     :s3_credentials => { :access_key_id     => ENV['S3_KEY'], 
+                        :secret_access_key => ENV['S3_SECRET'] },
      :styles => {
            :thumb => "100x100#",
            :large => "850x150#" },
