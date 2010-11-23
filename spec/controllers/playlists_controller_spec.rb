@@ -93,7 +93,6 @@ describe PlaylistsController, "Delete a playlist" do
 end
 
 describe PlaylistsController, "Add song to playlist" do
-  setup :activate_authlogic
   before(:each) do
     auth_login
     @mock_playlist = mock_model(Playlist)
@@ -116,6 +115,30 @@ describe PlaylistsController, "Add song to playlist" do
     response.should be_redirect
   end
 end
-  
-  
 
+describe PlaylistsController, "Find popular playlists" do
+  before(:each) do
+    auth_login
+    @mock_playlist = mock_model(Playlist)
+    @mock_playlist.stub!(:rating).and_return(3.0)
+    Playlist.stub!(:find).and_return([@mock_playlist])
+  end
+  
+  it "should include popular playlists" do
+    get :popular
+    assigns(:playlists).should == [@mock_playlist]
+  end
+end
+
+describe PlaylistsController, "Find playlists owned by the current user" do
+  before(:each) do
+    auth_login
+    @mock_playlist = mock_model(Playlist)
+    @myUser.stub!(:playlists).and_return([@mock_playlist])
+  end
+  
+  it "should include playlists owned by the user" do
+    get :my
+    assigns(:playlists).should == [@mock_playlist]
+  end
+end
