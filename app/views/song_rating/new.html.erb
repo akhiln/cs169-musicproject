@@ -1,6 +1,6 @@
 <h1>New Rating for "<%=h @song.name %>"</h1>
 
-<% form_for(@song_rating, :url => "/rating/song/create/#{@song.id.to_s}")  do |f| %>
+<% form_remote_for(@song_rating, :url => "/rating/song/create/#{@song.id.to_s}", :update=>'main_content')  do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -13,4 +13,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', songs_path %>
+<%= link_to_remote 'Back', :url=>songs_path, :update=>'main_content' %>

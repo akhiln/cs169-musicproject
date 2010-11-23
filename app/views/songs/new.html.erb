@@ -1,6 +1,6 @@
 <h1>New song</h1>
 
-<% form_remote_for :song, @song, {:url => songs_path, :update=>'main_content'}, :html => { :multipart => true } do |f| %>
+<% form_for @song, :html => { :multipart => true } do |f| %>
 
   <%= f.error_messages %>
 

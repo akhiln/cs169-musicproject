@@ -1,6 +1,9 @@
-<h2> Browse </h2>
+<h2> Browse Genres</h2>
 <% i = 0 %>
+<ul>
 <% @genres.each do |genre| %>
-  <%=h content_tag :div, link_to(genre.to_s, :controller=>:browse, :action=>:genre, :id=>"#{genre}"), :id=>i.to_s, :class=>:genre %>
-  <% i += 1 %>
+	<li>
+  <%=link_to_remote(genre.to_s, :url=>{:controller=>:browse, :action=>:genre, :id=>"#{genre}"},:update=>'main_content') %>
+	</li>
 <% end %>
+</ul>

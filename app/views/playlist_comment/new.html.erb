@@ -1,6 +1,6 @@
 <h1>New Comment on "<%=h @playlist.name %>"</h1>
 
-<% form_for(@playlist_comment, :url => "/comment/playlist/create/#{@playlist.id.to_s}")  do |f| %>
+<% form_remote_for(@playlist_comment, :url => "/comment/playlist/create/#{@playlist.id.to_s}", :update=>'main_content')  do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -13,4 +13,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', playlists_path %>
+<%= link_to_remote 'Back', :url=>playlists_path, :update=>'main_content' %>

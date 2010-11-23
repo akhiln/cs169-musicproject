@@ -11,11 +11,12 @@ class Playlist < ActiveRecord::Base
   def renderRow
 	songsString = ''
     self.songs.each do |song|
-		songsString += 'playListAdd(\'' + song.name + '\',\'/songs/' + self.id.to_s + '.mp3\'); '
+		songsString += 'playListAdd(\'' + song.name + '\',\'' + song.song.url + '\'); '
 	end
-	return '<a href="#" onclick="'+songsString+'"><img src="/images/play.png"></a>
+	return '<a href="#" onclick="'+songsString+' playListChange(myPlayList.length-'+songs.length.to_s+');"><img src="/images/play.png"></a>
 	<a href="#" onclick="'+songsString+'"><img src="/images/playadd.png"></a>'
   end
+  
   
   def ratingString
     if self.rating == nil

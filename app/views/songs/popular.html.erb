@@ -1,10 +1,29 @@
 <h1> Popular Songs </h1>
-
+<table class="lister">
+<tr>
+	<th>Song Name</th>
+	<th>Genre</th>
+	<th>Rating</th>
+	<th>User</th>
+	<th></th>
+</tr>
 <% for i in (0..[@songs.size-1,20].min) do %>
-  <% content_tag :div, "", :id => "song_#{i}", :class => "song" do %>
-    <%= content_tag :div, link_to_remote("#{@songs[i].name}", :controller=>:songs, :action=>:show, :id=>"#{@songs[i].id}", :update=>'main_content'), :class => "song_name" %>
-    <%= content_tag :div, "#{@songs[i].genre}", :class => "song_genre" %>
-    <%= content_tag :div, "#{@songs[i].rating}", :class => "song_rating" %>
-    <%= content_tag :div, link_to_remote("#{@songs[i].users[0].login}", :controller=>:users, :action=>:show, :id=>"#{@songs[i].users[0].id}", :update=>'main_content'), :class => "song_user" %>
-  <% end %>
+<tr>
+<td class="name">
+<%=link_to_remote("#{@songs[i].name}", :url=>@songs[i], :method=>'get', :update=>'main_content')%>
+</td>
+<td class="att">
+<%=@songs[i].genre%>
+</td>
+<td class="att">
+<%=@songs[i].rating%>
+</td>
+<td class="att">
+<%=link_to_remote("#{@songs[i].users[0].login}", :url=>@songs[i].users[0], :method=>'get', :update=>'main_content')%>
+</td>
+<td class="control">
+<%=@songs[i].makePlayer%>
+</td>
+</tr>
 <% end %>
+</table>

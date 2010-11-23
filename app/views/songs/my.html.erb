@@ -1,10 +1,32 @@
 <h2> My Songs </h2>
 <% content_tag :div, :id=>"songs" do -%>
   <% if @songs.size > 0 %>
-    <% @songs.each do |s| %>
-      <%= link_to_remote "#{s.name}", {:url=>'/songs/show/#{s.id}', :update=>'main_content'} %>
-    <% end %>
+	<table class="lister">
+		<tr>
+		<th>Song Name</th>
+		<th>Genre</th>
+		<th>Rating</th>
+		<th></th>
+		</tr>
+		<% @songs.each do |s| %>
+			<tr>
+			<td class="name">
+			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%=s.genre%>
+			</td>
+			<td class="att">
+			<%=s.rating%>
+			</td>
+			<td class="control">
+			<%=s.makePlayer%>
+			</td>
+			</tr>
+		<% end %>
+	</table>
   <% else %>
     You haven't uploaded any songs yet!
   <% end %>
+	  <div><%= link_to_remote "Add new song", {:url=>{:controller=>'songs',:action=>'new'},:update=>'main_content'} %></div>
 <% end %>

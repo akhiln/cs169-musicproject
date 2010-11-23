@@ -16,4 +16,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', account_path %>
+<%= link_to_remote 'Back', :url=>account_path, :update=>'main_content' %>

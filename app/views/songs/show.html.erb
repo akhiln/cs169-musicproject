@@ -2,9 +2,11 @@
 <%= @song.makePlayer %>
 <p class="songDescription"><%= @song.description %></p>
 <% if @auth %>
-<a href="/songs/delete/<%=@song.id%>">Delete</a> || 
+<%=link_to_remote "Delete", {:url=>"/songs/delete/"+@song.id.to_s, :update=>'main_content'} %> ||
 <% end %>
-<a href="/playlists/addsong/<%=@song.id%>">Add to Playlist</a> || <a href="/comment/song/new/<%=@song.id%>">Comment</a> || <a href="/rating/song/new/<%=@song.id%>">Rate</a>
+<%=link_to_remote "Add to Playlist", {:url=>'/playlists/addsong/'+@song.id.to_s, :update=>'main_content'} %> || 
+<%=link_to_remote "Comment", {:url=>"/comment/song/new/"+@song.id.to_s, :update=>'main_content'} %> || 
+<%=link_to_remote "Rate", {:url=>"/rating/song/new/"+@song.id.to_s, :update=>'main_content'} %>
 <p> URL: <%= @song.song.url %></p>
 <h2>Rating:</h2>
 <%= @song.ratingString %>
@@ -12,7 +14,7 @@
 <% if not @comments.nil? %>
   <% @comments.each do |comment| %>
     <div class="comment">
-    <li class="comment_element"><%=link_to(comment.user.name,'/users/show/'+comment.user.id.to_s)%>
+    <li class="comment_element"><%=link_to_remote(comment.user.name,'/users/show/'+comment.user.id.to_s,:update=>'main_content')%>
                              <p><%=h comment.text %></p></li>
     </div>
   <% end %>

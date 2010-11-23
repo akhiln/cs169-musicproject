@@ -2,11 +2,31 @@
 <%= content_tag :div, "Genre: #{@genre}", :id=>"current_genre" %>
 <% i = 0 %>
 
-<% @songs.each do |s| %>
-  <% content_tag :div, "", :id => "song_#{i}", :class => "song" do %>
-    <%= content_tag :div, link_to("#{s.name}", :controller=>:songs, :action=>:show, :id=>"#{s.id}"), :class => "song_name" %>
-    <%= content_tag :div, "#{s.rating}", :class => "song_rating" %>
-    <%= content_tag :div, link_to("#{s.users[0].login}", :controller=>:users, :action=>:show, :id=>"#{s.users[0].id}"), :class => "song_user" %>
-    <% i += 1 %>
+<% if @songs.size > 0 %>
+	<table class="lister">
+		<tr>
+		<th>Song Name</th>
+		<th>Genre</th>
+		<th>Rating</th>
+		<th></th>
+		</tr>
+		<% @songs.each do |s| %>
+			<tr>
+			<td class="name">
+			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%=s.genre%>
+			</td>
+			<td class="att">
+			<%=s.rating%>
+			</td>
+			<td class="control">
+			<%=s.makePlayer%>
+			</td>
+			</tr>
+		<% end %>
+	</table>
+  <% else %>
+    There are no songs in this genre.
   <% end %>
-<% end %>

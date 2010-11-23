@@ -1,10 +1,28 @@
 <h2> My Playlists </h2>
-
-<% if @playlists.size > 0 %>
-  <% @playlists.each do |p| %>
-    <%= link_to_remote "#{p.name}", {:url=>"/playlists/show/#{p.id}", :update=>'main_content'} %>
+<% content_tag :div, :id=>"playlists" do -%>
+  <% if @playlists.size > 0 %>
+	<table class="lister">
+		<tr>
+		<th>Playlist Name</th>
+		<th>Rating</th>
+		<th></th>
+		</tr>
+		<% @playlists.each do |s| %>
+			<tr>
+			<td class="name">
+			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%=s.rating%>
+			</td>
+			<td class="control">
+			<%=s.renderRow%>
+			</td>
+			</tr>
+		<% end %>
+	</table>
+  <% else %>
+    You haven't created any playlists yet!
   <% end %>
-<% else %>
-  You haven't created any playlists yet! 
+	  <div><%= link_to_remote "Add new playlist", {:url=>{:controller=>'playlists',:action=>'new'},:update=>'main_content'} %></div>
 <% end %>
-

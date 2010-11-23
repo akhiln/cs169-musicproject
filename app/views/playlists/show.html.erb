@@ -1,23 +1,46 @@
-<h2><%=@playlist.name%></h2>
+<h2><%=@playlist.name%></h2><%=@playlist.renderRow%>
 <p><%=@playlist.description%></p>
-<% if not @songs.nil? %>
-<ul class="music_list" id="song_list">
-  <% @songs.each do |song| %>
-    <li class="song_element"><%=link_to_remote(song.name,:url=>'/Songs/show/'+song.id.to_s,:update=>'main_content')%> <%=song.makePlayer%></li>
+<% if @songs.size > 0 %>
+	<table class="lister">
+		<tr>
+		<th>Song Name</th>
+		<th>Genre</th>
+		<th>Rating</th>
+		<th></th>
+		</tr>
+		<% @songs.each do |s| %>
+			<tr>
+			<td class="name">
+			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%=s.genre%>
+			</td>
+			<td class="att">
+			<%=s.rating%>
+			</td>
+			<td class="control">
+			<%=s.makePlayer%>
+			</td>
+			</tr>
+		<% end %>
+	</table>
+  <% else %>
+    You haven't added any songs to this playlist yet!
   <% end %>
-</ul>
-<%end%>
 <% if @playlist.user_id == @current_user.id %>
-<a href="/playlists/delete/<%=@playlist.id%>">Delete</a> || 
+<%=link_to_remote "Delete", {:url=>"/playlists/delete/"+@playlist.id.to_s, :update=>'main_content'} %> ||
 <% end %>
-<a href="/comment/playlist/new/<%=@playlist.id%>">Comment</a> || <a href="/rating/playlist/new/<%=@playlist.id%>">Rate</a> || <a href="/bookmark/create/<%=@playlist.id%>">Bookmark</a>
+<%=link_to_remote "Comment", {:url=>"/comment/playlist/new/"+@playlist.id.to_s, :update=>'main_content'} %> || 
+<%=link_to_remote "Bookmark", {:url=>"/bookmark/create/"+@playlist.id.to_s, :update=>'main_content'} %>
+
 <h2>Rating:</h2>
 <%= @playlist.ratingString %>
 <h2>Comments</h2>
 <% if not @comments.nil? %>
   <% @comments.each do |comment| %>
     <div class="comment">
-    <li class="comment_element"><%=link_to(comment.user.name,'/users/show/'+comment.user.id.to_s)%>
+    <li class="comment_element"><%=link_to_remote(comment.user.name,:url=>'/users/show/'+comment.user.id.to_s, :update=>'main_content')%>
                              <p><%=h comment.text %></p></li>
     </div>
   <% end %>

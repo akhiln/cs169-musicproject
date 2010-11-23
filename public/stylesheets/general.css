@@ -120,11 +120,16 @@ border-left:none
 .playlist_row {
 	width:700px;
 	background-color: #c2c2c2;
-	display:block;
+	display: block;
+	position:relative;
 }
 
+#playlist {
+	display:inline-block;
+	float:right;
+}
 .playlist_row div {
 border-left: 1px white;
 float: left;
-display: inline;
+display: inline-block;
 }

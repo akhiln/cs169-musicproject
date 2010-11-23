@@ -9,10 +9,10 @@ class SongsController < ApplicationController
        if @song.save
          @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
         if @users_songs.save
-         format.html { redirect_to(@song, :notice => 'Song was successfully created.') } 
+         format.html { redirect_to(:root) } 
          format.xml  { render :xml => @song, :status => :created, :location => @song }
         else
-         format.html { render :action => "new" }
+         format.html { redirect_to(:root) }
          format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
        end
       end

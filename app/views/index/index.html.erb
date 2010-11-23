@@ -22,7 +22,7 @@ $j(document).ready(function(){
 			displayPlayList();
 			playListInit(true); // Parameter is a boolean for autoplay.
 		},
-		oggSupport: true
+		oggSupport: false
 	})
 	.jPlayer("onProgressChange", function(loadPercent, playedPercentRelative, playedPercentAbsolute, playedTime, totalTime) {
 		jpPlayTime.text($j.jPlayer.convertTime(playedTime));
@@ -47,7 +47,7 @@ $j(document).ready(function(){
 
 	var playItem = 0;
 
-	var myPlayList = [];
+	var myPlayList = [{name:"Welcome",mp3:"http://www.pacdv.com/sounds/interface_sound_effects/sound6.mp3"}];
 	
 	function displayPlayList() {
 		$j("#jplayer_playlist ul").empty();
@@ -75,8 +75,9 @@ $j(document).ready(function(){
 	function playListConfig( index ) {
 		$j("#jplayer_playlist_item_"+playItem).removeClass("jplayer_playlist_current").parent().removeClass("jplayer_playlist_current");
 		$j("#jplayer_playlist_item_"+index).addClass("jplayer_playlist_current").parent().addClass("jplayer_playlist_current");
+		$('current').innerHTML = 'Currently Playing' + myPlayList[index].name;
 		playItem = index;
-		$j("#jquery_jplayer").jPlayer("setFile", myPlayList[playItem].mp3, myPlayList[playItem].ogg);
+		$j("#jquery_jplayer").jPlayer("setFile", myPlayList[playItem].mp3);
 	}
 
 	function playListChange( index ) {
@@ -175,12 +176,8 @@ $j(document).ready(function(){
 		<div id="jplayer_play_time" class="jp-play-time"></div>
 		<div id="jplayer_total_time" class="jp-total-time"></div>
 	</div>
-	<div id="jplayer_playlist" class="jp-playlist">
-		<ul>
-			<!-- The function displayPlayList() uses this unordered list -->
-			<li></li>
-		</ul>
-	</div>
+		<div id="current">Currently Playing:</div>
+		<div id="nextP">Next:</div>
 </div>
 </div>
 

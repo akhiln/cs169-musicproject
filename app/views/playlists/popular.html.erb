@@ -1,9 +1,26 @@
 <h1> Popular Playlists </h1>
-
+<table class="lister">
+<tr>
+	<th>Playlist Name</th>
+	<th>Rating</th>
+	<th>User</th>
+	<th></th>
+</tr>
 <% for i in (0..[@playlists.size-1,20].min) do %>
-  <% content_tag :div, "", :id => "playlist_#{i}", :class => "playlist_row" do %>
-    <%= content_tag :div, "#{@playlists[i].name}", :class => "playlist_name" %>
-    <%= content_tag :div, "#{@playlists[i].rating}", :class => "playlist_rating" %>
-    <%= content_tag :div, @playlists[i].renderRow, :class => "playlist_control" %>
-  <% end %>
+<tr>
+<td class="name">
+<%=link_to_remote("#{@playlists[i].name}", :url=>@playlists[i], :method=>'get', :update=>'main_content')%>
+</td>
+<td class="att">
+<%=@playlists[i].rating%>
+</td>
+<td class="att">
+<%=link_to_remote("#{@playlists[i].user.login}", :url=>@playlists[i].user, :method=>'get', :update=>'main_content')%>
+</td>
+<td class="control">
+<%=@playlists[i].renderRow%>
+</td>
+</tr>
 <% end %>
+</table>
+
