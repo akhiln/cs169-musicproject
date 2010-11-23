@@ -1,6 +1,6 @@
 
 When /^I upload the song "([^"]*)"$/ do |arg1|
-  attach_file("upload_datafile", File.join(RAILS_ROOT, 'features', 'upload_files', arg1))
+  attach_file("song_song", File.join(RAILS_ROOT, 'features', 'upload_files', arg1))
 end
 
 Given /^"([^"]*)" has uploaded a song with name "([^"]*)", album "([^"]*)", genre "([^"]*)", and description "([^"]*)"$/ do |login, name, album, genre, description|
@@ -23,12 +23,4 @@ end
 Then /^the database should not contain a song named "([^"]*)"$/ do |arg1|
   @song = Song.find_by_name arg1
   @song.should == nil
-end
-
-Then /^there should be a player on the page$/ do
-  if page.respond_to? :should
-    page.should have_selector("object", :type => "application/x-shockwave-flash")
-  else
-    assert page.has_selector?("object", :type => "application/x-shockwave-flash")
-  end
 end
