@@ -42,6 +42,10 @@ module NavigationHelpers
       @playlist = Playlist.find_by_name($1)
       '/rating/playlist/new/'+@playlist.id.to_s
 
+    when /the show page for the song "([^"]*)"/
+      @song = Song.find_by_name($1)
+      '/songs/show/'+@song.id.to_s
+
     else
       begin
         page_name =~ /the (.*) page/

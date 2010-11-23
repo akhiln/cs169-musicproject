@@ -2,6 +2,9 @@
 <div class="profile" id="name_and_pic">
 <img src="<%=@user.photo.url%>" style="width: 800px;"/>
 <p id="name"><%= @user.name %></p><br>
+<% if @user.id == @current_user.id %>
+<p><%=link_to_remote 'Edit My Profile', {:url=>'/users/edit'+@user.id.to_s, :update=>'main_content'} %>
+<%end%>
 </div>
 <div class="profile" id="info">
 <%= @user.bio %>
