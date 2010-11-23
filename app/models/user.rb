@@ -14,11 +14,12 @@ class User < ActiveRecord::Base
   has_attached_file :photo,
      #:default_url => '/images/default.jpg',
      :storage => :s3,
-     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
+     #:s3_credentials => "#{RAILS_ROOT}/config/s3.yml", 
      :styles => {
            :thumb => "100x100#",
            :large => "850x150#" },
      :path => "/photos/:id/:style.:extension",
+     :bucket => "prod.jukebox",
      :default_style => :large
 
   #validates_attachment_content_type :photo, :content_type => ["image/jpeg","image/jpg","image/png"]
