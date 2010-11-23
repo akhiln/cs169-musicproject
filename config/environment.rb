@@ -18,8 +18,8 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
-  config.gem 'right_aws', :version => '1.9.0'
-  config.gem "aws-s3", :lib => "aws/s3"
+  # config.gem 'right_aws', :version => '1.9.0'
+  config.gem "aws-s3", :version => ">= 0.6.2", :lib => "aws/s3"
   config.gem 'authlogic'
   config.gem 'paperclip'
 
