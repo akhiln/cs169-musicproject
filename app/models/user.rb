@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
   has_many :usersongs
   has_many :songs, :through => :usersongs 
   has_many :playlists
-
-attr_accessor photo_file_name
   
   has_attached_file :photo,
      #:default_url => '/images/default.jpg',
