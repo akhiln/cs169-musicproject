@@ -46,6 +46,20 @@ module NavigationHelpers
       @song = Song.find_by_name($1)
       '/songs/show/'+@song.id.to_s
 
+    when /the home page/
+       '/'
+
+    when /the browse page/
+       '/browse'
+    
+    when /the comment page for the song "([^"]*)"/
+        @song = Song.find_by_name($1)
+        '/comment/song/new/'+@song.id.to_s
+
+    when /the comment page for the playlist "([^"]*)"/
+        @playlist = Playlist.find_by_name($1)
+        '/comment/playlist/new/'+@playlist.id.to_s
+
     else
       begin
         page_name =~ /the (.*) page/
