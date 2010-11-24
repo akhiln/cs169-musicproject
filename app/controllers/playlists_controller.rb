@@ -33,14 +33,14 @@ class PlaylistsController < ApplicationController
 	end
 	
 	def confirmaddsong
-		@song_id = params[:song_id]
-		@playlist_id = params[:playlist]
-		@plsong = Playlistsong.new
-		@plsong.playlist_id = playlist_id
-		@plsong.song_id = song_id
-		@plsong.save
-		@pl = Playlist.find(playlist_id)
-		redirect_to(@pl, :notice => 'Playlist was successfully created.')
+		song_id = params[:song_id]
+		playlist_id = params[:playlist]
+		plsong = Playlistsong.new
+		plsong.playlist_id = playlist_id
+		plsong.song_id = song_id
+		plsong.save
+		pl = Playlist.find(playlist_id)
+		redirect_to(pl, :notice => 'Playlist was successfully created.')
 	end
         
   def popular
