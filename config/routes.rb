@@ -37,6 +37,8 @@ ActionController::Routing::Routes.draw do |map|
      map.connect 'rating/playlist/create/:playlist_id', :controller => 'playlist_rating', :action => 'create'
      
 
+     map.connect 'playlists/addsong/:song_id', :controller => 'playlists', :action => 'addsong'
+
      # for bookmarking
      map.connect 'bookmark/create/:playlist_id', :controller => 'bookmarks', :action => 'create'
   # Sample of named route:
