@@ -27,7 +27,7 @@ class PlaylistsController < ApplicationController
 	end
 	
 	def addsong
-		@song_id = params[:id]
+		@song_id = params[:song_id]
 		@song = Song.find(@song_id)
 		@playlists = current_user.playlists
 	end
