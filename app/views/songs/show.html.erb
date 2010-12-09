@@ -8,7 +8,9 @@
 </head>
 <h2 class="songTitle"><%= @song.name %></h2>
 <%= @song.makePlayer %>
-<p class="songDescription"><%= @song.description %></p>
+<p class="songInformation"><h2>Song Information</h2>
+<p>Album: <%= @song.album %></p>
+<p>Description: <%= @song.description %></p></p>
 <% if @auth %>
 <%=link_to_remote "Delete", {:url=>"/songs/delete/"+@song.id.to_s, :update=>'main_content'} %> ||
 <% end %>
