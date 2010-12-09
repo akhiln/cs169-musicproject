@@ -7,6 +7,7 @@ class SongsController < ApplicationController
      @song = Song.new(params[:song])
      respond_to do |format|      
        if @song.save
+         @song.read_tags!
          @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
         if @users_songs.save
          format.html { redirect_to(:root) } 
@@ -18,7 +19,8 @@ class SongsController < ApplicationController
       end
     end
   end
-
+ 
+  
  
   
   def new
