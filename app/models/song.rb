@@ -17,6 +17,11 @@ class Song < ActiveRecord::Base
     '<a href="#" onclick="playListAdd(\'song.name\', \'' + song.url + '\')"><img src="/images/playadd.png"></a>
 	<a href="#" onclick="playListAddAndPlay(\'song.name\', \'' + song.url + '\')"><img src="/images/play.png"></a>'
   end
+
+  def read_tags!
+     # copy the song from s3 to the temporary directory
+     
+  end
   
   def renderRow
 	link = link_to_remote self.name, {:url=>'/songs/show/'+self.id.to_s, :update=>'main_content'}
