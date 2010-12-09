@@ -7,8 +7,23 @@ class SongsController < ApplicationController
      @song = Song.new(params[:song])
      respond_to do |format|      
        if @song.save
-         @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
-        if @users_songs.save
+         # copy the song from s3 to the temporary directory
+         File.open("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3", 'w+') { |file| file << open(@song.song.url).read }
+         # use mp3info to open the file:
+         tmp_mp3 = Mp3Info.open("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3")
+         new_attr = {"artist" => current_user.name}
+         if tmp_mp3.tag.album
+           new_attr["album"] = tmp_mp3.tag.album.to_s
+         end
+         if tmp_mp3.tag.title
+           new_attr["name"] = tmp_mp3.tag.title.to_s
+         end
+         tmp_mp3.close
+         File.delete("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3")
+
+        @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
+
+        if @song.update_attributes(new_attr) && @users_songs.save
          format.html { redirect_to(:root) } 
          format.xml  { render :xml => @song, :status => :created, :location => @song }
         else
@@ -18,34 +33,9 @@ class SongsController < ApplicationController
       end
     end
   end
-
-  #this is the old create method that stores songs on the localFS
-  #def create
-  #  @song = Song.new(params[:song])
-  #  respond_to do |format|      
-  #    if @song.save
-  #      @users_songs = Usersong.new({:user_id => @current_user.id, :song_id => @song.id})
-  #      if @users_songs.save
-  #        if @song.upload(params[:upload])  #Happy path
-  #          format.html { redirect_to(@song, :notice => 'Song was successfully created.') }
-  #          format.xml  { render :xml => @song, :status => :created, :location => @song }
-  #        else
-  #          Song.delete(@song.id)
-  #          Usersong.delete(@users_songs.id)
-  #          format.html { render :action => "new" }
-  #          format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
-  #        end
-  #      else  #Sad path
-  #        Song.delete(@song.id)
-  #        format.html { render :action => "new" }
-  #        format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
-  #      end
-  #    else  #Sad path
-  #      format.html { render :action => "new" }
-  #      format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
-  #    end
- #   end
- # end
+ 
+  
+ 
   
   def new
     @song = Song.new
