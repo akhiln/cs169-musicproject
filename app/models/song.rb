@@ -13,29 +13,6 @@ class Song < ActiveRecord::Base
      :path => "/songs/:id",
      :bucket => ENV['S3_BUCKET']
   
-  def upload(uploadFile)
-    if uploadFile == nil
-      return false
-    end
-    if uploadFile['datafile'] == nil || uploadFile['datafile'] == ""
-      return false
-    end
-    
-    name = uploadFile['datafile'].original_filename
-    directory = "public/songs"
-    # create the file path
-    if name[-4,4] == ".mp3"
-      path = File.join(directory, self.id.to_s + ".mp3")
-      # write the file
-      File.open(path, "wb") { |f| f.write(uploadFile['datafile'].read) }
-      @source = path
-      self.save
-      return true
-    else
-      false
-    end
-  end
-  
   def makePlayer
     '<a href="#" onclick="playListAdd(\'song.name\', \'' + song.url + '\')"><img src="/images/playadd.png"></a>
 	<a href="#" onclick="playListAddAndPlay(\'song.name\', \'' + song.url + '\')"><img src="/images/play.png"></a>'
