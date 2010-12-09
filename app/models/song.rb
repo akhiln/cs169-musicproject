@@ -9,7 +9,6 @@ class Song < ActiveRecord::Base
   has_many :users, :through => :usersongs
   belongs_to :genre
 
-  attr_accessor :name, :length, :artist, :album
 
   has_attached_file :song,
      :storage => :s3,
