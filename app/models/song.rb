@@ -11,7 +11,7 @@ class Song < ActiveRecord::Base
      :s3_credentials => { :access_key_id     => ENV['S3_KEY'], 
                         :secret_access_key => ENV['S3_SECRET'] },
      :path => "/songs/:id",
-     :bucket => "prod.jukebox"
+     :bucket => ENV['S3_BUCKET']
   
   def upload(uploadFile)
     if uploadFile == nil
