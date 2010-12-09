@@ -22,6 +22,7 @@
 <%=link_to_remote("#{@songs[i].users[0].login}", :url=>@songs[i].users[0], :method=>'get', :update=>'main_content')%>
 </td>
 <td class="control">
+<%=@songs[i].makePlayer%>
 </td>
 </tr>
 <% end %>
