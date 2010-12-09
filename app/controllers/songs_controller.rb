@@ -11,7 +11,7 @@ class SongsController < ApplicationController
          File.open("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3", 'w+') { |file| file << open(@song.song.url).read }
          # use mp3info to open the file:
          tmp_mp3 = Mp3Info.open("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3")
-         new_attr = {"artist" => current_user.name}
+         new_attr = {}
          if tmp_mp3.tag.album
            new_attr["album"] = tmp_mp3.tag.album.to_s
          end
@@ -20,7 +20,8 @@ class SongsController < ApplicationController
          end
          tmp_mp3.close
          File.delete("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3")
-
+       
+        new_attr.each_value {|val| puts(val.to_s)}
         @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
 
         if @song.update_attributes(new_attr) && @users_songs.save
