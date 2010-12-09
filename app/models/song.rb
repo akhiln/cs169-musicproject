@@ -20,7 +20,7 @@ class Song < ActiveRecord::Base
 
   def read_tags!
      # copy the song from s3 to the temporary directory
-     
+
   end
   
   def renderRow

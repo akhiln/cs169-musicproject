@@ -31,17 +31,6 @@ describe Song, "upload a new song" do
   end
 end
 
-describe Song, "make a player" do
-  before(:each) do
-    auth_login
-    @song = Song.new
-  end
-  
-  it "should return and empty string, because it doesn't do anything anymore" do
-    @song.makePlayer.should == ""
-  end
-end
-
 describe Song, "generate an Ajax link to the song's show page" do
   before(:each) do
     auth_login
