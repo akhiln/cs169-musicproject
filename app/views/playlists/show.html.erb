@@ -1,3 +1,11 @@
+<head> 
+  <%= content_tag :meta, "", :content=>@playlist.name, :property=>"og:title" %>
+  <%= content_tag :meta, "", :content=>"album", :property=>"og:type" %>
+  <%= content_tag :meta, "", :content=>"", :property=>"og:image" %>
+  <%= content_tag :meta, "", :content=>request.url, :property=>"og:url" %>
+  <%= content_tag :meta, "", :content=>"JuiceBox", :property=>"og:site_name" %>
+  <%= content_tag :meta, "", :content=>"", :property=>"fb:app_id" %>
+</head>
 <h2><%=@playlist.name%></h2><%=@playlist.renderRow%>
 <p><%=@playlist.description%></p>
 <% if @songs.size > 0 %>
@@ -36,6 +44,11 @@
 
 <h2>Rating:</h2>
 <%= @playlist.ratingString %>
+
+<%= content_tag :iframe, "", facebook_like(request.url) %>
+
+<%= content_tag :iframe, "", facebook_box(request.url) %>
+
 <h2>Comments</h2>
 <% if not @comments.nil? %>
   <% @comments.each do |comment| %>
