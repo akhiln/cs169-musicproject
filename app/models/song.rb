@@ -1,4 +1,6 @@
-class Song < ActiveRecord::Base	
+class Song < ActiveRecord::Base
+  require 'open-uri'
+  require 'mp3info'
   has_many :song_comments
   has_many :song_ratings
   has_many :playlistsongs
@@ -6,22 +8,20 @@ class Song < ActiveRecord::Base
   has_many :usersongs
   has_many :users, :through => :usersongs
 
+  attr_accessor :name, :length, :artist, :album
+
   has_attached_file :song,
      :storage => :s3,
      :s3_credentials => { :access_key_id     => ENV['S3_KEY'], 
                         :secret_access_key => ENV['S3_SECRET'] },
      :path => "/songs/:id",
-     :bucket => ENV['S3_BUCKET']
-  
+     :bucket => ENV['S3_BUCKET']  
+
   def makePlayer
     '<a href="#" onclick="playListAdd(\'song.name\', \'' + song.url + '\')"><img src="/images/playadd.png"></a>
 	<a href="#" onclick="playListAddAndPlay(\'song.name\', \'' + song.url + '\')"><img src="/images/play.png"></a>'
   end
 
-  def read_tags!
-     # copy the song from s3 to the temporary directory
-
-  end
   
   def renderRow
 	link = link_to_remote self.name, {:url=>'/songs/show/'+self.id.to_s, :update=>'main_content'}
