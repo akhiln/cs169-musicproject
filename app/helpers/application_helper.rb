@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def facebook_box(url)
-    { :src=>"http://www.facebook.com/plugins/likebox.php?href="+convert_url(url)+"&amp;width=300&amp;colorscheme=dark&amp;connections=10&amp;stream=false&amp;header=true&amp;height=287", 
+    { :src=>"http://www.facebook.com/plugins/activity.php?href="+convert_url(url)+"&amp;width=300&amp;colorscheme=dark&amp;connections=10&amp;stream=false&amp;header=true&amp;height=287", 
       :scrolling=>:no, 
       :frameborder=>"0", 
       :style=>"border:none; overflow:hidden; width:300px; height:287px;", 
