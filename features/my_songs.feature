@@ -15,7 +15,7 @@ Feature: List Uploaded Songs
       And "Smith" has created a song named "Cool", with genre "Rock"
       And "Smith" has created a song named "Sad", with genre "Blues"
     When I go to the my songs page
-    And I should see "Cool" within "#songs"
-    And I should see "Sad" within "#songs"
+    Then I should see "Cool" within "#songs"
+      And I should see "Sad" within "#songs"
 
   

@@ -5,8 +5,10 @@ end
 
 Given /^"([^"]*)" has uploaded a song with name "([^"]*)", album "([^"]*)", genre "([^"]*)", and description "([^"]*)"$/ do |login, name, album, genre, description|
   @user = User.find_by_name login
-  params = {:name=>name, :album=>album, :genre=>genre, :description=>description}
-  @user.songs.build(params)
+  params = {:name=>name, :album=>album, :description=>description}
+  @song = @user.songs.build(params)
+  @song.build_genre(:genre_name=>genre)
+  @song.save
   @user.save  
 end
 
