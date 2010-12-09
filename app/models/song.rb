@@ -5,6 +5,7 @@ class Song < ActiveRecord::Base
   has_many :playlists, :through => :playlistsongs
   has_many :usersongs
   has_many :users, :through => :usersongs
+  belongs_to :genre
 
   has_attached_file :song,
      :storage => :s3,

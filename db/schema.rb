@@ -9,11 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101122000000) do
+ActiveRecord::Schema.define(:version => 20101209031030) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
     t.integer  "playlist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres", :force => true do |t|
+    t.string   "genre_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20101122000000) do
   create_table "songs", :force => true do |t|
     t.string   "album"
     t.float    "length"
-    t.string   "genre"
     t.text     "description"
     t.float    "rating"
     t.datetime "created_at"
@@ -78,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20101122000000) do
     t.string   "song_file_name"
     t.string   "song_content_type"
     t.integer  "song_file_size"
+    t.integer  "genre_id"
   end
 
   create_table "users", :force => true do |t|
