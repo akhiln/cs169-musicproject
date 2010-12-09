@@ -36,11 +36,6 @@ class Song < ActiveRecord::Base
     end
   end
   
-  def makePlayer
-    '<a href="#" onclick="playListAdd(\'song.name\', \'' + song.url + '\')"><img src="/images/playadd.png"></a>
-	<a href="#" onclick="playListAddAndPlay(\'song.name\', \'' + song.url + '\')"><img src="/images/play.png"></a>'
-  end
-  
   def renderRow
 	link = link_to_remote self.name, {:url=>'/songs/show/'+self.id.to_s, :update=>'main_content'}
 	return link

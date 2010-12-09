@@ -102,7 +102,7 @@ describe PlaylistsController, "Add song to playlist" do
   end
   
   it "should find all possible lists" do
-    get :addsong, :id=>42
+    get :addsong, :song_id=>42
     assigns(:song_id).should == "42"
     assigns(:song).should == @song
     assigns(:playlists).should == [@mock_playlist]
