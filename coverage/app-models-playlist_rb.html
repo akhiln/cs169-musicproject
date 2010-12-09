@@ -28,12 +28,12 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-playlist_rb.html">app/models/playlist.rb</a></td>
-            <td class='right_align'><tt>43</tt></td>
+            <td class='right_align'><tt>44</tt></td>
             <td class='right_align'><tt>39</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>34.88%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>36.36%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:35px"></div>
-            <div class="uncovered" style="width:65px"></div>
+            <div class="covered" style="width:36px"></div>
+            <div class="uncovered" style="width:64px"></div>
           </div></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>28.21%</tt></div>
           <div class="percent_graph">
@@ -135,7 +135,7 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line14">14</a> 		songsString += 'playListAdd(\'' + song.name + '\',\'/songs/' + self.id.to_s + '.mp3\'); '</pre></td>
+            <td><pre><a name="line14">14</a> 		songsString += 'playListAdd(\'' + song.name + '\',\'' + song.song.url + '\'); '</pre></td>
           </tr>
         
           
@@ -147,7 +147,7 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line16">16</a> 	return '&lt;a href=&quot;#&quot; onclick=&quot;'+songsString+'&quot;&gt;&lt;img src=&quot;/images/play.png&quot;&gt;&lt;/a&gt;</pre></td>
+            <td><pre><a name="line16">16</a> 	return '&lt;a href=&quot;#&quot; onclick=&quot;'+songsString+' playListChange(myPlayList.length-'+songs.length.to_s+');&quot;&gt;&lt;img src=&quot;/images/play.png&quot;&gt;&lt;/a&gt;</pre></td>
           </tr>
         
           
@@ -170,152 +170,158 @@
         
           
           
+          <tr class="inferred">
+            <td><pre><a name="line20">20</a>   </pre></td>
+          </tr>
+        
+          
+          
           <tr class="marked">
-            <td><pre><a name="line20">20</a>   def ratingString</pre></td>
+            <td><pre><a name="line21">21</a>   def ratingString</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line21">21</a>     if self.rating == nil</pre></td>
+            <td><pre><a name="line22">22</a>     if self.rating == nil</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line22">22</a>       &quot;-&quot;</pre></td>
+            <td><pre><a name="line23">23</a>       &quot;-&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line23">23</a>     else</pre></td>
+            <td><pre><a name="line24">24</a>     else</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line24">24</a>       sprintf(&quot;%.2f&quot;, self.rating)</pre></td>
+            <td><pre><a name="line25">25</a>       sprintf(&quot;%.2f&quot;, self.rating)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line25">25</a>     end</pre></td>
+            <td><pre><a name="line26">26</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line26">26</a>   end</pre></td>
+            <td><pre><a name="line27">27</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line27">27</a>   </pre></td>
+            <td><pre><a name="line28">28</a>   </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line28">28</a>   def updateRating</pre></td>
+            <td><pre><a name="line29">29</a>   def updateRating</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line29">29</a>     total = 0.0</pre></td>
+            <td><pre><a name="line30">30</a>     total = 0.0</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line30">30</a>     count = 0.0</pre></td>
+            <td><pre><a name="line31">31</a>     count = 0.0</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line31">31</a>     self.playlist_ratings.each do |playlist_rating|</pre></td>
+            <td><pre><a name="line32">32</a>     self.playlist_ratings.each do |playlist_rating|</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line32">32</a>       count = count + 1</pre></td>
+            <td><pre><a name="line33">33</a>       count = count + 1</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line33">33</a>       total = total + playlist_rating.rating</pre></td>
+            <td><pre><a name="line34">34</a>       total = total + playlist_rating.rating</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line34">34</a>     end</pre></td>
+            <td><pre><a name="line35">35</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line35">35</a>     if count == 0</pre></td>
+            <td><pre><a name="line36">36</a>     if count == 0</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line36">36</a>       self.rating = nil</pre></td>
+            <td><pre><a name="line37">37</a>       self.rating = nil</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line37">37</a>       self.save</pre></td>
+            <td><pre><a name="line38">38</a>       self.save</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line38">38</a>     elsif self.rating != total/count</pre></td>
+            <td><pre><a name="line39">39</a>     elsif self.rating != total/count</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line39">39</a>       self.rating = total/count</pre></td>
+            <td><pre><a name="line40">40</a>       self.rating = total/count</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line40">40</a>       self.save</pre></td>
+            <td><pre><a name="line41">41</a>       self.save</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line41">41</a>     end</pre></td>
+            <td><pre><a name="line42">42</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line42">42</a>   end</pre></td>
+            <td><pre><a name="line43">43</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line43">43</a> end</pre></td>
+            <td><pre><a name="line44">44</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Tue Nov 23 04:53:15 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Wed Dec 08 18:45:06 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>
