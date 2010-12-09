@@ -1,7 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def facebook_like(url) 
-    { :src=>"http://www.facebook.com/plugins/like.php?href="+convert_url(url)+"&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;font=segoe+ui&amp;colorscheme=dark&amp;height=80", 
+    { :src=>"http://www.facebook.com/plugins/like.php?href="+convert_url(url)+"&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80", 
       :scrolling=>:no, 
       :frameborder=>"0", 
       :style=>"border:none; overflow:hidden; width:450px; height:80px;", 
