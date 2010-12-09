@@ -5,7 +5,7 @@ class SongsController < ApplicationController
 
   def create
      @song = Song.new(params[:song])
-     respond_to do |format|      
+     respond_to do |format|     
        if @song.save
          # copy the song from s3 to the temporary directory
          File.open("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3", 'w+') { |file| file << open(@song.song.url).read }
@@ -27,9 +27,24 @@ class SongsController < ApplicationController
         if @song.update_attributes(new_attr) && @users_songs.save
          format.html { redirect_to(:root) } 
          format.xml  { render :xml => @song, :status => :created, :location => @song }
+         format.js do
+           responds_to_parent do
+             render :update do |page|
+              page.hide "upload_form"
+              page.insert_html :bottom, :main_content, :partial => 'songs/edit'
+             end
+           end
+         end
         else
          format.html { render :action => :new }
          format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
+         format.js do
+           responds_to_parent do
+             render :update do |page|
+                page.replace_html :bottom, :song_form, :partial => 'songs/form'
+              end
+           end
+         end
        end
       end
     end
