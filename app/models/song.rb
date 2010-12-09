@@ -7,6 +7,7 @@ class Song < ActiveRecord::Base
   has_many :playlists, :through => :playlistsongs
   has_many :usersongs
   has_many :users, :through => :usersongs
+  belongs_to :genre
 
   attr_accessor :name, :length, :artist, :album
 
@@ -22,6 +23,11 @@ class Song < ActiveRecord::Base
 	<a href="#" onclick="playListAddAndPlay(\'song.name\', \'' + song.url + '\')"><img src="/images/play.png"></a>'
   end
 
+  
+  def makePlayer
+    '<a href="#" onclick="playListAdd(\'song.name\', \'' + song.url + '\')"><img src="/images/playadd.png"></a>
+	<a href="#" onclick="playListAddAndPlay(\'song.name\', \'' + song.url + '\')"><img src="/images/play.png"></a>'
+  end
   
   def renderRow
 	link = link_to_remote self.name, {:url=>'/songs/show/'+self.id.to_s, :update=>'main_content'}

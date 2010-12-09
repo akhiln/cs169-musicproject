@@ -1,0 +1,16 @@
+<h1>Editing genre</h1>
+
+<% form_for(@genre) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :genre_name %><br />
+    <%= f.text_field :genre_name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @genre %> |
+<%= link_to 'Back', genres_path %>

@@ -1,4 +1,13 @@
+<head> 
+  <%= content_tag :meta, "", :content=>@song.name, :property=>"og:title" %>
+  <%= content_tag :meta, "", :content=>"song", :property=>"og:type" %>
+  <%= content_tag :meta, "", :content=>"", :property=>"og:image" %>
+  <%= content_tag :meta, "", :content=>request.url, :property=>"og:url" %>
+  <%= content_tag :meta, "", :content=>"JuiceBox", :property=>"og:site_name" %>
+  <%= content_tag :meta, "", :content=>"1455080878", :property=>"fb:app_id" %>
+</head>
 <h2 class="songTitle"><%= @song.name %></h2>
+<%= @song.makePlayer %>
 <p class="songDescription"><%= @song.description %></p>
 <% if @auth %>
 <%=link_to_remote "Delete", {:url=>"/songs/delete/"+@song.id.to_s, :update=>'main_content'} %> ||
@@ -9,6 +18,10 @@
 <p> URL: <%= @song.song.url %></p>
 <h2>Rating:</h2>
 <%= @song.ratingString %>
+
+<%= content_tag :iframe, "", facebook_like(request.url) %>
+<%= content_tag :iframe, "", facebook_box(request.url) %>
+
 <h2>Comments</h2>
 <% if not @comments.nil? %>
   <% @comments.each do |comment| %>

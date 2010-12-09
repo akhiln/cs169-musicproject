@@ -2,8 +2,7 @@ class BrowseController < ApplicationController
   before_filter :require_user
 
   def all
-    @songs = Song.find(:all, :select => 'DISTINCT genre')
-    @genres = @songs.map {|s| s.genre}
+    @genres = Genre.all
     respond_to do |format|
       format.html
       format.xml { render :xml => @genres }
@@ -12,7 +11,7 @@ class BrowseController < ApplicationController
 
   def genre
     @genre = params[:id]
-    @songs = Song.find_by_sql("SELECT * FROM songs WHERE songs.genre = '#{@genre}'")
+    @songs = Genre.find_by_genre_name(@genre).songs
     respond_to do |format|
       format.html
       format.xml { render :xml => @genres }

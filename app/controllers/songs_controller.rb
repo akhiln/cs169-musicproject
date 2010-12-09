@@ -27,7 +27,7 @@ class SongsController < ApplicationController
          format.html { redirect_to(:root) } 
          format.xml  { render :xml => @song, :status => :created, :location => @song }
         else
-         format.html { render :action => "new" }
+         format.html { render :action => :new }
          format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
        end
       end

@@ -31,6 +31,18 @@ describe Song, "upload a new song" do
   end
 end
 
+
+describe Song, "make a player" do
+  before(:each) do
+    auth_login
+    @song = Song.new
+  end
+  
+  it "should return and empty string, because it doesn't do anything anymore" do
+    @song.makePlayer.should == "<a href=\"#\" onclick=\"playListAdd('song.name', '/songs/original/missing.png')\"><img src=\"/images/playadd.png\"></a>\n\t<a href=\"#\" onclick=\"playListAddAndPlay('song.name', '/songs/original/missing.png')\"><img src=\"/images/play.png\"></a>"
+  end
+end
+
 describe Song, "generate an Ajax link to the song's show page" do
   before(:each) do
     auth_login

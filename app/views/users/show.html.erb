@@ -3,7 +3,7 @@
 <img src="<%=@user.photo.url%>" style="width: 800px;"/>
 <p id="name"><%= @user.name %></p><br>
 <% if @user.id == @current_user.id %>
-<p><%=link_to_remote 'Edit My Profile', {:url=>'/users/edit'+@user.id.to_s, :update=>'main_content'} %>
+<p><%=link_to_remote 'Edit My Profile', {:url=>'/users/edit/'+@user.id.to_s, :update=>'main_content'} %>
 <%end%>
 </div>
 <div class="profile" id="info">
@@ -19,7 +19,7 @@
 <ul class="music_list" id="song_list">
   <% @songs.each do |song| %>
     <li class="song_element">
-		<%=link_to_remote song.name, {:url=>'/songs/show/'+song.id.to_s, :update=>'main_content'}%>
+		<%=link_to_remote song.name, {:url=>'/songs/show/'+song.id.to_s, :update=>'main_content'}%><%=song.makePlayer%>
 	</li>
   <% end %>
 </ul>
