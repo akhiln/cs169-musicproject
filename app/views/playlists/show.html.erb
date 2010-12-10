@@ -1,4 +1,4 @@
-<%= javascript_tag "document.getElementById('facebook_title').setAttribute('content', '{@playlist.name}'); document.getElementById('facebook_url').setAttribute('content', '{request.url}')" %>
+<%= javascript_tag "document.getElementById('facebook_title').setAttribute('content', '#{@playlist.name}'); document.getElementById('facebook_url').setAttribute('content', '#{request.url}')" %>
 
 <h2><%=@playlist.name%></h2><%=@playlist.renderRow%>
 <p><%=@playlist.description%></p>

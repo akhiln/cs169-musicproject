@@ -1,4 +1,4 @@
-<%= javascript_tag "document.getElementById('facebook_title').setAttribute('content', '{@song.name}'); document.getElementById('facebook_url').setAttribute('content', '{request.url}')" %>
+<%= javascript_tag "document.getElementById('facebook_title').setAttribute('content', '#{@song.name}'); document.getElementById('facebook_url').setAttribute('content', '#{request.url}')" %>
 
 <h2 class="songTitle"><%= @song.name %></h2>
 <%= @song.makePlayer %>
