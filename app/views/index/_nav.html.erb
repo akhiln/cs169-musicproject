@@ -1,0 +1,19 @@
+		<ul>
+			<li>
+				<%= link_to_remote "Popular Songs", {:url=>popular_songs_path(), :update => 'main_content'} %>
+			</li>
+			<li>
+				<%= link_to_remote "Popular Playlists", {:url=>popular_playlists_path(), :update => 'main_content'} %>
+			</li>
+			<% if current_user %>
+				<li>
+					<%= link_to_remote "My Songs", {:url=>my_songs_path(), :update => 'main_content'} %>
+				</li>
+				<li>
+					<%= link_to_remote "My Playlists", {:url=>my_playlists_path(), :update => 'main_content'} %>
+				</li>
+			<% end %>
+			<li>
+				<%= link_to_remote "Browse", {:url=>browse_path(), :update => 'main_content'} %>
+			</li>
+		</ul>

@@ -18,6 +18,8 @@ class UsersController < ApplicationController
              render :update do |page|
               page.hide "new_user_form"
               page.insert_html :bottom, :main_content, :partial => 'users/welcome'
+              page.replace_html "login_links", :partial => 'index/login_links'
+              page.replace_html "nav", :partial => 'index/nav'
              end
            end
          end
@@ -51,8 +53,7 @@ class UsersController < ApplicationController
         format.js do
            responds_to_parent do
              render :update do |page|
-              page.hide "update_info"
-              page.insert_html :bottom, :main_content, :partial => 'users/info_saved'
+               page.replace_html "main_content", :partial => 'users/show'
              end
            end
          end

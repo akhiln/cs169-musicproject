@@ -123,48 +123,33 @@ $j(document).ready(function(){
 -->
 </script>
 
+  <%= content_tag :meta, "", :property=>"og:title", :content=>"", :id=>"facebook_title"  %>
+  <%= content_tag :meta, "", :property=>"og:type",  :content=>"song"  %>
+  <%= content_tag :meta, "", :property=>"og:image", :content=>""  %>
+  <%= content_tag :meta, "", :property=>"og:url", :content=>"", :id=>"facebook_url"  %>
+  <%= content_tag :meta, "", :property=>"og:site_name", :content=>"JuiceBox"  %>
+  <%= content_tag :meta, "", :property=>"fb:app_id", :content=>"1455080878"  %>
+
 </head>
 <body>
 <div id="main">
 	<div id="app_header">
 		<%= image_tag "logo.gif", :align=>"left" %>
 		<div id="login_links">
-			<% if current_user %>
-			    <%= link_to "Home", {:url=>root_path} %> ||
-				<%= link_to_remote "View Profile", {:url=>current_user, :update=>'main_content', :method=>'get'} %>	|		
-				<%= link_to_remote "Edit Profile", {:url=>edit_user_path(:edit), :update=>'main_content'} %> |
-				<%= link_to "Logout", logout_path, :class => 'ajaxify' %>
-			<% else %>
-				<%= link_to_remote "Register", {:url=>signup_path, :update=>'main_content'} %> |
-				<%= link_to_remote "Login", {:url=>login_path, :update=>'main_content'} %>
-			<% end %>
+			<%= render(:partial => '/index/login_links', :locals => { :current_user => current_user }) %>
 		</div>
 	</div>
 	
 	<div id="nav">
-		<ul>
-			<li>
-				<%= link_to_remote "Popular Songs", {:url=>popular_songs_path(), :update => 'main_content'} %>
-			</li>
-			<li>
-				<%= link_to_remote "Popular Playlists", {:url=>popular_playlists_path(), :update => 'main_content'} %>
-			</li>
-			<% if current_user %>
-				<li>
-					<%= link_to_remote "My Songs", {:url=>my_songs_path(), :update => 'main_content'} %>
-				</li>
-				<li>
-					<%= link_to_remote "My Playlists", {:url=>my_playlists_path(), :update => 'main_content'} %>
-				</li>
-			<% end %>
-			<li>
-				<%= link_to_remote "Browse", {:url=>browse_path(), :update => 'main_content'} %>
-			</li>
-		</ul>
+      <%= render(:partial => '/index/nav', :locals => { :current_user => current_user }) %>
 	</div>
 
 	<div id="main_content">
-    
+    <% if current_user %>
+       <%= render(:partial => '/index/auth_home', :locals => { :current_user => current_user }) %>
+    <% else %>
+       <%= render(:partial => '/index/no_auth_home') %>
+    <% end %>
 		<%=yield%>
 	</div>
 	

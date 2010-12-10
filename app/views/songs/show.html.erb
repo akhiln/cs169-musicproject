@@ -1,11 +1,5 @@
-<head> 
-  <%= content_tag :meta, "", :content=>@song.name, :property=>"og:title" %>
-  <%= content_tag :meta, "", :content=>"song", :property=>"og:type" %>
-  <%= content_tag :meta, "", :content=>"", :property=>"og:image" %>
-  <%= content_tag :meta, "", :content=>request.url, :property=>"og:url" %>
-  <%= content_tag :meta, "", :content=>"JuiceBox", :property=>"og:site_name" %>
-  <%= content_tag :meta, "", :content=>"1455080878", :property=>"fb:app_id" %>
-</head>
+<%= javascript_tag "document.getElementById('facebook_title').setAttribute('content', '#{@song.name}'); document.getElementById('facebook_url').setAttribute('content', '#{request.url}')" %>
+
 <h2 class="songTitle"><%= @song.name %></h2>
 <%= @song.makePlayer %>
 <p class="songInformation"><h2>Song Information</h2>

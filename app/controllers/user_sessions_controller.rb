@@ -8,12 +8,30 @@ class UserSessionsController < ApplicationController
   
   def create
     @user_session = UserSession.new(params[:user_session])
+    respond_to do |format|
     if @user_session.save
-      flash[:notice] = "Login successful!"
-      redirect_back_or_default root_url #new_user_session_url
+          current_user = UserSession.find
+          id = current_user && current_user.record.id
+         @user = User.find(id)
+         @current_user = @user
+         format.html { redirect_to(:root) } 
+         format.js do
+             render :update do |page|
+              page.replace_html "main_content", :partial => 'users/show'
+              page.replace_html "login_links", :partial => 'index/login_links'
+              page.replace_html "nav", :partial => 'index/nav'
+             end
+           end
     else
-      render :action => :new
+      format.html { redirect_to(:root) } 
+         format.js do
+             render :update do |page| 
+              flash[:error] = "Login Failed"
+              page.replace_html "main_content", :partial => 'user_sessions/new'
+             end
+           end
     end
+  end
   end
   
   def destroy

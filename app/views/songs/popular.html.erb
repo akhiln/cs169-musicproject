@@ -1,14 +1,15 @@
-<h1> Popular Songs </h1>
+<h2> Popular Songs </h2>
 <table class="lister">
-<tr>
+<tr class="head">
 	<th>Song Name</th>
 	<th>Genre</th>
 	<th>Rating</th>
 	<th>User</th>
 	<th></th>
 </tr>
+<% @class = 'o' %>
 <% for i in (0..[@songs.size-1,20].min) do %>
-<tr>
+<tr class="<%=@class%>">
 <td class="name">
 <%=link_to_remote("#{@songs[i].name}", :url=>@songs[i], :method=>'get', :update=>'main_content')%>
 </td>
@@ -25,5 +26,10 @@
 <%=@songs[i].makePlayer%>
 </td>
 </tr>
+			<%if @class=='o'%>
+				<% @class='e' %>
+			<% else %>
+				<% @class='o' %>
+			<% end %>
 <% end %>
 </table>
