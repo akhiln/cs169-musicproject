@@ -128,6 +128,11 @@ $j(document).ready(function(){
 	</div>
 	
 	<div id="main_content">
+                <% if current_user %>
+                   <%= render(:partial => '/index/auth_home', :locals => { :current_user => current_user }) %>
+                <% else %>
+                   <%= render(:partial => '/index/no_auth_home') %>
+                <% end %>
 		<%=yield%>
 	</div>
 	
