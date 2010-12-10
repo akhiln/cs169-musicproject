@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     success = @user.save
     respond_to do |format|
     if success
-        # format.html { redirect_to(:root) } 
-        # format.xml  { render :xml => @user, :status => :created, :location => @user }
+         format.html { redirect_to(:root) } 
+         format.xml  { render :xml => @user, :status => :created, :location => @user }
          format.js do
            responds_to_parent do
              render :update do |page|
@@ -48,9 +48,24 @@ class UsersController < ApplicationController
         flash[:notice] = 'Your information was successfully updated.'
         format.html { redirect_to @user}
         format.xml  { head :ok }
+        format.js do
+           responds_to_parent do
+             render :update do |page|
+              page.hide "update_info"
+              page.insert_html :bottom, :main_content, :partial => 'users/info_saved'
+             end
+           end
+         end
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        format.js do
+           responds_to_parent do
+             render :update do |page|
+                flash[:errors] = "Your information could not be saved"
+              end
+           end
+        end
       end
     end
   end
