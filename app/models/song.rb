@@ -18,8 +18,8 @@ class Song < ActiveRecord::Base
      :bucket => ENV['S3_BUCKET']  
 
   def makePlayer
-    '<a href="#" onclick="playListAdd(\'song.name\', \'' + song.url + '\')"><img src="/images/playadd.png"></a>
-	<a href="#" onclick="playListAddAndPlay(\'song.name\', \'' + song.url + '\')"><img src="/images/play.png"></a>'
+    "<a href=\"#\" onclick=\"playListAdd(\'#{self.name}\', \'" + song.url + "\')\"><img src=\"/images/playadd.png\"></a>
+	<a href=\"#\" onclick=\"playListAddAndPlay(\'#{self.name}\', \'" + song.url + "\')\"><img src=\"/images/play.png\"></a>"
   end
 
   def renderRow
