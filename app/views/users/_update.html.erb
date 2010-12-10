@@ -1,0 +1,15 @@
+
+  <p>
+    <%= update.label :name %><br />
+    <%= update.text_field :name %>
+  </p>
+
+<p><%= update.label :bio , "Information about yourself"%><br/>
+<%= update.text_area :bio %></p>
+
+<p>Select a Profile Picture<br/> 
+  <%= update.file_field :photo %></p>
+
+  <p>
+    <%= update.submit "Update" %>
+  </p>
