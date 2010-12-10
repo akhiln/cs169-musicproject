@@ -4,4 +4,5 @@ right_http_connection --version 1.2.4
 authlogic --version 2.1.6
 rails --version 2.3.8
 aws-s3 --version 0.6.2
+ruby-mp3info --version 0.6.13
 
