@@ -1,13 +1,14 @@
-<h1> Popular Playlists </h1>
+<h2> Popular Playlists </h2>
 <table class="lister">
-<tr>
+<tr class="head">
 	<th>Playlist Name</th>
 	<th>Rating</th>
 	<th>User</th>
 	<th></th>
 </tr>
+<% @class = 'o' %>
 <% for i in (0..[@playlists.size-1,20].min) do %>
-<tr>
+<tr class="<%=@class%>">
 <td class="name">
 <%=link_to_remote("#{@playlists[i].name}", :url=>@playlists[i], :method=>'get', :update=>'main_content')%>
 </td>
@@ -21,6 +22,11 @@
 <%=@playlists[i].renderRow%>
 </td>
 </tr>
+			<%if @class=='o'%>
+				<% @class='e' %>
+			<% else %>
+				<% @class='o' %>
+			<% end %>
 <% end %>
 </table>
 

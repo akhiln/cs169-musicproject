@@ -45,9 +45,9 @@ body {
 #main_content {
 	padding-bottom: 100px;
 	text-align: left;
-	padding-left: 10px;
-	padding-right:10px;
-	padding-top:3px;
+	padding-left: 0px;
+	padding-right:0px;
+	padding-top:0px;
 }
 #app_header {
 	width: 100%;
@@ -133,3 +133,71 @@ border-left: 1px white;
 float: left;
 display: inline-block;
 }
+
+.lister {
+left:20px;
+width: 100%;
+cellspacing: 0px;
+cellpadding: 0px;
+border-collapse: collapse;
+}
+
+.lister tr {
+/*border: 1px solid black;*/
+}
+
+h2 {
+display: block;
+width:99%;
+height:30px;
+padding-top: 10px;
+padding-left: 10px;
+margin:0px;
+	background: #8b8b8b; /* for non-css3 browsers */
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7a7a7a', endColorstr='#a9a9a9'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#7a7a7a), to(#a9a9a9)); /* for webkit browsers */
+	background: -moz-linear-gradient(top, #7a7a7a, #a9a9a9); /* for firefox 3.6+ */
+	border-top: solid 1px #6d6d6d;
+	border-bottom: solid 1px #6d6d6d;
+
+vertical-align:middle;
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+font-size:20px;
+}
+
+.table_con {
+text-align:center;
+padding:0px;
+margin:0px;
+}
+
+.lister .head {
+border: none;
+border-top:3px solid white;
+background-color: gray;
+text-align: left;
+font-family: Arial, Helvetica, sans-serif;
+font-size:16px;
+font-weight:normal;
+}
+
+.lister td {
+text-align: left;
+font-family: Arial, Helvetica, sans-serif;
+font-size:14px;
+}
+
+.lister .o {
+background-color: #D8D8D8;
+}
+
+.lister .e {
+background-color: white;
+}
+
+.lister a {
+border: 0px;
+color: black;
+}
+
