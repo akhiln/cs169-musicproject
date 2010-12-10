@@ -1,37 +1,5 @@
 require 'spec_helper'
 
-describe Song, "upload a new song" do
-  before(:each) do
-    auth_login
-    @song = Song.new
-    @song.stub!(:save).and_return(true)
-    @song.stub!(:id).and_return(42)
-    @uploadFile = {}
-    @uploadFile['datafile'] = mock()
-  end
-  
-  it "should save a valid file into public/songs/:id" do
-    @uploadFile['datafile'].should_receive(:original_filename).and_return("foobar.mp3")
-    File.should_receive(:open).with("public/songs/42.mp3", "wb")
-    @song.upload(@uploadFile).should == true
-  end
-  
-  it "should return false if uploadFile is nil" do
-    @song.upload(nil).should == false
-  end
-  
-  it "should return false if there is no data in the argument" do
-    @song.upload({'datafile'=>nil}).should == false
-    @song.upload({'datafile'=>""}).should == false
-  end
-  
-  it "should return false if the filename does not end in .mp3" do
-    @uploadFile['datafile'].should_receive(:original_filename).and_return("fubar.mp9")
-    @song.upload(@uploadFile).should == false
-  end
-end
-
-
 describe Song, "make a player" do
   before(:each) do
     auth_login

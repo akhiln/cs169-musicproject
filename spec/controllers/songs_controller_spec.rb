@@ -3,7 +3,9 @@ require 'spec_helper'
 describe SongsController, "Make a new song" do
   before(:each) do
     auth_login
-    Song.stub!(:new).and_return(@song = mock_model(Song, {:save=>true, :upload=>true}))
+    @song_song = mock()
+    @song_song.stub!(:url).and_return('')
+    Song.stub!(:new).and_return(@song = mock_model(Song, {:save=>true, :upload=>true, :song=>@song_song}))
     assigns[:current_user] = mock_model(User, :id=>0)
     User.stub!(:id).and_return(0)
   end
