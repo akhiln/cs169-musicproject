@@ -17,7 +17,9 @@ class UserSessionsController < ApplicationController
          format.html { redirect_to(:root) } 
          format.js do
              render :update do |page|
-              page.reload
+              page.replace_html "main_content", :partial => 'users/show'
+              page.replace_html "login_links", :partial => 'index/login_links'
+              page.replace_html "nav", :partial => 'index/nav'
              end
            end
     else
