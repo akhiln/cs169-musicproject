@@ -14,9 +14,28 @@ class SongsController < ApplicationController
          new_attr = {}
          if tmp_mp3.tag.album
            new_attr["album"] = tmp_mp3.tag.album.to_s
+         elsif tmp_mp3.tag1.album
+           new_attr["album"] = tmp_mp3.tag1.album.to_s
          end
          if tmp_mp3.tag.title
            new_attr["name"] = tmp_mp3.tag.title.to_s
+         elsif tmp_mp3.tag1.title
+           new_attr["name"] = tmp_mp3.tag1.title.to_s
+         end
+         if tmp_mp3.tag.genre_s
+           @genre = Genre.find_by_genre_name tmp_mp3.tag.genre_s.to_s
+           if @genre
+             new_attr["genre_id"] = @genre.id
+           elsif @genre = Genre.find_by_genre_name("Other")
+             new_attr["genre_id"] = @genre.id
+           end
+         elsif tmp_mp3.tag1.genre_s
+           @genre = Genre.find_by_genre_name tmp_mp3.tag1.genre_s.to_s
+           if @genre
+             new_attr["genre_id"] = @genre.id
+           elsif @genre = Genre.find_by_genre_name("Other")
+             new_attr["genre_id"] = @genre.id
+           end
          end
          tmp_mp3.close
          File.delete("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3")
