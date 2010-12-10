@@ -9,15 +9,30 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     success = @user.save
-    if success && @user.errors.empty?
-      # save the profile picture: (note: now done with paperclip)
-         # @user.upload_picture(params[:upload])
-      redirect_to '/Users/show/'+@user.id.to_s
-      flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
+    respond_to do |format|
+    if success
+        # format.html { redirect_to(:root) } 
+        # format.xml  { render :xml => @user, :status => :created, :location => @user }
+         format.js do
+           responds_to_parent do
+             render :update do |page|
+              page.hide "new_user_form"
+              page.insert_html :bottom, :main_content, :partial => 'users/welcome'
+             end
+           end
+         end
     else
-      flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
-      render :action => 'new'
+         format.html { render :action => :new }
+         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+         format.js do
+           responds_to_parent do
+             render :update do |page|
+                page.replace_html :bottom, :new_user_form, :partial => 'users/form'
+              end
+           end
+        end
     end
+   end
   end
 
   def edit
