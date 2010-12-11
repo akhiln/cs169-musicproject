@@ -6,6 +6,7 @@
 <p>Album: <%= @song.album %></p>
 <p>Description: <%= @song.description %></p></p>
 <% if @auth %>
+<%=link_to_remote "Edit", {:url=>"/songs/edit/"+@song.id.to_s, :update=>'main_content'} %> ||
 <%=link_to_remote "Delete", {:url=>"/songs/delete/"+@song.id.to_s, :update=>'main_content'} %> ||
 <% end %>
 <%=link_to_remote "Add to Playlist", {:url=>'/playlists/addsong/'+@song.id.to_s, :update=>'main_content'} %> || 
