@@ -30,3 +30,5 @@
   <% else %>
     There are no songs in this genre.
   <% end %>
+
+</p><%= link_to_remote("Back", :url=>"browse/all", :method=>"get", :update=>"main_content") %>

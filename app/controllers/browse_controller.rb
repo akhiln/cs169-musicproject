@@ -2,7 +2,10 @@ class BrowseController < ApplicationController
   before_filter :require_user
 
   def all
-    @genres = Genre.all
+    @genres = Genre.find(:all, :include=>[:songs])
+    @genres.reject! do |genre|
+      genre.songs.size == 0
+    end
     respond_to do |format|
       format.html
       format.xml { render :xml => @genres }
