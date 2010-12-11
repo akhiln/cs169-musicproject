@@ -1,0 +1,9 @@
+<% if not comment %>
+  <% if @playlist_comment %>
+    <%comment = @playlist_comment %>
+  <% end %>
+<%end%>
+<div class="comment">
+    <li class="comment_element"><img class="thumb" height="50" width="50" src=<%=comment.user.photo.url(:thumb)%>><%=link_to_remote(comment.user.name,:url =>'/users/show/'+comment.user.id.to_s,:update=>'main_content')%>
+                             <p><%=h comment.text %></p></li>
+    </div>
