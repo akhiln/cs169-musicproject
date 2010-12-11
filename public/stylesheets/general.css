@@ -1,3 +1,8 @@
+body {
+background-image:url('/images/background.png');
+background-repeat:repeat-x repeat-y;
+}
+
 #header {
 	background-color:#191970;
 	width: 1020px;
