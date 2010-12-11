@@ -28,7 +28,7 @@
 		<% end %>
 	</table>
   <% else %>
-    You haven't added any songs to this playlist yet!
+    This playlist does not contain any songs yet.
   <% end %>
 <% if @playlist.user_id == @current_user.id %>
 <%=link_to_remote "Delete", {:url=>"/playlists/delete/"+@playlist.id.to_s, :update=>'main_content'} %> ||
