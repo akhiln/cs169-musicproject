@@ -1,7 +1,0 @@
-class BrowseController < ApplicationController
-  before_filter :require_user
-
-  def all
-    @songs = Song.find(:all)
-  end
-end

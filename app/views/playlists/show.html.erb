@@ -19,7 +19,7 @@
 			<%=s.genre%>
 			</td>
 			<td class="att">
-			<%=s.rating%>
+			<%= "%.2f" % (s.rating ? s.rating : 0)%>
 			</td>
 			<td class="control">
 			<%=s.makePlayer%>
@@ -30,7 +30,7 @@
   <% else %>
     This playlist does not contain any songs yet.
   <% end %>
-<% if @playlist.user_id == @current_user.id %>
+<% if @current_user && @playlist.user_id == @current_user.id %>
 <%=link_to_remote "Delete", {:url=>"/playlists/delete/"+@playlist.id.to_s, :update=>'main_content'} %> ||
 <% end %>
 <%=link_to_remote "Comment", {:url=>"/comment/playlist/new/"+@playlist.id.to_s, :update=>'main_content'} %> || 

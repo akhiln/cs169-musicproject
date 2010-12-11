@@ -7,5 +7,4 @@
 </div>
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;border:0px" src="about:blank"></iframe>
 
-
-<%= link_to 'Back', account_path %>
+<%= link_to_remote "Back", {:url=>current_user, :update=>'main_content', :method=>'get'} %>
