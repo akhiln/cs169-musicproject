@@ -14,7 +14,7 @@
 			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
 			</td>
 			<td class="att">
-			<%= "%.2f" % (s.rating ? s.rating : 0) %>
+			<%= s.ratingString %>
 			</td>
 			<td class="control">
 			<%=s.renderRow%>

@@ -13,7 +13,7 @@
 <%=link_to_remote("#{@playlists[i].name}", :url=>@playlists[i], :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
-<%= "%.2f" % (@playlists[i].rating ? @playlists[i].rating : 0) %>
+<%= @playlists[i].ratingString %>
 </td>
 <td class="att">
 <%=link_to_remote("#{@playlists[i].user.login}", :url=>@playlists[i].user, :method=>'get', :update=>'main_content')%>
