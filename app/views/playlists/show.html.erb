@@ -31,11 +31,10 @@
     This playlist does not contain any songs yet.
   <% end %>
 <% if @current_user && @playlist.user_id == @current_user.id %>
-<%=link_to_remote "Delete", {:url=>"/playlists/delete/"+@playlist.id.to_s, :update=>'main_content'} %> ||
+<%=link_to_remote "<span>Delete</span>", {:url=>"/playlists/delete/"+@playlist.id.to_s, :update=>'main_content'}, :class =>"button" %>
 <% end %>
-<%=link_to_remote "Comment", {:url=>"/comment/playlist/new/"+@playlist.id.to_s, :update=>'main_content'} %> || 
-<%=link_to_remote "Bookmark", {:url=>"/bookmark/create/"+@playlist.id.to_s, :update=>'main_content'} %>
-
+<%=link_to_remote "<span>Bookmark</span>", {:url=>"/bookmark/create/"+@playlist.id.to_s, :update=>'main_content'}, :class =>"button" %>
+</br></br>
 <h2>Rating:</h2>
 <%= @playlist.ratingString %>
 

@@ -1,18 +1,19 @@
 
 <div class="profile" id="name_and_pic">
 <img src="<%=@user.photo.url%>" style="width: 800px;"/>
-<p id="name"><%= @user.name %></p><br>
-<% if @current_user && @user.id == @current_user.id %>
-<p><%=link_to_remote 'Edit My Profile', {:url=>'/users/edit/'+@user.id.to_s, :update=>'main_content'} %>
-<%end%>
+<h1><%= @user.name %><h1>
 </div>
 <div class="profile" id="info">
-<%= @user.bio %>
+<h3>About</h3>
+<p><%= @user.bio %></p>
+<%= link_to_remote "<span>Edit</span>", {:url=>edit_user_path(:edit), :update=>'main_content'},:class=>"button"  %>
+</br></br>
 </div>
 <div class="profile" id="songs">
-<p class="section_title"><%="Songs by "+@user.name%></p>
+<h3><%="Songs by "+@user.name%></h3>
 <% if @current_user && @user.id == @current_user.id %>
-<p><%=link_to_remote 'Add a song', {:url=>'/Songs/new', :update=>'main_content'} %>
+<p><%=link_to_remote '<span>Add a song</span>', {:url=>'/Songs/new', :update=>'main_content'}, :class =>"button"%>
+</br></br>
 <%end%>
 
 <% if not @songs.nil? %>
@@ -26,9 +27,9 @@
 <%end%>
 </div>
 <div class="profile" id="playlists">
-<p class="section_title"><%="Playlists by "+@user.name%></p>
+<h3><%="Playlists by "+@user.name%></h3>
 <% if @current_user && @user.id == @current_user.id %>
-<p><%=link_to_remote 'Make a new playlist', {:url=>'/Playlists/new', :update=>'main_content'}%></p>
+<p><%=link_to_remote '<span>Make a new playlist</span>', {:url=>'/Playlists/new', :update=>'main_content'}, :class =>"button"%></br></br></p>
 <%end%>
 <% if not @playlists.nil? %>
 <ul class="music_list" id="pl_list">
@@ -41,7 +42,7 @@
 <%end%>
 
 <div class="profile" id="bookmarks">
-<p class="section_title"><%=@user.name+'\'s Bookmarks:' %></p>
+<h3><%=@user.name+'\'s Bookmarks:' %></h3>
 <% if not @bookmarks.nil? %>
 <ul class="music_list" id="bm_list">
   <% @bookmarks.each do |bk| %>
