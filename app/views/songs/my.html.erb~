@@ -1,5 +1,0 @@
-<h2> My Songs </h2>
-
-<% @songs.each do |s| %>
-  link_to "#{s.name}", "/songs/show/#{s.id}"
-<% end %>

@@ -18,7 +18,7 @@
 			<%=s.genre%>
 			</td>
 			<td class="att">
-			<%=s.rating%>
+			<%= "%.2f" % (s.rating ? s.rating : 0)%>
 			</td>
 			<td class="control">
 			<%=s.makePlayer%>
