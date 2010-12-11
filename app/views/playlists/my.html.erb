@@ -30,5 +30,5 @@
   <% else %>
     You haven't created any playlists yet!
   <% end %>
-	  <div><%= link_to_remote "Add new playlist", {:url=>{:controller=>'playlists',:action=>'new'},:update=>'main_content'} %></div>
+	  <div><%= link_to_remote "<span>Add new playlist</span>", {:url=>{:controller=>'playlists',:action=>'new'},:update=>'main_content'}, :class =>"button"%></br></br></div>
 <% end %>

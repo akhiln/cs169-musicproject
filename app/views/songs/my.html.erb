@@ -34,5 +34,5 @@
   <% else %>
     You haven't uploaded any songs yet!
   <% end %>
-	  <div><%= link_to_remote "Add new song", {:url=>{:controller=>'songs',:action=>'new'},:update=>'main_content'} %></div>
+	  <div><%= link_to_remote "<span>Add a new song</span>", {:url=>{:controller=>'songs',:action=>'new'}, :update=>'main_content'}, :class =>"button" %></div>
 <% end %>
