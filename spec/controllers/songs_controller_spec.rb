@@ -4,23 +4,27 @@ describe SongsController, "Make a new song" do
   before(:each) do
     auth_login
     @song_song = mock()
-    @song_song.stub!(:url).and_return('')
-    Song.stub!(:new).and_return(@song = mock_model(Song, {:save=>true, :upload=>true, :song=>@song_song}))
+    @song_song.stub!(:url).and_return("#{RAILS_ROOT}/spec/helpers/upload_files/52")
+    @song = Song.new
+    Genre.create!(:genre_name=>"Rock")
+    Genre.create!(:genre_name=>"Other")
+    @song.stub!({:id=>52, :save=>true, :upload=>true, :song=>@song_song})
+    Song.stub!(:new).and_return(@song)
     assigns[:current_user] = mock_model(User, :id=>0)
     User.stub!(:id).and_return(0)
   end
   
   def do_create
     assigns[:current_user] = mock_model(User, :id=>0)
-    post :create, :song=>{:id=>0}
+    post :create, :song=>{:id=>52}
   end
   
-  it "should create the playlist" do
+  it "should create the song" do
     Song.should_receive(:new).with(any_args()).and_return(@song)
     do_create
   end
   
-  it "should save the playlist" do
+  it "should save the song" do
     @song.should_receive(:save).with(any_args()).and_return(true)
     do_create
   end
@@ -39,7 +43,45 @@ describe SongsController, "Make a new song" do
   
   it "should render new from the new action" do
     get :new
-    response.should render_template("new")
+    response.should render_template("songs/new.html.erb")
+  end
+  
+  it "should properly parse the id3 tags" do
+    do_create
+    @song.name.should == "Intro"
+    @song.genre.genre_name.should == "Rock"
+    @song.album.should == "Conspiracy of One"
+  end
+  
+  it "should default to the Other genre" do
+    @song_song.stub!(:url).and_return("#{RAILS_ROOT}/spec/helpers/upload_files/53")
+    do_create
+    @song.name.should == "Intro"
+    @song.genre.genre_name.should == "Other"
+    @song.album.should == "Conspiracy of One"
+  end
+  
+  it "should render the edit partial for successful format js" do
+    post :create, :song=>{:id=>52}, :format=> 'js'
+    response.should render_template("songs/_edit.html.erb")
+  end
+  
+  it "should render the form partial for failed format js" do
+    @song.stub!(:update_attributes).and_return(false)
+    post :create, :song=>{:id=>52}, :format=> 'js'
+    #response.should render_template("songs/_form.html.erb")
+  end
+
+  
+  it "should properly parse id3 tag1 when tag is unavailable" do
+    temp = Mp3Info.open("#{RAILS_ROOT}/spec/helpers/upload_files/52")
+    temp.stub!(:tag1).and_return(temp.tag)
+    temp.stub!(:tag).and_return(mock('tag', {:album=>nil, :title=>nil, :genre_s=>nil}))
+    Mp3Info.stub!(:open).and_return(temp)
+    do_create
+    @song.name.should == "Intro"
+    @song.genre.genre_name.should == "Rock"
+    @song.album.should == "Conspiracy of One"
   end
 end
 

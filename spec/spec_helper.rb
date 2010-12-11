@@ -7,6 +7,7 @@ require 'spec/rails'
 
 require 'authlogic/test_case'
 include Authlogic::TestCase
+ENV['S3_BUCKET'] = 'test.jukebox'
 
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
