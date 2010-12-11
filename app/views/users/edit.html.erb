@@ -7,6 +7,7 @@
 <%= render(:partial => '/users/update', :object => update) %>
 <% end %>
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;border:0px" src="about:blank"></iframe>
-<%= link_to 'Show', @user %>
+<%= link_to_remote "Show", {:url=>current_user, :update=>'main_content', :method=>'get'} %>
+
 </div>
 </div>
