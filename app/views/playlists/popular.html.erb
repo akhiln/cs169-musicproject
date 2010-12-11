@@ -3,7 +3,7 @@
 <tr class="head">
 	<th>Playlist Name</th>
 	<th>Rating</th>
-	<th>User</th>
+	<th>Artist</th>
 	<th></th>
 </tr>
 <% @class = 'o' %>
@@ -13,7 +13,7 @@
 <%=link_to_remote("#{@playlists[i].name}", :url=>@playlists[i], :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
-<%=@playlists[i].rating%>
+<%= "%.2f" % (@playlists[i].rating ? @playlists[i].rating : 0) %>
 </td>
 <td class="att">
 <%=link_to_remote("#{@playlists[i].user.login}", :url=>@playlists[i].user, :method=>'get', :update=>'main_content')%>

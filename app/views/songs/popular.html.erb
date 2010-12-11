@@ -4,7 +4,7 @@
 	<th>Song Name</th>
 	<th>Genre</th>
 	<th>Rating</th>
-	<th>User</th>
+	<th>Artist</th>
 	<th></th>
 </tr>
 <% @class = 'o' %>
@@ -17,7 +17,7 @@
 <%=@songs[i].genre%>
 </td>
 <td class="att">
-<%=@songs[i].rating%>
+<%= "%.2f" % (@songs[i].rating ? @songs[i].rating : 0)%>
 </td>
 <td class="att">
 <%=link_to_remote("#{@songs[i].users[0].login}", :url=>@songs[i].users[0], :method=>'get', :update=>'main_content')%>
