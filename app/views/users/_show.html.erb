@@ -6,7 +6,9 @@
 <div class="profile" id="info">
 <h3>About</h3>
 <p><%= @user.bio %></p>
+<% if @current_user && @user.id == @current_user.id %>
 <%= link_to_remote "<span>Edit</span>", {:url=>edit_user_path(:edit), :update=>'main_content'},:class=>"button"  %>
+<% end %>
 </br></br>
 </div>
 <div class="profile" id="songs">
