@@ -51,7 +51,7 @@ $j(document).ready(function(){
 
 	var playItem = 0;
 
-	var myPlayList = [{name:"Welcome",mp3:"http://www.pacdv.com/sounds/interface_sound_effects/sound6.mp3"}];
+	var myPlayList = [];
 
 	
 	function displayPlayList() {
@@ -72,9 +72,9 @@ $j(document).ready(function(){
 				return false;
 			});
 		}
-		$('current').innerHTML = 'Currently Playing: ' + myPlayList[playItem].name;
+		//$('current').innerHTML = 'Currently Playing: ' + myPlayList[playItem].name;
 		var nextIndex = (playItem+1 < myPlayList.length) ? playItem+1 : 0;
-    $('nextP').innerHTML = 'Next: ' + myPlayList[nextIndex].name;
+    //$('nextP').innerHTML = 'Next: ' + myPlayList[nextIndex].name;
 	}
 
 	function playListInit(autoplay) {
@@ -88,10 +88,10 @@ $j(document).ready(function(){
 	function playListConfig( index ) {
 		$j("#jplayer_playlist_item_"+playItem).removeClass("jplayer_playlist_current").parent().removeClass("jplayer_playlist_current");
 		$j("#jplayer_playlist_item_"+index).addClass("jplayer_playlist_current").parent().addClass("jplayer_playlist_current");
-		$('current').innerHTML = 'Currently Playing: ' + myPlayList[index].name;
+		//$('current').innerHTML = 'Currently Playing: ' + myPlayList[index].name;
 		playItem = index;
 		var nextIndex = (playItem+1 < myPlayList.length) ? playItem+1 : 0;
-    $('nextP').innerHTML = 'Next: ' + myPlayList[nextIndex].name;
+    //$('nextP').innerHTML = 'Next: ' + myPlayList[nextIndex].name;
 		$j("#jquery_jplayer").jPlayer("setFile", myPlayList[playItem].mp3);
 	}
 
@@ -158,7 +158,7 @@ $j(document).ready(function(){
 <div id="persistent_player">
   <div id="jquery_jplayer"></div>
   <div class="jp-playlist-player">
-    <div class="jp-interface">
+    <div class="jp-interface" style="float:left">
       <ul class="jp-controls">
         <li><a href="#" id="jplayer_play" class="jp-play" tabindex="1">play</a></li>
         <li><a href="#" id="jplayer_pause" class="jp-pause" tabindex="1">pause</a></li>
@@ -179,14 +179,11 @@ $j(document).ready(function(){
       <div id="jplayer_play_time" class="jp-play-time"></div>
       <div id="jplayer_total_time" class="jp-total-time"></div>
     </div>
-    <div id="jplayer_playlist" class="jp-playlist">
-      <ul>
-        <!-- The function displayPlayList() uses this unordered list -->
-        <li></li>
-      </ul>
-    </div>    
-    <div id="current">Currently Playing:</div>
-    <div id="nextP">Next:</div>
+    <div id="jplayer_playlist" class="jp-playlist" style="float:right">
+    <ul>
+    </ul>
+    </div>
+	<!--<div id="status_play">   <div id="current">Currently Playing:</div><div id="nextP">Next:</div></div>-->
   </div>
 </div>
 
