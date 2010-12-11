@@ -4,10 +4,14 @@ describe Song, "make a player" do
   before(:each) do
     auth_login
     @song = Song.new
+    @song.should_receive(:name).exactly(2).times.and_return("Zippy")
+    @song_song = mock()
+    @song_song.stub(:url).exactly(2).times.and_return("someplace.com")
+    @song.should_receive(:song).exactly(2).times.and_return(@song_song)
   end
   
   it "should return and empty string, because it doesn't do anything anymore" do
-    @song.makePlayer.should == "<a href=\"#\" onclick=\"playListAdd('song.name', '/songs/original/missing.png')\"><img src=\"/images/playadd.png\"></a>\n\t<a href=\"#\" onclick=\"playListAddAndPlay('song.name', '/songs/original/missing.png')\"><img src=\"/images/play.png\"></a>"
+    @song.makePlayer.should == "<a href=\"#\" onclick=\"playListAdd('Zippy', 'someplace.com')\"><img src=\"/images/playadd.png\"></a>\n\t<a href=\"#\" onclick=\"playListAddAndPlay('Zippy', 'someplace.com')\"><img src=\"/images/play.png\"></a>"
   end
 end
 

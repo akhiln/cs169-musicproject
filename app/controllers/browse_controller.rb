@@ -1,5 +1,5 @@
 class BrowseController < ApplicationController
-  before_filter :require_user
+  #before_filter :require_user
 
   def all
     @genres = Genre.find(:all, :include=>[:songs])

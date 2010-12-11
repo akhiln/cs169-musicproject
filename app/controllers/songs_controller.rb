@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   # POST /songs
   # POST /songs.xml
-  before_filter :require_user
+  #before_filter :require_user
 
   def create
      @song = Song.new(params[:song])
@@ -22,25 +22,22 @@ class SongsController < ApplicationController
          elsif tmp_mp3.tag1.title
            new_attr["name"] = tmp_mp3.tag1.title.to_s
          end
+         
+         @genre = nil
          if tmp_mp3.tag.genre_s
            @genre = Genre.find_by_genre_name tmp_mp3.tag.genre_s.to_s
-           if @genre
-             new_attr["genre_id"] = @genre.id
-           elsif @genre = Genre.find_by_genre_name("Other")
-             new_attr["genre_id"] = @genre.id
-           end
          elsif tmp_mp3.tag1.genre_s
            @genre = Genre.find_by_genre_name tmp_mp3.tag1.genre_s.to_s
-           if @genre
-             new_attr["genre_id"] = @genre.id
-           elsif @genre = Genre.find_by_genre_name("Other")
-             new_attr["genre_id"] = @genre.id
-           end
          end
+         if @genre
+           new_attr["genre_id"] = @genre.id
+         elsif @genre = Genre.find_by_genre_name("Other")
+           new_attr["genre_id"] = @genre.id
+         end
+         
          tmp_mp3.close
          File.delete("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3")
        
-        new_attr.each_value {|val| puts(val.to_s)}
         @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
 
         if @song.update_attributes(new_attr) && @users_songs.save

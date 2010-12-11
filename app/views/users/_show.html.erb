@@ -2,7 +2,7 @@
 <div class="profile" id="name_and_pic">
 <img src="<%=@user.photo.url%>" style="width: 800px;"/>
 <p id="name"><%= @user.name %></p><br>
-<% if @user.id == @current_user.id %>
+<% if @current_user && @user.id == @current_user.id %>
 <p><%=link_to_remote 'Edit My Profile', {:url=>'/users/edit/'+@user.id.to_s, :update=>'main_content'} %>
 <%end%>
 </div>
@@ -11,7 +11,7 @@
 </div>
 <div class="profile" id="songs">
 <p class="section_title"><%="Songs by "+@user.name%></p>
-<% if @user.id == @current_user.id %>
+<% if @current_user && @user.id == @current_user.id %>
 <p><%=link_to_remote 'Add a song', {:url=>'/Songs/new', :update=>'main_content'} %>
 <%end%>
 
@@ -27,7 +27,7 @@
 </div>
 <div class="profile" id="playlists">
 <p class="section_title"><%="Playlists by "+@user.name%></p>
-<% if @user.id == @current_user.id %>
+<% if @current_user && @user.id == @current_user.id %>
 <p><%=link_to_remote 'Make a new playlist', {:url=>'/Playlists/new', :update=>'main_content'}%></p>
 <%end%>
 <% if not @playlists.nil? %>
