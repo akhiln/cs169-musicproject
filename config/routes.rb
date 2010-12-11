@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   # Keep in mind you can assign values other than :controller and :action
      # for commenting:
      map.connect 'comment/song/new/:song_id', :controller => 'song_comment', :action => 'new'
-     map.connect 'comment/song/create/:song_id', :controller => 'song_comment', :action => 'create'
+     map.connect 'comment/song/create/:song_id.:format', :controller => 'song_comment', :action => 'create'
      map.connect 'comment/playlist/new/:playlist_id', :controller => 'playlist_comment', :action => 'new'
      map.connect 'comment/playlist/create/:playlist_id', :controller => 'playlist_comment', :action => 'create'
      
