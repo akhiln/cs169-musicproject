@@ -118,7 +118,8 @@ border-left:none
 	background-color: white;
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
-	left: 2px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .playlist_row {
