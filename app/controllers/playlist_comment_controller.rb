@@ -16,12 +16,18 @@ before_filter :require_user
      @playlist_comment.user_id = @current_user.id
      @playlist_comment.playlist_id = params[:playlist_id]
      @playlist = Playlist.find(params[:playlist_id])
-     if @playlist_comment.save
-       redirect_to(@playlist, :notice => 'Comment was successfully created.')
+     respond_to do |format|
+      if @playlist_comment.save
+        format.js do
+          render :update do |page|
+            page.insert_html :top, 'playlist_comments', :partial => 'playlist_comment/comment'
+          end
+        end
      else
-       SongComment.delete(@song_comment.id)
+       PlaylistComment.delete(@playlist_comment.id)
        format.html { render :action => "new", :error => 'Your comment could not be saved. Please try again.'}
        format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
      end
+    end
   end
 end

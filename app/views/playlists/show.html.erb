@@ -43,13 +43,20 @@
 
 <!-- <%= content_tag :iframe, "", facebook_box(request.url) %> -->
 
-<h2>Comments</h2>
+<h3>Comments</h3>
+<% form_remote_for(:playlist_comment, :url =>'comment/playlist/create/'+@playlist.id.to_s+'.js') do |form| %>
+  <p>
+    <label for="text">Leave A Comment:</label></br>
+    <%= form.text_area(:text,:cols=>"60", :rows=>"2") %>
+    <%= submit_tag "Post" %>
+  </p>
+<% end %>
+<ul>
+<div id="playlist_comments">
 <% if not @comments.nil? %>
   <% @comments.each do |comment| %>
-    <div class="comment">
-    <li class="comment_element"><%=link_to_remote(comment.user.name,:url=>'/users/show/'+comment.user.id.to_s, :update=>'main_content')%>
-                             <p><%=h comment.text %></p></li>
-    </div>
+    <%= render(:partial => '/playlist_comment/comment', :object => comment) %>
   <% end %>
-</ul>
 <%end%>
+ </ul>
+</div>
