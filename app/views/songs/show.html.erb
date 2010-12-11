@@ -2,24 +2,24 @@
 
 <h2 class="songTitle"><%= @song.name %></h2>
 <%= @song.makePlayer %>
-<p class="songInformation"><h2>Song Information</h2>
+<p class="songInformation"><h3>Song Information</h3>
 <p>Album: <%= @song.album %></p>
 <p>Description: <%= @song.description %></p></p>
 <% if @auth %>
-<%=link_to_remote "Edit", {:url=>"/songs/edit/"+@song.id.to_s, :update=>'main_content'} %> ||
-<%=link_to_remote "Delete", {:url=>"/songs/delete/"+@song.id.to_s, :update=>'main_content'} %> ||
+<%=link_to_remote "<span>Edit</span>", {:url=>"/songs/edit/"+@song.id.to_s, :update=>'main_content'}, :class =>"button" %>
+<%=link_to_remote "<span>Delete</span>", {:url=>"/songs/delete/"+@song.id.to_s, :update=>'main_content'}, :class =>"button"  %>
 <% end %>
-<%=link_to_remote "Add to Playlist", {:url=>'/playlists/addsong/'+@song.id.to_s, :update=>'main_content'} %> || 
-<%=link_to_remote "Comment", {:url=>"/comment/song/new/"+@song.id.to_s, :update=>'main_content'} %> || 
-<%=link_to_remote "Rate", {:url=>"/rating/song/new/"+@song.id.to_s, :update=>'main_content'} %>
-<p> URL: <%= @song.song.url %></p>
-<h2>Rating:</h2>
+<%=link_to_remote "<span>Add to Playlist</span>", {:url=>'/playlists/addsong/'+@song.id.to_s, :update=>'main_content'}, :class =>"button"  %>
+<%=link_to_remote "<span>Comment</span>", {:url=>"/comment/song/new/"+@song.id.to_s, :update=>'main_content'}, :class =>"button"  %>
+<%=link_to_remote "<span>Rate</span>", {:url=>"/rating/song/new/"+@song.id.to_s, :update=>'main_content'}, :class =>"button"  %>
+</br></br>
+<h3>Rating:</h3>
 <%= @song.ratingString %>
 
 <%= content_tag :iframe, "", facebook_like(request.url) %>
 <!-- <%= content_tag :iframe, "", facebook_box(request.url) %> -->
 
-<h2>Comments</h2>
+<h3>Comments</h3>
 <% if not @comments.nil? %>
   <% @comments.each do |comment| %>
     <div class="comment">
