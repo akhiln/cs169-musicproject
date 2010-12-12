@@ -5,7 +5,7 @@
   </p>
 
 <p><%= update.label :bio , "Information about yourself"%><br/>
-<%= update.text_area :bio %></p>
+<%= update.text_area(:bio,:cols=>"80", :rows=>"10")%></p>
 
 <p>Select a Profile Picture<br/> 
   <%= update.file_field :photo %></p>
