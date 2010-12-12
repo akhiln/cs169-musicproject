@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212003853) do
+ActiveRecord::Schema.define(:version => 20101212004000) do
 
   create_table "actions", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(:version => 20101212003853) do
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
     t.integer  "playlist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "followed_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "followed_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

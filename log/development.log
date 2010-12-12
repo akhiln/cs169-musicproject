@@ -25365,3 +25365,62 @@ Migrating to CreateActions (20101212003853)
   [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_perishable_token')[0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
   [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("usersongs")[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSongs (20101015045340)
+Migrating to CreatePlaylists (20101015045608)
+Migrating to CreateUsersSongs (20101015050128)
+Migrating to CreatePlaylistsSongs (20101015050533)
+Migrating to AlterDbForSongDependence (20101101162435)
+Migrating to CreateUsers (20101101202541)
+Migrating to UpdateUserFieldsAfterAuth (20101101203525)
+Migrating to AddBackPlaylistSongs (20101102015359)
+Migrating to AddSongNameField (20101102020048)
+Migrating to RenameUsersTablePlaylistsIdToUsersId (20101102022250)
+Migrating to ChangePluralDbNames (20101102025313)
+Migrating to RenameUsersSongsToUserssongs (20101102030427)
+Migrating to RenamePlaylistsSongsToPlaylistsongs (20101102032208)
+Migrating to TransitionToAuthlogic (20101116000000)
+Migrating to CreateSongComments (20101119035949)
+Migrating to CreatePlaylistComments (20101119040017)
+Migrating to CreateBookmarks (20101119062936)
+Migrating to CreateSongRatings (20101119063259)
+Migrating to CreatePlaylistRatings (20101120225831)
+Migrating to AddAttachmentToSong (20101121000000)
+Migrating to AddPhotoToUser (20101122000000)
+Migrating to AddGenreIdToSongs (20101209025914)
+Migrating to RemoveGenreFromSongs (20101209030059)
+Migrating to CreateGenres (20101209031030)
+Migrating to AddPrimaryKeyToPlaylistsongs (20101211002712)
+Migrating to CreateActions (20101212003853)
+Migrating to CreateFollowedUsers (20101212004000)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCREATE TABLE "followed_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "followed_user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101212004000')[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("actions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("bookmarks")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("followed_users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("genres")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("playlist_comments")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("playlist_ratings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("playlists")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("playlistsongs")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("song_comments")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("song_ratings")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("songs")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_perishable_token')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("usersongs")[0m
