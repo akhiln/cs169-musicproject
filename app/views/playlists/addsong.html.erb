@@ -1,5 +1,6 @@
-<h2>Add <%=@song.name%> to playlist</h2>
-<% form_remote_tag(:url=>{:controller => "playlists", :action => "confirmaddsong"}, :method => "post", :update=>'main_content')  do %>
+<h2>Adding <%=@song.name%> to playlist</h2>
+<div class="lightbox_content">
+<% form_remote_tag(:url=>{:controller => "playlists", :action => "confirmaddsong"}, :method => "post", :update=>'lbContent')  do %>
 	<%= hidden_field_tag(:song_id, @song_id) %>
 	<% @playlists.each do |playlist| %>
 		<%= radio_button_tag(:playlist, playlist.id) %>
@@ -7,3 +8,5 @@
 	<%end%>
 	<%= submit_tag "Add" %>
 <%end%>
+</div>
+<div class="lightbox_base"><a href="#" class="lbAction button" rel="deactivate"><span>Close</span></a></div>

@@ -20,14 +20,12 @@ class PlaylistRatingController < ApplicationController
     @playlist_rating.user_id = current_user.id
     @playlist_rating.playlist_id = params[:playlist_id]
     @playlist = Playlist.find(params[:playlist_id])
-    if @playlist_rating.save
+    @confirm = @playlist_rating.save
+	if @confirm
       @playlist.updateRating
-      redirect_to(@playlist, :notice => 'Rating was successfully created.')
     else
       @playlist.updateRating
       PlaylistRating.delete(@playlist_rating.id)
-      format.html { render :action => "new", :error => 'Your rating could not be saved. Please try again.'}
-      format.xml  { render :xml => @playlist.errors, :status => :unprocessable_entity }
     end
   end
 end

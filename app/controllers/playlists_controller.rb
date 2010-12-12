@@ -7,6 +7,9 @@ class PlaylistsController < ApplicationController
 	def show
 		@playlist = Playlist.find(params[:id])
                 @comments = @playlist.playlist_comments
+		@urlif = 'http://project-jukebox.heroku.com/index?url=/playlists/' + @playlist.id.to_s
+		@urlif << '%26title='
+		@urlif << @playlist.name
 		@songs = @playlist.songs
 	end
 	
@@ -18,6 +21,8 @@ class PlaylistsController < ApplicationController
 		@playlist = Playlist.new(params[:playlist])
 		@playlist.user_id = current_user.id
 		@playlist.save
+          @action = Action.new :user_id => @playlist.user_id, :action =>"create", :obj_type =>"playlist", :obj_id => @playlist.id
+          @action.save
 		redirect_to(@playlist, :notice => 'Playlist was successfully created.')
 	end
 	
@@ -38,9 +43,9 @@ class PlaylistsController < ApplicationController
 		plsong = Playlistsong.new
 		plsong.playlist_id = playlist_id
 		plsong.song_id = song_id
-		plsong.save
-		pl = Playlist.find(playlist_id)
-		redirect_to(pl, :notice => 'Playlist was successfully created.')
+		@confirm = plsong.save
+		@pl = Playlist.find(playlist_id)
+		@song = Song.find(song_id)
 	end
         
   def popular

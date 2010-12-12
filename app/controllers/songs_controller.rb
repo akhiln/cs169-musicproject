@@ -6,41 +6,11 @@ class SongsController < ApplicationController
   def create
      @song = Song.new(params[:song])
      respond_to do |format|     
-       if @song.save
-         # copy the song from s3 to the temporary directory
-         File.open("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3", 'w+') { |file| file << open(@song.song.url).read }
-         # use mp3info to open the file:
-         tmp_mp3 = Mp3Info.open("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3")
-         new_attr = {}
-         if tmp_mp3.tag.album
-           new_attr["album"] = tmp_mp3.tag.album.to_s
-         elsif tmp_mp3.tag1.album
-           new_attr["album"] = tmp_mp3.tag1.album.to_s
-         end
-         if tmp_mp3.tag.title
-           new_attr["name"] = tmp_mp3.tag.title.to_s
-         elsif tmp_mp3.tag1.title
-           new_attr["name"] = tmp_mp3.tag1.title.to_s
-         end
-         
-         @genre = nil
-         if tmp_mp3.tag.genre_s
-           @genre = Genre.find_by_genre_name tmp_mp3.tag.genre_s.to_s
-         elsif tmp_mp3.tag1.genre_s
-           @genre = Genre.find_by_genre_name tmp_mp3.tag1.genre_s.to_s
-         end
-         if @genre
-           new_attr["genre_id"] = @genre.id
-         elsif @genre = Genre.find_by_genre_name("Other")
-           new_attr["genre_id"] = @genre.id
-         end
-         
-         tmp_mp3.close
-         File.delete("#{RAILS_ROOT}/tmp/#{@song.id.to_s}.mp3")
-       
+       if @song.save       
         @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
-
-        if @song.update_attributes(new_attr) && @users_songs.save
+        if @users_songs.save
+          @action = Action.new :user_id =>current_user.id, :action =>"create", :obj_type =>"song", :obj_id =>@song.id
+          @action.save
          format.html { redirect_to(:root) } 
          format.xml  { render :xml => @song, :status => :created, :location => @song }
          format.js do
@@ -85,6 +55,9 @@ class SongsController < ApplicationController
     else
       @auth = false
     end
+	@urlif = 'http://project-jukebox.heroku.com/index?url=/songs/' + @song.id.to_s
+	@urlif << '%26title='
+	@urlif << @song.name
     respond_to do |format|
       format.html
       format.xml   { render :xml => @song }

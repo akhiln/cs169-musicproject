@@ -23,5 +23,29 @@ module ApplicationHelper
     converted_url = converted_url.gsub(':', '%3A')
     converted_url
   end
+
+  def print_event(action)
+    ot = action[:obj_type]
+    event = (action[:action] == "comment" ? action[:action]+"ed on the "+ot : action[:action]+"d a new "+ot)
+    sprintf("Just %s called",event)
+  end
   
+  def time_elapsed_since(dt)
+    seconds = Time.zone.now - dt
+    amount = 1
+    min_amt, hr_amt, day_amt = (seconds/60).to_i, (seconds/3600).to_i, (seconds/(3600*24)).to_i
+    unit = "minute"
+    if min_amt < 60
+      amount = min_amt if min_amt >= 2
+    elsif hr_amt < 24
+      amount = hr_amt
+      unit = "hour"
+    else
+      amount = day_amt
+      unit = "day"
+    end
+    unit += "s" if amount > 1
+    sprintf("%d %s ago",amount,unit)
+  end
+
 end
