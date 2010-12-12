@@ -14,8 +14,11 @@
 </br></br>
 <h3>Rating:</h3>
 <%= @song.ratingString %>
-
-<%= content_tag :iframe, "", facebook_like(request.url) %>
+<script>
+ $j('meta[name=og:title]').attr('content', '<%=@song.name%>');
+ 
+</script>
+<%= content_tag :iframe, "", facebook_like(@urlif) %>
 <!-- <%= content_tag :iframe, "", facebook_box(request.url) %> -->
 
 <h3>Comments</h3>
