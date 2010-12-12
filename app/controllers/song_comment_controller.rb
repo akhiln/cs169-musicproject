@@ -17,7 +17,7 @@ class SongCommentController < ApplicationController
      @song = Song.find(params[:song_id])
      respond_to do |format|
       if @song_comment.save
-        @action = Action.new :user_id => @current_user.id, :action => "comment", :obj_type => "song", :obj_id =>@song.id
+        @action = Action.new :user_id => @current_user.id, :action => "comment", :obj_type => "song", :obj_id =>@song_comment.id
         @action.save
         format.js do
           render :update do |page|

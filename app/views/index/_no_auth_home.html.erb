@@ -2,6 +2,31 @@
 
 (put fancy shiny graphics here, maybe screen caps once we have a pretty style)</p>
 <% @actions.each do |a| %>
-  <%= sprintf("%d just  %sd  %s   %d", a.user_id, a.action.to_s, a.obj_type.to_s, a.obj_id) %>
-  </p>
+
+  <% if a[:action]=="comment" %>
+    <% creator = (a[:obj_type]=="playlist" ? a[:obj].playlist.user : a[:obj].song.users[0]) %>
+    <% obj_name = (a[:obj_type]=="playlist" ? a[:obj].playlist.name : a[:obj].song.name) %>
+    <% obj_url = "/"+(a[:obj_type]=="playlist" ? "playlists/show/"+a[:obj].playlist.id.to_s : "songs/show/"+a[:obj].song.id.to_s) %>
+  <% else %>
+    <% creator = (a[:obj_type]=="playlist" ? a[:obj].user : a[:obj].users[0]) %>
+    <% obj_name = a[:obj].name %>
+    <% obj_url = "/"+(a[:obj_type]=="playlist"?"playlists":"songs")+"/show/"+a[:obj].id.to_s %>
+  <% end %>
+
+
+
+<div class="comment">
+    <li class="comment_element"><img class="thumb" height="50" width="50" src=<%= a[:user].photo.url(:thumb)%>><%=link_to_remote(a[:user].name,{:url =>'/users/show/'+a[:user].id.to_s,:update=>'main_content'})%>
+  <%= time_elapsed_since(a[:created_at]) %>
+  <div class="comment_text">
+    <%=h print_event(a) %> 
+    <%=link_to_remote(obj_name,{:url =>obj_url,:update =>'main_content'})%> 
+    <% if a[:action] == "comment" %>
+      by <%=link_to_remote(creator.name,{:url =>'/users/show/'+creator.id.to_s,:update =>'main_content'})%> </p>
+      <%= a[:obj].text %>
+    <% end %>
+  </div>
+</li>
+</div>
+
 <% end %>
