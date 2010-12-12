@@ -9,6 +9,15 @@ class User < ActiveRecord::Base
   has_many :usersongs
   has_many :songs, :through => :usersongs 
   has_many :playlists
+  has_many :followed_users
+  has_many :follows,      {:class_name => :users,
+                          :through => :followed_users,
+                          :foreign_key => :user_id}
+
+  has_many :subscribers, {:class_name => :users,
+                          :through => :followed_users,
+                          :foreign_key => :followed_user_id}
+  
   
   has_attached_file :photo,
      #:default_url => '/images/default.jpg',
