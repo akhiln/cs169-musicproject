@@ -18,6 +18,8 @@ before_filter :require_user
      @playlist = Playlist.find(params[:playlist_id])
      respond_to do |format|
       if @playlist_comment.save
+        @action = Action.new :user_id =>@current_user.id, :action =>"comment", :obj_type =>"playlist", :obj_id =>@playlist_comment.playlist_id
+        @action.save 
         format.js do
           render :update do |page|
             page.insert_html :top, 'playlist_comments', :partial => 'playlist_comment/comment'

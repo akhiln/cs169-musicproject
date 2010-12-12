@@ -9,6 +9,8 @@ class SongsController < ApplicationController
        if @song.save       
         @users_songs = Usersong.new({:user_id => current_user.id, :song_id => @song.id})
         if @users_songs.save
+          @action = Action.new :user_id =>current_user.id, :action =>"create", :obj_type =>"song", :obj_id =>@song.id
+          @action.save
          format.html { redirect_to(:root) } 
          format.xml  { render :xml => @song, :status => :created, :location => @song }
          format.js do

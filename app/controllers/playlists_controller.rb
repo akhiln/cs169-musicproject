@@ -18,6 +18,8 @@ class PlaylistsController < ApplicationController
 		@playlist = Playlist.new(params[:playlist])
 		@playlist.user_id = current_user.id
 		@playlist.save
+          @action = Action.new :user_id => @playlist.user_id, :action =>"create", :obj_type =>"playlist", :obj_id => @playlist.id
+          @action.save
 		redirect_to(@playlist, :notice => 'Playlist was successfully created.')
 	end
 	
