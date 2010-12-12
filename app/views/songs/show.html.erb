@@ -9,8 +9,8 @@
 <%=link_to_remote "<span>Edit</span>", {:url=>"/songs/edit/"+@song.id.to_s, :update=>'main_content'}, :class =>"button" %>
 <%=link_to_remote "<span>Delete</span>", {:url=>"/songs/delete/"+@song.id.to_s, :update=>'main_content'}, :class =>"button"  %>
 <% end %>
-<%=link_to_remote "<span>Add to Playlist</span>", {:url=>'/playlists/addsong/'+@song.id.to_s, :update=>'main_content'}, :class =>"button"  %>
-<%=link_to_remote "<span>Rate</span>", {:url=>"/rating/song/new/"+@song.id.to_s, :update=>'main_content'}, :class =>"button"  %>
+<%=link_to "<span>Add to Playlist</span>", '/playlists/addsong/'+@song.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %>
+<%=link_to "<span>Rate</span>", "/rating/song/new/"+@song.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %>
 </br></br>
 <h3>Rating:</h3>
 <%= @song.ratingString %>

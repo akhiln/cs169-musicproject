@@ -55,7 +55,7 @@ class SongsController < ApplicationController
     else
       @auth = false
     end
-	@urlif = 'http://localhost:3000/index?url=/songs/' + @song.id.to_s
+	@urlif = 'http://project-jukebox.heroku.com/index?url=/songs/' + @song.id.to_s
 	@urlif << '%26title='
 	@urlif << @song.name
     respond_to do |format|

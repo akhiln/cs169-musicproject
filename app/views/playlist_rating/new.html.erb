@@ -1,6 +1,6 @@
-<h1>New Rating for "<%=h @playlist.name %>"</h1>
-
-<% form_for(@playlist_rating, :url => "/rating/playlist/create/#{@playlist.id.to_s}")  do |f| %>
+<h2>Rate "<%=h @playlist.name %>"</h2>
+<div class="lightbox_content">
+<% form_remote_for(@playlist_rating, :url => "/rating/playlist/create/#{@playlist.id.to_s}", :update=>"lbContent")  do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -12,5 +12,6 @@
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', playlists_path %>
+</div>
+<div class="lightbox_base"><a href="#" class="lbAction button" rel="deactivate" onClick="$('overlay').style.display = 'none'; $('lightbox').style.display = 'none';
+; Element.remove($('lbContent')); return false;"><span>Close</span></a></div>
