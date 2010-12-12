@@ -20,7 +20,7 @@ class Playlist < ActiveRecord::Base
   
   def ratingString
     if self.rating == nil
-      "-"
+      "0.00"
     else
       sprintf("%.2f", self.rating)
     end
