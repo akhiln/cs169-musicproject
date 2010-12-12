@@ -11,7 +11,7 @@ describe Song, "make a player" do
   end
   
   it "should return and empty string, because it doesn't do anything anymore" do
-    @song.makePlayer.should == "<a href=\"#\" onclick=\"playListAdd('Zippy', 'someplace.com')\"><img src=\"/images/playadd.png\"></a>\n\t<a href=\"#\" onclick=\"playListAddAndPlay('Zippy', 'someplace.com')\"><img src=\"/images/play.png\"></a>"
+    @song.makePlayer.should == "<a href=\"#\" onclick=\"playListAdd('Zippy', 'someplace.com')\"><img src=\"/images/add_button.jpeg\" width=23 height=23 ></a>\n\t<a href=\"#\" onclick=\"playListAddAndPlay('Zippy', 'someplace.com')\"><img src=\"/images/play.png \" ></a>"
   end
 end
 

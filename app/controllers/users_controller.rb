@@ -73,7 +73,7 @@ class UsersController < ApplicationController
 
 
   def show
-    params[:id] ||= @current_user.id
+    params[:id] ||= current_user.id
     @user = User.find(params[:id])
     @songs = @user.songs
     @bookmarks = @user.bookmarks
