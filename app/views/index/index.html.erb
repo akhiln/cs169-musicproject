@@ -112,7 +112,7 @@ $j(document).ready(function(){
 	var myPlayList = [];
 
 	function reSize () {
-	  var IpopLeft = (window.innerWidth - document.getElementById('persistent_player').offsetWidth)/2;
+	  var IpopLeft = (document.body.clientWidth - document.getElementById('persistent_player').offsetWidth)/2;
       document.getElementById('persistent_player').style.left = IpopLeft + document.body.scrollLeft;
 	}
 	
