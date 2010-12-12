@@ -20,7 +20,7 @@
 <%= @songs[i].ratingString %>
 </td>
 <td class="att">
-<%=link_to_remote("#{@songs[i].users[0].login}", :url=>@songs[i].users[0], :method=>'get', :update=>'main_content')%>
+<%=link_to_remote("#{@songs[i].users[0].name}", :url=>@songs[i].users[0], :method=>'get', :update=>'main_content')%>
 </td>
 <td class="control">
 <%=@songs[i].makePlayer%>

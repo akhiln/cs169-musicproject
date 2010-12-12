@@ -2,22 +2,28 @@
 
 <h2><%=@playlist.name%></h2><%=@playlist.renderRow%>
 <p><%=@playlist.description%></p>
+<div class="table_con">
 <% if @songs.size > 0 %>
 	<table class="lister">
-		<tr>
+		<tr class="head">
 		<th>Song Name</th>
 		<th>Genre</th>
+		<th>Artist</th>
 		<th>Rating</th>
 		<th></th>
 		</tr>
+		<% @class = 'o' %>
 		<% @songs.each do |s| %>
-			<tr>
+			<tr class="<%=@class%>">
 			<td class="name">
 			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
 			</td>
 			<td class="att">
 			<%=s.genre%>
 			</td>
+<td class="att">
+<%=link_to_remote("#{s.users[0].name}", :url=>s.users[0], :method=>'get', :update=>'main_content')%>
+</td>
 			<td class="att">
 			<%= s.ratingString %>
 			</td>
@@ -25,20 +31,27 @@
 			<%=s.makePlayer%>
 			</td>
 			</tr>
+			<%if @class=='o'%>
+				<% @class='e' %>
+			<% else %>
+				<% @class='o' %>
+			<% end %>
 		<% end %>
 	</table>
   <% else %>
     This playlist does not contain any songs yet.
   <% end %>
+ </div>
 <% if @current_user && @playlist.user_id == @current_user.id %>
 <%=link_to_remote "<span>Delete</span>", {:url=>"/playlists/delete/"+@playlist.id.to_s, :update=>'main_content'}, :class =>"button" %>
 <% end %>
 <%=link_to_remote "<span>Bookmark</span>", {:url=>"/bookmark/create/"+@playlist.id.to_s, :update=>'main_content'}, :class =>"button" %>
+<%=link_to "<span>Rate</span>", "/rating/playlist/new/"+@playlist.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %>
 </br></br>
 <h2>Rating:</h2>
 <%= @playlist.ratingString %>
 
-<%= content_tag :iframe, "", facebook_like(request.url) %>
+<%= content_tag :iframe, "", facebook_like(@urlif) %>
 
 <!-- <%= content_tag :iframe, "", facebook_box(request.url) %> -->
 

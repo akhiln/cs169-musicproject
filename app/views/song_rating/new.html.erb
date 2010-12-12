@@ -1,6 +1,6 @@
-<h1>New Rating for "<%=h @song.name %>"</h1>
-
-<% form_remote_for(@song_rating, :url => "/rating/song/create/#{@song.id.to_s}", :update=>'main_content')  do |f| %>
+<h2>Rate "<%=h @song.name %>"</h2>
+<div class="lightbox_content">
+<% form_remote_for(@song_rating, :url => "/rating/song/create/#{@song.id.to_s}", :update=>'lbContent')  do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -9,8 +9,9 @@
   </p>
   
 <p>
-    <%= f.submit 'Submit' %>
+    <%= f.submit 'Rate' %>
   </p>
 <% end %>
-
-<%= link_to_remote 'Back', :url=>songs_path, :update=>'main_content' %>
+</div>
+<div class="lightbox_base"><a href="#" class="lbAction button" rel="deactivate" onClick="$('overlay').style.display = 'none'; $('lightbox').style.display = 'none';
+; Element.remove($('lbContent')); return false;"><span>Close</span></a></div>
