@@ -47,11 +47,16 @@
 </ul>
 <%end%>
 
-<%= @user.followed %>
+<h2>Artists <%=h @user.name %> is a fan of:</h2>
+ <% @disp_users = @user.subscribers[0..[@user.followed.size-1,10].min] %>
+ <%= render(:partial => '/users/user_dump', :locals => {:disp_users => @disp_users, :mode => :subscribers}) %>
+<h2>Fans of <%=h @user.name %></h2>
+<% @disp_users = @user.followed[0..[@user.followed.size-1,10].min] %>
+ <%= render(:partial => '/users/user_dump', :locals => {:disp_users => @disp_users, :mode => :followed}) %>
 
 
 <div class="profile" id="bookmarks">
-<p class="section_title"><%=@user.name+'\'s Bookmarks:' %></p>
+<h2><%=@user.name+'\'s Bookmarks:' %></h2>
 <% if not @bookmarks.nil? %>
 <ul class="music_list" id="bm_list">
   <% @bookmarks.each do |bk| %>
