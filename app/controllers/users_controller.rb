@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     success = @user.save
     respond_to do |format|
     if success
+         @current_user = @user
          format.html { redirect_to(:root) } 
          format.xml  { render :xml => @user, :status => :created, :location => @user }
          format.js do
