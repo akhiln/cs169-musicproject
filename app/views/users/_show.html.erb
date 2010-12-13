@@ -1,7 +1,7 @@
 
 <div class="profile" id="name_and_pic">
   <img src="<%=@user.photo.url%>" style="width: 800px;"/>
-  <p id="name"><%= @user.name %></p><%=link_to "<span>Become a Fan</span>", '/follow/new/'+@user.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %><br>
+  <p id="name"><%= @user.name %></p><%=link_to "<span>Become a Fan</span>", '/follow/new/'+@user.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %></br></br>
   <% if @current_user && @user.id == @current_user.id %>
     <p><%=link_to_remote 'Edit My Profile', {:url=>'/users/edit/'+@user.id.to_s, :update=>'main_content'} %>
   <%end%>
@@ -47,11 +47,33 @@
 </ul>
 <%end%>
 
-<%= @user.followed %>
+<h2>Artists <%=h @user.name %> is a fan of: </h2>
+<div id="subscribers">
+  <%if @user.subscribers.size == 0 %>
+     <p><%= @user.name %> has not become a fan of anyone yet.</p>
+   <% else %>
+   <% @disp_users = @user.subscribers[0..[@user.subscribers.size-1,10].min] %>
+   <%= render(:partial => '/users/user_dump', :locals => {:disp_users => @disp_users, :mode => :subscribers}) %>
+   <%= link_to_remote "<span>Show All</span>", {:url=>'/users/subscribers/'+@user.id.to_s, :update=>'subscribers', :method=>'get'}, :class=>"button"  %>
+ </br></br>
+   <%end%>
+</div>
+
+<h2>Fans of <%=h @user.name %></h2>
+<div id="followed">
+  <%if @user.followed.size == 0 %>
+     <p>Nobody has become a fan of <%= @user.name %> yet.</p>
+   <% else %>
+   <% @disp_users = @user.followed[0..[@user.followed.size-1,10].min] %>
+   <%= render(:partial => '/users/user_dump', :locals => {:disp_users => @disp_users, :mode => :followed}) %>
+   <%= link_to_remote "<span>Show All</span>", {:url=>'/users/followed/'+@user.id.to_s, :update=>'followed', :method=>'get'}, :class=>"button"  %></br></br>
+   <%end%>
+ 
+</div>
 
 
 <div class="profile" id="bookmarks">
-<p class="section_title"><%=@user.name+'\'s Bookmarks:' %></p>
+<h2><%=@user.name+'\'s Bookmarks:' %></h2>
 <% if not @bookmarks.nil? %>
 <ul class="music_list" id="bm_list">
   <% @bookmarks.each do |bk| %>

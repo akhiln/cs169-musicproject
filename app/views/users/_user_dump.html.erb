@@ -1,0 +1,21 @@
+<% if not disp_users.nil? %>
+ <div class="user_dump">
+  <table class ="user_dump_table">
+    <% disp_users.each_slice(10) do |user_slice| %>
+     <tr>
+      <% user_slice.each do |ind_user| %>
+        <% if mode == :followed %>
+           <% real_user = User.find(ind_user.subscriber_id) %>
+        <%elsif mode == :subscribers%>
+           <% real_user = User.find(ind_user.followed_id) %>
+        <%end%>
+        <td><div class="user_in_dump">
+           <img class="thumb" height="50" width="50" src=<%=real_user.photo.url(:thumb)%>></br>
+           <%=link_to_remote(real_user.name,{:url =>'/users/show/'+real_user.id.to_s,:update=>'main_content'})%>
+           </div></td>
+      <% end %>
+     </tr>
+    <% end %>
+  </table>
+ </div>
+<% end %>

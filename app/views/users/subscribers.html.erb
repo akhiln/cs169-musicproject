@@ -1,0 +1,4 @@
+<% if not @user.subscribers.nil? %>
+  <% @disp_users = @user.subscribers %>
+  <%= render(:partial => '/users/user_dump', :locals => {:disp_users => @disp_users, :mode => :subscribers}) %>
+<% end %>

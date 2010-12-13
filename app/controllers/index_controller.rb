@@ -4,13 +4,15 @@ class IndexController < ApplicationController
     @actions = []
     actions.each do |a|
       current_action = {:user => User.find(a.user_id), :action => a.action, :obj_type => a.obj_type, :created_at =>a.created_at}
-      puts current_action[:obj_type]
+
       if current_action[:obj_type] == "song"
         if current_action[:action] == "create"
           current_action[:obj] = Song.find a.obj_id
         else
           current_action[:obj] = SongComment.find a.obj_id
         end
+      elsif current_action[:obj_type] == "subscription"
+        current_action[:obj] = User.find a.obj_id
       else 
         if current_action[:action] == "create"
           current_action[:obj] = Playlist.find a.obj_id
