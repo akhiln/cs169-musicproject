@@ -21,9 +21,10 @@ class Song < ActiveRecord::Base
   validates_attachment_content_type :song, 
          :content_type => [ 'application/mp3', 'application/x-mp3', 'audio/mpeg', 'audio/mp3' ]
 
-  #validate :attempt_id3_read
+  validate :attempt_id3_read
 
   def attempt_id3_read
+     return true unless self.new_record?
      tmp_mp3 = Mp3Info.open(song.to_file.path)
      new_attr = {}
          if tmp_mp3.tag.album

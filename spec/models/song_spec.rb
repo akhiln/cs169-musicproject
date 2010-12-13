@@ -41,9 +41,9 @@ describe Song, "generate a string representation of the song's rating" do
     @song.ratingString.should == "3.26"
   end
   
-  it "should print - for unrated songs" do
+  it "should print 0.00 for unrated songs" do
     @song.should_receive(:rating).and_return(nil)
-    @song.ratingString.should == "-"
+    @song.ratingString.should == "0.00"
   end
   
   it "should average ratings when recalculating" do
