@@ -24,6 +24,11 @@ class FollowedUserController < ApplicationController
         @error_message = "You are already a fan of #{@follows.name}."
      else
      	@confirm = @followed_user.save
+        if @confirm
+          @action = Action.new :user_id =>current_user.id, :action =>"create", :obj_type =>"subscription", 
+                                                                              :obj_id =>@followed_user.id
+          @action.save
+        end
         @error_message = "An unknown error occured. Please try again."
      end
   end
