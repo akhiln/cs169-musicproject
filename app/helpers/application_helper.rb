@@ -24,12 +24,6 @@ module ApplicationHelper
     converted_url
   end
 
-  def print_event(action)
-    ot = action[:obj_type]
-    event = (action[:action] == "comment" ? action[:action]+"ed on the "+ot : action[:action]+"d a new "+ot)
-    sprintf("Just %s called",event)
-  end
-  
   def time_elapsed_since(dt)
     seconds = Time.zone.now - dt
     amount = 1
