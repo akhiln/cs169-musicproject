@@ -40,7 +40,8 @@ ActionController::Routing::Routes.draw do |map|
      map.connect 'playlists/addsong/:song_id', :controller => 'playlists', :action => 'addsong'
 
      # for bookmarking
-     map.connect 'bookmark/create/:playlist_id', :controller => 'bookmarks', :action => 'create'
+     map.connect 'bookmark/new/:playlist_id', :controller => 'bookmarks', :action => 'new'
+     map.connect 'bookmark/create', :controller => 'bookmarks', :action => 'create'
 
      # for following users
      map.connect 'follow/new/:followed_id', :controller => 'followed_user', :action => 'new'

@@ -1,0 +1,12 @@
+<h2>Bookmark "<%=h @playlist.name %>"</h2>
+<div class="lightbox_content">
+Are you sure you want to bookmark "<%=h @playlist.name%>"
+<% form_remote_for(@bookmark, :url => "/bookmarks/create", :update=>'lbContent')  do |f| %>
+  <%= f.error_messages %>
+    <%= f.hidden_field :playlist_id, :value => @playlist.id.to_s %>
+    <%= f.hidden_field :user_id, :value =>  @current_user.id.to_s %>
+    <%= f.submit 'Confirm' %>
+<% end %>
+</div>
+<div class="lightbox_base"><a href="#" class="lbAction button" rel="deactivate" onClick="$('overlay').style.display = 'none'; $('lightbox').style.display = 'none';
+; Element.remove($('lbContent')); return false;"><span>Cancel</span></a></br></br></div>
