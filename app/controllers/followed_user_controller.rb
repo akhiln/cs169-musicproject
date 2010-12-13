@@ -26,7 +26,7 @@ class FollowedUserController < ApplicationController
      	@confirm = @followed_user.save
         if @confirm
           @action = Action.new :user_id =>current_user.id, :action =>"create", :obj_type =>"subscription", 
-                                                                              :obj_id =>@followed_user.id
+                                                                               :obj_id =>@followed_user.followed_id
           @action.save
         end
         @error_message = "An unknown error occured. Please try again."
