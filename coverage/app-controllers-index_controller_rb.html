@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-controllers-index_controller_rb.html">app/controllers/index_controller.rb</a></td>
-            <td class='right_align'><tt>5</tt></td>
-            <td class='right_align'><tt>4</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+            <td class='right_align'><tt>29</tt></td>
+            <td class='right_align'><tt>29</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>6.90%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:100px"></div>
-            <div class="uncovered" style="width:0px"></div>
+            <div class="covered" style="width:7px"></div>
+            <div class="uncovered" style="width:93px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>6.90%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:100px"></div>
-            <div class="uncovered" style="width:0px"></div>
+            <div class="covered" style="width:7px"></div>
+            <div class="uncovered" style="width:93px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -62,32 +62,176 @@
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line2">2</a> </pre></td>
-          </tr>
-        
-          
-          
           <tr class="marked">
-            <td><pre><a name="line3">3</a>   def index</pre></td>
+            <td><pre><a name="line2">2</a>   def index</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line4">4</a>   end</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line3">3</a>     actions = Action.find(:all, :readonly, :limit =&gt; 20, :order =&gt; &quot;created_at DESC&quot;)</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line5">5</a> end</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line4">4</a>     @actions = []</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line5">5</a>     actions.each do |a|</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line6">6</a>       current_action = {:user =&gt; User.find(a.user_id), :action =&gt; a.action, :obj_type =&gt; a.obj_type, :created_at =&gt;a.created_at}</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line7">7</a>       puts current_action[:obj_type]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line8">8</a>       if current_action[:obj_type] == &quot;song&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line9">9</a>         if current_action[:action] == &quot;create&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line10">10</a>           current_action[:obj] = Song.find a.obj_id</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line11">11</a>         else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line12">12</a>           current_action[:obj] = SongComment.find a.obj_id</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line13">13</a>         end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line14">14</a>       else </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line15">15</a>         if current_action[:action] == &quot;create&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line16">16</a>           current_action[:obj] = Playlist.find a.obj_id</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line17">17</a>         else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line18">18</a>           current_action[:obj] = PlaylistComment.find a.obj_id</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line19">19</a>         end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line20">20</a>       end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line21">21</a>       @actions.push current_action</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line22">22</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line23">23</a> 	if params['url']</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line24">24</a> 		@urli = 'clientSideInclude(&quot;main_content&quot;,&quot;http://project-jukebox.heroku.com'+params['url']+'&quot;);'</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line25">25</a> 		@title = params['title']</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line26">26</a> 		@urlfb = 'http://project-jukebox.heroku.com/index?url=' + params['url'] + '&amp;title=' + params['title']</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line27">27</a> 	end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line28">28</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line29">29</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Dec 12 15:21:36 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Dec 12 20:10:32 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

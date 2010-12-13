@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>app/controllers/browse_controller.rb</title>
+    <title>app/controllers/followed_user_controller.rb</title>
     <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
     <link href="print.css" media="print" rel="stylesheet" type="text/css" />
     
@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Cs169 Musicproject C0 Coverage Information - RCov</h1>
-    <h2>app/controllers/browse_controller.rb</h2>
+    <h2>app/controllers/followed_user_controller.rb</h2>
 
     
 
@@ -27,18 +27,18 @@
         </thead>
         <tbody>
           <tr>
-            <td class="left_align"><a href="app-controllers-browse_controller_rb.html">app/controllers/browse_controller.rb</a></td>
-            <td class='right_align'><tt>23</tt></td>
-            <td class='right_align'><tt>20</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>26.09%</tt></div>
+            <td class="left_align"><a href="app-controllers-followed_user_controller_rb.html">app/controllers/followed_user_controller.rb</a></td>
+            <td class='right_align'><tt>21</tt></td>
+            <td class='right_align'><tt>17</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>33.33%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:26px"></div>
-            <div class="uncovered" style="width:74px"></div>
+            <div class="covered" style="width:33px"></div>
+            <div class="uncovered" style="width:67px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>15.00%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>23.53%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:15px"></div>
-            <div class="uncovered" style="width:85px"></div>
+            <div class="covered" style="width:24px"></div>
+            <div class="uncovered" style="width:76px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -57,13 +57,13 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line1">1</a> class BrowseController &lt; ApplicationController</pre></td>
+            <td><pre><a name="line1">1</a> class FollowedUserController &lt; ApplicationController</pre></td>
           </tr>
         
           
           
-          <tr class="inferred">
-            <td><pre><a name="line2">2</a>   #before_filter :require_user</pre></td>
+          <tr class="marked">
+            <td><pre><a name="line2">2</a>   before_filter :require_user</pre></td>
           </tr>
         
           
@@ -75,61 +75,61 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line4">4</a>   def all</pre></td>
+            <td><pre><a name="line4">4</a>   def new</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line5">5</a>     @genres = Genre.find(:all, :include=&gt;[:songs])</pre></td>
+            <td><pre><a name="line5">5</a>     @followed_user = FollowedUser.new</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line6">6</a>     @genres.reject! do |genre|</pre></td>
+            <td><pre><a name="line6">6</a>     @followed_user.followed_user_id = params[:followed_id]</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line7">7</a>       genre.songs.size == 0</pre></td>
+            <td><pre><a name="line7">7</a>     @follows = User.find(params[:followed_id])</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line8">8</a>     end</pre></td>
+            <td><pre><a name="line8">8</a>     respond_to do |format|</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line9">9</a>     respond_to do |format|</pre></td>
+            <td><pre><a name="line9">9</a>        format.html</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line10">10</a>       format.html</pre></td>
+            <td><pre><a name="line10">10</a>        format.xml   { render :xml =&gt; @followed_user }</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line11">11</a>       format.xml { render :xml =&gt; @genres }</pre></td>
+            <td><pre><a name="line11">11</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line12">12</a>     end</pre></td>
+            <td><pre><a name="line12">12</a>   end</pre></td>
           </tr>
         
           
           
-          <tr class="uncovered">
-            <td><pre><a name="line13">13</a>   end</pre></td>
+          <tr class="inferred">
+            <td><pre><a name="line13">13</a> </pre></td>
           </tr>
         
           
@@ -141,55 +141,43 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line15">15</a>   def genre</pre></td>
+            <td><pre><a name="line15">15</a>   def create</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line16">16</a>     @genre = params[:id]</pre></td>
+            <td><pre><a name="line16">16</a>      @followed_user = FollowedUser.new(params[:followed_user]);</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line17">17</a>     @songs = Genre.find_by_genre_name(@genre).songs</pre></td>
+            <td><pre><a name="line17">17</a>      @follows = User.find(@followed_user.followed_user_id)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line18">18</a>     respond_to do |format|</pre></td>
+            <td><pre><a name="line18">18</a>      @confirm = @followed_user.save</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line19">19</a>       format.html</pre></td>
+            <td><pre><a name="line19">19</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line20">20</a>       format.xml { render :xml =&gt; @genres }</pre></td>
+            <td><pre><a name="line20">20</a>   </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line21">21</a>     end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line22">22</a>   end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line23">23</a> end</pre></td>
+            <td><pre><a name="line21">21</a> end</pre></td>
           </tr>
         
       </tbody>

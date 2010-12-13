@@ -3,13 +3,14 @@ require 'spec_helper'
 describe PlaylistsController, "Make a new playlist" do
   before(:each) do
     auth_login
-    Playlist.stub!(:new).and_return(@playlist = mock_model(Playlist, :save=>true))
+    @playlist = Playlist.new
+    @playlist.stub!(:save).and_return(true)
+    Playlist.stub!(:new).and_return(@playlist)
     assigns[:current_user] = mock_model(User, :id=>0)
     User.stub!(:id).and_return(0)
   end
   
   def do_create
-    assigns[:current_user] = mock_model(User, :id=>0)
     post :create, :playlist=>{:id=>0}
   end
   
@@ -49,7 +50,11 @@ describe PlaylistsController, "List all songs in a playlist" do
   before(:each) do
     auth_login
     @mock_song = mock_model(Song)
-    @playlist = mock_model(Playlist, :songs=>[@mock_song], :playlist_comments=>[])
+    @playlist = Playlist.new 
+    @playlist.stub!(:songs).and_return([@mock_song])
+    @playlist.stub!(:playlist_comments).and_return([])
+    @playlist.stub!(:name).and_return('APlaylistName')
+    @playlist.stub!(:id).and_return(47)
     Playlist.stub!(:find).and_return(@playlist)
   end
   
@@ -57,6 +62,7 @@ describe PlaylistsController, "List all songs in a playlist" do
     get :show, :playlist=>{:id=>0}
     assigns(:playlist).should == @playlist
     assigns(:songs).should == [@mock_song]
+    assigns[:urlif].should == 'http://project-jukebox.heroku.com/index?url=/playlists/47%26title=APlaylistName'
   end
 end
 
@@ -95,7 +101,7 @@ end
 describe PlaylistsController, "Add song to playlist" do
   before(:each) do
     auth_login
-    @mock_playlist = mock_model(Playlist)
+    @mock_playlist = Playlist.new
     @myUser.stub!(:playlists).and_return([@mock_playlist])
     @song = mock_model(Song)
     Song.stub!(:find).and_return(@song)
@@ -109,17 +115,19 @@ describe PlaylistsController, "Add song to playlist" do
   end
   
   it "should create a new PlaylistSong" do
-    Playlistsong.stub!(:new).and_return(@plsong = mock_model(Playlistsong, {:playlist_id= =>0, :song_id= =>0, :save => true}))
-    Playlist.stub!(:find).and_return(mock_model(Playlist))
+    Playlistsong.should_receive(:new).and_return(@plsong = mock_model(Playlistsong, {:playlist_id= =>0, :song_id= =>0, :save => true}))
+    Playlist.stub!(:find).and_return(@mock_playlist)
     post :confirmaddsong, {:song_id=>0,:playlist=>0}
-    response.should be_redirect
+    assigns[:confirm].should == true
+    assigns[:pl].should == @mock_playlist
+    assigns[:song].should == @song
   end
 end
 
 describe PlaylistsController, "Find popular playlists" do
   before(:each) do
     auth_login
-    @mock_playlist = mock_model(Playlist)
+    @mock_playlist = Playlist.new
     @mock_playlist.stub!(:rating).and_return(3.0)
     Playlist.stub!(:find).and_return([@mock_playlist])
   end
@@ -133,7 +141,7 @@ end
 describe PlaylistsController, "Find playlists owned by the current user" do
   before(:each) do
     auth_login
-    @mock_playlist = mock_model(Playlist)
+    @mock_playlist = Playlist.new
     @myUser.stub!(:playlists).and_return([@mock_playlist])
   end
   

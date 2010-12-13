@@ -3,12 +3,8 @@ require 'spec_helper'
 describe SongsController, "Make a new song" do
   before(:each) do
     auth_login
-    @song_song = mock()
-    @song_song.stub!(:url).and_return("#{RAILS_ROOT}/spec/helpers/upload_files/52")
     @song = Song.new
-    Genre.create!(:genre_name=>"Rock")
-    Genre.create!(:genre_name=>"Other")
-    @song.stub!({:id=>52, :save=>true, :upload=>true, :song=>@song_song})
+    @song.stub!({:id=>52, :save=>true, :upload=>true})
     Song.stub!(:new).and_return(@song)
     assigns[:current_user] = mock_model(User, :id=>0)
     User.stub!(:id).and_return(0)
@@ -46,21 +42,6 @@ describe SongsController, "Make a new song" do
     response.should render_template("songs/new.html.erb")
   end
   
-  it "should properly parse the id3 tags" do
-    do_create
-    @song.name.should == "Intro"
-    @song.genre.genre_name.should == "Rock"
-    @song.album.should == "Conspiracy of One"
-  end
-  
-  it "should default to the Other genre" do
-    @song_song.stub!(:url).and_return("#{RAILS_ROOT}/spec/helpers/upload_files/53")
-    do_create
-    @song.name.should == "Intro"
-    @song.genre.genre_name.should == "Other"
-    @song.album.should == "Conspiracy of One"
-  end
-  
   it "should render the edit partial for successful format js" do
     post :create, :song=>{:id=>52}, :format=> 'js'
     response.should render_template("songs/_edit.html.erb")
@@ -71,24 +52,22 @@ describe SongsController, "Make a new song" do
     post :create, :song=>{:id=>52}, :format=> 'js'
     #response.should render_template("songs/_form.html.erb")
   end
-
   
-  it "should properly parse id3 tag1 when tag is unavailable" do
-    temp = Mp3Info.open("#{RAILS_ROOT}/spec/helpers/upload_files/52")
-    temp.stub!(:tag1).and_return(temp.tag)
-    temp.stub!(:tag).and_return(mock('tag', {:album=>nil, :title=>nil, :genre_s=>nil}))
-    Mp3Info.stub!(:open).and_return(temp)
-    do_create
-    @song.name.should == "Intro"
-    @song.genre.genre_name.should == "Rock"
-    @song.album.should == "Conspiracy of One"
+  it "should render the form partial when the song saves, but the join model doesn't, using js" do
+    @us = Usersong.new
+    @us.stub!(:save).and_return(false)
+    Usersong.stub!(:new).and_return(@us)
+    post :create, :song=>{:id=>52}, :format=> 'js'
+    #response.should render_template("songs/_form.html.erb")
   end
 end
 
 describe SongsController, "Show a song" do
   before(:each) do
     auth_login
-    Song.stub!(:find).and_return(@song = mock_model(Song).as_null_object)
+    @song = Song.new
+    @song.stub!(:name).and_return('someName')
+    Song.stub!(:find).and_return(@song)
   end
   
   it "should render show" do
@@ -98,15 +77,15 @@ describe SongsController, "Show a song" do
   end
   
   it "should set auth when owned by the current user" do
-    @song.expect(:users).and_return([@myUser])
+    @song.should_receive(:users).and_return([@myUser])
     get :show, :song=>{:id=>0}
     assigns(:auth).should == true
   end
   
   it "should not set auth when not owned by the current user" do
-    @song.expect(:users).and_return([])
+    @song.should_receive(:users).and_return([])
     get :show, :song=>{:id=>0}
-    assigns(:auth).should == true
+    assigns(:auth).should == false
   end
 end
 

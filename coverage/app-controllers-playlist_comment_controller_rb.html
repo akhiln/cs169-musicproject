@@ -28,14 +28,14 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-controllers-playlist_comment_controller_rb.html">app/controllers/playlist_comment_controller.rb</a></td>
-            <td class='right_align'><tt>33</tt></td>
-            <td class='right_align'><tt>30</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>21.21%</tt></div>
+            <td class='right_align'><tt>35</tt></td>
+            <td class='right_align'><tt>32</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>20.00%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:21px"></div>
-            <div class="uncovered" style="width:79px"></div>
+            <div class="covered" style="width:20px"></div>
+            <div class="uncovered" style="width:80px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>13.33%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>12.50%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:13px"></div>
             <div class="uncovered" style="width:87px"></div>
@@ -177,85 +177,97 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line21">21</a>         format.js do</pre></td>
+            <td><pre><a name="line21">21</a>         @action = Action.new :user_id =&gt;@current_user.id, :action =&gt;&quot;comment&quot;, :obj_type =&gt;&quot;playlist&quot;, :obj_id =&gt;@playlist_comment.id</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line22">22</a>           render :update do |page|</pre></td>
+            <td><pre><a name="line22">22</a>         @action.save </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line23">23</a>             page.insert_html :top, 'playlist_comments', :partial =&gt; 'playlist_comment/comment'</pre></td>
+            <td><pre><a name="line23">23</a>         format.js do</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line24">24</a>           end</pre></td>
+            <td><pre><a name="line24">24</a>           render :update do |page|</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line25">25</a>         end</pre></td>
+            <td><pre><a name="line25">25</a>             page.insert_html :top, 'playlist_comments', :partial =&gt; 'playlist_comment/comment'</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line26">26</a>      else</pre></td>
+            <td><pre><a name="line26">26</a>           end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line27">27</a>        PlaylistComment.delete(@playlist_comment.id)</pre></td>
+            <td><pre><a name="line27">27</a>         end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line28">28</a>        format.html { render :action =&gt; &quot;new&quot;, :error =&gt; 'Your comment could not be saved. Please try again.'}</pre></td>
+            <td><pre><a name="line28">28</a>      else</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line29">29</a>        format.xml  { render :xml =&gt; @song.errors, :status =&gt; :unprocessable_entity }</pre></td>
+            <td><pre><a name="line29">29</a>        PlaylistComment.delete(@playlist_comment.id)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line30">30</a>      end</pre></td>
+            <td><pre><a name="line30">30</a>        format.html { render :action =&gt; &quot;new&quot;, :error =&gt; 'Your comment could not be saved. Please try again.'}</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line31">31</a>     end</pre></td>
+            <td><pre><a name="line31">31</a>        format.xml  { render :xml =&gt; @song.errors, :status =&gt; :unprocessable_entity }</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line32">32</a>   end</pre></td>
+            <td><pre><a name="line32">32</a>      end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line33">33</a> end</pre></td>
+            <td><pre><a name="line33">33</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line34">34</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line35">35</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Dec 12 15:21:36 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Dec 12 20:10:32 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

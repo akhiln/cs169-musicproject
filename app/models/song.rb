@@ -27,29 +27,30 @@ class Song < ActiveRecord::Base
      return true unless self.new_record?
      tmp_mp3 = Mp3Info.open(song.to_file.path)
      new_attr = {}
-         if tmp_mp3.tag.album
-           update_attribute(:album, tmp_mp3.tag.album.to_s)
-         elsif tmp_mp3.tag1.album
-           update_attribute(:album,tmp_mp3.tag1.album.to_s)
-         end
-         if tmp_mp3.tag.title
-           update_attribute(:name, tmp_mp3.tag.title.to_s)
-         elsif tmp_mp3.tag1.title
-           update_attribute(:name, tmp_mp3.tag1.title.to_s)
-         end
-         
-         @genre = nil
-         if tmp_mp3.tag.genre_s
-           @genre = Genre.find_by_genre_name tmp_mp3.tag.genre_s.to_s
-         elsif tmp_mp3.tag1.genre_s
-           @genre = Genre.find_by_genre_name tmp_mp3.tag1.genre_s.to_s
-         end
-         if @genre
-           update_attribute(:genre_id, @genre.id)
-         elsif @genre = Genre.find_by_genre_name("Other")
-           update_attribute(:genre_id, @genre.id)
-         end
-         tmp_mp3.close
+     if tmp_mp3.tag.album
+       update_attribute(:album, tmp_mp3.tag.album.to_s)
+     elsif tmp_mp3.tag1.album
+       update_attribute(:album,tmp_mp3.tag1.album.to_s)
+     end
+     if tmp_mp3.tag.title
+       update_attribute(:name, tmp_mp3.tag.title.to_s)
+     elsif tmp_mp3.tag1.title
+       update_attribute(:name, tmp_mp3.tag1.title.to_s)
+     end
+     
+     @genre = nil
+     if tmp_mp3.tag.genre_s
+       @genre = Genre.find_by_genre_name tmp_mp3.tag.genre_s.to_s
+     elsif tmp_mp3.tag1.genre_s
+       @genre = Genre.find_by_genre_name tmp_mp3.tag1.genre_s.to_s
+     end
+     if @genre
+       update_attribute(:genre_id, @genre.id)
+     elsif @genre = Genre.find_by_genre_name("Other")
+       update_attribute(:genre_id, @genre.id)
+     end
+     tmp_mp3.close
+     true
   end
   
 
