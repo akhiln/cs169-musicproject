@@ -245,7 +245,7 @@ color: black;
 
 
 a.button {
-    background: transparent url('/images/bg_button_a.gif') no-repeat scroll top right;
+    background: transparent url('/images/bg_button_a.png') no-repeat scroll top right;
     color: #444;
     display: block;
     float: left;
@@ -257,7 +257,7 @@ a.button {
 }
 
 a.button span {
-    background: transparent url('/images/bg_button_span.gif') no-repeat;
+    background: transparent url('/images/bg_button_span.png') no-repeat;
     display: block;
     line-height: 14px;
     padding: 5px 0 5px 18px;
