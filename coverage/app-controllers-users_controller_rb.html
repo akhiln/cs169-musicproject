@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-controllers-users_controller_rb.html">app/controllers/users_controller.rb</a></td>
-            <td class='right_align'><tt>91</tt></td>
-            <td class='right_align'><tt>82</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+            <td class='right_align'><tt>98</tt></td>
+            <td class='right_align'><tt>88</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>95.92%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:100px"></div>
-            <div class="uncovered" style="width:0px"></div>
+            <div class="covered" style="width:96px"></div>
+            <div class="uncovered" style="width:4px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>95.45%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:100px"></div>
-            <div class="uncovered" style="width:0px"></div>
+            <div class="covered" style="width:95px"></div>
+            <div class="uncovered" style="width:5px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -489,121 +489,163 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line73">73</a> </pre></td>
+            <td><pre><a name="line73">73</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line74">74</a>   def subscribers</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line75">75</a>     @user = User.find(params[:id])</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line76">76</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line74">74</a> </pre></td>
+            <td><pre><a name="line77">77</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line75">75</a>   def show</pre></td>
+            <td><pre><a name="line78">78</a>   def followed</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line76">76</a>     params[:id] ||= current_user.id</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line79">79</a>     @user = User.find(params[:id])</pre></td>
           </tr>
         
           
           
-          <tr class="marked">
-            <td><pre><a name="line77">77</a>     @user = User.find(params[:id])</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line78">78</a>     @songs = @user.songs</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line79">79</a>     @bookmarks = @user.bookmarks</pre></td>
+          <tr class="uncovered">
+            <td><pre><a name="line80">80</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line80">80</a>     #@followed = @user.followed</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line81">81</a>     </pre></td>
+            <td><pre><a name="line81">81</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line82">82</a>     if  !@songs.nil? &amp;&amp; @songs.length &gt; 10</pre></td>
+            <td><pre><a name="line82">82</a>   def show</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line83">83</a>       @songs = @songs[0..9]</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line84">84</a>     end</pre></td>
+            <td><pre><a name="line83">83</a>     params[:id] ||= current_user.id</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line85">85</a>     @playlists = @user.playlists</pre></td>
+            <td><pre><a name="line84">84</a>     @user = User.find(params[:id])</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line86">86</a>     if (not @playlists.nil?) &amp;&amp; @playlists.length &gt; 10</pre></td>
+            <td><pre><a name="line85">85</a>     @songs = @user.songs</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line87">87</a>       @playlists = @playlists[0..9]</pre></td>
+            <td><pre><a name="line86">86</a>     @bookmarks = @user.bookmarks</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line88">88</a>     end</pre></td>
+            <td><pre><a name="line87">87</a>     #@followed = @user.followed</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line89">89</a>   end</pre></td>
+            <td><pre><a name="line88">88</a>     </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line89">89</a>     if  !@songs.nil? &amp;&amp; @songs.length &gt; 10</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line90">90</a>       @songs = @songs[0..9]</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line90">90</a> </pre></td>
+            <td><pre><a name="line91">91</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line92">92</a>     @playlists = @user.playlists</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line93">93</a>     if (not @playlists.nil?) &amp;&amp; @playlists.length &gt; 10</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line94">94</a>       @playlists = @playlists[0..9]</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line91">91</a> end</pre></td>
+            <td><pre><a name="line95">95</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line96">96</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line97">97</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line98">98</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Dec 12 20:10:32 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Dec 12 20:30:01 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

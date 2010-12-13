@@ -28,14 +28,14 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-controllers-index_controller_rb.html">app/controllers/index_controller.rb</a></td>
-            <td class='right_align'><tt>29</tt></td>
-            <td class='right_align'><tt>29</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>6.90%</tt></div>
+            <td class='right_align'><tt>31</tt></td>
+            <td class='right_align'><tt>30</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>6.45%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:7px"></div>
-            <div class="uncovered" style="width:93px"></div>
+            <div class="covered" style="width:6px"></div>
+            <div class="uncovered" style="width:94px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>6.90%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>6.67%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:7px"></div>
             <div class="uncovered" style="width:93px"></div>
@@ -93,7 +93,7 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line7">7</a>       puts current_action[:obj_type]</pre></td>
+            <td><pre><a name="line7">7</a> </pre></td>
           </tr>
         
           
@@ -135,103 +135,115 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line14">14</a>       else </pre></td>
+            <td><pre><a name="line14">14</a>       elsif current_action[:obj_type] == &quot;subscription&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line15">15</a>         if current_action[:action] == &quot;create&quot;</pre></td>
+            <td><pre><a name="line15">15</a>         current_action[:obj] = User.find a.obj_id</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line16">16</a>           current_action[:obj] = Playlist.find a.obj_id</pre></td>
+            <td><pre><a name="line16">16</a>       else </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line17">17</a>         else</pre></td>
+            <td><pre><a name="line17">17</a>         if current_action[:action] == &quot;create&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line18">18</a>           current_action[:obj] = PlaylistComment.find a.obj_id</pre></td>
+            <td><pre><a name="line18">18</a>           current_action[:obj] = Playlist.find a.obj_id</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line19">19</a>         end</pre></td>
+            <td><pre><a name="line19">19</a>         else</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line20">20</a>       end</pre></td>
+            <td><pre><a name="line20">20</a>           current_action[:obj] = PlaylistComment.find a.obj_id</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line21">21</a>       @actions.push current_action</pre></td>
+            <td><pre><a name="line21">21</a>         end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line22">22</a>     end</pre></td>
+            <td><pre><a name="line22">22</a>       end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line23">23</a> 	if params['url']</pre></td>
+            <td><pre><a name="line23">23</a>       @actions.push current_action</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line24">24</a> 		@urli = 'clientSideInclude(&quot;main_content&quot;,&quot;http://project-jukebox.heroku.com'+params['url']+'&quot;);'</pre></td>
+            <td><pre><a name="line24">24</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line25">25</a> 		@title = params['title']</pre></td>
+            <td><pre><a name="line25">25</a> 	if params['url']</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line26">26</a> 		@urlfb = 'http://project-jukebox.heroku.com/index?url=' + params['url'] + '&amp;title=' + params['title']</pre></td>
+            <td><pre><a name="line26">26</a> 		@urli = 'clientSideInclude(&quot;main_content&quot;,&quot;http://project-jukebox.heroku.com'+params['url']+'&quot;);'</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line27">27</a> 	end</pre></td>
+            <td><pre><a name="line27">27</a> 		@title = params['title']</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line28">28</a>   end</pre></td>
+            <td><pre><a name="line28">28</a> 		@urlfb = 'http://project-jukebox.heroku.com/index?url=' + params['url'] + '&amp;title=' + params['title']</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line29">29</a> end</pre></td>
+            <td><pre><a name="line29">29</a> 	end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line30">30</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line31">31</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Dec 12 20:10:32 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Dec 12 20:30:01 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>
