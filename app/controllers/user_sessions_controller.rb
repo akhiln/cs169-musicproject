@@ -14,6 +14,8 @@ class UserSessionsController < ApplicationController
         id = current_user && current_user.record.id
         @user = User.find(id)
         @current_user = @user
+        @playlists = @user.playlists
+        @songs = @user.songs
         format.html { redirect_to(:root) } 
         format.js do
           render :update do |page|

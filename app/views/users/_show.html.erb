@@ -104,6 +104,7 @@
 <div style="display:inline; float:right;">
    <%= link_to_remote "<span>Show All</span>", {:url=>'/users/subscribers/'+@user.id.to_s, :update=>'subscribers', :method=>'get'}, :class=>"button"  %>
 </div></h3>
+
 <div id="subscribers">
   <%if @user.subscribers.size == 0 %>
      <p><%= @user.name %> has not become a fan of anyone yet.</p>

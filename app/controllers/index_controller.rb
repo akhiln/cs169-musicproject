@@ -11,6 +11,11 @@ class IndexController < ApplicationController
       @urlfb = 'http://project-jukebox.heroku.com/index?url=' + params['url'] + '&title=' + params['title']
     end
   end
+
+ def auth_home
+    @actions = list_of_friend_actions
+    render :partial => 'index/auth_home'
+ end
   
 
   private
@@ -20,7 +25,15 @@ class IndexController < ApplicationController
 
   def list_of_general_actions()
     Action.find(:all, :readonly, :limit => 20, :order => "created_at DESC")
-  end 
+  end
+
+  def list_of_friend_actions
+    id_arr =[current_user.id]
+    current_user.subscribers.each do |subs|
+       id_arr << subs.followed_id
+    end
+    Action.find(:all,:readonly, :limit => 20, :order => "created_at DESC", :conditions => ["user_id IN (?)",id_arr])
+  end
 
   
 end
