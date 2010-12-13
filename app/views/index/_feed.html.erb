@@ -1,0 +1,31 @@
+
+
+  <% if feed[:action]=="comment" %>
+    <% creator = (feed[:obj_type]=="playlist" ? feed[:obj].playlist.user : feed[:obj].song.users[0]) %>
+    <% obj_name = (feed[:obj_type]=="playlist" ? feed[:obj].playlist.name : feed[:obj].song.name) %>
+    <% obj_url = "/"+(feed[:obj_type]=="playlist" ? "playlists/show/"+feed[:obj].playlist.id.to_s : "songs/show/"+feed[:obj].song.id.to_s) %>
+  <% else %>
+    <% creator = (feed[:obj_type]=="playlist" ? feed[:obj].user : feed[:obj].users[0]) %>
+    <% obj_name = feed[:obj].name %>
+    <% obj_url = "/"+(feed[:obj_type]=="playlist"?"playlists":"songs")+"/show/"+feed[:obj].id.to_s %>
+  <% end %>
+
+<div class="comment">
+	<img class="thumb" height="50" width="50" src=<%= feed[:user].photo.url(:thumb)%>>
+                   <span class="main_status_content">
+                       <%=link_to_remote(feed[:user].name,{:url =>'/users/show/'+feed[:user].id.to_s,:update=>'main_content'}, :class=>"comment_name")%>
+					</span>
+					<span class="comment_desc">
+					   <%=h print_event(feed) %> 
+					   <%=link_to_remote(obj_name,{:url =>obj_url,:update =>'main_content'})%> 
+						<% if feed[:action] == "comment" %>
+							by <%=link_to_remote(creator.name,{:url =>'/users/show/'+creator.id.to_s,:update =>'main_content'})%>
+						<% end %>
+					</span>
+					<span class="main">
+						<%= feed[:obj].text %>
+					</span>
+                   <span class="main_status_details">
+                       <%= time_elapsed_since(feed[:created_at]) %> 
+					</span>
+</div>
