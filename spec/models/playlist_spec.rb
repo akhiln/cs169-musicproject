@@ -16,10 +16,10 @@ describe Playlist do
   
   describe "When displaying the rating" do
   
-    it "should give \"-\" for nil ratings" do
+    it "should give 0.00 for nil ratings" do
       @playlist = Playlist.new
       @playlist.stub!(:rating).and_return(nil)
-      @playlist.ratingString.should == "-"
+      @playlist.ratingString.should == "0.00"
     end
     
     it "should display ratings with 2 digits past the decimal" do
