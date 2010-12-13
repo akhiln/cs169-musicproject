@@ -1,6 +1,4 @@
-<% if disp_users.nil? %>
-   <%="There are no artists to display"%>
-<% else %>
+<% if not disp_users.nil? %>
  <div class="user_dump">
   <table class ="user_dump_table">
     <% disp_users.each_slice(10) do |user_slice| %>
