@@ -2,9 +2,10 @@
 <table class="lister">
 <tr class="head">
 	<th>Song Name</th>
+	<th>Artist</th>
+	<th>Album</th>
 	<th>Genre</th>
 	<th>Rating</th>
-	<th>Artist</th>
 	<th></th>
 </tr>
 <% @class = 'o' %>
@@ -14,13 +15,16 @@
 <%=link_to_remote("#{@songs[i].name}", :url=>@songs[i], :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
+<%=link_to_remote("#{@songs[i].users[0].name}", :url=>@songs[i].users[0], :method=>'get', :update=>'main_content')%>
+</td>
+<td class="att">
+<%=@songs[i].album%>
+</td>
+<td class="att">
 <%=@songs[i].genre%>
 </td>
 <td class="att">
 <%= @songs[i].ratingString %>
-</td>
-<td class="att">
-<%=link_to_remote("#{@songs[i].users[0].name}", :url=>@songs[i].users[0], :method=>'get', :update=>'main_content')%>
 </td>
 <td class="control">
 <%=@songs[i].makePlayer%>

@@ -1,10 +1,15 @@
 
 <div class="profile" id="name_and_pic">
-  <img src="<%=@user.photo.url%>" style="width: 800px;"/>
-  <p id="name"><%= @user.name %></p><%=link_to "<span>Become a Fan</span>", '/follow/new/'+@user.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %><br>
+  <div style="width:800px;height:150px;background-image:url('<%=@user.photo.url%>');"></div>
+  <h2><%= @user.name %>
+  <div style="display:inline; float:right;">
+    <%=link_to "<span>Become a Fan</span>", '/follow/new/'+@user.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %>
   <% if @current_user && @user.id == @current_user.id %>
-    <p><%=link_to_remote 'Edit My Profile', {:url=>'/users/edit/'+@user.id.to_s, :update=>'main_content'} %>
+    <%=link_to_remote '<span>Edit My Profile</span>', {:url=>'/users/edit/'+@user.id.to_s, :update=>'main_content'}, :class=>"button" %>
   <%end%>
+  </div>
+  </h2>  
+  
 </div>
 <div class="profile" id="info">
   <%= @user.bio %>

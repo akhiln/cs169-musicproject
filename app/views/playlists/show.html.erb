@@ -1,14 +1,21 @@
 <%= javascript_tag "document.getElementById('facebook_title').setAttribute('content', '#{@playlist.name}'); document.getElementById('facebook_url').setAttribute('content', '#{request.url}')" %>
 
-<h2><%=@playlist.name%></h2><%=@playlist.renderRow%>
-<p><%=@playlist.description%></p>
+<h2><%=@playlist.name%>
+<div style="display:inline; float:right; padding-right:50px;">
+<%=@playlist.renderRow%>
+</div>
+</h2>
+<p>Artist: <%=link_to_remote("#{@playlist.user.name}", :url=>@playlist.user, :method=>'get', :update=>'main_content')%></p>
+<p>Description: <%=@playlist.description%></p>
+<p>Rating: <%= @playlist.ratingString %></p>
 <div class="table_con">
 <% if @songs.size > 0 %>
 	<table class="lister">
 		<tr class="head">
 		<th>Song Name</th>
-		<th>Genre</th>
 		<th>Artist</th>
+		<th>Album</th>
+		<th>Genre</th>
 		<th>Rating</th>
 		<th></th>
 		</tr>
@@ -18,12 +25,15 @@
 			<td class="name">
 			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
 			</td>
-			<td class="att">
-			<%=s.genre%>
-			</td>
 <td class="att">
 <%=link_to_remote("#{s.users[0].name}", :url=>s.users[0], :method=>'get', :update=>'main_content')%>
 </td>
+			<td class="att">
+			<%=s.album%>
+			</td>
+			<td class="att">
+			<%=s.genre%>
+			</td>
 			<td class="att">
 			<%= s.ratingString %>
 			</td>
@@ -48,11 +58,6 @@
 <%=link_to_remote "<span>Bookmark</span>", {:url=>"/bookmark/create/"+@playlist.id.to_s, :update=>'main_content'}, :class =>"button" %>
 <%=link_to "<span>Rate</span>", "/rating/playlist/new/"+@playlist.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %>
 <%= content_tag :iframe, "", facebook_like(@urlif) %>
-<h2>Rating:</h2>
-<%= @playlist.ratingString %>
-
-<!-- <%= content_tag :iframe, "", facebook_box(request.url) %> -->
-
 <h3>Comments</h3>
 <% form_remote_for(:playlist_comment, :url =>'comment/playlist/create/'+@playlist.id.to_s+'.js') do |form| %>
   <p>

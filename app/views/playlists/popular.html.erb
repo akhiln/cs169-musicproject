@@ -2,8 +2,8 @@
 <table class="lister">
 <tr class="head">
 	<th>Playlist Name</th>
-	<th>Rating</th>
 	<th>Artist</th>
+	<th>Rating</th>
 	<th></th>
 </tr>
 <% @class = 'o' %>
@@ -13,10 +13,10 @@
 <%=link_to_remote("#{@playlists[i].name}", :url=>@playlists[i], :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
-<%= @playlists[i].ratingString %>
+<%=link_to_remote("#{@playlists[i].user.name}", :url=>@playlists[i].user, :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
-<%=link_to_remote("#{@playlists[i].user.login}", :url=>@playlists[i].user, :method=>'get', :update=>'main_content')%>
+<%= @playlists[i].ratingString %>
 </td>
 <td class="control">
 <%=@playlists[i].renderRow%>

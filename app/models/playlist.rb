@@ -13,8 +13,7 @@ class Playlist < ActiveRecord::Base
     self.songs.each do |song|
 		songsString += 'playListAdd(\'' + song.name + '\',\'' + song.song.url + '\'); '
 	end
-	return '<a href="#" onclick="'+songsString+' playListChange(myPlayList.length-'+songs.length.to_s+');"><img src="/images/play.png"></a>
-	<a href="#" onclick="'+songsString+'"><img src="/images/add_button.jpeg" width=23 height=23></a>'
+	return '<a href="#" onclick="'+songsString+'"><img src="/images/add_button.jpeg" width=23 height=23></a><a href="#" onclick="'+songsString+' playListChange(myPlayList.length-'+songs.length.to_s+');"><img src="/images/play.png"></a>'
   end
   
   
