@@ -1,6 +1,4 @@
-class PlaylistComment < ActiveRecord::Base
-   belongs_to :subscriber, {:class => :user,
-                            :foreign_key => :user_id}
-   belongs_to :follows, {:class => :user,
-                         :foreign_key => :followed_user_id}
+class FollowedUser < ActiveRecord::Base
+   belongs_to :subscriber, :class_name => "User"
+   belongs_to :followed, :class_name => "User"
 end

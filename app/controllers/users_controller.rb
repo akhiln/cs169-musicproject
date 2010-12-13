@@ -77,6 +77,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @songs = @user.songs
     @bookmarks = @user.bookmarks
+    #@followed = @user.followed
+    
     if  !@songs.nil? && @songs.length > 10
       @songs = @songs[0..9]
     end

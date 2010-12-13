@@ -1,0 +1,10 @@
+<h2>Follow "<%=h @follows.name %>"</h2>
+<div class="lightbox_content">
+<% if @confirm %>
+<span class="lightbox_message">@follows.name has been added to you list of artists.</span>
+<% else %>
+<span class="lightbox_message">There was an error completing your request, please try again.</span>
+<%end%>
+</div>
+<div class="lightbox_base"><a href="#" class="lbAction button" rel="deactivate" onClick="$('overlay').style.display = 'none'; $('lightbox').style.display = 'none';
+; Element.remove($('lbContent')); return false;"><span>Close</span></a></br></br></div>
