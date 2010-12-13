@@ -6,12 +6,12 @@
 					<span class="comment_desc">
 					   <%=h feed.eventString %> 
                                            <%=link_to_remote(feed.objName,{:url =>feed.objURL,:update =>'main_content'})%> 
-						<% if feed.action == "comment" %>
+						<% if feed.action == "comment" or feed.obj_type == "bookmark" %>
 							by <%=link_to_remote(feed.creatorName,{:url =>'/users/show/'+feed.getCreator.id.to_s,:update =>'main_content'})%>
 
 					</span>
 					<span class="main">
-						<%= feed.getObj.text %>
+						<%= feed.getObj.text unless feed.obj_type == "bookmark" %>
 						<% end %>					</span>
                    <span class="main_status_details">
                        <%= time_elapsed_since(feed.created_at) %> 

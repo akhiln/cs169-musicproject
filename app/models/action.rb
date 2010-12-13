@@ -1,9 +1,10 @@
 class Action < ActiveRecord::Base
   def eventString
     ot = self.obj_type
-    event =  self.action == "comment"   ? self.action+"ed on the "+ot+" called" : 
-            (ot == "subscription" ? "is now following " : 
-             self.action+"d a new "+ot+" called")
+    event =  self.action == "comment" ? self.action+"ed on the "+ot+" called" : 
+            (ot == "subscription"     ? "is now following " : 
+            (ot == "bookmark"         ? ot+"ed the playlist " : 
+             self.action+"d a new "+ot+" called"))
     sprintf("%s",event.capitalize)
   end
 
@@ -12,6 +13,7 @@ class Action < ActiveRecord::Base
     if self.action == "create"
       return "/songs/show/"+self.obj_id.to_s     if self.obj_type == "song"
       return "/playlists/show/"+self.obj_id.to_s if self.obj_type == "playlist"
+      return "/playlists/show/"+(Bookmark.find(self.obj_id).playlist_id.to_s)        if self.obj_type == "bookmark"
       return "/users/show/"+self.obj_id.to_s
     else   #its a comment action
       return "/songs/show/"+(SongComment.find(self.obj_id).song.id.to_s)             if self.obj_type == "song"
@@ -26,6 +28,7 @@ class Action < ActiveRecord::Base
     return Song.find(self.obj_id).name     if self.obj_type == "song"
     return Playlist.find(self.obj_id).name if self.obj_type == "playlist"
     return User.find(self.obj_id).name      if self.obj_type == "subscription"
+    return Playlist.find(Bookmark.find(self.obj_id).playlist_id).name if self.obj_type == "bookmark"
   end
 
   def getUser
@@ -33,14 +36,19 @@ class Action < ActiveRecord::Base
   end
 
   def getCreator
-    return (self.obj_type =="playlist") ? (PlaylistComment.find(self.obj_id).playlist.user) : (SongComment.find(self.obj_id).song.users[0])
+    obj = getObj()
+    return obj.user if self.obj_type == "bookmark"
+    return obj.playlist.user if self.obj_type == "playlist"
+    return obj.song.users[0]
   end
 
   def creatorName
-    return (self.obj_type =="playlist") ? (PlaylistComment.find(self.obj_id).playlist.user.name) : (SongComment.find(self.obj_id).song.users[0].name)
+    c = getCreator()
+    c.name
   end
 
   def getObj
+    return Playlist.find(Bookmark.find(self.obj_id).playlist_id) if self.obj_type == "bookmark"
     return (self.obj_type =="playlist") ? (PlaylistComment.find(self.obj_id)) : (SongComment.find(self.obj_id)) if self.action == "comment"
   end
 
