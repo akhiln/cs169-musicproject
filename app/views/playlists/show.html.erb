@@ -47,11 +47,9 @@
 <% end %>
 <%=link_to_remote "<span>Bookmark</span>", {:url=>"/bookmark/create/"+@playlist.id.to_s, :update=>'main_content'}, :class =>"button" %>
 <%=link_to "<span>Rate</span>", "/rating/playlist/new/"+@playlist.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %>
-</br></br>
+<%= content_tag :iframe, "", facebook_like(@urlif) %>
 <h2>Rating:</h2>
 <%= @playlist.ratingString %>
-
-<%= content_tag :iframe, "", facebook_like(@urlif) %>
 
 <!-- <%= content_tag :iframe, "", facebook_box(request.url) %> -->
 

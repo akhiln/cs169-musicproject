@@ -36,11 +36,16 @@ ActionController::Routing::Routes.draw do |map|
      map.connect 'rating/playlist/new/:playlist_id', :controller => 'playlist_rating', :action => 'new'
      map.connect 'rating/playlist/create/:playlist_id', :controller => 'playlist_rating', :action => 'create'
      
-	 map.connect 'index/', :controller => 'index', :action => 'index'
+     map.connect 'index/', :controller => 'index', :action => 'index'
      map.connect 'playlists/addsong/:song_id', :controller => 'playlists', :action => 'addsong'
 
      # for bookmarking
      map.connect 'bookmark/create/:playlist_id', :controller => 'bookmarks', :action => 'create'
+
+     # for following users
+     map.connect 'follow/new/:followed_id', :controller => 'followed_user', :action => 'new'
+     map.connect 'follow/create', :controller => 'followed_user', :action => 'create'
+
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)

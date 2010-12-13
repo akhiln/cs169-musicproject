@@ -1,0 +1,12 @@
+<h2>Follow <%=h @follows.name %></h2>
+<div class="lightbox_content">
+Are you sure you want to become a fan of <%=h @follows.name%>
+<% form_remote_for(@followed_user, :url => "/follow/create", :update=>'lbContent')  do |f| %>
+  <%= f.error_messages %>
+    <%= f.hidden_field :followed_id, :value => @followed_user.followed_id.to_s %>
+    <%= f.hidden_field :subscriber_id, :value =>  @current_user.id.to_s %>
+    <%= f.submit 'Confirm' %>
+<% end %>
+</div>
+<div class="lightbox_base"><a href="#" class="lbAction button" rel="deactivate" onClick="$('overlay').style.display = 'none'; $('lightbox').style.display = 'none';
+; Element.remove($('lbContent')); return false;"><span>Cancel</span></a></br></br></div>

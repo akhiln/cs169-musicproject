@@ -25424,3 +25424,2246 @@ Migrating to CreateFollowedUsers (20101212004000)
   [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_perishable_token')[0m
   [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("usersongs")[0m
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 13:41:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;36;1mAction Load (11.1ms)[0m   [0;1mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (3.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-12 21:42:00', "perishable_token" = 'qOxPas8YtITlc8JCgI', "last_request_at" = '2010-12-12 21:42:00' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (9.9ms)
+Rendered index/_nav (7.2ms)
+Rendered index/_auth_home (3.3ms)
+Completed in 491ms (View: 458, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 13:42:04) [GET]
+  Parameters: {"action"=>"index", "url"=>"/", "controller"=>"index"}
+  [4;35;1mAction Load (2.2ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+
+TypeError (can't convert nil into String):
+  app/controllers/index_controller.rb:26:in `+'
+  app/controllers/index_controller.rb:26:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (82.1ms)
+Rendered rescues/_request_and_response (3.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 13:42:11) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (4.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-12 21:42:11', "perishable_token" = 'vZbbSMfBDZAyl0sLoj', "last_request_at" = '2010-12-12 21:42:11' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.9ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 10) [0m
+Rendered users/_show (58.0ms)
+Completed in 487ms (View: 81, DB: 9) | 200 OK [http://localhost/users/10]
+
+
+Processing SongsController#my (for 127.0.0.1 at 2010-12-12 13:42:15) [POST]
+  Parameters: {"action"=>"my", "controller"=>"songs"}
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-12 21:42:16', "perishable_token" = 'HbC35T8FHVbLPNvNlxuc', "last_request_at" = '2010-12-12 21:42:16' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendering template within layouts/application
+Rendering songs/my
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mSong Load (1.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mGenre Load (0.7ms)[0m   [0;1mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+Completed in 462ms (View: 298, DB: 5) | 200 OK [http://localhost/songs/my]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-12-12 13:42:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"49", "controller"=>"songs"}
+  [4;35;1mSong Load (0.8ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-12 21:42:18', "perishable_token" = 'TJOGpRjPXjhAZLHjQwyX', "last_request_at" = '2010-12-12 21:42:18' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 49)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;35;1mSongComment Load (0.9ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 49) [0m
+  [4;36;1mUser Load (4.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Rendered song_comment/_comment (22.9ms)
+Completed in 267ms (View: 111, DB: 9) | 200 OK [http://localhost/songs/49]
+
+
+Processing SongRatingController#new (for 127.0.0.1 at 2010-12-12 13:42:22) [POST]
+  Parameters: {"action"=>"new", "controller"=>"song_rating", "song_id"=>"49"}
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-12 21:42:22', "perishable_token" = 'QrYUgFzaa19wcAxiSct', "last_request_at" = '2010-12-12 21:42:22' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mSong Load (0.9ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+Rendering template within layouts/application
+Rendering song_rating/new
+Completed in 405ms (View: 58, DB: 3) | 200 OK [http://localhost/rating/song/new/49]
+
+
+Processing SongRatingController#create (for 127.0.0.1 at 2010-12-12 13:42:27) [POST]
+  Parameters: {"commit"=>"Rate", "action"=>"create", "controller"=>"song_rating", "song_id"=>"49", "song_rating"=>{"rating"=>"4"}}
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-12 21:42:27', "perishable_token" = 'o0pI9yIRAuXlYSJ8WhTo', "last_request_at" = '2010-12-12 21:42:27' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mSongRating Load (0.9ms)[0m   [0;1mSELECT * FROM "song_ratings" WHERE ("song_ratings"."user_id" = 10) LIMIT 1[0m
+  [4;35;1mSong Load (2.3ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mSongRating Create (0.7ms)[0m   [0;1mINSERT INTO "song_ratings" ("rating", "created_at", "updated_at", "user_id", "song_id") VALUES(4, '2010-12-12 21:42:27', '2010-12-12 21:42:27', 10, 49)[0m
+  [4;35;1mSongRating Load (0.3ms)[0m   [0mSELECT * FROM "song_ratings" WHERE ("song_ratings".song_id = 49) [0m
+  [4;36;1mSong Update (1.7ms)[0m   [0;1mUPDATE "songs" SET "updated_at" = '2010-12-12 21:42:27', "rating" = 4.0 WHERE "id" = 49[0m
+[paperclip] Saving attachments.
+Rendering template within layouts/application
+Rendering song_rating/create
+Completed in 397ms (View: 20, DB: 8) | 200 OK [http://localhost/rating/song/create/49]
+
+
+Processing SongCommentController#create to js (for 127.0.0.1 at 2010-12-12 13:42:42) [POST]
+  Parameters: {"format"=>"js", "song_comment"=>{"text"=>"Another Song!"}, "commit"=>"Post", "action"=>"create", "controller"=>"song_comment", "song_id"=>"49"}
+  [4;35;1mUser Load (6.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-12 21:42:42', "perishable_token" = 'XVPnjZhqohmI3VO24rV', "last_request_at" = '2010-12-12 21:42:42' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mSong Load (0.9ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mSongComment Create (0.8ms)[0m   [0;1mINSERT INTO "song_comments" ("created_at", "updated_at", "text", "user_id", "song_id") VALUES('2010-12-12 21:42:42', '2010-12-12 21:42:42', 'Another Song!', 10, 49)[0m
+  [4;35;1mAction Create (0.5ms)[0m   [0mINSERT INTO "actions" ("created_at", "obj_id", "updated_at", "action", "obj_type", "user_id") VALUES('2010-12-12 21:42:42', 6, '2010-12-12 21:42:42', 'comment', 'song', 10)[0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Rendered song_comment/_comment (11.1ms)
+Completed in 332ms (View: 12, DB: 11) | 200 OK [http://localhost/comment/song/create/49.js]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 13:43:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (2.2ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (10.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.6ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+Rendered index/_login_links (1.8ms)
+Rendered index/_nav (11.1ms)
+  [4;36;1mSong Load (0.8ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_no_auth_home (91.6ms)
+Completed in 682ms (View: 187, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing PlaylistsController#popular (for 127.0.0.1 at 2010-12-12 13:43:39) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"playlists"}
+  [4;36;1mPlaylist Load (3.2ms)[0m   [0;1mSELECT * FROM "playlists" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering playlists/popular
+  [4;35;1mUser Load (3.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (0.4ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 4)) [0m
+  [4;35;1mUser Load (4.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 15) [0m
+  [4;36;1mSong Load (0.3ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 8)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (0.3ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 5)) [0m
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (0.3ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 6)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mSong Load (0.3ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 2)) [0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
+  [4;36;1mSong Load (1.6ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 7)) [0m
+Completed in 379ms (View: 337, DB: 20) | 200 OK [http://localhost/playlists/popular]
+
+
+Processing PlaylistsController#show (for 127.0.0.1 at 2010-12-12 13:43:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"playlists"}
+  [4;35;1mPlaylist Load (0.5ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 8) [0m
+Rendering template within layouts/application
+Rendering playlists/show
+  [4;36;1mSong Load (0.6ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 8)) [0m
+  [4;35;1mPlaylistComment Load (0.3ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments".playlist_id = 8) [0m
+Completed in 303ms (View: 255, DB: 1) | 200 OK [http://localhost/playlists/8]
+
+
+Processing PlaylistCommentController#create to js (for 127.0.0.1 at 2010-12-12 13:43:48) [POST]
+  Parameters: {"playlist_comment"=>{"text"=>"Plur"}, "format"=>"js", "playlist_id"=>"8", "commit"=>"Post", "action"=>"create", "controller"=>"playlist_comment", "_"=>""}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 74ms (DB: 0) | 302 Found [http://localhost/comment/playlist/create/8.js]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 13:43:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Rendered user_sessions/_new (14.0ms)
+Completed in 196ms (View: 139, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing PlaylistCommentController#create to js (for 127.0.0.1 at 2010-12-12 13:43:56) [POST]
+  Parameters: {"playlist_comment"=>{"text"=>"Plur"}, "format"=>"js", "playlist_id"=>"8", "commit"=>"Post", "action"=>"create", "controller"=>"playlist_comment", "_"=>""}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 55ms (DB: 0) | 302 Found [http://localhost/comment/playlist/create/8.js]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 13:43:56) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Rendered user_sessions/_new (13.2ms)
+Completed in 74ms (View: 16, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing PlaylistCommentController#create to js (for 127.0.0.1 at 2010-12-12 13:44:09) [POST]
+  Parameters: {"playlist_comment"=>{"text"=>"Plur"}, "format"=>"js", "playlist_id"=>"8", "commit"=>"Post", "action"=>"create", "controller"=>"playlist_comment", "_"=>""}
+Redirected to http://localhost:3000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 59ms (DB: 0) | 302 Found [http://localhost/comment/playlist/create/8.js]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 13:44:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Rendered user_sessions/_new (21.9ms)
+Completed in 153ms (View: 30, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 13:44:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;36;1mAction Load (2.8ms)[0m   [0;1mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSongComment Load (8.4ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+Rendered index/_login_links (2.6ms)
+Rendered index/_nav (5.7ms)
+  [4;35;1mSong Load (0.6ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_no_auth_home (82.7ms)
+Completed in 217ms (View: 114, DB: 15) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 13:44:29) [POST]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Rendered user_sessions/_new (15.9ms)
+Completed in 88ms (View: 19, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create to js (for 127.0.0.1 at 2010-12-12 13:44:37) [POST]
+  Parameters: {"format"=>"js", "commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"jamesparker"}, "action"=>"create", "controller"=>"user_sessions", "_"=>""}
+  [4;35;1mUser Load (3.2ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".login) = 'jamesparker') LIMIT 1[0m
+  [4;36;1mUser Update (0.1ms)[0m   [0;1mUPDATE "users" SET "login_count" = 2, "updated_at" = '2010-12-12 21:44:37', "perishable_token" = 'Sl9tQahCwCKBgLZ3Me9k', "last_request_at" = '2010-12-12 21:44:37', "last_login_at" = '2010-11-19 04:48:43', "last_login_ip" = '127.0.0.1', "current_login_at" = '2010-12-12 21:44:37' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-12 21:44:37', "perishable_token" = 'bk03tSNuUu3fWZJTk3DN', "last_request_at" = '2010-12-12 21:44:37' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Rendered users/_show (16.0ms)
+Rendered index/_login_links (9.0ms)
+Rendered index/_nav (7.4ms)
+Completed in 521ms (View: 41, DB: 7) | 200 OK [http://localhost/user_session.js]
+
+
+Processing PlaylistsController#popular (for 127.0.0.1 at 2010-12-12 13:44:50) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"playlists"}
+  [4;36;1mPlaylist Load (6.2ms)[0m   [0;1mSELECT * FROM "playlists" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering playlists/popular
+  [4;35;1mUser Load (3.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (0.4ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 5)) [0m
+  [4;35;1mUser Load (4.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mSong Load (0.3ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 2)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (0.3ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 4)) [0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (0.3ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 6)) [0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
+  [4;36;1mSong Load (0.8ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 7)) [0m
+  [4;35;1mUser Load (4.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 15) [0m
+  [4;36;1mSong Load (0.4ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 8)) [0m
+Completed in 479ms (View: 403, DB: 25) | 200 OK [http://localhost/playlists/popular]
+
+
+Processing PlaylistsController#show (for 127.0.0.1 at 2010-12-12 13:44:52) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"playlists"}
+  [4;35;1mPlaylist Load (0.3ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering playlists/show
+  [4;36;1mSong Load (4.7ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 4)) [0m
+  [4;35;1mPlaylistComment Load (0.3ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments".playlist_id = 4) [0m
+Completed in 148ms (View: 91, DB: 5) | 200 OK [http://localhost/playlists/4]
+
+
+Processing PlaylistCommentController#create to js (for 127.0.0.1 at 2010-12-12 13:44:58) [POST]
+  Parameters: {"playlist_comment"=>{"text"=>"PLURRRRR"}, "format"=>"js", "playlist_id"=>"4", "commit"=>"Post", "action"=>"create", "controller"=>"playlist_comment", "_"=>""}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-12 21:44:58', "perishable_token" = 'JUbkYRNB9XLpsf1umHE', "last_request_at" = '2010-12-12 21:44:58' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mPlaylistComment Create (3.1ms)[0m   [0mINSERT INTO "playlist_comments" ("created_at", "playlist_id", "updated_at", "text", "user_id") VALUES('2010-12-12 21:44:58', 4, '2010-12-12 21:44:58', 'PLURRRRR', 10)[0m
+  [4;36;1mAction Create (0.5ms)[0m   [0;1mINSERT INTO "actions" ("created_at", "obj_id", "updated_at", "action", "obj_type", "user_id") VALUES('2010-12-12 21:44:58', 1, '2010-12-12 21:44:58', 'comment', 'playlist', 10)[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Rendered playlist_comment/_comment (12.5ms)
+Completed in 250ms (View: 22, DB: 8) | 200 OK [http://localhost/comment/playlist/create/4.js]
+
+
+Processing UserSessionsController#show (for 127.0.0.1 at 2010-12-12 13:45:01) [GET]
+  Parameters: {"action"=>"show", "url"=>"/", "controller"=>"user_sessions"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, destroy, and new):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 13:45:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;36;1mAction Load (1.9ms)[0m   [0;1mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mPlaylistComment Load (0.5ms)[0m   [0;1mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSongComment Load (0.5ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-12 21:45:09', "perishable_token" = 'SSXNsc2I7FYVvyjEGA6L', "last_request_at" = '2010-12-12 21:45:09' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (5.4ms)
+Rendered index/_nav (6.0ms)
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (2.0ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (117.1ms)
+Completed in 322ms (View: 199, DB: 12) | 200 OK [http://localhost/]
+
+
+Processing PlaylistsController#popular (for 127.0.0.1 at 2010-12-12 13:45:25) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"playlists"}
+  [4;35;1mPlaylist Load (3.2ms)[0m   [0mSELECT * FROM "playlists" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering playlists/popular
+  [4;36;1mUser Load (3.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.5ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 5)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 15) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 8)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.3ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 4)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mSong Load (0.3ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 2)) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (0.9ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 6)) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
+  [4;35;1mSong Load (0.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 7)) [0m
+Completed in 250ms (View: 202, DB: 16) | 200 OK [http://localhost/playlists/popular]
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-12-12 13:45:27) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;36;1mSong Load (7.8ms)[0m   [0;1mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+  [4;35;1mUser Load (4.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 39)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 34)) [0m
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 47)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 40)) [0m
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 42)) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 35)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 37)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 44)) [0m
+  [4;35;1mGenre Load (0.5ms)[0m   [0mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 45)) [0m
+  [4;36;1mGenre Load (0.6ms)[0m   [0;1mSELECT * FROM "genres" WHERE ("genres"."id" = 7) [0m
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 48)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 46)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 43)) [0m
+Completed in 569ms (View: 324, DB: 33) | 200 OK [http://localhost/songs/popular]
+
+
+Processing BrowseController#all (for 127.0.0.1 at 2010-12-12 13:45:29) [POST]
+  Parameters: {"action"=>"all", "controller"=>"browse"}
+  [4;36;1mGenre Load (2.9ms)[0m   [0;1mSELECT * FROM "genres" [0m
+  [4;35;1mSong Load (3.2ms)[0m   [0mSELECT "songs".* FROM "songs" WHERE ("songs".genre_id IN (1,2,3,4,5,6,7,8,9)) [0m
+Rendering template within layouts/application
+Rendering browse/all
+Completed in 301ms (View: 31, DB: 6) | 200 OK [http://localhost/browse]
+
+
+Processing PlaylistsController#my (for 127.0.0.1 at 2010-12-12 13:45:31) [POST]
+  Parameters: {"action"=>"my", "controller"=>"playlists"}
+  [4;36;1mUser Load (3.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-12 21:45:31', "perishable_token" = 'mNMSkz8XcBfBzYxuZmp9', "last_request_at" = '2010-12-12 21:45:31' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendering template within layouts/application
+Rendering playlists/my
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+  [4;35;1mPlaylist Load (0.5ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+  [4;36;1mSong Load (0.4ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 6)) [0m
+Completed in 233ms (View: 76, DB: 8) | 200 OK [http://localhost/playlists/my]
+
+
+Processing SongsController#my (for 127.0.0.1 at 2010-12-12 13:45:33) [POST]
+  Parameters: {"action"=>"my", "controller"=>"songs"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-12 21:45:33', "perishable_token" = 'BKuRpmELtKKcYPS1EEI0', "last_request_at" = '2010-12-12 21:45:33' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendering template within layouts/application
+Rendering songs/my
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mSong Load (1.5ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mGenre Load (0.5ms)[0m   [0mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+Completed in 247ms (View: 85, DB: 5) | 200 OK [http://localhost/songs/my]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 13:45:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (3.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-12 21:45:36', "perishable_token" = '3wGlEVreOWZigPXaWf', "last_request_at" = '2010-12-12 21:45:36' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (1.1ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 10) [0m
+Rendered users/_show (60.8ms)
+Completed in 467ms (View: 64, DB: 9) | 200 OK [http://localhost/users/10]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-12 13:45:41) [POST]
+  Parameters: {"action"=>"edit", "id"=>"edit", "controller"=>"users"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-12 21:45:41', "perishable_token" = 'zFHAGqLzf3ks2etG5HM', "last_request_at" = '2010-12-12 21:45:41' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_update (5.2ms)
+Completed in 335ms (View: 216, DB: 2) | 200 OK [http://localhost/users/edit/edit]
+
+
+Processing SongsController#my (for 127.0.0.1 at 2010-12-12 16:14:43) [POST]
+  Parameters: {"action"=>"my", "controller"=>"songs"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (1.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:14:43', "perishable_token" = '27DuzEb7ATiucbWZd5L', "last_request_at" = '2010-12-13 00:14:43' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendering template within layouts/application
+Rendering songs/my
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mSong Load (1.5ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mGenre Load (0.9ms)[0m   [0;1mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+Completed in 385ms (View: 220, DB: 7) | 200 OK [http://localhost/songs/my]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-12-12 16:14:45) [GET]
+  Parameters: {"action"=>"show", "id"=>"39", "controller"=>"songs"}
+  [4;35;1mSong Load (0.9ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 39) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:14:45', "perishable_token" = 'QS4C1JohU4RjJzs4s3Q4', "last_request_at" = '2010-12-13 00:14:45' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 39)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;35;1mSongComment Load (0.3ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 39) [0m
+Completed in 293ms (View: 67, DB: 7) | 200 OK [http://localhost/songs/39]
+
+
+Processing SongRatingController#new (for 127.0.0.1 at 2010-12-12 16:14:48) [POST]
+  Parameters: {"action"=>"new", "controller"=>"song_rating", "song_id"=>"39"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:14:48', "perishable_token" = '3yPJ8tmh763mYHIW0g', "last_request_at" = '2010-12-13 00:14:48' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mSong Load (1.1ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 39) [0m
+Rendering template within layouts/application
+Rendering song_rating/new
+Completed in 601ms (View: 65, DB: 3) | 200 OK [http://localhost/rating/song/new/39]
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-12-12 16:26:54) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;35;1mSong Load (8.7ms)[0m   [0mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 45)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 39)) [0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 42)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 37)) [0m
+  [4;36;1mGenre Load (0.5ms)[0m   [0;1mSELECT * FROM "genres" WHERE ("genres"."id" = 7) [0m
+  [4;35;1mUser Load (5.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 48)) [0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 40)) [0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 34)) [0m
+  [4;36;1mUser Load (2.7ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 35)) [0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 46)) [0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 47)) [0m
+  [4;35;1mUser Load (2.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 43)) [0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 44)) [0m
+  [4;35;1mGenre Load (0.5ms)[0m   [0mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Completed in 534ms (View: 441, DB: 36) | 200 OK [http://localhost/songs/popular]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:26:56) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"users"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:26:57', "perishable_token" = 'tpptvWbvG8iCgVlJwP1G', "last_request_at" = '2010-12-13 00:26:57' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) [0m
+  [4;36;1mSong Load (0.9ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 4)) [0m
+  [4;35;1mPlaylist Load (0.4ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 4) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (0.3ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 4) [0m
+Rendered users/_show (32.0ms)
+Completed in 369ms (View: 59, DB: 5) | 200 OK [http://localhost/users/4]
+
+
+Processing FollowedUserController#new (for 127.0.0.1 at 2010-12-12 16:27:01) [POST]
+  Parameters: {"followed_id"=>"4", "action"=>"new", "controller"=>"followed_user"}
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:27:01', "perishable_token" = 'ctB7xgfsEXzpjyzWNXc', "last_request_at" = '2010-12-13 00:27:01' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+
+ArgumentError (Unknown key(s): class):
+  (eval):3:in `belongs_to'
+  app/models/followed_user.rb:2
+  /var/lib/gems/1.8/gems/aws-s3-0.6.2/lib/aws/s3/extensions.rb:206:in `const_missing'
+  app/controllers/followed_user_controller.rb:5:in `new'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (366.1ms)
+Rendered rescues/_request_and_response (2.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 16:27:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (1.3ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (8.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mPlaylistComment Load (6.1ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.6ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:27:58', "perishable_token" = 'qj2Xsz1iRHsMrrpKLCho', "last_request_at" = '2010-12-13 00:27:58' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (15.3ms)
+Rendered index/_nav (18.0ms)
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (0.8ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (9.2ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (505.0ms)
+Completed in 968ms (View: 732, DB: 30) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:29:26) [POST]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+
+ArgumentError (Unknown key(s): class):
+  (eval):3:in `has_many'
+  app/models/user.rb:13
+  /var/lib/gems/1.8/gems/aws-s3-0.6.2/lib/aws/s3/extensions.rb:206:in `const_missing'
+  authlogic (2.1.6) lib/authlogic/session/klass.rb:33:in `klass'
+  authlogic (2.1.6) lib/authlogic/session/password.rb:90:in `login_field'
+  authlogic (2.1.6) lib/authlogic/session/password.rb:213:in `login_field'
+  authlogic (2.1.6) lib/authlogic/session/password.rb:118:in `initialize'
+  authlogic (2.1.6) lib/authlogic/session/activation.rb:48:in `initialize'
+  authlogic (2.1.6) lib/authlogic/session/klass.rb:64:in `initialize'
+  authlogic (2.1.6) lib/authlogic/session/scopes.rb:79:in `initialize'
+  authlogic (2.1.6) lib/authlogic/session/persistence.rb:37:in `new'
+  authlogic (2.1.6) lib/authlogic/session/persistence.rb:37:in `find'
+  app/controllers/application_controller.rb:10:in `current_user_session'
+  app/controllers/application_controller.rb:15:in `current_user'
+  app/controllers/application_controller.rb:19:in `require_user'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (222.1ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-12-12 16:29:47) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;36;1mSong Load (7.0ms)[0m   [0;1mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 39)) [0m
+  [4;36;1mGenre Load (1.7ms)[0m   [0;1mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+  [4;36;1mGenre Load (0.5ms)[0m   [0;1mSELECT * FROM "genres" WHERE ("genres"."id" = 7) [0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 48)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 43)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 42)) [0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 47)) [0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 35)) [0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 37)) [0m
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 34)) [0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 45)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 44)) [0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 40)) [0m
+  [4;35;1mUser Load (2.8ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 46)) [0m
+Completed in 473ms (View: 408, DB: 30) | 200 OK [http://localhost/songs/popular]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:29:51) [GET]
+  Parameters: {"action"=>"show", "id"=>"9", "controller"=>"users"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:29:51', "perishable_token" = 'DHEJHJ9PKdkNRme0p5tH', "last_request_at" = '2010-12-13 00:29:51' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mSong Load (1.1ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 9)) [0m
+  [4;36;1mPlaylist Load (0.3ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 9) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 9) [0m
+Rendered users/_show (24.6ms)
+Completed in 185ms (View: 27, DB: 5) | 200 OK [http://localhost/users/9]
+
+
+Processing FollowedUserController#new (for 127.0.0.1 at 2010-12-12 16:30:08) [POST]
+  Parameters: {"followed_id"=>"9", "action"=>"new", "controller"=>"followed_user"}
+  [4;36;1mUser Load (5.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (3.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:30:08', "perishable_token" = 'IZAIZf1JxyZ2ObbM0T', "last_request_at" = '2010-12-13 00:30:08' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+
+ArgumentError (Unknown key(s): class):
+  (eval):3:in `belongs_to'
+  app/models/followed_user.rb:2
+  /var/lib/gems/1.8/gems/aws-s3-0.6.2/lib/aws/s3/extensions.rb:206:in `const_missing'
+  app/controllers/followed_user_controller.rb:5:in `new'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (111.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 16:30:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;36;1mAction Load (1.1ms)[0m   [0;1mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;35;1mUser Load (2.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mPlaylistComment Load (0.7ms)[0m   [0;1mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSongComment Load (0.6ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (8.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:30:40', "perishable_token" = 'jQWCWKzwzLPaGmTWa8e6', "last_request_at" = '2010-12-13 00:30:40' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (10.0ms)
+Rendered index/_nav (11.3ms)
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (1.1ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mUser Load (7.8ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (242.7ms)
+Completed in 825ms (View: 370, DB: 25) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:30:44) [POST]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:30:44', "perishable_token" = 'K6tPkaJWfnStNHXbhP', "last_request_at" = '2010-12-13 00:30:44' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (3.2ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 3)) [0m
+  [4;35;1mPlaylist Load (7.1ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (0.4ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 3) [0m
+Rendered users/_show (23.7ms)
+Completed in 298ms (View: 29, DB: 14) | 200 OK [http://localhost/users/show/3]
+
+
+Processing FollowedUserController#new (for 127.0.0.1 at 2010-12-12 16:30:47) [POST]
+  Parameters: {"followed_id"=>"3", "action"=>"new", "controller"=>"followed_user"}
+  [4;35;1mUser Load (9.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:30:47', "perishable_token" = 'ktxFxKlpAHUfvT6E3yg', "last_request_at" = '2010-12-13 00:30:47' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+
+LoadError (Expected /home/jamesparker/proj/cs169-musicproject/app/models/followed_user.rb to define FollowedUser):
+  /var/lib/gems/1.8/gems/aws-s3-0.6.2/lib/aws/s3/extensions.rb:206:in `const_missing'
+  app/controllers/followed_user_controller.rb:5:in `new'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (162.1ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 16:31:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (14.9ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mPlaylistComment Load (1.0ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.7ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:31:34', "perishable_token" = 'g2yfVgfPW09SCyMQKqty', "last_request_at" = '2010-12-13 00:31:34' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (15.7ms)
+Rendered index/_nav (5.6ms)
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mUser Load (29.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (5.1ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (472.2ms)
+Completed in 795ms (View: 563, DB: 57) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:31:38) [POST]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (2.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:31:39', "perishable_token" = 'ZJlnTQZHT23XSeHA9SHI', "last_request_at" = '2010-12-13 00:31:39' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (2.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (15.4ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 3)) [0m
+  [4;36;1mPlaylist Load (13.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 3) [0m
+Rendered users/_show (37.5ms)
+Completed in 432ms (View: 45, DB: 34) | 200 OK [http://localhost/users/show/3]
+
+
+Processing FollowedUserController#new (for 127.0.0.1 at 2010-12-12 16:31:40) [POST]
+  Parameters: {"followed_id"=>"3", "action"=>"new", "controller"=>"followed_user"}
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:31:40', "perishable_token" = 'VjbfByiLbS1tYG9Htdc', "last_request_at" = '2010-12-13 00:31:40' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering followed_user/new
+
+ActionView::TemplateError (undefined method `hidden_field_tag' for #<ActionView::Helpers::FormBuilder:0xb6dd6ca4>) on line #6 of app/views/followed_user/new.html.erb:
+3: Are you sure you want to become a fan of <%=h @follows.name%>
+4: <% form_remote_for(@followed_user, :url => "/follow/create", :update=>'lbContent')  do |f| %>
+5:   <%= f.error_messages %>
+6:     <%= f.hidden_field_tag 'followed_user_id', @followed_user.followed_user_id %>
+7:     <%= f.hidden_field_tag 'user_id', @current_user.id %>
+8:     <%= f.submit 'Confirm' %>
+9: <% end %>
+
+    app/views/followed_user/new.html.erb:6
+    app/views/followed_user/new.html.erb:4
+    app/controllers/followed_user_controller.rb:8:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (344.9ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 16:32:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (2.8ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (11.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mPlaylistComment Load (4.8ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.6ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:32:54', "perishable_token" = '6Op9V35p8JPMcUHQ6w7e', "last_request_at" = '2010-12-13 00:32:54' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (8.1ms)
+Rendered index/_nav (10.5ms)
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (1.1ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (450.9ms)
+Completed in 815ms (View: 579, DB: 26) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:33:00) [POST]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:33:00', "perishable_token" = 'rDwXACthn7THXujt0u', "last_request_at" = '2010-12-13 00:33:00' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.5ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 3)) [0m
+  [4;36;1mPlaylist Load (0.8ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.1ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 3) [0m
+Rendered users/_show (145.9ms)
+Completed in 329ms (View: 149, DB: 6) | 200 OK [http://localhost/users/show/3]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:33:00) [POST]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:33:00', "perishable_token" = 'lhpWEaMhpAAwHr1dBa', "last_request_at" = '2010-12-13 00:33:00' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.4ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 3)) [0m
+  [4;36;1mPlaylist Load (1.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 3) [0m
+Rendered users/_show (18.1ms)
+Completed in 256ms (View: 21, DB: 6) | 200 OK [http://localhost/users/show/3]
+
+
+Processing FollowedUserController#new (for 127.0.0.1 at 2010-12-12 16:33:01) [POST]
+  Parameters: {"followed_id"=>"3", "action"=>"new", "controller"=>"followed_user"}
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:33:02', "perishable_token" = 'NPJHuBM53xT29gg06xXU', "last_request_at" = '2010-12-13 00:33:02' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering followed_user/new
+
+ActionView::TemplateError (undefined method `merge' for 3:Fixnum) on line #6 of app/views/followed_user/new.html.erb:
+3: Are you sure you want to become a fan of <%=h @follows.name%>
+4: <% form_remote_for(@followed_user, :url => "/follow/create", :update=>'lbContent')  do |f| %>
+5:   <%= f.error_messages %>
+6:     <%= f.hidden_field 'followed_user_id', @followed_user.followed_user_id %>
+7:     <%= f.hidden_field 'user_id', @current_user.id %>
+8:     <%= f.submit 'Confirm' %>
+9: <% end %>
+
+    app/views/followed_user/new.html.erb:6
+    app/views/followed_user/new.html.erb:4
+    app/controllers/followed_user_controller.rb:8:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (106.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 16:34:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (10.7ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (10.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mPlaylistComment Load (0.7ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.1ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (8.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (10.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:34:21', "perishable_token" = 'zFSFXm7ZyP0pAEoaCztq', "last_request_at" = '2010-12-13 00:34:21' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (24.2ms)
+Rendered index/_nav (6.0ms)
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mUser Load (1.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (10.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (236.0ms)
+Completed in 869ms (View: 370, DB: 54) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:34:26) [POST]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:34:26', "perishable_token" = 'K2Fze1u6dSoNW1A1Qi', "last_request_at" = '2010-12-13 00:34:26' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.9ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 3)) [0m
+  [4;36;1mPlaylist Load (0.9ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 3) [0m
+Rendered users/_show (19.6ms)
+Completed in 191ms (View: 22, DB: 6) | 200 OK [http://localhost/users/show/3]
+
+
+Processing FollowedUserController#new (for 127.0.0.1 at 2010-12-12 16:34:28) [POST]
+  Parameters: {"followed_id"=>"3", "action"=>"new", "controller"=>"followed_user"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (7.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:34:28', "perishable_token" = 'QrZpUDc7i46QPJX2TKCW', "last_request_at" = '2010-12-13 00:34:28' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering followed_user/new
+
+ActionView::TemplateError (undefined method `merge' for "3":String) on line #6 of app/views/followed_user/new.html.erb:
+3: Are you sure you want to become a fan of <%=h @follows.name%>
+4: <% form_remote_for(@followed_user, :url => "/follow/create", :update=>'lbContent')  do |f| %>
+5:   <%= f.error_messages %>
+6:     <%= f.hidden_field 'followed_user_id', @followed_user.followed_user_id.to_s %>
+7:     <%= f.hidden_field 'user_id', @current_user.id.to_s %>
+8:     <%= f.submit 'Confirm' %>
+9: <% end %>
+
+    app/views/followed_user/new.html.erb:6
+    app/views/followed_user/new.html.erb:4
+    app/controllers/followed_user_controller.rb:8:in `new'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (124.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 16:37:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (6.8ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (3.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mPlaylistComment Load (1.2ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.5ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:37:23', "perishable_token" = 'zbtDUBcmQJHl1O1S4hEJ', "last_request_at" = '2010-12-13 00:37:23' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (15.3ms)
+Rendered index/_nav (13.6ms)
+  [4;36;1mPlaylist Load (0.8ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mUser Load (12.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (0.9ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (238.1ms)
+Completed in 856ms (View: 376, DB: 29) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:37:27) [POST]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:37:28', "perishable_token" = 'GKJKJNuzPrB1yQf7sGYw', "last_request_at" = '2010-12-13 00:37:28' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (4.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.4ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 3)) [0m
+  [4;36;1mPlaylist Load (2.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mBookmark Load (0.3ms)[0m   [0mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 3) [0m
+Rendered users/_show (23.5ms)
+Completed in 471ms (View: 27, DB: 11) | 200 OK [http://localhost/users/show/3]
+
+
+Processing FollowedUserController#new (for 127.0.0.1 at 2010-12-12 16:37:30) [POST]
+  Parameters: {"followed_id"=>"3", "action"=>"new", "controller"=>"followed_user"}
+  [4;36;1mUser Load (3.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:37:30', "perishable_token" = 'w9y2WLzYMHokA21TDFKP', "last_request_at" = '2010-12-13 00:37:30' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering followed_user/new
+Completed in 284ms (View: 29, DB: 6) | 200 OK [http://localhost/follow/new/3]
+
+
+Processing FollowedUserController#create (for 127.0.0.1 at 2010-12-12 16:37:33) [POST]
+  Parameters: {"commit"=>"Confirm", "action"=>"create", "followed_user"=>{"followed_user_id"=>"3", "user_id"=>"10"}, "controller"=>"followed_user"}
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:37:33', "perishable_token" = '0OaOZZyfDkHZ1h63F2fi', "last_request_at" = '2010-12-13 00:37:33' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mFollowedUser Create (0.7ms)[0m   [0;1mINSERT INTO "followed_users" ("created_at", "updated_at", "followed_user_id", "user_id") VALUES('2010-12-13 00:37:33', '2010-12-13 00:37:33', 3, 10)[0m
+Rendering template within layouts/application
+Rendering followed_user/create
+Completed in 162ms (View: 14, DB: 4) | 200 OK [http://localhost/follow/create]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:42:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (2.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:42:22', "perishable_token" = 'avvwvTNuMqnrsFAw7hM', "last_request_at" = '2010-12-13 00:42:22' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (4.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (1.6ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (1.3ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #52 of app/views/users/_show.html.erb:
+49: <p><%= @user.name%> is a fan of:<p>
+50: <% if not @user.subscribers.nil? %>
+51:  <ul>
+52:   <% @user.subscribers.each do |subscriber| %>
+53:    <li>subscriber.name</li>
+54:   <% end %>
+55:  </ul>
+
+    app/views/users/_show.html.erb:52
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (121.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:43:47) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:43:47', "perishable_token" = 'e1818gkZPDWY2nQE5Z', "last_request_at" = '2010-12-13 00:43:47' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (2.1ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.8ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #52 of app/views/users/_show.html.erb:
+49: <p><%= @user.name%> is a fan of:<p>
+50: <% if not @user.subscribers.nil? %>
+51:  <ul>
+52:   <% @user.subscribers.each do |subscriber| %>
+53:    <li><%= subscriber.name%></li>
+54:   <% end %>
+55:  </ul>
+
+    app/views/users/_show.html.erb:52
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (225.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:46:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (1.2ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:46:19', "perishable_token" = 'GUPmXUqvAmYzmVzYY9Gu', "last_request_at" = '2010-12-13 00:46:19' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (1.4ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.4ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #53 of app/views/users/_show.html.erb:
+50: <p><%= @user.name %> is a fan of:</p>
+51: <% if not @user.subscribers.nil? %>
+52:  <ul>
+53:   <% @user.subscribers.each do |subscriber| %>
+54:    <li><%= subscriber.name %></li>
+55:   <% end %>
+56:  </ul>
+
+    app/views/users/_show.html.erb:53
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (127.8ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 16:48:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;36;1mAction Load (8.1ms)[0m   [0;1mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mPlaylistComment Load (0.6ms)[0m   [0;1mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSongComment Load (0.6ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (3.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:48:36', "perishable_token" = 'GLutWPWpAb9OQYx2P9GZ', "last_request_at" = '2010-12-13 00:48:36' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (6.1ms)
+Rendered index/_nav (8.6ms)
+  [4;35;1mPlaylist Load (1.4ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.8ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (117.6ms)
+Completed in 540ms (View: 405, DB: 22) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:48:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:48:44', "perishable_token" = '8PJcrbOC1Hs0XoILktR', "last_request_at" = '2010-12-13 00:48:44' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (2.1ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.4ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #53 of app/views/users/_show.html.erb:
+50: <p><%= @user.name %> is a fan of:</p>
+51: <% if not @user.subscribers.nil? %>
+52:  <ul>
+53:   <% @user.subscribers.each do |subscriber| %>
+54:    <li><%= subscriber.name %></li>
+55:   <% end %>
+56:  </ul>
+
+    app/views/users/_show.html.erb:53
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:49:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:49:19', "perishable_token" = 'iI1l8mEvrnklsTwCjY4', "last_request_at" = '2010-12-13 00:49:19' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #53 of app/views/users/_show.html.erb:
+50: <p><%= @user.name %> is a fan of:</p>
+51: <% if not @user.subscribers.nil? %>
+52:  <ul>
+53:   <% @user.subscribers.each do |subscriber| %>
+54:    <li><%= subscriber.name.to_s %></li>
+55:   <% end %>
+56:  </ul>
+
+    app/views/users/_show.html.erb:53
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (233.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:49:38) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (2.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:49:38', "perishable_token" = 'hJaeVp4qYm9jKGg907X', "last_request_at" = '2010-12-13 00:49:38' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (1.8ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #53 of app/views/users/_show.html.erb:
+50: <p><%= @user.name %> is a fan of:</p>
+51: <% if not @user.subscribers.nil? %>
+52:  <ul>
+53:   <% @user.subscribers.each do |subscriber| %>
+54:    <li><%= subscriber.name.to_s %></li>
+55:   <% end %>
+56:  </ul>
+
+    app/views/users/_show.html.erb:53
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (126.8ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:49:41) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:49:41', "perishable_token" = 'b20F2FdIRwMiZqj6K0eS', "last_request_at" = '2010-12-13 00:49:41' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #53 of app/views/users/_show.html.erb:
+50: <p><%= @user.name %> is a fan of:</p>
+51: <% if not @user.subscribers.nil? %>
+52:  <ul>
+53:   <% @user.subscribers.each do |subscriber| %>
+54:    <li><%= subscriber.name.to_s %></li>
+55:   <% end %>
+56:  </ul>
+
+    app/views/users/_show.html.erb:53
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (129.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:52:54) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (2.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 00:52:54', "perishable_token" = 'C6BEoguno28ChhJ29XO1', "last_request_at" = '2010-12-13 00:52:54' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (2.7ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.3ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #53 of app/views/users/_show.html.erb:
+50: <p><%= @user.name %> is a fan of:</p>
+51: <% if not @subscribers.nil? %>
+52:  <ul>
+53:   <% @subscribers.each do |subscriber| %>
+54:    <li><%= subscriber.name.to_s %></li>
+55:   <% end %>
+56:  </ul>
+
+    app/views/users/_show.html.erb:53
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (231.8ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 16:56:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 00:56:01', "perishable_token" = 'xziMsYxdhKCJL8PMXRx1', "last_request_at" = '2010-12-13 00:56:01' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (2.3ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (1.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @follows.type %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (153.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:04:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:04:40', "perishable_token" = 'Ur3fAq6Ju1vic4kqnlxb', "last_request_at" = '2010-12-13 01:04:40' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+
+NoMethodError (undefined method `user_id' for #<User:0xb6bc8f5c>):
+  app/controllers/users_controller.rb:80:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (203.2ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:05:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:05:27', "perishable_token" = 'el1T4zRCN35uGPpWX3UO', "last_request_at" = '2010-12-13 01:05:27' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @follows.type %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (234.9ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 17:06:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (3.2ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mPlaylistComment Load (0.6ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.7ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:06:35', "perishable_token" = 'nJ3B2fdDF12zB2Uo1eW', "last_request_at" = '2010-12-13 01:06:35' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (5.4ms)
+Rendered index/_nav (6.1ms)
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (1.0ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (110.2ms)
+Completed in 341ms (View: 180, DB: 13) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:06:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:06:39', "perishable_token" = 'DWq43ZOdnQfhR0fBPiFV', "last_request_at" = '2010-12-13 01:06:39' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (14.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @follows.type %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (120.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:06:50) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (1.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:06:50', "perishable_token" = '9T3RKsmBvcn267GxtNJK', "last_request_at" = '2010-12-13 01:06:50' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+
+NoMethodError (undefined method `follows' for #<User:0xb7044658>):
+  app/controllers/users_controller.rb:81:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (74.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 17:08:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;36;1mAction Load (2.1ms)[0m   [0;1mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mPlaylistComment Load (1.4ms)[0m   [0;1mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSongComment Load (1.5ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (2.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:08:42', "perishable_token" = '98970mcnwrHzCSgEjtO', "last_request_at" = '2010-12-13 01:08:42' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (5.4ms)
+Rendered index/_nav (4.3ms)
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;36;1mUser Load (11.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (1.3ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (355.3ms)
+Completed in 654ms (View: 443, DB: 26) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:08:46) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (3.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:08:46', "perishable_token" = 'uXks2kk1xaoGTS6T4B8u', "last_request_at" = '2010-12-13 01:08:46' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) :followed or :followed in model FollowedUser.  Try 'has_many :followed, :through => :followed_users, :source => <name>'.  Is it one of :follows or :subscriber?):
+  app/controllers/users_controller.rb:81:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (84.5ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 17:09:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;36;1mAction Load (2.0ms)[0m   [0;1mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;35;1mUser Load (6.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mPlaylistComment Load (0.7ms)[0m   [0;1mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSongComment Load (0.6ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (3.2ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:09:54', "perishable_token" = 'IZrSqrERPNU8wP1EbEPV', "last_request_at" = '2010-12-13 01:09:54' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (5.8ms)
+Rendered index/_nav (5.9ms)
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.9ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (276.1ms)
+Completed in 632ms (View: 386, DB: 21) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:09:58) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:09:58', "perishable_token" = 't797ljdfPL6cjxBbDoHf', "last_request_at" = '2010-12-13 01:09:58' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (1.6ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.8ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @followed.type %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (121.8ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (5.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSongs (20101015045340)
+Migrating to CreatePlaylists (20101015045608)
+Migrating to CreateUsersSongs (20101015050128)
+Migrating to CreatePlaylistsSongs (20101015050533)
+Migrating to AlterDbForSongDependence (20101101162435)
+Migrating to CreateUsers (20101101202541)
+Migrating to UpdateUserFieldsAfterAuth (20101101203525)
+Migrating to AddBackPlaylistSongs (20101102015359)
+Migrating to AddSongNameField (20101102020048)
+Migrating to RenameUsersTablePlaylistsIdToUsersId (20101102022250)
+Migrating to ChangePluralDbNames (20101102025313)
+Migrating to RenameUsersSongsToUserssongs (20101102030427)
+Migrating to RenamePlaylistsSongsToPlaylistsongs (20101102032208)
+Migrating to TransitionToAuthlogic (20101116000000)
+Migrating to CreateSongComments (20101119035949)
+Migrating to CreatePlaylistComments (20101119040017)
+Migrating to CreateBookmarks (20101119062936)
+Migrating to CreateSongRatings (20101119063259)
+Migrating to CreatePlaylistRatings (20101120225831)
+Migrating to AddAttachmentToSong (20101121000000)
+Migrating to AddPhotoToUser (20101122000000)
+Migrating to AddGenreIdToSongs (20101209025914)
+Migrating to RemoveGenreFromSongs (20101209030059)
+Migrating to CreateGenres (20101209031030)
+Migrating to AddPrimaryKeyToPlaylistsongs (20101211002712)
+Migrating to CreateActions (20101212003853)
+Migrating to CreateFollowedUsers (20101212004000)
+Migrating to RenameFollowedUsersColumns (20101213000000)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (5.4ms)[0m   [0mCREATE TEMPORARY TABLE "altered_followed_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subscriber_id" integer, "followed_user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("followed_users")[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mDROP TABLE "followed_users"[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE TABLE "followed_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subscriber_id" integer, "followed_user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("altered_followed_users")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mDROP TABLE "altered_followed_users"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TEMPORARY TABLE "altered_followed_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subscriber_id" integer, "followed_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("followed_users")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mDROP TABLE "followed_users"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "followed_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subscriber_id" integer, "followed_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("altered_followed_users")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mDROP TABLE "altered_followed_users"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101213000000')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("actions")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("bookmarks")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("followed_users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("genres")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("playlist_comments")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("playlist_ratings")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("playlists")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("playlistsongs")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("song_comments")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("song_ratings")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("songs")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_perishable_token')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_login')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("usersongs")[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:33:34) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:33:34', "perishable_token" = 'M5cDdH90JW7M3UoSrg2', "last_request_at" = '2010-12-13 01:33:34' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+
+TypeError (can't convert Symbol into String):
+  app/controllers/users_controller.rb:80:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (85.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:34:30) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:34:30', "perishable_token" = 'GaY0zM7jYnXvaBK4Fztt', "last_request_at" = '2010-12-13 01:34:30' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (2.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+
+TypeError (can't convert Symbol into String):
+  app/controllers/users_controller.rb:80:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (86.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:34:32) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (1.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:34:33', "perishable_token" = 'k73soFrEFwKHSM8TASZX', "last_request_at" = '2010-12-13 01:34:33' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+
+TypeError (can't convert Symbol into String):
+  app/controllers/users_controller.rb:80:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (216.2ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlaylistsController#popular (for 127.0.0.1 at 2010-12-12 17:34:35) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"playlists"}
+  [4;35;1mPlaylist Load (3.2ms)[0m   [0mSELECT * FROM "playlists" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering playlists/popular
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mSong Load (0.2ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 2)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.0ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mSong Load (0.3ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 4)) [0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 15) [0m
+  [4;35;1mSong Load (0.4ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 8)) [0m
+  [4;36;1mUser Load (2.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (0.1ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 6)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 11) [0m
+  [4;35;1mSong Load (1.1ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 7)) [0m
+Completed in 360ms (View: 322, DB: 14) | 200 OK [http://localhost/playlists/popular]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:34:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (2.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:34:39', "perishable_token" = 'W26wxIqns4TautxpjUb', "last_request_at" = '2010-12-13 01:34:39' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+
+TypeError (can't convert Symbol into String):
+  app/controllers/users_controller.rb:80:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (82.9ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 17:35:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (2.0ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mPlaylistComment Load (1.9ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.6ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (1.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:35:08', "perishable_token" = 'ahLvDLp5XcYfJTXJN540', "last_request_at" = '2010-12-13 01:35:08' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (9.8ms)
+Rendered index/_nav (5.6ms)
+  [4;36;1mPlaylist Load (2.3ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (0.1ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (111.1ms)
+Completed in 315ms (View: 179, DB: 17) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:35:12) [POST]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:35:12', "perishable_token" = 'w9wFudUMpTC1omwgzobe', "last_request_at" = '2010-12-13 01:35:12' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+
+TypeError (can't convert Symbol into String):
+  app/controllers/users_controller.rb:80:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (158.3ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-12-12 17:36:10) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;35;1mSong Load (7.5ms)[0m   [0mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 46)) [0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 42)) [0m
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 39)) [0m
+  [4;35;1mUser Load (2.8ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 43)) [0m
+  [4;36;1mGenre Load (0.5ms)[0m   [0;1mSELECT * FROM "genres" WHERE ("genres"."id" = 7) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 48)) [0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 44)) [0m
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 47)) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 45)) [0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 37)) [0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 40)) [0m
+  [4;35;1mGenre Load (0.5ms)[0m   [0mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 35)) [0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 34)) [0m
+Completed in 345ms (View: 263, DB: 31) | 200 OK [http://localhost/songs/popular]
+
+
+Processing SongsController#my (for 127.0.0.1 at 2010-12-12 17:36:12) [POST]
+  Parameters: {"action"=>"my", "controller"=>"songs"}
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:36:13', "perishable_token" = 'Jk3uozn7Yq2BEHxrRqv9', "last_request_at" = '2010-12-13 01:36:13' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendering template within layouts/application
+Rendering songs/my
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mSong Load (1.5ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mGenre Load (0.5ms)[0m   [0mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+Completed in 349ms (View: 93, DB: 5) | 200 OK [http://localhost/songs/my]
+
+
+Processing SongsController#show (for 127.0.0.1 at 2010-12-12 17:36:14) [GET]
+  Parameters: {"action"=>"show", "id"=>"39", "controller"=>"songs"}
+  [4;36;1mSong Load (0.8ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 39) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.8ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:36:14', "perishable_token" = 'mkzGH3tk8u6QlvYTac10', "last_request_at" = '2010-12-13 01:36:14' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE ("users"."id" = 10) AND (("usersongs".song_id = 39)) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering songs/show
+  [4;36;1mSongComment Load (0.5ms)[0m   [0;1mSELECT * FROM "song_comments" WHERE ("song_comments".song_id = 39) [0m
+Completed in 319ms (View: 27, DB: 4) | 200 OK [http://localhost/songs/39]
+
+
+Processing SongsController#edit (for 127.0.0.1 at 2010-12-12 17:36:18) [POST]
+  Parameters: {"action"=>"edit", "id"=>"39", "controller"=>"songs"}
+  [4;35;1mSong Load (0.8ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 39) [0m
+Rendering template within layouts/application
+Rendering songs/edit
+  [4;36;1mGenre Load (1.8ms)[0m   [0;1mSELECT * FROM "genres" [0m
+Completed in 146ms (View: 61, DB: 3) | 200 OK [http://localhost/songs/edit/39]
+
+
+Processing SongsController#update (for 127.0.0.1 at 2010-12-12 17:36:24) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "id"=>"39", "controller"=>"songs", "song"=>{"name"=>"Hello", "genre_id"=>"1", "album"=>"GFH", "description"=>"YHGJ"}}
+  [4;35;1mSong Load (0.8ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 39) [0m
+Rendering template within layouts/application
+Rendering songs/edit
+  [4;36;1mGenre Load (1.3ms)[0m   [0;1mSELECT * FROM "genres" [0m
+Completed in 102ms (View: 47, DB: 2) | 200 OK [http://localhost/songs/39]
+
+
+Processing SongsController#update (for 127.0.0.1 at 2010-12-12 17:36:44) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "id"=>"39", "controller"=>"songs", "song"=>{"name"=>"Hello", "genre_id"=>"1", "album"=>"GFH", "description"=>"Can't update"}}
+  [4;35;1mSong Load (0.6ms)[0m   [0mSELECT * FROM "songs" WHERE ("songs"."id" = 39) [0m
+Rendering template within layouts/application
+Rendering songs/edit
+  [4;36;1mGenre Load (1.8ms)[0m   [0;1mSELECT * FROM "genres" [0m
+Completed in 112ms (View: 49, DB: 2) | 200 OK [http://localhost/songs/39]
+
+
+Processing SongsController#popular (for 127.0.0.1 at 2010-12-12 17:36:52) [POST]
+  Parameters: {"action"=>"popular", "controller"=>"songs"}
+  [4;35;1mSong Load (7.8ms)[0m   [0mSELECT * FROM "songs" ORDER BY rating DESC LIMIT 100[0m
+Rendering template within layouts/application
+Rendering songs/popular
+  [4;36;1mUser Load (2.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 39)) [0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 37)) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 43)) [0m
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 34)) [0m
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 45)) [0m
+  [4;35;1mGenre Load (0.6ms)[0m   [0mSELECT * FROM "genres" WHERE ("genres"."id" = 9) [0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 44)) [0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 46)) [0m
+  [4;35;1mGenre Load (0.5ms)[0m   [0mSELECT * FROM "genres" WHERE ("genres"."id" = 7) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 48)) [0m
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 35)) [0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 42)) [0m
+  [4;35;1mUser Load (2.9ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 47)) [0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 40)) [0m
+Completed in 469ms (View: 400, DB: 32) | 200 OK [http://localhost/songs/popular]
+
+
+Processing IndexController#index (for 127.0.0.1 at 2010-12-12 17:36:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"index"}
+  [4;35;1mAction Load (2.7ms)[0m   [0mSELECT * FROM "actions" ORDER BY created_at DESC LIMIT 20[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mPlaylistComment Load (5.7ms)[0m   [0mSELECT * FROM "playlist_comments" WHERE ("playlist_comments"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSongComment Load (0.5ms)[0m   [0mSELECT * FROM "song_comments" WHERE ("song_comments"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering index/index
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (2.7ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:36:55', "perishable_token" = 'gyEV33vcFCd9jaAunk', "last_request_at" = '2010-12-13 01:36:55' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendered index/_login_links (5.4ms)
+Rendered index/_nav (6.2ms)
+  [4;36;1mPlaylist Load (0.6ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists"."id" = 4) [0m
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mSong Load (1.1ms)[0m   [0;1mSELECT * FROM "songs" WHERE ("songs"."id" = 49) [0m
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "usersongs" ON "users".id = "usersongs".user_id WHERE (("usersongs".song_id = 49)) [0m
+Rendered index/_auth_home (255.3ms)
+Completed in 557ms (View: 337, DB: 20) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:36:58) [POST]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (7.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:36:58', "perishable_token" = 'nnqcw9b6WapREKO7XCOE', "last_request_at" = '2010-12-13 01:36:58' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+
+TypeError (can't convert Symbol into String):
+  app/controllers/users_controller.rb:80:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (262.0ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:37:51) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (4.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:37:51', "perishable_token" = 'qbnAGwhJAIvHVknrfA2F', "last_request_at" = '2010-12-13 01:37:51' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (1.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (1.9ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.7ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mBookmark Load (0.2ms)[0m   [0;1mSELECT * FROM "bookmarks" WHERE ("bookmarks".user_id = 10) [0m
+Rendered users/_show (170.2ms)
+Completed in 362ms (View: 173, DB: 10) | 200 OK [http://localhost/users/10]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:38:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (1.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:38:16', "perishable_token" = 'VAEKiogtkQkynISnnr', "last_request_at" = '2010-12-13 01:38:16' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (1.7ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.8ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @user.followed.type %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (248.4ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:38:30) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (2.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:38:30', "perishable_token" = 's5bscgo1AQxfWMvFKmfe', "last_request_at" = '2010-12-13 01:38:30' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.6ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.7ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @user.followed %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (137.2ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:38:34) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (1.1ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:38:35', "perishable_token" = 'COZvFGGb5uK6RNz1C3JC', "last_request_at" = '2010-12-13 01:38:35' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mSong Load (1.9ms)[0m   [0;1mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;35;1mPlaylist Load (0.3ms)[0m   [0mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @user.followed %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (119.2ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:39:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.8ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:39:27', "perishable_token" = 'HemGZGQk5dshs5jkIUfh', "last_request_at" = '2010-12-13 01:39:27' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.7ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (0.8ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @user.followed %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (233.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlaylistsController#my (for 127.0.0.1 at 2010-12-12 17:39:28) [POST]
+  Parameters: {"action"=>"my", "controller"=>"playlists"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-12-13 01:39:28', "perishable_token" = 'aorfHJ4pJzqI4ySR34r', "last_request_at" = '2010-12-13 01:39:28' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+Rendering template within layouts/application
+Rendering playlists/my
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+  [4;36;1mPlaylist Load (0.9ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+  [4;35;1mSong Load (0.5ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs".id = "playlistsongs".song_id WHERE (("playlistsongs".playlist_id = 6)) [0m
+Completed in 201ms (View: 71, DB: 4) | 200 OK [http://localhost/playlists/my]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 17:39:31) [GET]
+  Parameters: {"action"=>"show", "id"=>"10", "controller"=>"users"}
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '10') LIMIT 1[0m
+  [4;35;1mUser Update (0.9ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 01:39:31', "perishable_token" = 'dkwZxb1UeTktEu37NMb', "last_request_at" = '2010-12-13 01:39:31' WHERE "id" = 10[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mSong Load (1.8ms)[0m   [0mSELECT "songs".* FROM "songs" INNER JOIN "usersongs" ON "songs".id = "usersongs".song_id WHERE (("usersongs".user_id = 10)) [0m
+  [4;36;1mPlaylist Load (2.0ms)[0m   [0;1mSELECT * FROM "playlists" WHERE ("playlists".user_id = 10) [0m
+Rendering template within layouts/application
+Rendering users/show
+
+ActionView::TemplateError (can't convert Symbol into String) on line #50 of app/views/users/_show.html.erb:
+47: </ul>
+48: <%end%>
+49: 
+50: <%= @user.followed %>
+51: 
+52: 
+53: <div class="profile" id="bookmarks">
+
+    app/views/users/_show.html.erb:50
+    app/views/users/show.html.erb:1
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (274.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;35;1mFollowedUser Load (0.4ms)[0m   [0mSELECT * FROM "followed_users" WHERE ("followed_users".followed_id = 10) [0m
+  [4;36;1mFollowedUser Load (1.6ms)[0m   [0;1mSELECT * FROM "followed_users" WHERE ("followed_users".subscriber_id = 10) [0m

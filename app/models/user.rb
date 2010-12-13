@@ -10,17 +10,14 @@ class User < ActiveRecord::Base
   has_many :songs, :through => :usersongs 
   has_many :playlists
   has_many :followed_users
-  has_many :follows,      {:class_name => :users,
-                          :through => :followed_users,
-                          :foreign_key => :user_id}
+  has_many :followed,      {:class_name => "FollowedUser",
+                           :foreign_key => "followed_id"}
 
-  has_many :subscribers, {:class_name => :users,
-                          :through => :followed_users,
-                          :foreign_key => :followed_user_id}
+  has_many :subscribers,  {:class_name => "FollowedUser",
+                           :foreign_key => "subscriber_id"}
   
   
   has_attached_file :photo,
-     #:default_url => '/images/default.jpg',
      :storage => :s3,
      :s3_credentials => { :access_key_id     => ENV['S3_KEY'], 
                         :secret_access_key => ENV['S3_SECRET'] },
