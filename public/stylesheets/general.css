@@ -177,6 +177,7 @@ display: block;
 width:99%;
 height:20px;
 padding-top: 10px;
+padding-bottom:5px;
 padding-left: 10px;
 margin:0px;
 	background: #8b8b8b; /* for non-css3 browsers */

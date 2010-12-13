@@ -14,71 +14,122 @@
 <div class="profile" id="info">
   <%= @user.bio %>
 </div>
-<div class="profile" id="songs">
-<span> 
-  <a href="#" onclick="var listElementStyle=document.getElementById('song_list').style; var buttonSource=document.getElementById('song_expand'); if(listElementStyle.display=='none'){Effect.Appear('song_list', {duration:0}); buttonSource.setAttribute('src','images/toggleDLminus.gif');} else {Effect.Fade('song_list',{duration:0}).style; buttonSource.setAttribute('src','images/toggleDLplus.gif');}"> <img id="song_expand" style="border:none;float:left" src="images/toggleDLplus.gif"></img></a>
-<div class="section_title"><%="Songs by "+@user.name%></div> 
-</span>
 
+<div class="profile" id="songs">
 <% if not @songs.nil? %>
-  <ul style="display:none" class="music_list" id="song_list">
-    <% @songs.each do |song| %>
-      <li class="song_element">
-	<%=link_to_remote song.name, {:url=>'/songs/show/'+song.id.to_s, :update=>'main_content'}%><%=song.makePlayer%>
-      </li>
-    <% end %>
-  </ul>
-<%end%>
+<h3><span> 
+<a href="#" onclick="var listElementStyle=document.getElementById('song_list').style; var buttonSource=document.getElementById('song_expand'); if(listElementStyle.display=='none'){Effect.Appear('song_list', {duration:0}); buttonSource.setAttribute('src','images/toggleDLminus.gif');} else {Effect.Fade('song_list',{duration:0}).style; buttonSource.setAttribute('src','images/toggleDLplus.gif');}"><%="Songs by "+@user.name%><img id="song_expand" style="border:none;float:left" src="images/toggleDLminus.gif"></img></a> 
+</span>
 <% if @current_user && @user.id == @current_user.id %>
-    <p><%=link_to_remote 'Add a song', {:url=>'/Songs/new', :update=>'main_content'} %>
+    <div style="display:inline; float:right;"><%=link_to_remote '<span>Add a song</span>', {:url=>'/Songs/new', :update=>'main_content'}, :class=>"button" %></div>
+<%end%>
+</h3>
+<table class="lister" id='song_list'>
+		<tr class="head">
+		<th>Song Name</th>
+		<th>Album</th>
+		<th>Genre</th>
+		<th>Rating</th>
+		<th></th>
+		</tr>
+		<% @class = 'o' %>
+		<% @songs.each do |s| %>
+			<tr class="<%=@class%>">
+			<td class="name">
+			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%=s.album%>
+			</td>
+			<td class="att">
+			<%=s.genre%>
+			</td>
+			<td class="att">
+			<%= s.ratingString %>
+			</td>
+			<td class="control">
+			<%=s.makePlayer%>
+			</td>
+			</tr>
+			<%if @class=='o'%>
+				<% @class='e' %>
+			<% else %>
+				<% @class='o' %>
+			<% end %>
+		<% end %>
+	</table>
 <%end%>
 </div>
-</p>
+
 <div class="profile" id="playlists">
+
+<% if not @playlists.nil? %>
+<h3>
 <span>
-  <a href="#" onclick="var listElementStyle=document.getElementById('pl_list').style; var buttonSource=document.getElementById('pl_expand'); if(listElementStyle.display=='none'){Effect.Appear('pl_list', {duration:0}); buttonSource.setAttribute('src','images/toggleDLminus.gif');} else {Effect.Fade('pl_list',{duration:0}).style; buttonSource.setAttribute('src','images/toggleDLplus.gif');}"> <img id="pl_expand" style="border:none;float:left" src="images/toggleDLplus.gif"></img></a>
-<div class="section_title"><%="Playlists by "+@user.name%></div>
+  <a href="#" onclick="var listElementStyle=document.getElementById('pl_list').style; var buttonSource=document.getElementById('pl_expand'); if(listElementStyle.display=='none'){Effect.Appear('pl_list', {duration:0}); buttonSource.setAttribute('src','images/toggleDLminus.gif');} else {Effect.Fade('pl_list',{duration:0}).style; buttonSource.setAttribute('src','images/toggleDLplus.gif');}"><%="Playlists by "+@user.name%><img id="pl_expand" style="border:none;float:left" src="images/toggleDLminus.gif"></img></a>
 </span>
 <% if @current_user && @user.id == @current_user.id %>
-<p><%=link_to_remote 'Make a new playlist', {:url=>'/Playlists/new', :update=>'main_content'}%></p>
+<div style="display:inline; float:right;"><%=link_to_remote '<span>Add a new playlist</span>', {:url=>'/Playlists/new', :update=>'main_content'}, :class=>"button"%></div>
 <%end%>
-<% if not @playlists.nil? %>
-<ul class="music_list" id="pl_list" style="display:none">
-  <% @playlists.each do |pl| %>
-    <li class="pl_element">
-		<%=link_to_remote pl.name, {:url=>'/Playlists/show/'+pl.id.to_s, :update=>'main_content'}%>
-	</li>
-  <% end %>
-</ul>
+</h3>
+<table class="lister" id="pl_list">
+		<tr class="head">
+		<th>Playlist Name</th>
+		<th>Rating</th>
+		<th></th>
+		</tr>
+<% @class = 'o' %>
+		<% @playlists.each do |s| %>
+			<tr class="<%=@class%>">
+			<td class="name">
+			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%= s.ratingString %>
+			</td>
+			<td class="control">
+			<%=s.renderRow%>
+			</td>
+			</tr>
+			<%if @class=='o'%>
+				<% @class='e' %>
+			<% else %>
+				<% @class='o' %>
+			<% end %>
+		<% end %>
+	</table>
 <%end%>
 
-<h2>Artists <%=h @user.name %> is a fan of: </h2>
+<h3>Artists <%=h @user.name %> is a fan of: 
+<div style="display:inline; float:right;">
+   <%= link_to_remote "<span>Show All</span>", {:url=>'/users/subscribers/'+@user.id.to_s, :update=>'subscribers', :method=>'get'}, :class=>"button"  %>
+</div></h3>
 <div id="subscribers">
   <%if @user.subscribers.size == 0 %>
      <p><%= @user.name %> has not become a fan of anyone yet.</p>
    <% else %>
    <% @disp_users = @user.subscribers[0..[@user.subscribers.size-1,10].min] %>
    <%= render(:partial => '/users/user_dump', :locals => {:disp_users => @disp_users, :mode => :subscribers}) %>
-   <%= link_to_remote "<span>Show All</span>", {:url=>'/users/subscribers/'+@user.id.to_s, :update=>'subscribers', :method=>'get'}, :class=>"button"  %>
- </br></br>
    <%end%>
 </div>
 
-<h2>Fans of <%=h @user.name %></h2>
+<h3>Fans of <%=h @user.name %>
+<div style="display:inline; float:right;">
+   <%= link_to_remote "<span>Show All</span>", {:url=>'/users/followed/'+@user.id.to_s, :update=>'followed', :method=>'get'}, :class=>"button"  %></br></br>
+</div></h3>
 <div id="followed">
   <%if @user.followed.size == 0 %>
      <p>Nobody has become a fan of <%= @user.name %> yet.</p>
    <% else %>
    <% @disp_users = @user.followed[0..[@user.followed.size-1,10].min] %>
    <%= render(:partial => '/users/user_dump', :locals => {:disp_users => @disp_users, :mode => :followed}) %>
-   <%= link_to_remote "<span>Show All</span>", {:url=>'/users/followed/'+@user.id.to_s, :update=>'followed', :method=>'get'}, :class=>"button"  %></br></br>
    <%end%>
  
 </div>
 
 
 <div class="profile" id="bookmarks">
-<h2><%=@user.name+'\'s Bookmarks:' %></h2>
+<h3><%=@user.name+'\'s Bookmarks:' %></h3>
 <% if not @bookmarks.nil? %>
 <ul class="music_list" id="bm_list">
   <% @bookmarks.each do |bk| %>
