@@ -1,6 +1,7 @@
 <h1>Welcome to Project Jukebox!</h1>
 
 (put fancy shiny graphics here, maybe screen caps once we have a pretty style)</p>
+<div class="comment">
 <% @actions.each do |a| %>
 
   <% if a[:action]=="comment" %>
@@ -13,20 +14,25 @@
     <% obj_url = "/"+(a[:obj_type]=="playlist"?"playlists":"songs")+"/show/"+a[:obj].id.to_s %>
   <% end %>
 
-
-
 <div class="comment">
-    <li class="comment_element"><img class="thumb" height="50" width="50" src=<%= a[:user].photo.url(:thumb)%>><%=link_to_remote(a[:user].name,{:url =>'/users/show/'+a[:user].id.to_s,:update=>'main_content'})%>
-  <%= time_elapsed_since(a[:created_at]) %>
-  <div class="comment_text">
-    <%=h print_event(a) %> 
-    <%=link_to_remote(obj_name,{:url =>obj_url,:update =>'main_content'})%> 
-    <% if a[:action] == "comment" %>
-      by <%=link_to_remote(creator.name,{:url =>'/users/show/'+creator.id.to_s,:update =>'main_content'})%> </p>
-      <%= a[:obj].text %>
-    <% end %>
-  </div>
-</li>
+	<img class="thumb" height="50" width="50" src=<%= a[:user].photo.url(:thumb)%>>
+                   <span class="main_status_content">
+                       <%=link_to_remote(a[:user].name,{:url =>'/users/show/'+a[:user].id.to_s,:update=>'main_content'}, :class=>"comment_name")%>
+					</span>
+					<span class="comment_desc">
+					   <%=h print_event(a) %> 
+					   <%=link_to_remote(obj_name,{:url =>obj_url,:update =>'main_content'})%> 
+						<% if a[:action] == "comment" %>
+							by <%=link_to_remote(creator.name,{:url =>'/users/show/'+creator.id.to_s,:update =>'main_content'})%>
+						<% end %>
+					</span>
+					<span class="main">
+						<%= a[:obj].text %>
+					</span>
+                   <span class="main_status_details">
+                       <%= time_elapsed_since(a[:created_at]) %> 
+					</span>
 </div>
-
+			   
 <% end %>
+</div>
