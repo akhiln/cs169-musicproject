@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>app/controllers/song_rating_controller.rb</title>
+    <title>app/controllers/followed_user_controller.rb</title>
     <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
     <link href="print.css" media="print" rel="stylesheet" type="text/css" />
     
@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Cs169 Musicproject C0 Coverage Information - RCov</h1>
-    <h2>app/controllers/song_rating_controller.rb</h2>
+    <h2>app/controllers/followed_user_controller.rb</h2>
 
     
 
@@ -27,18 +27,18 @@
         </thead>
         <tbody>
           <tr>
-            <td class="left_align"><a href="app-controllers-song_rating_controller_rb.html">app/controllers/song_rating_controller.rb</a></td>
-            <td class='right_align'><tt>31</tt></td>
-            <td class='right_align'><tt>29</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>19.35%</tt></div>
+            <td class="left_align"><a href="app-controllers-followed_user_controller_rb.html">app/controllers/followed_user_controller.rb</a></td>
+            <td class='right_align'><tt>36</tt></td>
+            <td class='right_align'><tt>32</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>19.44%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:19px"></div>
             <div class="uncovered" style="width:81px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>13.79%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>12.50%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:14px"></div>
-            <div class="uncovered" style="width:86px"></div>
+            <div class="covered" style="width:13px"></div>
+            <div class="uncovered" style="width:87px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -57,7 +57,7 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line1">1</a> class SongRatingController &lt; ApplicationController</pre></td>
+            <td><pre><a name="line1">1</a> class FollowedUserController &lt; ApplicationController</pre></td>
           </tr>
         
           
@@ -81,163 +81,193 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line5">5</a>     @song_rating = SongRating.new</pre></td>
+            <td><pre><a name="line5">5</a>     @followed_user = FollowedUser.new</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line6">6</a>     @song = Song.find(params[:song_id])</pre></td>
+            <td><pre><a name="line6">6</a>     @followed_user.followed_id = params[:followed_id]</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line7">7</a>     respond_to do |format|</pre></td>
+            <td><pre><a name="line7">7</a>     @follows = User.find(params[:followed_id])</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line8">8</a>        format.html</pre></td>
+            <td><pre><a name="line8">8</a>     respond_to do |format|</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line9">9</a>        format.xml   { render :xml =&gt; @song_rating }</pre></td>
+            <td><pre><a name="line9">9</a>        format.html</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line10">10</a>     end</pre></td>
+            <td><pre><a name="line10">10</a>        format.xml   { render :xml =&gt; @followed_user }</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line11">11</a>   end</pre></td>
+            <td><pre><a name="line11">11</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line12">12</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line12">12</a> </pre></td>
+            <td><pre><a name="line13">13</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line14">14</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line13">13</a>   def create</pre></td>
+            <td><pre><a name="line15">15</a>   def create</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line14">14</a>     @song_rating = SongRating.find_by_user_id current_user.id</pre></td>
+            <td><pre><a name="line16">16</a>      @followed_user = FollowedUser.new(params[:followed_user]);</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line15">15</a>     if @song_rating == nil</pre></td>
+            <td><pre><a name="line17">17</a>      @follows = User.find(@followed_user.followed_id)</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line16">16</a>       @song_rating = SongRating.new(params[:song_rating])</pre></td>
+            <td><pre><a name="line18">18</a>      @confirm = false;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line17">17</a>     else</pre></td>
+            <td><pre><a name="line19">19</a>      @error_message = ''</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line18">18</a>       @song_rating.update_attributes(params[:song_rating])</pre></td>
+            <td><pre><a name="line20">20</a>      if @followed_user.subscriber_id == @followed_user.followed_id</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line19">19</a>     end</pre></td>
+            <td><pre><a name="line21">21</a>         @error_message = &quot;Sorry, you may not become a fan of yourself.&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line20">20</a>     @song_rating.user_id = current_user.id</pre></td>
+            <td><pre><a name="line22">22</a>      elsif FollowedUser.find(:first, :conditions =&gt; {:subscriber_id =&gt; @followed_user.subscriber_id, </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line21">21</a>     @song_rating.song_id = params[:song_id]</pre></td>
+            <td><pre><a name="line23">23</a>                                                      :followed_id =&gt; @followed_user.followed_id})</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line22">22</a>     @song = Song.find(params[:song_id])</pre></td>
+            <td><pre><a name="line24">24</a>         @error_message = &quot;You are already a fan of #{@follows.name}.&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line23">23</a>     @confirm = @song_rating.save</pre></td>
+            <td><pre><a name="line25">25</a>      else</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line24">24</a> 	if @confirm</pre></td>
+            <td><pre><a name="line26">26</a>      	@confirm = @followed_user.save</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line25">25</a>       @song.updateRating</pre></td>
+            <td><pre><a name="line27">27</a>         if @confirm</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line26">26</a>     else</pre></td>
+            <td><pre><a name="line28">28</a>           @action = Action.new :user_id =&gt;current_user.id, :action =&gt;&quot;create&quot;, :obj_type =&gt;&quot;subscription&quot;, </pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line27">27</a>       @song.updateRating</pre></td>
+            <td><pre><a name="line29">29</a>                                                                               :obj_id =&gt;@followed_user.id</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line28">28</a>       SongRating.delete(@song_rating.id)</pre></td>
+            <td><pre><a name="line30">30</a>           @action.save</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line29">29</a>     end</pre></td>
+            <td><pre><a name="line31">31</a>         end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line30">30</a>   end</pre></td>
+            <td><pre><a name="line32">32</a>         @error_message = &quot;An unknown error occured. Please try again.&quot;</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line31">31</a> end</pre></td>
+            <td><pre><a name="line33">33</a>      end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line34">34</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line35">35</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="uncovered">
+            <td><pre><a name="line36">36</a> end</pre></td>
           </tr>
         
       </tbody>

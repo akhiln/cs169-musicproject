@@ -28,8 +28,8 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-song_rb.html">app/models/song.rb</a></td>
-            <td class='right_align'><tt>53</tt></td>
-            <td class='right_align'><tt>47</tt></td>
+            <td class='right_align'><tt>90</tt></td>
+            <td class='right_align'><tt>79</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -159,7 +159,7 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line18">18</a>      :bucket =&gt; ENV['S3_BUCKET']  </pre></td>
+            <td><pre><a name="line18">18</a>      :bucket =&gt; ENV['S3_BUCKET'] </pre></td>
           </tr>
         
           
@@ -171,211 +171,433 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line20">20</a>   def makePlayer</pre></td>
+            <td><pre><a name="line20">20</a>   validates_attachment_presence :song</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line21">21</a>     &quot;&lt;a href=\&quot;#\&quot; onclick=\&quot;playListAdd(\'#{self.name}\', \'&quot; + song.url + &quot;\')\&quot;&gt;&lt;img src=\&quot;/images/add_button.jpeg\&quot; width=23 height=23 &gt;&lt;/a&gt;</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line22">22</a> 	&lt;a href=\&quot;#\&quot; onclick=\&quot;playListAddAndPlay(\'#{self.name}\', \'&quot; + song.url + &quot;\')\&quot;&gt;&lt;img src=\&quot;/images/play.png \&quot; &gt;&lt;/a&gt;&quot;</pre></td>
+            <td><pre><a name="line21">21</a>   validates_attachment_content_type :song, </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line23">23</a>   end</pre></td>
+            <td><pre><a name="line22">22</a>          :content_type =&gt; [ 'application/mp3', 'application/x-mp3', 'audio/mpeg', 'audio/mp3' ]</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line24">24</a> </pre></td>
+            <td><pre><a name="line23">23</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line25">25</a>   def renderRow</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line26">26</a> 	link = link_to_remote self.name, {:url=&gt;'/songs/show/'+self.id.to_s, :update=&gt;'main_content'}</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line27">27</a> 	return link</pre></td>
+            <td><pre><a name="line24">24</a>   validate :attempt_id3_read</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line28">28</a>   end</pre></td>
+            <td><pre><a name="line25">25</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line26">26</a>   def attempt_id3_read</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line27">27</a>      return true unless self.new_record?</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line28">28</a>      tmp_mp3 = Mp3Info.open(song.to_file.path)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line29">29</a>      new_attr = {}</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line30">30</a>      if tmp_mp3.tag.album</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line31">31</a>        update_attribute(:album, tmp_mp3.tag.album.to_s)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line32">32</a>      elsif tmp_mp3.tag1.album</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line33">33</a>        update_attribute(:album,tmp_mp3.tag1.album.to_s)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line29">29</a>   </pre></td>
+            <td><pre><a name="line34">34</a>      end</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line30">30</a>   def ratingString</pre></td>
+            <td><pre><a name="line35">35</a>      if tmp_mp3.tag.title</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line31">31</a>     if self.rating == nil</pre></td>
+            <td><pre><a name="line36">36</a>        update_attribute(:name, tmp_mp3.tag.title.to_s)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line32">32</a>       &quot;-&quot;</pre></td>
+            <td><pre><a name="line37">37</a>      elsif tmp_mp3.tag1.title</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line38">38</a>        update_attribute(:name, tmp_mp3.tag1.title.to_s)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line33">33</a>     else</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line34">34</a>       sprintf(&quot;%.2f&quot;, self.rating)</pre></td>
+            <td><pre><a name="line39">39</a>      end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line35">35</a>     end</pre></td>
+            <td><pre><a name="line40">40</a>      </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line41">41</a>      @genre = nil</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line42">42</a>      if tmp_mp3.tag.genre_s</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line43">43</a>        @genre = Genre.find_by_genre_name tmp_mp3.tag.genre_s.to_s</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line44">44</a>      elsif tmp_mp3.tag1.genre_s</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line45">45</a>        @genre = Genre.find_by_genre_name tmp_mp3.tag1.genre_s.to_s</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line36">36</a>   end</pre></td>
+            <td><pre><a name="line46">46</a>      end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line47">47</a>      if @genre</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line48">48</a>        update_attribute(:genre_id, @genre.id)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line49">49</a>      elsif @genre = Genre.find_by_genre_name(&quot;Other&quot;)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line50">50</a>        update_attribute(:genre_id, @genre.id)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line37">37</a>   </pre></td>
+            <td><pre><a name="line51">51</a>      end</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line38">38</a>   def updateRating</pre></td>
+            <td><pre><a name="line52">52</a>      tmp_mp3.close</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line39">39</a>     total = 0.0</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line40">40</a>     count = 0.0</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line41">41</a>     self.song_ratings.each do |song_rating|</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line42">42</a>       count = count + 1</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line43">43</a>       total = total + song_rating.rating</pre></td>
+            <td><pre><a name="line53">53</a>      true</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line44">44</a>     end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line45">45</a>     if count == 0</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line46">46</a>       self.rating = nil</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line47">47</a>       self.save</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line48">48</a>     elsif self.rating != total/count</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line49">49</a>       self.rating = total/count</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line50">50</a>       self.save</pre></td>
+            <td><pre><a name="line54">54</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line51">51</a>     end</pre></td>
+            <td><pre><a name="line55">55</a>   </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line52">52</a>   end</pre></td>
+            <td><pre><a name="line56">56</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line57">57</a>   def makePlayer</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line58">58</a>     &quot;&lt;a href=\&quot;#\&quot; onclick=\&quot;playListAdd(\'#{self.name}\', \'&quot; + song.url + &quot;\')\&quot;&gt;&lt;img src=\&quot;/images/add_button.jpeg\&quot; width=23 height=23 &gt;&lt;/a&gt;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line59">59</a> 	&lt;a href=\&quot;#\&quot; onclick=\&quot;playListAddAndPlay(\'#{self.name}\', \'&quot; + song.url + &quot;\')\&quot;&gt;&lt;img src=\&quot;/images/play.png \&quot; &gt;&lt;/a&gt;&quot;</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line53">53</a> end</pre></td>
+            <td><pre><a name="line60">60</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line61">61</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line62">62</a>   def renderRow</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line63">63</a> 	link = link_to_remote self.name, {:url=&gt;'/songs/show/'+self.id.to_s, :update=&gt;'main_content'}</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line64">64</a> 	return link</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line65">65</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line66">66</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line67">67</a>   def ratingString</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line68">68</a>     if self.rating == nil</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line69">69</a>       &quot;0.00&quot;</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line70">70</a>     else</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line71">71</a>       sprintf(&quot;%.2f&quot;, self.rating)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line72">72</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line73">73</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line74">74</a>   </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line75">75</a>   def updateRating</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line76">76</a>     total = 0.0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line77">77</a>     count = 0.0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line78">78</a>     self.song_ratings.each do |song_rating|</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line79">79</a>       count = count + 1</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line80">80</a>       total = total + song_rating.rating</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line81">81</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line82">82</a>     if count == 0</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line83">83</a>       self.rating = nil</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line84">84</a>       self.save</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line85">85</a>     elsif self.rating != total/count</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line86">86</a>       self.rating = total/count</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line87">87</a>       self.save</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line88">88</a>     end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line89">89</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line90">90</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Dec 12 15:21:37 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Dec 12 20:30:02 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

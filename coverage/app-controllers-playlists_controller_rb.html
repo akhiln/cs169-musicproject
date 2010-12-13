@@ -28,8 +28,8 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-controllers-playlists_controller_rb.html">app/controllers/playlists_controller.rb</a></td>
-            <td class='right_align'><tt>59</tt></td>
-            <td class='right_align'><tt>49</tt></td>
+            <td class='right_align'><tt>64</tt></td>
+            <td class='right_align'><tt>54</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -111,103 +111,103 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line10">10</a> 		@songs = @playlist.songs</pre></td>
+            <td><pre><a name="line10">10</a> 		@urlif = 'http://project-jukebox.heroku.com/index?url=/playlists/' + @playlist.id.to_s</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line11">11</a> 		@urlif &lt;&lt; '%26title='</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line12">12</a> 		@urlif &lt;&lt; @playlist.name</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line13">13</a> 		@songs = @playlist.songs</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line11">11</a> 	end</pre></td>
+            <td><pre><a name="line14">14</a> 	end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line12">12</a> 	</pre></td>
+            <td><pre><a name="line15">15</a> 	</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line13">13</a> 	def new</pre></td>
+            <td><pre><a name="line16">16</a> 	def new</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line14">14</a> 		@playlist = Playlist.new</pre></td>
+            <td><pre><a name="line17">17</a> 		@playlist = Playlist.new</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line15">15</a> 	end</pre></td>
+            <td><pre><a name="line18">18</a> 	end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line16">16</a> 	</pre></td>
+            <td><pre><a name="line19">19</a> 	</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line17">17</a> 	def create</pre></td>
+            <td><pre><a name="line20">20</a> 	def create</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line18">18</a> 		@playlist = Playlist.new(params[:playlist])</pre></td>
+            <td><pre><a name="line21">21</a> 		@playlist = Playlist.new(params[:playlist])</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line19">19</a> 		@playlist.user_id = current_user.id</pre></td>
+            <td><pre><a name="line22">22</a> 		@playlist.user_id = current_user.id</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line20">20</a> 		@playlist.save</pre></td>
+            <td><pre><a name="line23">23</a> 		@playlist.save</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line21">21</a> 		redirect_to(@playlist, :notice =&gt; 'Playlist was successfully created.')</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line22">22</a> 	end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line23">23</a> 	</pre></td>
+            <td><pre><a name="line24">24</a>           @action = Action.new :user_id =&gt; @playlist.user_id, :action =&gt;&quot;create&quot;, :obj_type =&gt;&quot;playlist&quot;, :obj_id =&gt; @playlist.id</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line24">24</a> 	def delete</pre></td>
+            <td><pre><a name="line25">25</a>           @action.save</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line25">25</a> 		Playlist.find(params[:id]).destroy</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line26">26</a> 		redirect_to(current_user)</pre></td>
+            <td><pre><a name="line26">26</a> 		redirect_to(@playlist, :notice =&gt; 'Playlist was successfully created.')</pre></td>
           </tr>
         
           
@@ -225,193 +225,223 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line29">29</a> 	def addsong</pre></td>
+            <td><pre><a name="line29">29</a> 	def delete</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line30">30</a> 		@song_id = params[:song_id]</pre></td>
+            <td><pre><a name="line30">30</a> 		Playlist.find(params[:id]).destroy</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line31">31</a> 		@song = Song.find(@song_id)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line32">32</a> 		@playlists = current_user.playlists</pre></td>
+            <td><pre><a name="line31">31</a> 		redirect_to(current_user)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line33">33</a> 	end</pre></td>
+            <td><pre><a name="line32">32</a> 	end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line34">34</a> 	</pre></td>
+            <td><pre><a name="line33">33</a> 	</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line35">35</a> 	def confirmaddsong</pre></td>
+            <td><pre><a name="line34">34</a> 	def addsong</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line36">36</a> 		song_id = params[:song_id]</pre></td>
+            <td><pre><a name="line35">35</a> 		@song_id = params[:song_id]</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line37">37</a> 		playlist_id = params[:playlist]</pre></td>
+            <td><pre><a name="line36">36</a> 		@song = Song.find(@song_id)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line38">38</a> 		plsong = Playlistsong.new</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line39">39</a> 		plsong.playlist_id = playlist_id</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line40">40</a> 		plsong.song_id = song_id</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line41">41</a> 		plsong.save</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line42">42</a> 		pl = Playlist.find(playlist_id)</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line43">43</a> 		redirect_to(pl, :notice =&gt; 'Playlist was successfully created.')</pre></td>
+            <td><pre><a name="line37">37</a> 		@playlists = current_user.playlists</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line44">44</a> 	end</pre></td>
+            <td><pre><a name="line38">38</a> 	end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line45">45</a>         </pre></td>
+            <td><pre><a name="line39">39</a> 	</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line46">46</a>   def popular</pre></td>
+            <td><pre><a name="line40">40</a> 	def confirmaddsong</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line47">47</a>     @playlists = Playlist.find(:all, :readonly, :limit =&gt; 100, :order =&gt; &quot;rating DESC&quot;)</pre></td>
+            <td><pre><a name="line41">41</a> 		song_id = params[:song_id]</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line48">48</a>     @playlists.shuffle!    </pre></td>
+            <td><pre><a name="line42">42</a> 		playlist_id = params[:playlist]</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line43">43</a> 		plsong = Playlistsong.new</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line44">44</a> 		plsong.playlist_id = playlist_id</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line45">45</a> 		plsong.song_id = song_id</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line46">46</a> 		@confirm = plsong.save</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line47">47</a> 		@pl = Playlist.find(playlist_id)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line48">48</a> 		@song = Song.find(song_id)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line49">49</a>   end</pre></td>
+            <td><pre><a name="line49">49</a> 	end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line50">50</a> </pre></td>
+            <td><pre><a name="line50">50</a>         </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line51">51</a>   def my</pre></td>
+            <td><pre><a name="line51">51</a>   def popular</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line52">52</a>     @playlists = current_user.playlists</pre></td>
+            <td><pre><a name="line52">52</a>     @playlists = Playlist.find(:all, :readonly, :limit =&gt; 100, :order =&gt; &quot;rating DESC&quot;)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line53">53</a>     respond_to do |format|</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line54">54</a>       format.html   #Akhil makes it pretty</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line55">55</a>       format.xml   { render :xml =&gt; @playlists }</pre></td>
+            <td><pre><a name="line53">53</a>     @playlists.shuffle!    </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line56">56</a>     end</pre></td>
+            <td><pre><a name="line54">54</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line57">57</a>   end</pre></td>
+            <td><pre><a name="line55">55</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line56">56</a>   def my</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line57">57</a>     @playlists = current_user.playlists</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line58">58</a>     respond_to do |format|</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line59">59</a>       format.html   #Akhil makes it pretty</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line60">60</a>       format.xml   { render :xml =&gt; @playlists }</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line58">58</a> </pre></td>
+            <td><pre><a name="line61">61</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line59">59</a> end</pre></td>
+            <td><pre><a name="line62">62</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line63">63</a> </pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line64">64</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Dec 12 15:21:36 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Dec 12 20:30:01 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

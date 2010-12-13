@@ -28,17 +28,17 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-controllers-playlist_rating_controller_rb.html">app/controllers/playlist_rating_controller.rb</a></td>
-            <td class='right_align'><tt>33</tt></td>
             <td class='right_align'><tt>31</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>18.18%</tt></div>
+            <td class='right_align'><tt>29</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>19.35%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:18px"></div>
-            <div class="uncovered" style="width:82px"></div>
+            <div class="covered" style="width:19px"></div>
+            <div class="uncovered" style="width:81px"></div>
           </div></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>12.90%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>13.79%</tt></div>
           <div class="percent_graph">
-            <div class="covered" style="width:13px"></div>
-            <div class="uncovered" style="width:87px"></div>
+            <div class="covered" style="width:14px"></div>
+            <div class="uncovered" style="width:86px"></div>
           </div></td>
           </tr>
         </tbody>
@@ -189,19 +189,19 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line23">23</a>     if @playlist_rating.save</pre></td>
+            <td><pre><a name="line23">23</a>     @confirm = @playlist_rating.save</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line24">24</a>       @playlist.updateRating</pre></td>
+            <td><pre><a name="line24">24</a> 	if @confirm</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line25">25</a>       redirect_to(@playlist, :notice =&gt; 'Rating was successfully created.')</pre></td>
+            <td><pre><a name="line25">25</a>       @playlist.updateRating</pre></td>
           </tr>
         
           
@@ -225,37 +225,25 @@
           
           
           <tr class="uncovered">
-            <td><pre><a name="line29">29</a>       format.html { render :action =&gt; &quot;new&quot;, :error =&gt; 'Your rating could not be saved. Please try again.'}</pre></td>
+            <td><pre><a name="line29">29</a>     end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line30">30</a>       format.xml  { render :xml =&gt; @playlist.errors, :status =&gt; :unprocessable_entity }</pre></td>
+            <td><pre><a name="line30">30</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="uncovered">
-            <td><pre><a name="line31">31</a>     end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line32">32</a>   end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="uncovered">
-            <td><pre><a name="line33">33</a> end</pre></td>
+            <td><pre><a name="line31">31</a> end</pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Sun Dec 12 15:21:36 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Sun Dec 12 20:30:01 -0800 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

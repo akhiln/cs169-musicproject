@@ -70,7 +70,14 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  def subscribers
+    @user = User.find(params[:id])
+  end
 
+  def followed
+    @user = User.find(params[:id])
+  end
 
   def show
     params[:id] ||= current_user.id

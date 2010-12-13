@@ -332,6 +332,7 @@ padding-left:15px;
 list-style-type:none;
 }
 
+
 ul.genre{
 	list-style-type:none;
 	margin:0;
@@ -344,6 +345,12 @@ ul.genre{
 	text-align:left;
 }
 ul.genre a{
+font-family: Arial, Helvetica, sans-serif;
+font-size:14px;
+color: #3B5998;
+text-decoration: none;
+}
+div.user_dump a {
 font-family: Arial, Helvetica, sans-serif;
 font-size:14px;
 color: #3B5998;
@@ -372,5 +379,9 @@ ul.genre li{
 p {
 font-family: Arial, Helvetica, sans-serif;
 font-size:14px;
+}
+div.user_in_dump {
+ text-align: center;
+ width: 50px;
 }
 

@@ -59,3 +59,51 @@ describe Song, "generate a string representation of the song's rating" do
   end
 end
 
+describe Song, "Validate and parse id3 tags" do
+  before (:each) do
+    auth_login
+    Genre.create!(:genre_name=>"Rock")
+    Genre.create!(:genre_name=>"Other")
+    @song = Song.new
+    @to_file = mock('to_file')
+    @to_file.stub!(:path).and_return("#{RAILS_ROOT}/spec/helpers/upload_files/52")
+    @song_song = mock('song_song')
+    @song_song.stub!(:to_file).and_return(@to_file)
+    @song.stub!(:song).and_return(@song_song)
+    @song.stub!(:new_record?).and_return(true)
+    @song.stub!(:save).and_return(true)
+  end
+  
+  it "should be valid if it isn't a new upload" do
+    @song.stub!(:new_record?).and_return(false)
+    @song.attempt_id3_read.should == true
+  end
+  
+  it "should properly parse the id3 tags" do
+    @song.attempt_id3_read.should == true
+    @song.name.should == "Intro"
+    @song.genre.genre_name.should == "Rock"
+    @song.album.should == "Conspiracy of One"
+  end
+  
+  it "should default to the Other genre" do
+    @to_file.stub!(:path).and_return("#{RAILS_ROOT}/spec/helpers/upload_files/53")  #53 is the same file, but with a genre of Polka instead of Rock
+    @song.attempt_id3_read.should == true
+    @song.name.should == "Intro"
+    @song.genre.genre_name.should == "Other"
+    @song.album.should == "Conspiracy of One"
+  end
+
+  
+  it "should properly parse id3 tag1 when tag is unavailable" do
+    temp = Mp3Info.open("#{RAILS_ROOT}/spec/helpers/upload_files/52")
+    temp.stub!(:tag1).and_return(temp.tag)
+    temp.stub!(:tag).and_return(mock('tag', {:album=>nil, :title=>nil, :genre_s=>nil}))
+    Mp3Info.stub!(:open).and_return(temp)
+    @song.attempt_id3_read.should == true
+    @song.name.should == "Intro"
+    @song.genre.genre_name.should == "Rock"
+    @song.album.should == "Conspiracy of One"
+  end
+end
+
