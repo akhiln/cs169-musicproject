@@ -17,7 +17,10 @@ class IndexController < ApplicationController
     render :partial => 'index/auth_home'
  end
   
-
+ def no_auth_home
+    @actions = list_of_general_actions
+    render :partial => 'index/no_auth_home'
+ end
   private
   def list_of_user_actions()
     Action.find(:all,:readonly, :limit => 20, :order => "created_at DESC", :conditions =>["user_id = ?",current_user.id])
