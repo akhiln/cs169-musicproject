@@ -5,7 +5,16 @@
 <%end%>
 
 <div class="comment">
-    <li class="comment_element"><img class="thumb" height="50" width="50" src=<%=comment.user.photo.url(:thumb)%>><%=link_to_remote(comment.user.name,{:url =>'/users/show/'+comment.user.id.to_s,:update=>'main_content'})%><div class="comment_text"><%=h comment.text %></div>
-
-</li>
+    <li class="comment_element">
+		<img class="thumb" height="50" width="50" src=<%=comment.user.photo.url(:thumb)%>>
+		<span class="main_status_content">
+		<%=link_to_remote(comment.user.name,{:url =>'/users/show/'+comment.user.id.to_s,:update=>'main_content'})%>
+		</span>
+		<span class="main">
+			<%=h comment.text %>
+		</span>
+		<span class="main_status_details">
+                       <%= time_elapsed_since(comment.created_at) %> 
+		</span>
+	</li>
 </div>
