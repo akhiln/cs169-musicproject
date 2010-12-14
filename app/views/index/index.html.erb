@@ -62,7 +62,11 @@ function clientSideInclude(id, url) {
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <script src="scripts/lightbox.js"></script>
 <script type="text/javascript">
-<!--
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
 var lbox;
 $j(document).ready(function(){
   FB.init({
@@ -121,9 +125,14 @@ $j(document).ready(function(){
 		$j("#jplayer_playlist ul").empty();
 		for (i=0; i < myPlayList.length; i++) {
 			var listItem = (i == myPlayList.length-1) ? "<li class='jplayer_playlist_item_last'>" : "<li>";
-			listItem += "<a href='#' id='jplayer_playlist_item_"+i+"' tabindex='1'>"+ myPlayList[i].name +"</a></li>";
+			listItem += "<a href='#' id='jplayer_playlist_item_"+i+"' tabindex='1'>"+ myPlayList[i].name +"</a>";
+			listItem += "<div style='display:inline; float:right; padding-left:5px'>";
+			listItem += "<a href='#' id='jplayer_playlist_item_down"+i+"' tabindex='1'><img style='padding-right:5px' src='images/playlist-down.gif'></a>";
+			listItem += "<a href='#' id='jplayer_playlist_item_up"+i+"' tabindex='1'><img style='padding-right:5px' src='images/playlist-up.gif'></a>";
+			listItem += "<a href='#' id='jplayer_playlist_item_del"+i+"' tabindex='1'><img style='padding-right:5px' width='13px' height='15px' src='images/icon_trash.gif'></a>";
+			listItem += "</div></li>";
 			$j("#jplayer_playlist ul").append(listItem);
-      $j("#jplayer_playlist_item_"+playItem).addClass("jplayer_playlist_current").parent().addClass("jplayer_playlist_current");
+			$j("#jplayer_playlist_item_"+playItem).addClass("jplayer_playlist_current").parent().addClass("jplayer_playlist_current");
 			$j("#jplayer_playlist_item_"+i).data( "index", i ).click( function() {
 				var index = $j(this).data("index");
 				if (playItem != index) {
@@ -134,12 +143,52 @@ $j(document).ready(function(){
 				$j(this).blur();
 				return false;
 			});
-		}
-		//$('current').innerHTML = 'Currently Playing: ' + myPlayList[playItem].name;
-		var nextIndex = (playItem+1 < myPlayList.length) ? playItem+1 : 0;
-    //$('nextP').innerHTML = 'Next: ' + myPlayList[nextIndex].name;
-	}
+			$j("#jplayer_playlist_item_down"+i).data( "index", i ).click( function() {
+			    var index = $j(this).data("index");
+				if(myPlayList.length > 1 && index < myPlayList.length-1) {
+					var tempIT = myPlayList[index+1];
+					myPlayList[index+1] = myPlayList[index];
+					myPlayList[index] = tempIT;
+					if(index == playItem) {
+						playItem = index+1;
+					}
+					displayPlayList();
+				}
+				return false;
+			});
+			$j("#jplayer_playlist_item_up"+i).data( "index", i ).click( function() {
+				var index = $j(this).data("index");
+				if(myPlayList.length > 1 && index > 0) {
+					var tempIT = myPlayList[index-1];
+					myPlayList[index-1] = myPlayList[index];
+					myPlayList[index] = tempIT;
+					if(index == playItem) {
+						playItem = index-1;
+					}
+					displayPlayList();
+				}
+				return false;
+			});
+			$j("#jplayer_playlist_item_del"+i).data( "index", i ).click( function() {
+				var index = $j(this).data("index");
 
+				if(myPlayList.length > index && index >= 0) {
+					myPlayList.splice(index,1);
+					if(index == playItem) {
+						$j("#jquery_jplayer").jPlayer("stop");
+						if (myPlayList.length > 0) {
+							playItem = (index+1 < myPlayList.length) ? index+1 : 0;
+						}
+					} else if (playItem >= myPlayList.length) {
+						playItem = playItem -1;
+					}
+					displayPlayList();
+				}
+				return false;
+			});
+		}
+		var nextIndex = (playItem+1 < myPlayList.length) ? playItem+1 : 0;
+	}
 	function playListInit(autoplay) {
 		if(autoplay) {
 			playListChange( playItem );

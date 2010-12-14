@@ -55,7 +55,7 @@ class Song < ActiveRecord::Base
   
 
   def makePlayer
-    "<a href=\"#\" onclick=\"playListAdd(\'#{self.name}\', \'" + song.url + "\')\"><img src=\"/images/add_button.jpeg\" width=23 height=23 ></a>
+    "<a href=\"#\" onclick=\"playListAdd(\'#{self.name}\', \'" + song.url + "\')\"><img src=\"/images/add_button.gif\" width=23 height=23 ></a>
 	<a href=\"#\" onclick=\"playListAddAndPlay(\'#{self.name}\', \'" + song.url + "\')\"><img src=\"/images/play.png \" ></a>"
   end
 
