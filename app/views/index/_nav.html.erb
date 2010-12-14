@@ -17,7 +17,9 @@
 				<%= link_to_remote "Browse", {:url=>browse_path(), :update => 'main_content'} %>
 			</li>
 		<li>
-                <input id="query" name="search" type="text" value="" autocomplete="off">
+				<div id="search_box">
+                <input id="query" name="search" type="text" value="Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;" autocomplete="off" class="search_text">
+				</div>
 
     
                 <%= observe_field 'query',  :frequency => 1,
