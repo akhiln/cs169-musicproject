@@ -156,6 +156,8 @@ $j(document).ready(function(){
 					myPlayList[index] = tempIT;
 					if(index == playItem) {
 						playItem = index+1;
+					} else if (index+1 == playItem) {
+						playItem = index;
 					}
 					displayPlayList();
 				}
@@ -169,6 +171,8 @@ $j(document).ready(function(){
 					myPlayList[index] = tempIT;
 					if(index == playItem) {
 						playItem = index-1;
+					} else if (index-1 == playItem) {
+						playItem = index;
 					}
 					displayPlayList();
 				}
@@ -182,7 +186,7 @@ $j(document).ready(function(){
 					if(index == playItem) {
 						$j("#jquery_jplayer").jPlayer("stop");
 						if (myPlayList.length > 0) {
-							playItem = (index+1 < myPlayList.length) ? index+1 : 0;
+							playItem = (playItem < myPlayList.length) ? index : 0;
 							$j("#jquery_jplayer").jPlayer("setFile", myPlayList[playItem].mp3);
 						} else {
 							playItem = 0;
@@ -259,7 +263,7 @@ $j(document).ready(function(){
 <body bgcolor="#2E2E2E">
 <div id="main" style="margin-left:auto; margin-right:auto; background-color:white">
 	<div id="app_header">
-		<%= image_tag "logo.gif", :align=>"left" %>
+		<%= image_tag "logo.gif", :align=>"left", :height=>"90" %>
 		<div id="login_links">
 			<%= render(:partial => '/index/login_links', :locals => { :current_user => current_user }) %>
 		</div>
