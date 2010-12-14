@@ -62,7 +62,11 @@ function clientSideInclude(id, url) {
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <script src="scripts/lightbox.js"></script>
 <script type="text/javascript">
-<!--
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
 var lbox;
 $j(document).ready(function(){
   FB.init({
@@ -120,10 +124,20 @@ $j(document).ready(function(){
 	function displayPlayList() {
 		$j("#jplayer_playlist ul").empty();
 		for (i=0; i < myPlayList.length; i++) {
+			if (myPlayList[i].name.length > 30) {
+				var name = myPlayList[i].name.substring(0,27)+"...";
+			} else {
+				var name = myPlayList[i].name;
+			}
 			var listItem = (i == myPlayList.length-1) ? "<li class='jplayer_playlist_item_last'>" : "<li>";
-			listItem += "<a href='#' id='jplayer_playlist_item_"+i+"' tabindex='1'>"+ myPlayList[i].name +"</a></li>";
+			listItem += "<a href='#' id='jplayer_playlist_item_"+i+"' tabindex='1'>"+ name +"</a>";
+			listItem += "<div style='display:inline; float:right; padding-left:5px'>";
+			listItem += "<a href='#' id='jplayer_playlist_item_down"+i+"' tabindex='1'><img style='padding-right:5px' src='images/playlist-down.gif'></a>";
+			listItem += "<a href='#' id='jplayer_playlist_item_up"+i+"' tabindex='1'><img style='padding-right:5px' src='images/playlist-up.gif'></a>";
+			listItem += "<a href='#' id='jplayer_playlist_item_del"+i+"' tabindex='1'><img style='padding-right:5px' width='13px' height='15px' src='images/icon_trash.gif'></a>";
+			listItem += "</div></li>";
 			$j("#jplayer_playlist ul").append(listItem);
-      $j("#jplayer_playlist_item_"+playItem).addClass("jplayer_playlist_current").parent().addClass("jplayer_playlist_current");
+			$j("#jplayer_playlist_item_"+playItem).addClass("jplayer_playlist_current").parent().addClass("jplayer_playlist_current");
 			$j("#jplayer_playlist_item_"+i).data( "index", i ).click( function() {
 				var index = $j(this).data("index");
 				if (playItem != index) {
@@ -134,12 +148,60 @@ $j(document).ready(function(){
 				$j(this).blur();
 				return false;
 			});
-		}
-		//$('current').innerHTML = 'Currently Playing: ' + myPlayList[playItem].name;
-		var nextIndex = (playItem+1 < myPlayList.length) ? playItem+1 : 0;
-    //$('nextP').innerHTML = 'Next: ' + myPlayList[nextIndex].name;
-	}
+			$j("#jplayer_playlist_item_down"+i).data( "index", i ).click( function() {
+			    var index = $j(this).data("index");
+				if(myPlayList.length > 1 && index < myPlayList.length-1) {
+					var tempIT = myPlayList[index+1];
+					myPlayList[index+1] = myPlayList[index];
+					myPlayList[index] = tempIT;
+					if(index == playItem) {
+						playItem = index+1;
+					} else if (index+1 == playItem) {
+						playItem = index;
+					}
+					displayPlayList();
+				}
+				return false;
+			});
+			$j("#jplayer_playlist_item_up"+i).data( "index", i ).click( function() {
+				var index = $j(this).data("index");
+				if(myPlayList.length > 1 && index > 0) {
+					var tempIT = myPlayList[index-1];
+					myPlayList[index-1] = myPlayList[index];
+					myPlayList[index] = tempIT;
+					if(index == playItem) {
+						playItem = index-1;
+					} else if (index-1 == playItem) {
+						playItem = index;
+					}
+					displayPlayList();
+				}
+				return false;
+			});
+			$j("#jplayer_playlist_item_del"+i).data( "index", i ).click( function() {
+				var index = $j(this).data("index");
 
+				if(myPlayList.length > index && index >= 0) {
+					myPlayList.splice(index,1);
+					if(index == playItem) {
+						$j("#jquery_jplayer").jPlayer("stop");
+						if (myPlayList.length > 0) {
+							playItem = (playItem < myPlayList.length) ? index : 0;
+							$j("#jquery_jplayer").jPlayer("setFile", myPlayList[playItem].mp3);
+						} else {
+							playItem = 0;
+							$j("#jquery_jplayer").jPlayer("setFile", "");
+						}
+					} else if (playItem >= myPlayList.length) {
+						playItem = playItem -1;
+					}
+					displayPlayList();
+				}
+				return false;
+			});
+		}
+		var nextIndex = (playItem+1 < myPlayList.length) ? playItem+1 : 0;
+	}
 	function playListInit(autoplay) {
 		if(autoplay) {
 			playListChange( playItem );
@@ -201,7 +263,7 @@ $j(document).ready(function(){
 <body bgcolor="#2E2E2E">
 <div id="main" style="margin-left:auto; margin-right:auto; background-color:white">
 	<div id="app_header">
-		<%= image_tag "logo.gif", :align=>"left" %>
+		<%= image_tag "logo.gif", :align=>"left", :height=>"90" %>
 		<div id="login_links">
 			<%= render(:partial => '/index/login_links', :locals => { :current_user => current_user }) %>
 		</div>
