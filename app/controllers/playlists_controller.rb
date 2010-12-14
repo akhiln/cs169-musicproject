@@ -27,7 +27,10 @@ class PlaylistsController < ApplicationController
 	end
 	
 	def delete
-		Playlist.find(params[:id]).destroy
+		playlist = Playlist.find(params[:id])
+                actions = Action.find(:all, :conditions => {"obj_id = ? AND obj_type = ?",playlist.id.to_s,"playlist"})
+                actions.each {|act| act.destroy}
+                playlist.destroy
 		redirect_to(current_user)
 	end
 	
