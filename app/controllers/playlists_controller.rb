@@ -51,6 +51,8 @@ class PlaylistsController < ApplicationController
   def popular
     @playlists = Playlist.find(:all, :readonly, :limit => 100, :order => "rating DESC")
     @playlists.shuffle!    
+    @playlists = @playlists[0..[@playlists.size-1,20].min]
+    @playlists.sort! {|b,a| (a.rating.nil? ? 0.0 : a.rating.to_d) <=> (b.rating.nil? ? 0.0 : b.rating.to_d) }
   end
 
   def my
