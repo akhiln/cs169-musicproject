@@ -1,6 +1,6 @@
 
 <div id="update_info">
-<h1>Update Your Information</h1>
+<h2>Update Your Information</h2>
 
 <% form_for(@user, :url => '/Users/update/'+@user.id.to_s+'.js', :html => { :multipart => true, :target => 'upload_frame'}) do |update| %>
   <%= update.error_messages %>

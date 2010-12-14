@@ -248,7 +248,12 @@ $j(document).ready(function(){
     function processInfoRAT(response){
     info = $('main_content').innerHtml = response.responseText;
 	}
-
+function loadSubmit() {
+ProgressImage = document.getElementById("progress_image");
+document.getElementById("progress").style.visibility = "visible";
+setTimeout("ProgressImage.src = ProgressImage.src",100);
+return true;
+}
 </script>
 
 

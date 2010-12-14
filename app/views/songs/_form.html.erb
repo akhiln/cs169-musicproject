@@ -3,6 +3,7 @@
     <%= form.file_field :song %>
   </p>
   <p>
-    <%= submit_tag "Create" %>
+    <%= submit_tag "Create", :class=>"contSubmit", :onclick=>"return loadSubmit()" %>
   </p>
+  <p style="visibility:hidden;" id="progress"/><img id="progress_image" style="padding-left:5px;padding-top:5px;" src="images/ajax-loader.gif" alt=""> Upload in progress...<p>
 
