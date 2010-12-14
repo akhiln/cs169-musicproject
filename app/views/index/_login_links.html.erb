@@ -1,5 +1,5 @@
                         <% if current_user %>
-			    <%= link_to_remote "<span>Friend Stream</span>", {:url=>'index/auth_home', :update=>'main_content', :method=>'get'}, :class=>"button" %>
+			    <%= link_to_remote "<span>Activity Stream</span>", {:url=>'index/auth_home', :update=>'main_content', :method=>'get'}, :class=>"button" %>
 				<%= link_to_remote "<span>View Profile</span>", {:url=>current_user, :update=>'main_content', :method=>'get'}, :class=>"button"  %>			
 				<%= link_to_remote "<span>Edit Profile</span>", {:url=>edit_user_path(:edit), :update=>'main_content'},:class=>"button"  %> 
 				<%= link_to "<span>Logout</span>", logout_path, :class => 'button' %>
