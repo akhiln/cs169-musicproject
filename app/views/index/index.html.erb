@@ -124,8 +124,13 @@ $j(document).ready(function(){
 	function displayPlayList() {
 		$j("#jplayer_playlist ul").empty();
 		for (i=0; i < myPlayList.length; i++) {
+			if (myPlayList[i].name.length > 30) {
+				var name = myPlayList[i].name.substring(0,27)+"...";
+			} else {
+				var name = myPlayList[i].name;
+			}
 			var listItem = (i == myPlayList.length-1) ? "<li class='jplayer_playlist_item_last'>" : "<li>";
-			listItem += "<a href='#' id='jplayer_playlist_item_"+i+"' tabindex='1'>"+ myPlayList[i].name +"</a>";
+			listItem += "<a href='#' id='jplayer_playlist_item_"+i+"' tabindex='1'>"+ name +"</a>";
 			listItem += "<div style='display:inline; float:right; padding-left:5px'>";
 			listItem += "<a href='#' id='jplayer_playlist_item_down"+i+"' tabindex='1'><img style='padding-right:5px' src='images/playlist-down.gif'></a>";
 			listItem += "<a href='#' id='jplayer_playlist_item_up"+i+"' tabindex='1'><img style='padding-right:5px' src='images/playlist-up.gif'></a>";
