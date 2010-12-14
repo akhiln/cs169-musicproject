@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213000000) do
+ActiveRecord::Schema.define(:version => 20101214013232) do
 
   create_table "actions", :force => true do |t|
     t.integer  "user_id"
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(:version => 20101213000000) do
     t.string   "old_remember_token",            :limit => 40
     t.datetime "old_remember_token_expires_at"
     t.string   "pic"
-    t.string   "bio"
+    t.text     "bio",                           :limit => 255
     t.string   "password_reset_code"
     t.string   "activation_code"
     t.integer  "login_count",                                  :default => 0,    :null => false
