@@ -183,6 +183,10 @@ $j(document).ready(function(){
 						$j("#jquery_jplayer").jPlayer("stop");
 						if (myPlayList.length > 0) {
 							playItem = (index+1 < myPlayList.length) ? index+1 : 0;
+							$j("#jquery_jplayer").jPlayer("setFile", myPlayList[playItem].mp3);
+						} else {
+							playItem = 0;
+							$j("#jquery_jplayer").jPlayer("setFile", "");
 						}
 					} else if (playItem >= myPlayList.length) {
 						playItem = playItem -1;
