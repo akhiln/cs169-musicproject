@@ -12,7 +12,7 @@
   
 </div>
 <div class="profile" id="info">
-  <%= @user.bio %>
+  <%= @user.bio.gsub("\n","<br />") %>
 </div>
 
 <div class="profile" id="songs">
