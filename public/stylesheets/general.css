@@ -84,10 +84,11 @@ body {
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9a9a9', endColorstr='#7a7a7a'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#a9a9a9), to(#7a7a7a)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #a9a9a9,  #7a7a7a); /* for firefox 3.6+ */
- 
+        
 	border-top: solid 1px #6d6d6d;
 	border-bottom: solid 1px #6d6d6d;
 }
+
 #nav li {
 display:inline; list-style-type:none; padding-left:1em; margin-left:1em; border-left:1px solid #ccc
 }
@@ -245,7 +246,7 @@ color: black;
 
 
 a.button {
-    background: transparent url('/images/bg_button_a.gif') no-repeat scroll top right;
+    background: transparent url('/images/bg_button_a.png') no-repeat scroll top right;
     color: #444;
     display: block;
     float: left;
@@ -257,7 +258,7 @@ a.button {
 }
 
 a.button span {
-    background: transparent url('/images/bg_button_span.gif') no-repeat;
+    background: transparent url('/images/bg_button_span.png') no-repeat;
     display: block;
     line-height: 14px;
     padding: 5px 0 5px 18px;

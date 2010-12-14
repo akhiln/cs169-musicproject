@@ -9,25 +9,25 @@
 	<th></th>
 </tr>
 <% @class = 'o' %>
-<% for i in (0..[@songs.size-1,20].min) do %>
+<% @songs.each do |s| %>
 <tr class="<%=@class%>">
 <td class="name">
-<%=link_to_remote("#{@songs[i].name}", :url=>@songs[i], :method=>'get', :update=>'main_content')%>
+<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
-<%=link_to_remote("#{@songs[i].users[0].name}", :url=>@songs[i].users[0], :method=>'get', :update=>'main_content')%>
+<%=link_to_remote("#{s.users[0].name}", :url=>s.users[0], :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
-<%=@songs[i].album%>
+<%=s.album%>
 </td>
 <td class="att">
-<%=@songs[i].genre%>
+<%=s.genre%>
 </td>
 <td class="att">
-<%= @songs[i].ratingString %>
+<%= s.ratingString %>
 </td>
 <td class="control">
-<%=@songs[i].makePlayer%>
+<%=s.makePlayer%>
 </td>
 </tr>
 			<%if @class=='o'%>

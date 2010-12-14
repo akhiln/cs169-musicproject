@@ -1,0 +1,101 @@
+<h2>Results</h2>
+<%if @query == '' %>
+ <p> Please enter text to search </p>
+<% else %>
+<h3>Users</h3>
+<% if @user_results.length == 0 %>
+<p> No artists found </p>
+<% else %>
+ <div class="user_dump">
+  <table class ="user_dump_table">
+    <% @user_results.each_slice(10) do |user_slice| %>
+     <tr>
+      <% user_slice.each do |real_user| %>
+        <td><div class="user_in_dump">
+           <!--<img class="thumb" height="50" width="50" src=<%=real_user.photo.url(:thumb)%>></br>-->
+           <!--<%=link_to_remote(real_user.name,{:url =>'/users/show/'+real_user.id.to_s,:update=>'main_content'})%>-->
+		   <%=link_to_remote("<img class='thumb' height='50' width='50' src='"+real_user.photo.url(:thumb)+"' alt='"+real_user.name+"' name='"+real_user.name+"'>",{:url =>'/users/show/'+real_user.id.to_s,:update=>'main_content'})%>
+           </div></td>
+      <% end %>
+     </tr>
+    <% end %>
+  </table>
+ </div>
+<% end %>
+
+<h3>Songs</h3>
+<% if @song_results.length == 0 %>
+<p> No songs found </p>
+<% else %>
+<% content_tag :div, :id=>"songs", :class=>"table_con" do -%>
+	<table class="lister">
+		<tr class="head">
+		<th>Song Name</th>
+		<th>Album</th>
+		<th>Genre</th>
+		<th>Rating</th>
+		<th></th>
+		</tr>
+		<% @class = 'o' %>
+		<% @song_results.each do |s| %>
+			<tr class="<%=@class%>">
+			<td class="name">
+			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%=s.album%>
+			</td>
+			<td class="att">
+			<%=s.genre%>
+			</td>
+			<td class="att">
+			<%= s.ratingString %>
+			</td>
+			<td class="control">
+			<%=s.makePlayer%>
+			</td>
+			</tr>
+			<%if @class=='o'%>
+				<% @class='e' %>
+			<% else %>
+				<% @class='o' %>
+			<% end %>
+		<% end %>
+	</table>
+<% end %>
+<% end %>
+
+<h3>Playlists</h3>
+<% if @playlist_results.length == 0 %>
+<p> No playlists found </p>
+<% else %>
+<% content_tag :div, :id=>"playlists" do -%>
+	<table class="lister">
+		<tr class="head">
+		<th>Playlist Name</th>
+		<th>Rating</th>
+		<th></th>
+		</tr>
+              <% @class = 'o' %>
+		<% @playlist_results.each do |s| %>
+			<tr class="<%=@class%>">
+			<td class="name">
+			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%= s.ratingString %>
+			</td>
+			<td class="control">
+			<%=s.renderRow%>
+			</td>
+			</tr>
+			<%if @class=='o'%>
+				<% @class='e' %>
+			<% else %>
+				<% @class='o' %>
+			<% end %>
+		<% end %>
+	</table>
+<% end %>
+<% end %>
+<% end %>

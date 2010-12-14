@@ -16,4 +16,14 @@
 			<li>
 				<%= link_to_remote "Browse", {:url=>browse_path(), :update => 'main_content'} %>
 			</li>
-		</ul>
+		<li>
+                <input id="query" name="search" type="text" value="" autocomplete="off">
+
+    
+                <%= observe_field 'query',  :frequency => 1,
+					:update => "main_content",
+                                        :url => {:controller => "index", :action => "search"},
+				        :with => "query" %>
+                </li>
+                </ul>
+

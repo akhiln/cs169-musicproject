@@ -110,6 +110,10 @@ class SongsController < ApplicationController
   def popular
     @songs = Song.find(:all, :readonly, :limit => 100, :order => "rating DESC")
     @songs.shuffle!    
+    #grab the first 20 random songs
+    @songs = @songs[0..[@songs.size-1,20].min]
+    #order by rating
+    @songs.sort! {|b,a| (a.rating.nil? ? 0.0 : a.rating.to_d) <=> (b.rating.nil? ? 0.0 : b.rating.to_d) }
   end
   
 end

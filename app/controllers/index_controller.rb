@@ -12,12 +12,28 @@ class IndexController < ApplicationController
     end
   end
 
+ def search
+   session[:query] = params[:query].strip if params[:query]
+   @query = session[:query]
+   if @query == ''
+     @user_results = @song_results = @playlist_results = []
+   else
+      @user_results = User.find(:all, :readonly,:conditions => ["name ILIKE ?", "%#{session[:query]}%"], :order => "name ASC")
+      @song_results = Song.find(:all,:readonly, :conditions => ["name ILIKE ? OR album LIKE ?", "%#{session[:query]}%","%#{session[:query]}%"], :order => "name ASC")
+      @playlist_results = Playlist.find(:all, :readonly, :conditions => ["name ILIKE ?", "%#{session[:query]}%"], :order => "name ASC")
+    end
+     render :partial => "index/search_results"
+ end
+
  def auth_home
     @actions = list_of_friend_actions
     render :partial => 'index/auth_home'
  end
   
-
+ def no_auth_home
+    @actions = list_of_general_actions
+    render :partial => 'index/no_auth_home'
+ end
   private
   def list_of_user_actions()
     Action.find(:all,:readonly, :limit => 20, :order => "created_at DESC", :conditions =>["user_id = ?",current_user.id])

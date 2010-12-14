@@ -4,6 +4,7 @@
 				<%= link_to_remote "<span>Edit Profile</span>", {:url=>edit_user_path(:edit), :update=>'main_content'},:class=>"button"  %> 
 				<%= link_to "<span>Logout</span>", logout_path, :class => 'button' %>
 			<% else %>
+                                <%= link_to_remote "<span>Home</span>", {:url=>'index/no_auth_home', :update=>'main_content', :method=>'get'}, :class=>"button" %>
 				<%= link_to_remote "<span>Register</span>", {:url=>signup_path, :update=>'main_content'},:class=>"button"  %> 
 				<%= link_to_remote "<span>Login</span>", {:url=>login_path, :update=>'main_content'},:class=>"button"  %>
 			<% end %></br></br>
