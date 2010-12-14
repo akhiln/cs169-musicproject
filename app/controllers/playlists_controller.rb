@@ -10,8 +10,6 @@ class PlaylistsController < ApplicationController
 		@urlif = 'http://project-jukebox.heroku.com/index?url=/playlists/' + @playlist.id.to_s
 		@urlif << '%26title='
 		@urlif << @playlist.name
-		@urlif << '%26image='
-		@urlif << @playlist.user.photo.url(:thumb)
 		@songs = @playlist.songs
 	end
 	

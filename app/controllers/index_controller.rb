@@ -8,8 +8,7 @@ class IndexController < ApplicationController
     if params['url']
       @urli = 'clientSideInclude("main_content","http://project-jukebox.heroku.com'+params['url']+'");'
       @title = params['title']
-	  @image = (params['image'])? params['image'] : 'http://project-jukebox.heroku.com/photos/thumb/missing.png'
-      @urlfb = 'http://project-jukebox.heroku.com/index?url=' + params['url'] + '&title=' + params['title'] + '&image='+@image
+      @urlfb = 'http://project-jukebox.heroku.com/index?url=' + params['url'] + '&title='
     end
   end
 
