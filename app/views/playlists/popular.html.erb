@@ -7,19 +7,19 @@
 	<th></th>
 </tr>
 <% @class = 'o' %>
-<% for i in (0..[@playlists.size-1,20].min) do %>
+<% @playlists.each do |p| %>
 <tr class="<%=@class%>">
 <td class="name">
-<%=link_to_remote("#{@playlists[i].name}", :url=>@playlists[i], :method=>'get', :update=>'main_content')%>
+<%=link_to_remote("#{p.name}", :url=>p, :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
-<%=link_to_remote("#{@playlists[i].user.name}", :url=>@playlists[i].user, :method=>'get', :update=>'main_content')%>
+<%=link_to_remote("#{p.user.name}", :url=>p.user, :method=>'get', :update=>'main_content')%>
 </td>
 <td class="att">
-<%= @playlists[i].ratingString %>
+<%= p.ratingString %>
 </td>
 <td class="control">
-<%=@playlists[i].renderRow%>
+<%=p.renderRow%>
 </td>
 </tr>
 			<%if @class=='o'%>
