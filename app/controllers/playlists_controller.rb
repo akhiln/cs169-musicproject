@@ -30,6 +30,8 @@ class PlaylistsController < ApplicationController
 		playlist = Playlist.find(params[:id])
                 actions = Action.find(:all, :conditions => {"obj_id" => playlist.id.to_s, "obj_type" =>"palylist"})
                 actions.each {|act| act.destroy}
+                bookmarks = Bookmark.find(:all, :conditions => {"playlist_id" => playlist.id.to_s})
+                bookmarks.each {|bk| bk.destroy}
                 playlist.destroy
 		redirect_to(current_user)
 	end
