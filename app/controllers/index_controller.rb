@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
   def index
     if current_user
-      @actions = list_of_user_actions()
+      @actions = list_of_friend_actions()
     else
       @actions = list_of_general_actions()
     end
