@@ -20,7 +20,7 @@
                 <input id="query" name="search" type="text" value="" autocomplete="off">
 
     
-                <%= observe_field 'query',  :frequency => 2,
+                <%= observe_field 'query',  :frequency => 1,
 					:update => "main_content",
                                         :url => {:controller => "index", :action => "search"},
 				        :with => "query" %>

@@ -1,5 +1,7 @@
 <h2>Results<div style="display:inline; float:right;"><%= link_to_remote "<span>Back</span>", {:url=>'index/no_auth_home', :update=>'main_content', :method=>'get'}, :class => "button" %></div></h2>
-
+<%if @query == '' %>
+ <p> Please enter text to search </p>
+<% else %>
 <h3>Users</h3>
 <% if @user_results.length == 0 %>
 <p> No artists found </p>
@@ -94,5 +96,6 @@
 			<% end %>
 		<% end %>
 	</table>
+<% end %>
 <% end %>
 <% end %>
