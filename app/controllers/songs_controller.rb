@@ -95,7 +95,7 @@ class SongsController < ApplicationController
   
   def delete
     @song = Song.find(params[:id])
-    actions = Action.find(:all, :conditions => {"obj_id = ? AND obj_type = ?",@song.id.to_s,"song"})
+    actions = Action.find(:all, :conditions => {"obj_id" => @song.id.to_s, "obj_type" =>"song"})
     actions.each {|act| act.destroy}
     @song.destroy
     redirect_to(current_user, :notice => "Song successfully deleted")
