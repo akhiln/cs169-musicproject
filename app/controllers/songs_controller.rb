@@ -58,6 +58,8 @@ class SongsController < ApplicationController
 	@urlif = 'http://project-jukebox.heroku.com/index?url=/songs/' + @song.id.to_s
 	@urlif << '%26title='
 	@urlif << @song.name
+	@urlif << '%26image='
+	@urlif << @song.user.photo.url(:thumb)
     respond_to do |format|
       format.html
       format.xml   { render :xml => @song }
