@@ -19,7 +19,7 @@ class IndexController < ApplicationController
      @user_results = @song_results = @playlist_results = []
    else
       @user_results = User.find(:all, :readonly,:conditions => ["name ILIKE ?", "%#{session[:query]}%"], :order => "name ASC")
-      @song_results = Song.find(:all,:readonly, :conditions => ["name ILIKE ? OR album LIKE ?", "%#{session[:query]}%","%#{session[:query]}%"], :order => "name ASC")
+      @song_results = Song.find(:all,:readonly, :conditions => ["name ILIKE ? OR album ILIKE ?", "%#{session[:query]}%","%#{session[:query]}%"], :order => "name ASC")
       @playlist_results = Playlist.find(:all, :readonly, :conditions => ["name ILIKE ?", "%#{session[:query]}%"], :order => "name ASC")
     end
      render :partial => "index/search_results"
