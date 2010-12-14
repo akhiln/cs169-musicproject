@@ -11,7 +11,7 @@
   </p>
   <p>
     <%= f.label :genre %><br />
-    <%= collection_select(:song, :genre_id, Genre.all, :id, :genre_name) %>
+    <%= collection_select(:song, :genre_id, Genre.find(:all, :order=>:genre_name), :id, :genre_name) %>
   </p>
   <p>
     <%= f.label :description %><br />
