@@ -1,4 +1,5 @@
-<h2> My Playlists </h2>
+<h2> My Playlists
+	  <div style="display:inline; float:right;"><%= link_to_remote "<span>Add new playlist</span>", {:url=>{:controller=>'playlists',:action=>'new'},:update=>'main_content'}, :class =>"button"%></div></h2>
 <% content_tag :div, :id=>"playlists" do -%>
   <% if @playlists.size > 0 %>
 	<table class="lister">
@@ -30,5 +31,4 @@
   <% else %>
     You haven't created any playlists yet!
   <% end %>
-	  <div><%= link_to_remote "<span>Add new playlist</span>", {:url=>{:controller=>'playlists',:action=>'new'},:update=>'main_content'}, :class =>"button"%></br></br></div>
 <% end %>

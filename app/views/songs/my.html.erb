@@ -1,9 +1,12 @@
-<h2> My Songs </h2>
+<h2> My Songs 
+<div style="display:inline; float:right;"><%= link_to_remote "<span>Add a new song</span>", {:url=>{:controller=>'songs',:action=>'new'}, :update=>'main_content'}, :class =>"button" %></div>
+</h2>
 <% content_tag :div, :id=>"songs", :class=>"table_con" do -%>
   <% if @songs.size > 0 %>
 	<table class="lister">
 		<tr class="head">
 		<th>Song Name</th>
+		<th>Album</th>
 		<th>Genre</th>
 		<th>Rating</th>
 		<th></th>
@@ -13,6 +16,9 @@
 			<tr class="<%=@class%>">
 			<td class="name">
 			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
+			</td>
+			<td class="att">
+			<%=s.album%>
 			</td>
 			<td class="att">
 			<%=s.genre%>
@@ -34,5 +40,5 @@
   <% else %>
     You haven't uploaded any songs yet!
   <% end %>
-	  <div><%= link_to_remote "<span>Add a new song</span>", {:url=>{:controller=>'songs',:action=>'new'}, :update=>'main_content'}, :class =>"button" %></div>
+	  
 <% end %>

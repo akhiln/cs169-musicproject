@@ -40,12 +40,15 @@ ActionController::Routing::Routes.draw do |map|
      map.connect 'playlists/addsong/:song_id', :controller => 'playlists', :action => 'addsong'
 
      # for bookmarking
-     map.connect 'bookmark/create/:playlist_id', :controller => 'bookmarks', :action => 'create'
+     map.connect 'bookmark/new/:playlist_id', :controller => 'bookmarks', :action => 'new'
+     map.connect 'bookmark/create', :controller => 'bookmarks', :action => 'create'
 
      # for following users
      map.connect 'follow/new/:followed_id', :controller => 'followed_user', :action => 'new'
      map.connect 'follow/create', :controller => 'followed_user', :action => 'create'
 
+     # for the ajaxy home button
+     map.connect 'index/auth_home', :controller => 'index', :action => 'auth_home'
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)

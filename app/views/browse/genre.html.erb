@@ -1,13 +1,13 @@
-<h2> Browse </h2>
-<%= content_tag :div, "Genre: #{@genre}", :id=>"current_genre" %>
+<h2> Genre: <%=@genre%> </h2>
 <% i = 0 %>
 <div class="table_con">
 <% if @songs.size > 0 %>
 	<table class="lister">
 		<tr class="head">
 		<th>Song Name</th>
-		<th>Genre</th>
 		<th>Artist</th>
+		<th>Album</th>
+		<th>Genre</th>
 		<th>Rating</th>
 		<th></th>
 		</tr>
@@ -17,12 +17,15 @@
 			<td class="name">
 			<%=link_to_remote("#{s.name}", :url=>s, :method=>'get', :update=>'main_content')%>
 			</td>
-			<td class="att">
-			<%=s.genre%>
-			</td>
 <td class="att">
 <%=link_to_remote("#{s.users[0].name}", :url=>s.users[0], :method=>'get', :update=>'main_content')%>
 </td>
+			<td class="att">
+			<%=s.album%>
+			</td>
+			<td class="att">
+			<%=s.genre%>
+			</td>
 			<td class="att">
 			<%=s.rating%>
 			</td>
@@ -41,4 +44,4 @@
     There are no songs in this genre.
   <% end %>
 </div>
-</p><%= link_to_remote("Back", :url=>"browse/all", :method=>"get", :update=>"main_content") %>
+</p>

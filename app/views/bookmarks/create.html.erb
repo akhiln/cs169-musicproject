@@ -1,0 +1,10 @@
+<h2>Follow <%=h @playlist.name %></h2>
+<div class="lightbox_content">
+<% if @confirm %>
+<span class="lightbox_message">Bookmark saved.</span>
+<% else %>
+<span class="lightbox_message"><%=@error_message%></span>
+<%end%>
+</div>
+<div class="lightbox_base"><a href="#" class="lbAction button" rel="deactivate" onClick="$('overlay').style.display = 'none'; $('lightbox').style.display = 'none';
+; Element.remove($('lbContent')); return false;"><span>Close</span></a></br></br></div>

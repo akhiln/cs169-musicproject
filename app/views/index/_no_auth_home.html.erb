@@ -1,6 +1,5 @@
-<h1>Welcome to Project Jukebox!</h1>
+<h2><% if current_user %>Hello, <%=current_user.name%><div style="display:inline; float:right;"><%= link_to_remote "<span>View Personalized Activity</span>", {:url=>'index/auth_home', :update=>'main_content', :method=>'get'}, :class=>"button" %></div><%else%>Welcome to Project Jukebox!<% end %></h2>
 
-(put fancy shiny graphics here, maybe screen caps once we have a pretty style)</p>
 <div class="comment">
 <% @actions.each do |feed| %>
   <%= render(:partial => '/index/feed', :object => feed) %>		   

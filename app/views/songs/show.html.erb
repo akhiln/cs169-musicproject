@@ -1,10 +1,12 @@
 <%= javascript_tag "document.getElementById('facebook_title').setAttribute('content', '#{@song.name}'); document.getElementById('facebook_url').setAttribute('content', '#{request.url}')" %>
 
-<h2 class="songTitle"><%= @song.name %></h2>
-<%= @song.makePlayer %>
-<p class="songInformation"><h3>Song Information</h3>
+<h2 class="songTitle"><%= @song.name %>
+<div style="display:inline; float:right; padding-right:50px;"><%= @song.makePlayer %></div>
+</h2>
+<p>Artist: <%=link_to_remote("#{@song.users[0].name}", :url=>@song.users[0], :method=>'get', :update=>'main_content')%></p>
 <p>Album: <%= @song.album %></p>
-<p>Description: <%= @song.description %></p></p>
+<p>Description: <%= @song.description %></p>
+<p>Rating: <%= @song.ratingString %></p>
 <% if @auth %>
 <%=link_to_remote "<span>Edit</span>", {:url=>"/songs/edit/"+@song.id.to_s, :update=>'main_content'}, :class =>"button" %>
 <%=link_to_remote "<span>Delete</span>", {:url=>"/songs/delete/"+@song.id.to_s, :update=>'main_content'}, :class =>"button"  %>
@@ -12,23 +14,16 @@
 <%=link_to "<span>Add to Playlist</span>", '/playlists/addsong/'+@song.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %>
 <%=link_to "<span>Rate</span>", "/rating/song/new/"+@song.id.to_s, :class =>"lbOn button", :onClick=> "lbox = new lightbox(this); lbox.displayLightbox('block'); return false;" %>
 <%= content_tag :iframe, "", facebook_like(@urlif) %>
-
-<h3>Rating:</h3>
-<%= @song.ratingString %>
-<script>
- $j('meta[name=og:title]').attr('content', '<%=@song.name%>');
-</script>
-<!-- <%= content_tag :iframe, "", facebook_box(request.url) %> -->
 <h3>Comments</h3>
-<% form_remote_for(:song_comment, :url =>'comment/song/create/'+@song.id.to_s+'.js') do |form| %>
+<% form_remote_for(:song_comment, :url =>'comment/song/create/'+@song.id.to_s+'.js', :class=>"comment_form") do |form| %>
   <p>
     <label for="text">Leave A Comment:</label></br>
     <%= form.text_area(:text,:cols=>"60", :rows=>"2") %>
     <%= submit_tag "Post" %>
   </p>
 <% end %>
-<ul class="comments">
 <div id="song_comments">
+<ul class="comments">
 <% if not @comments.nil? %>
   <% @comments.each do |comment| %>
     <%= render(:partial => '/song_comment/comment', :object => comment) %>

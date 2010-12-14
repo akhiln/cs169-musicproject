@@ -10,8 +10,9 @@
            <% real_user = User.find(ind_user.followed_id) %>
         <%end%>
         <td><div class="user_in_dump">
-           <img class="thumb" height="50" width="50" src=<%=real_user.photo.url(:thumb)%>></br>
-           <%=link_to_remote(real_user.name,{:url =>'/users/show/'+real_user.id.to_s,:update=>'main_content'})%>
+           <!--<img class="thumb" height="50" width="50" src=<%=real_user.photo.url(:thumb)%>></br>-->
+           <!--<%=link_to_remote(real_user.name,{:url =>'/users/show/'+real_user.id.to_s,:update=>'main_content'})%>-->
+		   <%=link_to_remote("<img class='thumb' height='50' width='50' src='"+real_user.photo.url(:thumb)+"' alt='"+real_user.name+"' name='"+real_user.name+"'>",{:url =>'/users/show/'+real_user.id.to_s,:update=>'main_content'})%>
            </div></td>
       <% end %>
      </tr>

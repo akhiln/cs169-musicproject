@@ -177,6 +177,7 @@ display: block;
 width:99%;
 height:20px;
 padding-top: 10px;
+padding-bottom:5px;
 padding-left: 10px;
 margin:0px;
 	background: #8b8b8b; /* for non-css3 browsers */
@@ -205,13 +206,22 @@ background-color: gray;
 text-align: left;
 font-family: Arial, Helvetica, sans-serif;
 font-size:16px;
-font-weight:normal;
+font-weight:lighter;
+color:white;
+}
+
+.lister th {
+font-weight:lighter;
+padding-left:10px;
+
 }
 
 .lister td {
 text-align: left;
 font-family: Arial, Helvetica, sans-serif;
 font-size:14px;
+border-right:1px solid white;
+padding-left:10px;
 }
 
 .lister .o {
@@ -223,13 +233,19 @@ background-color: white;
 }
 
 .lister a {
-border: 0px;
+font-family: Arial, Helvetica, sans-serif;
+font-size:14px;
+color: #3B5998;
+text-decoration: none;
+border:0px;
+}
+.lister a:hover {
 color: black;
 }
 
 
 a.button {
-    background: transparent url('/images/bg_button_a.gif') no-repeat scroll top right;
+    background: transparent url('/images/bg_button_a.png') no-repeat scroll top right;
     color: #444;
     display: block;
     float: left;
@@ -241,7 +257,7 @@ a.button {
 }
 
 a.button span {
-    background: transparent url('/images/bg_button_span.gif') no-repeat;
+    background: transparent url('/images/bg_button_span.png') no-repeat;
     display: block;
     line-height: 14px;
     padding: 5px 0 5px 18px;
@@ -317,6 +333,24 @@ padding-left:15px;
 list-style-type:none;
 }
 
+
+ul.genre{
+	list-style-type:none;
+	margin:0;
+	padding:0 20px;
+	padding-top:30px;
+	background-color:#ccc;
+	border-top:none;
+	width:95%;
+	font-size:14px;
+	text-align:left;
+}
+ul.genre a{
+font-family: Arial, Helvetica, sans-serif;
+font-size:14px;
+color: #3B5998;
+text-decoration: none;
+}
 div.user_dump a {
 font-family: Arial, Helvetica, sans-serif;
 font-size:14px;
@@ -324,10 +358,31 @@ color: #3B5998;
 text-decoration: none;
 }
 
+ul.genre a:hover{
+color:black;
+}
+
+a {
+font-family: Arial, Helvetica, sans-serif;
+font-size:14px;
+color: #3B5998;
+text-decoration: none;
+}
+
+a:hover{
+color:black;
+}
+ul.genre li{
+	padding:5px 0 4px 20px;
+	border-bottom:1px solid #eee;
+}
+
+p {
+font-family: Arial, Helvetica, sans-serif;
+font-size:14px;
+}
 div.user_in_dump {
  text-align: center;
  width: 50px;
 }
-
-
 

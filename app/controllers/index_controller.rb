@@ -1,31 +1,42 @@
 class IndexController < ApplicationController
   def index
-    actions = Action.find(:all, :readonly, :limit => 20, :order => "created_at DESC")
-    @actions = []
-    actions.each do |a|
-      current_action = {:user => User.find(a.user_id), :action => a.action, :obj_type => a.obj_type, :created_at =>a.created_at}
-
-      if current_action[:obj_type] == "song"
-        if current_action[:action] == "create"
-          current_action[:obj] = Song.find a.obj_id
-        else
-          current_action[:obj] = SongComment.find a.obj_id
-        end
-      elsif current_action[:obj_type] == "subscription"
-        current_action[:obj] = User.find a.obj_id
-      else 
-        if current_action[:action] == "create"
-          current_action[:obj] = Playlist.find a.obj_id
-        else
-          current_action[:obj] = PlaylistComment.find a.obj_id
-        end
-      end
-      @actions.push current_action
+    if current_user
+      @actions = list_of_user_actions()
+    else
+      @actions = list_of_general_actions()
     end
-	if params['url']
-		@urli = 'clientSideInclude("main_content","http://project-jukebox.heroku.com'+params['url']+'");'
-		@title = params['title']
-		@urlfb = 'http://project-jukebox.heroku.com/index?url=' + params['url'] + '&title=' + params['title']
-	end
+    if params['url']
+      @urli = 'clientSideInclude("main_content","http://project-jukebox.heroku.com'+params['url']+'");'
+      @title = params['title']
+      @urlfb = 'http://project-jukebox.heroku.com/index?url=' + params['url'] + '&title=' + params['title']
+    end
   end
+
+ def auth_home
+    @actions = list_of_friend_actions
+    render :partial => 'index/auth_home'
+ end
+  
+ def no_auth_home
+    @actions = list_of_general_actions
+    render :partial => 'index/no_auth_home'
+ end
+  private
+  def list_of_user_actions()
+    Action.find(:all,:readonly, :limit => 20, :order => "created_at DESC", :conditions =>["user_id = ?",current_user.id])
+  end
+
+  def list_of_general_actions()
+    Action.find(:all, :readonly, :limit => 20, :order => "created_at DESC")
+  end
+
+  def list_of_friend_actions
+    id_arr =[current_user.id]
+    current_user.subscribers.each do |subs|
+       id_arr << subs.followed_id
+    end
+    Action.find(:all,:readonly, :limit => 20, :order => "created_at DESC", :conditions => ["user_id IN (?)",id_arr])
+  end
+
+  
 end
